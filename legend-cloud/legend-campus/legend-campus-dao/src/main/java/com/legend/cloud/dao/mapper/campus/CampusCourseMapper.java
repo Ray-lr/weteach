@@ -10,7 +10,7 @@ package com.legend.cloud.dao.mapper.campus;
  * CampusCourse的mapper接口
  *
  * @author hupeiD
- * @date 2018-03-26 22:03:52
+ * @date 2018-03-27 16:48:28
  */
 @Mapper
 @Component

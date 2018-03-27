@@ -12,7 +12,7 @@ package com.legend.cloud.vo.campus;
  * 课程
  *
  * @author hupeiD
- * @date 2018-03-26 22:25:07
+ * @date 2018-03-27 16:48:28
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
@@ -72,6 +72,10 @@ public class CampusCourseVO extends AbstractVO<CampusCourse> {
          */
         private Integer personNum;
             /**
+         * 课程类型（求学或教学）
+         */
+        private String typeCourse;
+            /**
          * 状态（0、未审核 1、审核驳回 2、审核通过 3、报名中 4、等待开课  5、开课中 6、结课 7、已完成 8、已取消）
          */
         private Integer status;
@@ -114,6 +118,7 @@ public class CampusCourseVO extends AbstractVO<CampusCourse> {
                                 ", personUpper=" + getPersonUpper() +
                                 ", personLower=" + getPersonLower() +
                                 ", personNum=" + getPersonNum() +
+                                ", typeCourse=" + getTypeCourse() +
                                 ", status=" + getStatus() +
                                 ", createTime=" + getCreateTime() +
                                 ", updateTime=" + getUpdateTime() +

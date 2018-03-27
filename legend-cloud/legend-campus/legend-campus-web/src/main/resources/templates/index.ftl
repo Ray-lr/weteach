@@ -94,16 +94,16 @@
                              alt="Card image cap">
                     </a>
                     <div class="card-body">
-                        <h5 class="card-title font-weight-bold" v-text="user.nickName">
+                        <h5 class="card-title font-weight-bold">{{user.nickName}}
                         </h5>
-                        <h6 class="card-title font-weight-normal" v-text="user.username"></h6>
-                        <p class="card-text font-weight-light"></p>
+                        <h6 class="card-title font-weight-normal">{{user.username}}</h6>
+                        <p class="card-text font-weight-light">{{user.phone}}</p>
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">Cras justo odio</li>
                     </ul>
                     <div class="card-body">
-                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">详细信息</a>
                     </div>
                 </div>
             </div>
@@ -167,12 +167,12 @@
                     <div class="tab-content" id="courseContent">
                         <!-- first list -->
                         <div class="tab-pane fade show active" id="study" role="tabpanel" aria-labelledby="study-tab">
-                            <div class="card">
+                            <div class="card" v-for="item in study.list">
                                 <div class="card-header bg-whitesmoke-tp25" id="headingOne">
                                     <h5 class="mb-0">
                                         <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
                                                 aria-expanded="true" aria-controls="collapseOne">
-                                            First Item
+                                            {{item.title}}
                                         </button>
                                     </h5>
                                 </div>
@@ -180,9 +180,10 @@
                                 <div id="collapseOne" class="collapse " aria-labelledby="headingOne"
                                      data-parent="#accordion">
                                     <div class="card-body">
+                                        {{item.remark}}
                                         <img class="rounded-left cover" src="/static/image/avatar/Avatar.png"
                                              alt="Cover">
-                                        aaa
+                                        {{item.description}}
                                     </div>
                                 </div>
                             </div>
@@ -263,26 +264,38 @@
         el: "#vm",
         data: {
             type: [],
-            user: null,
-            course: {
-                study: {
-                    list: []
-                },
-                teaching: {
-                    list: []
-                },
-                other: {
-                    list: []
-                }
+            user: "",
+
+            study: {
+                list: []
+            },
+            teaching: {
+                list: []
+            },
+            other: {
+                list: []
             }
+
         },
         beforeCreate: function () {
+            $.get("/base/type/list", function (data) {
+                vm.type = data.data;
+            });
             $.ajax({
-                url: "/base/user/get",
-                type: "GET",
+                url:"/base/user/getUser",
+                type:"GET",
                 success: function (data) {
                     if (data.result) {
                         vm.user = data.data;
+                    }
+                }
+            });
+            $.ajax({
+                url:"/campus/course/studyList",
+                type:"GET",
+                success:function (data) {
+                    if(data.result){
+                        vm.study.list=data.PAGINATION.list;
                     }
                 }
             })
@@ -295,6 +308,20 @@
             search: function (e) {
                 alert($(e.currentTarget).val());
             },
+            SignOut: function () {
+                $.ajax({
+                    url: "/base/user/logout",
+                    type: "POST",
+                    data: {
+                        _method: "PUT"
+                    },
+                    success: function (data) {
+                        if (data.result) {
+                            window.location.href = data.url;
+                        }
+                    }
+                })
+            }
         }
     })
 </script>

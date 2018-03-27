@@ -1,16 +1,18 @@
 package com.legend.cloud.service.campus.impl;
 
-        import com.legend.cloud.dao.mapper.campus.CampusCourseMapper;
-        import com.legend.cloud.entity.campus.CampusCourse;
-        import com.legend.cloud.entity.campus.CampusCourseExample;
-        import com.legend.cloud.service.campus.CampusCourseService;
-        import com.legend.module.core.service.core.impl.AbstractLegendService;
-        import org.apache.commons.lang.StringUtils;
-        import org.springframework.stereotype.Service;
-        import org.springframework.transaction.annotation.Transactional;
-        import tk.mybatis.mapper.common.Mapper;
+import com.legend.cloud.dao.mapper.campus.CampusCourseMapper;
+import com.legend.cloud.entity.campus.CampusCourse;
+import com.legend.cloud.entity.campus.CampusCourseExample;
+import com.legend.cloud.service.campus.CampusCourseService;
+import com.legend.module.core.service.core.impl.AbstractLegendService;
+import org.apache.commons.lang.StringUtils;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import tk.mybatis.mapper.common.Mapper;
 
-        import javax.annotation.Resource;
+import javax.annotation.Resource;
+import com.legend.module.core.utils.Query;
+import java.util.List;
 
 /**
  * @author Administrator
@@ -30,70 +32,79 @@ public class CampusCourseServiceImpl extends AbstractLegendService<CampusCourse>
 
     @Override
     protected Object getExample(CampusCourse campusCourse, String order, String sort) {
-            CampusCourseExample example = new CampusCourseExample();
+        CampusCourseExample example = new CampusCourseExample();
         if (StringUtils.isNotBlank(order)) {
             if (StringUtils.isNotBlank(sort)) {
                 order = order.concat(" ").concat(sort);
             }
             example.setOrderByClause(order);
         }
-            CampusCourseExample.Criteria criteria = example.createCriteria().andIsDeletedEqualTo(false);
-        if (campusCourse ==null){
+        CampusCourseExample.Criteria criteria = example.createCriteria().andIsDeletedEqualTo(false);
+        if (campusCourse == null) {
             return example;
         }
 
-                    if (campusCourse.getId() != null){
+        if (campusCourse.getId() != null) {
             criteria.andIdEqualTo(campusCourse.getId());
         }
-                    if (campusCourse.getUserId() != null){
+        if (campusCourse.getUserId() != null) {
             criteria.andUserIdEqualTo(campusCourse.getUserId());
         }
-                    if (campusCourse.getTitle() != null){
+        if (campusCourse.getTitle() != null) {
             criteria.andTitleEqualTo(campusCourse.getTitle());
         }
-                    if (campusCourse.getDescription() != null){
+        if (campusCourse.getDescription() != null) {
             criteria.andDescriptionEqualTo(campusCourse.getDescription());
         }
-                    if (campusCourse.getRemark() != null){
+        if (campusCourse.getRemark() != null) {
             criteria.andRemarkEqualTo(campusCourse.getRemark());
         }
-                    if (campusCourse.getDept() != null){
+        if (campusCourse.getDept() != null) {
             criteria.andDeptEqualTo(campusCourse.getDept());
         }
-                    if (campusCourse.getMajor() != null){
+        if (campusCourse.getMajor() != null) {
             criteria.andMajorEqualTo(campusCourse.getMajor());
         }
-                    if (campusCourse.getCourse() != null){
+        if (campusCourse.getCourse() != null) {
             criteria.andCourseEqualTo(campusCourse.getCourse());
         }
-                    if (campusCourse.getPublishTime() != null){
+        if (campusCourse.getPublishTime() != null) {
             criteria.andPublishTimeEqualTo(campusCourse.getPublishTime());
         }
-                    if (campusCourse.getFinishTime() != null){
+        if (campusCourse.getFinishTime() != null) {
             criteria.andFinishTimeEqualTo(campusCourse.getFinishTime());
         }
-                    if (campusCourse.getPersonUpper() != null){
+        if (campusCourse.getPersonUpper() != null) {
             criteria.andPersonUpperEqualTo(campusCourse.getPersonUpper());
         }
-                    if (campusCourse.getPersonLower() != null){
+        if (campusCourse.getPersonLower() != null) {
             criteria.andPersonLowerEqualTo(campusCourse.getPersonLower());
         }
-                    if (campusCourse.getPersonNum() != null){
+        if (campusCourse.getPersonNum() != null) {
             criteria.andPersonNumEqualTo(campusCourse.getPersonNum());
         }
-                    if (campusCourse.getStatus() != null){
+        if (campusCourse.getTypeCourse() != null) {
+            criteria.andTypeCourseEqualTo(campusCourse.getTypeCourse());
+        }
+        if (campusCourse.getStatus() != null) {
             criteria.andStatusEqualTo(campusCourse.getStatus());
         }
-                    if (campusCourse.getCreateTime() != null){
+        if (campusCourse.getCreateTime() != null) {
             criteria.andCreateTimeEqualTo(campusCourse.getCreateTime());
         }
-                    if (campusCourse.getUpdateTime() != null){
+        if (campusCourse.getUpdateTime() != null) {
             criteria.andUpdateTimeEqualTo(campusCourse.getUpdateTime());
         }
-                    if (campusCourse.getIsDeleted() != null){
+        if (campusCourse.getIsDeleted() != null) {
             criteria.andIsDeletedEqualTo(campusCourse.getIsDeleted());
         }
-                return example;
+        return example;
     }
 
+    @Override
+    public List<CampusCourse> studyList(CampusCourse campusCourse, Query query) {
+        CampusCourseExample example = (CampusCourseExample) getExample(campusCourse, "publish_time", "desc");
+        example.createCriteria().andStatusBetween(3, 5);
+        return getListByExample(example, query.getCurrentPage(), query.getPageSize());
+    }
 }

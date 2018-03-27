@@ -97,8 +97,8 @@ public class BaseUserController extends AbstractUserController<BaseUserVO> {
         return Ajax.error();
     }
 
-    @RequestMapping(value = "/get",method = RequestMethod.GET)
-    public Ajax get() {
+    @RequestMapping(value = "/getUser", method = RequestMethod.GET)
+    public Ajax getUser() {
         try {
             return Ajax.success(getCurrentUser());
         } catch (Exception e) {

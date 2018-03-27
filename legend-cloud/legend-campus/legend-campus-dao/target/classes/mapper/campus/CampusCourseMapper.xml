@@ -18,6 +18,7 @@
                                                 <result column="person_upper" property="personUpper" jdbcType="INTEGER"/>
                                                 <result column="person_lower" property="personLower" jdbcType="INTEGER"/>
                                                 <result column="person_num" property="personNum" jdbcType="INTEGER"/>
+                                                <result column="type_course" property="typeCourse" jdbcType="VARCHAR"/>
                                                 <result column="status" property="status" jdbcType="INTEGER"/>
                                                 <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
                                                 <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
@@ -73,6 +74,7 @@
                                                             personUpper,
                                                             personLower,
                                                             personNum,
+                                                            typeCourse,
                                                             status,
                                                             createTime,
                                                             updateTime,
