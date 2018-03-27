@@ -1,29 +1,29 @@
 package com.legend.cloud.controller.campus;
 
 
-        import com.legend.module.core.model.contant.arribute.Column;
-        import com.legend.module.core.model.contant.arribute.Key;
-        import com.legend.module.core.model.contant.code.result.AjaxCode;
-        import com.legend.module.core.model.contant.message.result.AjaxMessage;
-        import com.legend.module.core.model.json.result.Ajax;
-        import com.legend.module.core.model.json.result.AjaxValidate;
-        import com.legend.module.core.utils.PageUtils;
-        import com.legend.module.core.utils.Query;
-        import com.legend.module.core.web.controller.LegendController;
-        import com.legend.cloud.entity.campus.CampusCourse;
-        import com.legend.cloud.service.campus.CampusCourseService;
-        import com.legend.cloud.vo.campus.CampusCourseVO;
-        import org.springframework.validation.BindingResult;
-        import org.springframework.validation.annotation.Validated;
-        import org.springframework.web.bind.annotation.PathVariable;
-        import org.springframework.web.bind.annotation.RequestMapping;
-        import org.springframework.web.bind.annotation.RequestMethod;
-        import org.springframework.web.bind.annotation.RestController;
+import com.legend.module.core.model.contant.arribute.Column;
+import com.legend.module.core.model.contant.arribute.Key;
+import com.legend.module.core.model.contant.code.result.AjaxCode;
+import com.legend.module.core.model.contant.message.result.AjaxMessage;
+import com.legend.module.core.model.json.result.Ajax;
+import com.legend.module.core.model.json.result.AjaxValidate;
+import com.legend.module.core.utils.PageUtils;
+import com.legend.module.core.utils.Query;
+import com.legend.module.core.web.controller.LegendController;
+import com.legend.cloud.entity.campus.CampusCourse;
+import com.legend.cloud.service.campus.CampusCourseService;
+import com.legend.cloud.vo.campus.CampusCourseVO;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
-        import javax.annotation.Resource;
-        import java.util.List;
-        import java.util.Map;
-        import java.util.stream.Collectors;
+import javax.annotation.Resource;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * @author Administrator
@@ -46,7 +46,7 @@ public class CampusCourseController extends LegendController {
             List<CampusCourseVO> campusCourseVOList = campusCourseList.stream().map((entity) ->
                     new CampusCourseVO().parseFrom(entity)).collect(Collectors.toList());
             PageUtils pageUtils = new PageUtils(campusCourseVOList.size(), query.getCurrentPage(), query.getPageSize());
-            return Ajax.success(AjaxMessage.QUERY_SUCCESS).put(Key.PAGINATION, pageUtils);
+            return Ajax.success(campusCourseVOList, AjaxMessage.QUERY_SUCCESS).put(Key.PAGINATION, pageUtils);
         } catch (Exception e) {
             e.printStackTrace();
             return Ajax.error(AjaxMessage.SERVER_ERROR, AjaxCode.SERVER_ERROR);
@@ -57,8 +57,8 @@ public class CampusCourseController extends LegendController {
     // @RequiresPermissions("campus:course:details")
     public Ajax details(@PathVariable int id) {
         try {
-            CampusCourse campusCourse =campusCourseService.getById(id);
-                CampusCourseVO campusCourseVO = new CampusCourseVO().parseFrom(campusCourse);
+            CampusCourse campusCourse = campusCourseService.getById(id);
+            CampusCourseVO campusCourseVO = new CampusCourseVO().parseFrom(campusCourse);
             return Ajax.success(campusCourseVO, AjaxMessage.QUERY_SUCCESS);
         } catch (Exception e) {
             e.printStackTrace();
