@@ -167,23 +167,24 @@
                     <div class="tab-content" id="courseContent">
                         <!-- first list -->
                         <div class="tab-pane fade show active" id="study" role="tabpanel" aria-labelledby="study-tab">
-                            <div class="card" v-for="item in study.list">
-                                <div class="card-header bg-whitesmoke-tp25" id="headingOne">
+                            <div class="card" v-for="(item,index) of study.list">
+                                <div class="card-header bg-whitesmoke-tp25" :id="'heading-study-'+index">
                                     <h5 class="mb-0">
-                                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
-                                                aria-expanded="true" aria-controls="collapseOne">
+                                        <button class="btn btn-link" data-toggle="collapse"
+                                                :data-target="'#collapse-study-'+index"
+                                                aria-expanded="true" :aria-controls="'collapse-study-'+index">
                                             {{item.title}}
                                         </button>
                                     </h5>
                                 </div>
 
-                                <div id="collapseOne" class="collapse " aria-labelledby="headingOne"
-                                     data-parent="#accordion">
+                                <div :id="'collapse-study-'+index" class="collapse "
+                                     :aria-labelledby="'heading-study-'+index"
+                                     data-parent="#study">
                                     <div class="card-body">
-                                        {{item.remark}}
                                         <img class="rounded-left cover" src="/static/image/avatar/Avatar.png"
                                              alt="Cover">
-                                        {{item.description}}
+                                        {{index}}-{{item.description}}
                                     </div>
                                 </div>
                             </div>
@@ -201,7 +202,7 @@
                                     </h5>
                                 </div>
                                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-                                     data-parent="#accordion">
+                                     data-parent="#teaching">
                                     <div class="card-body">
                                         <img class="rounded-left cover" src="/static/image/avatar/Avatar.png"
                                              alt="Cover">
@@ -223,7 +224,7 @@
                                     </h5>
                                 </div>
                                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
-                                     data-parent="#accordion">
+                                     data-parent="#other">
                                     <div class="card-body">
                                         <img class="rounded-left cover" src="/static/image/avatar/Avatar.png"
                                              alt="Cover">
@@ -263,7 +264,6 @@
     let vm = new Vue({
         el: "#vm",
         data: {
-            type: [],
             user: "",
 
             study: {
@@ -278,12 +278,9 @@
 
         },
         beforeCreate: function () {
-            $.get("/base/type/list", function (data) {
-                vm.type = data.data;
-            });
             $.ajax({
-                url:"/base/user/getUser",
-                type:"GET",
+                url: "/base/user/getUser",
+                type: "GET",
                 success: function (data) {
                     if (data.result) {
                         vm.user = data.data;
@@ -291,11 +288,11 @@
                 }
             });
             $.ajax({
-                url:"/campus/course/studyList",
-                type:"GET",
-                success:function (data) {
-                    if(data.result){
-                        vm.study.list=data.PAGINATION.list;
+                url: "/campus/course/studyList",
+                type: "GET",
+                success: function (data) {
+                    if (data.result) {
+                        vm.study.list = data.data;
                     }
                 }
             })
