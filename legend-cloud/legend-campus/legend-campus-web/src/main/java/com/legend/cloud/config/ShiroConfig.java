@@ -31,8 +31,8 @@ public class ShiroConfig {
         shiroFilterFactoryBean.setSecurityManager(securityManager);
         // 如不设置默认寻找的是login.jsp而非login.ftl
         shiroFilterFactoryBean.setLoginUrl("/direct/login");
-        // 设置不需要拦截的url
-        shiroFilterFactoryBean.setSuccessUrl("/index");
+        shiroFilterFactoryBean.setSuccessUrl("/direct/index");
+        shiroFilterFactoryBean.setUnauthorizedUrl("/direct/login");
         // 需要拦截的url处理
         Map<String, String> filterChainDefinitionMap = new LinkedHashMap<>();
         // 不用验证的url
@@ -40,8 +40,7 @@ public class ShiroConfig {
         filterChainDefinitionMap.put("/system/user/login", "anon");
         filterChainDefinitionMap.put("/base/user/login", "anon");
         // 登出的url，具体方法，shiro已经实现
-        filterChainDefinitionMap.put("/base/user/logout", "logout");
-        filterChainDefinitionMap.put("/system/uer/logout", "logout");
+        filterChainDefinitionMap.put("/logout", "logout");
         // 剩下的所有url都需要经过验证才可以访问
         filterChainDefinitionMap.put("/*", "authc");
         filterChainDefinitionMap.put("/**", "authc");
