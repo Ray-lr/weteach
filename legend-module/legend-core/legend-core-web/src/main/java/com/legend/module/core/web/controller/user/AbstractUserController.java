@@ -44,8 +44,6 @@ public abstract class AbstractUserController<TVO extends UserVO> extends
     private static final Validator VALIDATOR = Validation.byProvider(HibernateValidator.class).configure().failFast
             (false).buildValidatorFactory().getValidator();
 
-    protected Boolean skipDefaultLogin = false;
-
     /**
      * 由继承的子类实现具体的userService
      *
@@ -62,8 +60,8 @@ public abstract class AbstractUserController<TVO extends UserVO> extends
      *
      * @param tvo - vo
      */
-    protected void loginPreProcess(TVO tvo) {
-
+    protected boolean loginPreProcess(TVO tvo) {
+        return true;
     }
 
     /**
@@ -74,6 +72,13 @@ public abstract class AbstractUserController<TVO extends UserVO> extends
      */
     protected Ajax loginProcess(TVO tvo) {
         return Ajax.success(UserResultMessage.LOGIN_SUCCESS);
+    }
+
+    /**
+     *
+     */
+    protected boolean logoutPreProcess(TVO tvo) {
+        return true;
     }
 
     /**
@@ -124,8 +129,10 @@ public abstract class AbstractUserController<TVO extends UserVO> extends
     @ResponseBody
     public Ajax logout() {
         try {
-            Object object = getCurrentUser();
-            removeCurrentUser();
+            Object object = getCurrentUser();;
+            if (loginPreProcess((TVO) object)) {
+                removeCurrentUser();
+            }
             return logoutProcess(object);
         } catch (Exception e) {
             e.printStackTrace();
@@ -221,8 +228,7 @@ public abstract class AbstractUserController<TVO extends UserVO> extends
      * @return Ajax
      */
     private Ajax checkUser(TVO tvo) {
-        loginPreProcess(tvo);
-        if (!skipDefaultLogin) {
+        if (loginPreProcess(tvo)) {
             if (getCurrentUser() != null) {
                 return Ajax.success(UserResultMessage.LOGIN_SUCCESS);
             }
