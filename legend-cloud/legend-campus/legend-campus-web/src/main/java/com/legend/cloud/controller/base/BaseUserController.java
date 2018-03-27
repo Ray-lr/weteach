@@ -58,8 +58,8 @@ public class BaseUserController extends AbstractUserController<BaseUserVO> {
     }
 
     @Override
-    protected void loginPreProcess(BaseUserVO baseUserVO) {
-        skipDefaultLogin = true;
+    protected boolean loginPreProcess(BaseUserVO baseUserVO) {
+        return false;
     }
 
     @Override
@@ -85,5 +85,15 @@ public class BaseUserController extends AbstractUserController<BaseUserVO> {
             System.err.println(e.getLocalizedMessage());
             return Ajax.error(UserResultMessage.USERNAME_WRONG);
         }
+    }
+
+    @Override
+    protected boolean logoutPreProcess(BaseUserVO baseUserVO) {
+        return false;
+    }
+
+    @Override
+    protected Ajax logoutProcess(BaseUserVO baseUserVO) {
+        return Ajax.error();
     }
 }

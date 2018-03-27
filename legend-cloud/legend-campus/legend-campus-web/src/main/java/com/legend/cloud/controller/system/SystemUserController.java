@@ -41,8 +41,8 @@ public class SystemUserController extends AbstractUserController<SystemUserVO> {
     }
 
     @Override
-    protected void loginPreProcess(SystemUserVO systemUserVO) {
-        skipDefaultLogin = true;
+    protected boolean loginPreProcess(SystemUserVO systemUserVO) {
+        return false;
     }
 
     @Override
@@ -70,4 +70,13 @@ public class SystemUserController extends AbstractUserController<SystemUserVO> {
         }
     }
 
+    @Override
+    protected boolean logoutPreProcess(SystemUserVO systemUserVO) {
+        return false;
+    }
+
+    @Override
+    protected Ajax logoutProcess(SystemUserVO systemUserVO) {
+        return Ajax.error();
+    }
 }
