@@ -38,14 +38,12 @@ public class BaseAreasController extends LegendController {
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     // @RequiresPermissions("base:areas:list")
-    public Ajax list(BaseAreasVO baseAreasVO, Query query) {
+    public Ajax list(BaseAreasVO baseAreasVO) {
         try {
-            List<BaseAreas> baseAreasList = baseAreasService.getList(baseAreasVO.parseTo(),
-                    query);
+            List<BaseAreas> baseAreasList = baseAreasService.getList(baseAreasVO.parseTo() );
             List<BaseAreasVO> baseAreasVOList = baseAreasList.stream().map((entity) ->
                     new BaseAreasVO().parseFrom(entity)).collect(Collectors.toList());
-            PageUtils pageUtils = new PageUtils(baseAreasVOList, baseAreasVOList.size(), query.getCurrentPage(), query.getPageSize());
-            return Ajax.success(AjaxMessage.QUERY_SUCCESS).put(Key.PAGINATION, pageUtils);
+            return Ajax.success(baseAreasVOList,AjaxMessage.QUERY_SUCCESS);
         } catch (Exception e) {
             e.printStackTrace();
             return Ajax.error(AjaxMessage.SERVER_ERROR, AjaxCode.SERVER_ERROR);
