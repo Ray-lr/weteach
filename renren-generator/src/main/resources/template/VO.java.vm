@@ -1,0 +1,56 @@
+package ${package}.${moduleName}.model.pojo.vo;
+
+        import com.legend.core.model.pojo.vo.AbstractVO;
+        import ${package}.${moduleName}.model.pojo.entity.${className};
+        import lombok.Data;
+        import lombok.EqualsAndHashCode;
+
+#if(${hasDate})
+        import java.util.Date;
+#end
+#if(${hasBigDecimal})
+        import java.math.BigDecimal;
+#end
+
+
+/**
+ * ${comments}
+ *
+ * @author ${author}
+ * @date ${datetime}
+ */
+@EqualsAndHashCode(callSuper = true)
+@Data
+public class ${className}VO extends AbstractVO<${className}> {
+    private static final long serialVersionUID = 1L;
+
+    #foreach ($column in $columns)
+        /**
+         * $column.comments
+         */
+        private $column.attrType $column.attrname;
+    #end
+
+    @Override
+    public ${className} parseTo(String... ignoreProperties) {
+        return super.parseTo(ignoreProperties);
+    }
+
+    @Override
+    public ${className}VO parseFrom(${className} ${classname}, String... ignoreProperties) {
+        return (${className}VO) super.parseFrom(${classname}, ignoreProperties);
+    }
+
+    @Override
+    public String toString() {
+        return "${className}VO{" +
+                "id=" + getId() +
+            #foreach ($column in $columns)
+                    ", ${column.attrname}=" + ${column.attrname} +
+            #end
+                ", createTime=" + getCreateTime() +
+                ", updateTime=" + getUpdateTime() +
+                ", isDeleted=" + getIsDeleted() +
+                '}';
+    }
+}

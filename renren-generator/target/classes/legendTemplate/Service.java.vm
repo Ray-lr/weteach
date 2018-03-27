@@ -1,0 +1,13 @@
+package ${package}.${moduleName}.service;
+
+import ${package}.entity.${moduleName}.${className};
+import com.legend.module.core.service.core.LegendService;
+
+/**
+*
+ * @author Administrator
+ * @date 2018/3/8
+ */
+public interface ${className}Service extends LegendService<${className}> {
+
+}

@@ -1,0 +1,52 @@
+package ${package}.${moduleName}.vo;
+
+        import ${package}.entity.${moduleName}.${className};
+        import com.legend.module.core.vo.AbstractVO;
+        import lombok.Data;
+        import lombok.EqualsAndHashCode;
+
+#if(${hasDate})
+        import java.util.Date;
+#end
+#if(${hasBigDecimal})
+        import java.math.BigDecimal;
+#end
+
+
+/**
+ * ${comments}
+ *
+ * @author ${author}
+ * @date ${datetime}
+ */
+@EqualsAndHashCode(callSuper = true)
+@Data
+public class ${className}VO extends AbstractVO<${className}> {
+    private static final long serialVersionUID = 1L;
+
+    #foreach ($column in $columns)
+        /**
+         * $column.comments
+         */
+        private $column.attrType $column.attrname;
+    #end
+
+    @Override
+    public ${className} parseTo(String... ignoreProperties) {
+        return super.parseTo(ignoreProperties);
+    }
+
+    @Override
+    public ${className}VO parseFrom(${className} ${classname}, String... ignoreProperties) {
+        return (${className}VO) super.parseFrom(${classname}, ignoreProperties);
+    }
+
+    @Override
+    public String toString() {
+        return "${className}VO{" +
+            #foreach ($column in $columns)
+                    ", ${column.attrname}=" + get${column.attrName}() +
+            #end
+                '}';
+    }
+}

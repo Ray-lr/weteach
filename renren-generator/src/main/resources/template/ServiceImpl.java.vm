@@ -1,0 +1,67 @@
+package ${package}.${moduleName}.service.impl;
+
+        import com.legend.core.service.core.impl.AbstractLegendService;
+        import ${package}.${moduleName}.dao.mapper.${className}Mapper;
+        import ${package}.${moduleName}.model.pojo.entity.${className};
+        import ${package}.${moduleName}.model.pojo.entity.${className}Example;
+        import ${package}.${moduleName}.service.${className}Service;
+        import org.apache.commons.lang.StringUtils;
+        import org.springframework.stereotype.Service;
+        import org.springframework.transaction.annotation.Transactional;
+        import tk.mybatis.mapper.common.Mapper;
+
+        import javax.annotation.Resource;
+/**
+ * @author Administrator
+ * @date 2018/3/9
+ */
+@Service
+@Transactional(rollbackFor = Exception.class)
+public class ${className}ServiceImpl extends AbstractLegendService<${className}> implements ${className}Service {
+
+    @Resource
+    private ${className}Mapper ${classname}Mapper;
+
+    @Override
+    public Mapper<${className}> getMapper() {
+        return ${classname}Mapper;
+    }
+
+    @Override
+    protected Object getExample(${className} ${classname}, String order, String sort) {
+            ${className}Example example = new ${className}Example();
+        if (StringUtils.isNotBlank(order)) {
+            if (StringUtils.isNotBlank(sort)) {
+                order = order.concat(" ").concat(sort);
+            }
+            example.setOrderByClause(order);
+        }
+            ${className}Example.Criteria criteria = example.createCriteria().andIsDeletedEqualTo(false);
+        if (${classname} ==null){
+            return example;
+        }
+
+        if (${classname}.getId() != null){
+            criteria.andIdEqualTo(${classname}.getId());
+        }
+        #foreach ($column in $columns)
+            #if($column.columnName != "id" && $column.columnName != "create_time" && $column.columnName !=
+                "update_time" && $column.columnName != "is_deleted")
+                if (${classname}.get${column.attrName}() != null){
+                criteria.and${column.attrName}EqualTo(${classname}.get${column.attrName}());
+            }
+            #end
+        #end
+        if (${classname}.getCreateTime() != null){
+            criteria.andCreateTimeEqualTo(${classname}.getCreateTime());
+        }
+        if (${classname}.getUpdateTime() != null){
+            criteria.andUpdateTimeEqualTo(${classname}.getUpdateTime());
+        }
+        if (${classname}.getIsDeleted() != null){
+            criteria.andIsDeletedEqualTo(${classname}.getIsDeleted());
+        }
+        return example;
+    }
+
+}

@@ -1,0 +1,13 @@
+package ${package}.${moduleName}.service;
+
+        import com.legend.core.service.core.LegendService;
+        import ${package}.${moduleName}.model.pojo.entity.${className};
+
+/**
+*
+ * @author Administrator
+ * @date 2018/3/8
+ */
+public interface ${className}Service extends LegendService<${className}> {
+
+}

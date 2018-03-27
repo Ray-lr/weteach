@@ -1,0 +1,115 @@
+package ${package}.${moduleName}.web.controller;
+
+        import com.legend.core.model.contant.arribute.Column;
+        import com.legend.core.model.contant.arribute.Key;
+        import com.legend.core.model.contant.code.result.AjaxCode;
+        import com.legend.core.model.contant.message.result.AjaxMessage;
+        import com.legend.core.model.json.result.Ajax;
+        import com.legend.core.model.json.result.AjaxValidate;
+        import com.legend.core.model.utils.PageUtils;
+        import com.legend.core.model.utils.QueryUtils;
+        import com.legend.core.web.controller.LegendController;
+        import ${package}.${moduleName}.model.pojo.entity.${className};
+        import ${package}.${moduleName}.service.${className}Service;
+        import ${package}.${moduleName}.model.pojo.vo.${className}VO;
+        import org.springframework.validation.BindingResult;
+        import org.springframework.validation.annotation.Validated;
+        import org.springframework.web.bind.annotation.PathVariable;
+        import org.springframework.web.bind.annotation.RequestMapping;
+        import org.springframework.web.bind.annotation.RequestMethod;
+        import org.springframework.web.bind.annotation.RestController;
+
+        import javax.annotation.Resource;
+        import java.util.List;
+        import java.util.Map;
+        import java.util.stream.Collectors;
+
+/**
+ * @author ${author}
+ * @date ${datetime}
+ */
+@RestController
+@RequestMapping("/${moduleName}/${module}")
+public class ${className}Controller extends LegendController {
+
+    @Resource
+    private ${className}Service ${classname}Service;
+
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    // @RequiresPermissions("${moduleName}:${module}:list")
+    public Ajax list(${className}VO ${classname}VO, QueryUtils queryUtils) {
+        try {
+            List<${className}> ${classname}List = ${classname}Service.getList(${classname}VO.parseTo(),
+                    queryUtils);
+            List<${className}VO> ${classname}VOList = ${classname}List.stream().map((entity) ->
+                    new ${className}VO().parseFrom(entity)).collect(Collectors.toList());
+            PageUtils pageUtils = new PageUtils(${classname}VOList, ${classname}VOList.size(), queryUtils.getCurrentPage(), queryUtils.getPageSize());
+            return Ajax.success(${classname}VOList, AjaxMessage.QUERY_SUCCESS).put(Key.PAGINATION, pageUtils);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Ajax.error(AjaxMessage.SERVER_ERROR, AjaxCode.SERVER_ERROR);
+        }
+    }
+
+    @RequestMapping(value = "/details/{id}", method = RequestMethod.GET)
+    // @RequiresPermissions("${moduleName}:${module}:details")
+    public Ajax details(@PathVariable int id) {
+        try {
+            ${className} ${classname} =${classname}Service.getById(id);
+                ${className}VO ${classname}VO = new ${className}VO().parseFrom(${classname});
+            return Ajax.success(${classname}VO, AjaxMessage.QUERY_SUCCESS);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Ajax.error(AjaxMessage.SERVER_ERROR, AjaxCode.SERVER_ERROR);
+        }
+    }
+
+
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    // @RequiresPermissions("${moduleName}:${module}:add")
+    public Ajax add(@Validated ${className}VO ${classname}VO, BindingResult bindingResult) {
+        try {
+            if (bindingResult.hasErrors()) {
+                return Ajax.error(AjaxMessage.PARAMETER_ERROR, AjaxCode.PARAMETER_ERROR).put(AjaxValidate.parseFieldError(bindingResult
+                        .getFieldErrors()));
+            }
+            int saveResult = ${classname}Service.save(${classname}VO.parseTo(Column.ID));
+            return saveResult == 1 ? Ajax.success(AjaxMessage.SAVE_SUCCESS) : Ajax.error(AjaxMessage.SAVE_FAILURE, AjaxCode
+                    .SAVE_FAILURE);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Ajax.error(AjaxMessage.SERVER_ERROR, AjaxCode.SERVER_ERROR);
+        }
+    }
+
+    @RequestMapping(value = "/update", method = RequestMethod.PUT)
+    // @RequiresPermissions("${moduleName}:${module}:update")
+    public Ajax update(@Validated ${className}VO ${classname}VO, BindingResult bindingResult) {
+        try {
+            if (bindingResult.hasErrors()) {
+                return Ajax.error(AjaxMessage.PARAMETER_ERROR, AjaxCode.PARAMETER_ERROR).put(AjaxValidate.parseFieldError(bindingResult
+                        .getFieldErrors()));
+            }
+            int updateResult = ${classname}Service.updateById(${classname}VO.parseTo());
+            return updateResult == 1 ? Ajax.success(AjaxMessage.UPDATE_SUCCESS) : Ajax.error(AjaxMessage.UPDATE_FAILURE, AjaxCode
+                    .UPDATE_FAILURE);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Ajax.error(AjaxMessage.SERVER_ERROR, AjaxCode.SERVER_ERROR);
+        }
+    }
+
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
+    // @RequiresPermissions("${moduleName}:${module}:delete")
+    public Ajax delete(@PathVariable Integer id) {
+        try {
+            int deletedResult = ${classname}Service.updateDeleted(id);
+            return deletedResult == 1 ? Ajax.success(AjaxMessage.DELETE_SUCCESS) : Ajax.error(AjaxMessage.DELETE_FAILURE,
+                    AjaxCode.DELETE_FAILURE);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Ajax.error(AjaxMessage.SERVER_ERROR, AjaxCode.SERVER_ERROR);
+        }
+    }
+
+}

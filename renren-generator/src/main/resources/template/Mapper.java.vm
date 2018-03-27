@@ -1,0 +1,25 @@
+package ${package}.${moduleName}.dao.mapper;
+
+        import ${package}.${moduleName}.model.pojo.entity.${className};
+        import com.legend.core.dao.mapper.LegendMapper;
+        import ${package}.${moduleName}.model.pojo.entity.example.${className}Example;
+        import org.apache.ibatis.annotations.Mapper;
+        import org.springframework.stereotype.Component;
+
+/**
+ * ${className}的mapper接口
+ *
+ * @author ${author}
+ * @date ${datetime}
+ */
+@Mapper
+@Component
+public interface ${className}Mapper extends LegendMapper<${className}> {
+    /**
+     * 根据example筛选条件进行统计
+     *
+     * @param example example
+     * @return count - 统计
+     */
+    long countByExample(${className}Example example);
+}
