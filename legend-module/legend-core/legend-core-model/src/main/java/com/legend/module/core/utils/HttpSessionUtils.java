@@ -15,20 +15,13 @@ import javax.servlet.http.HttpSession;
 public class HttpSessionUtils {
 
     /**
-     * 自动注入session
-     */
-    private static HttpSession httpSession = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest().getSession();
-
-    /**
      * 得到httpSession
      *
      * @return httpsession
      */
     public static HttpSession getSession() {
-        if (httpSession == null) {
-            throw new NullPointerException(Key.SESSION + File.SPACE + ExceptionMessage.AUTOWIRE_FAUILURE);
-        }
-        return httpSession;
+        return ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest()
+                .getSession(true);
     }
 
     /**

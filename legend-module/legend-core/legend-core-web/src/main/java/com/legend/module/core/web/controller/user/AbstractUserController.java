@@ -44,8 +44,6 @@ public abstract class AbstractUserController<TVO extends UserVO> extends
     private static final Validator VALIDATOR = Validation.byProvider(HibernateValidator.class).configure().failFast
             (false).buildValidatorFactory().getValidator();
 
-    protected Boolean skipDefaultLogin = false;
-
     /**
      * 由继承的子类实现具体的userService
      *
@@ -62,8 +60,8 @@ public abstract class AbstractUserController<TVO extends UserVO> extends
      *
      * @param tvo - vo
      */
-    protected void loginPreProcess(TVO tvo) {
-
+    protected boolean loginPreProcess(TVO tvo) {
+        return true;
     }
 
     /**
@@ -77,12 +75,19 @@ public abstract class AbstractUserController<TVO extends UserVO> extends
     }
 
     /**
+     *
+     */
+    protected boolean logoutPreProcess(TVO tvo) {
+        return true;
+    }
+
+    /**
      * 登出成功后的操作，如无特殊需求可忽视
      * <p>
      * 允许在子类重写方法
      * </p>
      */
-    protected Ajax logoutProcess(Object object) {
+    protected Ajax logoutProcess(TVO tvo) {
         return Ajax.success(UserResultMessage.LOGIN_OUT_SUCCESS);
     }
 
@@ -124,9 +129,11 @@ public abstract class AbstractUserController<TVO extends UserVO> extends
     @ResponseBody
     public Ajax logout() {
         try {
-            Object object = getCurrentUser();
-            removeCurrentUser();
-            return logoutProcess(object);
+            TVO currentUser = (TVO) getCurrentUser();
+            if (loginPreProcess(currentUser)) {
+                removeCurrentUser();
+            }
+            return logoutProcess(currentUser);
         } catch (Exception e) {
             e.printStackTrace();
             return Ajax.error(AjaxMessage.SERVER_ERROR, AjaxCode.SERVER_ERROR);
@@ -221,8 +228,7 @@ public abstract class AbstractUserController<TVO extends UserVO> extends
      * @return Ajax
      */
     private Ajax checkUser(TVO tvo) {
-        loginPreProcess(tvo);
-        if (!skipDefaultLogin) {
+        if (loginPreProcess(tvo)) {
             if (getCurrentUser() != null) {
                 return Ajax.success(UserResultMessage.LOGIN_SUCCESS);
             }
