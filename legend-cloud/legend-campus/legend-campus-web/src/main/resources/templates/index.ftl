@@ -1,19 +1,18 @@
-<!DOCTYPE html >
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>首页</title>
-    <!-- Required meta tags -->
-    <meta name="keywords" content="campus,校园，子系统"/>
+    <title>登录</title>
     <meta content="text/html" charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/static/external/HubSpot-messenger/build/css/messenger.css">
-    <link rel="stylesheet" href="/static/external/HubSpot-messenger/build/css/messenger-theme-air.css">
-    <link rel="stylesheet" href="/static/external/pace-master/themes/black/pace-theme-material.css">
-    <link rel="stylesheet" href="/static/css/main-campus.css"/>
-
-
+    <link rel="stylesheet" href="/static/css/bootstrap.css" media="screen">
+    <link rel="stylesheet" href="/static/external/HubSpot-messenger/build/css/messenger.css" media="screen">
+    <link rel="stylesheet" href="/static/external/HubSpot-messenger/build/css/messenger-theme-air.css" media="screen">
+    <link rel="stylesheet" href="/static/external/pace-master/themes/black/pace-theme-material.css" media="screen">
+    <link rel="stylesheet" href="/static/external/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.css"
+          media="screen">
+    <link rel="stylesheet" href="/static/css/main-campus.css" media="screen">
 </head>
 <body>
 <div id="vm">
@@ -75,7 +74,7 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Settings</a>
                             <a class="dropdown-item" href="#">Help</a>
-                            <a class="dropdown-item " href="#" @click="SignOut">Sign out</a>
+                            <a class="dropdown-item " href="/logout">Sign out</a>
                         </div>
                     </li>
                 </ul>
@@ -95,16 +94,16 @@
                              alt="Card image cap">
                     </a>
                     <div class="card-body">
-                        <h5 class="card-title font-weight-bold" v-text="user.nickName">
+                        <h5 class="card-title font-weight-bold">{{user.nickName}}
                         </h5>
-                        <h6 class="card-title font-weight-normal">HupeiD</h6>
-                        <p class="card-text font-weight-light">Nothing</p>
+                        <h6 class="card-title font-weight-normal">{{user.username}}</h6>
+                        <p class="card-text font-weight-light">{{user.phone}}</p>
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">Cras justo odio</li>
                     </ul>
                     <div class="card-body">
-                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">详细信息</a>
                     </div>
                 </div>
             </div>
@@ -168,12 +167,12 @@
                     <div class="tab-content" id="courseContent">
                         <!-- first list -->
                         <div class="tab-pane fade show active" id="study" role="tabpanel" aria-labelledby="study-tab">
-                            <div class="card">
+                            <div class="card" v-for="item in study.list">
                                 <div class="card-header bg-whitesmoke-tp25" id="headingOne">
                                     <h5 class="mb-0">
                                         <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
                                                 aria-expanded="true" aria-controls="collapseOne">
-                                            First Item
+                                            {{item.title}}
                                         </button>
                                     </h5>
                                 </div>
@@ -181,9 +180,10 @@
                                 <div id="collapseOne" class="collapse " aria-labelledby="headingOne"
                                      data-parent="#accordion">
                                     <div class="card-body">
+                                        {{item.remark}}
                                         <img class="rounded-left cover" src="/static/image/avatar/Avatar.png"
                                              alt="Cover">
-                                        aaa
+                                        {{item.description}}
                                     </div>
                                 </div>
                             </div>
@@ -251,43 +251,51 @@
     </div>
 </div>
 <script src="/static/js/jquery-3.3.1.js"></script>
-
-<script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-<script src="/static/js/bootstrap.min.js"></script>
-
 <script src="/static/js/jquery.form.js"></script>
+<script src="/static/js/popper.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
 <script src="/static/js/vue.js"></script>
 <script src="/static/external/HubSpot-messenger/build/js/messenger.js"></script>
 <script src="/static/external/pace-master/pace.js"></script>
+<script src="/static/external/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.js"></script>
 <script src="/static/js/main-campus.js"></script>
 <script>
     let vm = new Vue({
         el: "#vm",
         data: {
             type: [],
-            user: [""],
-            course: {
-                study: {
-                    list: []
-                },
-                teaching: {
-                    list: []
-                },
-                other: {
-                    list: []
-                }
+            user: "",
+
+            study: {
+                list: []
+            },
+            teaching: {
+                list: []
+            },
+            other: {
+                list: []
             }
+
         },
         beforeCreate: function () {
             $.get("/base/type/list", function (data) {
                 vm.type = data.data;
             });
             $.ajax({
+                url:"/base/user/getUser",
+                type:"GET",
                 success: function (data) {
                     if (data.result) {
                         vm.user = data.data;
+                    }
+                }
+            });
+            $.ajax({
+                url:"/campus/course/studyList",
+                type:"GET",
+                success:function (data) {
+                    if(data.result){
+                        vm.study.list=data.PAGINATION.list;
                     }
                 }
             })

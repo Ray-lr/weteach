@@ -8,7 +8,7 @@ package com.legend.cloud.entity.campus;
  * CampusCourse的example类
  *
  * @author hupeiD
- * @date 2018-03-26 22:25:07
+ * @date 2018-03-27 16:48:28
  */
 public class CampusCourseExample {
     protected String orderByClause;
@@ -876,6 +876,65 @@ public class CampusCourseExample {
 
             public Criteria andPersonNumNotBetween(Integer value1, Integer value2) {
                 addCriterion("person_num not between", value1, value2, "person_num");
+                return (Criteria) this;
+            }
+                    public Criteria andTypeCourseIsNull() {
+                addCriterion("type_course is null");
+                return (Criteria) this;
+            }
+
+            public Criteria andTypeCourseIsNotNull() {
+                addCriterion("type_course is not null");
+                return (Criteria) this;
+            }
+
+            public Criteria andTypeCourseEqualTo(String value) {
+                addCriterion("type_course =", value, "type_course");
+                return (Criteria) this;
+            }
+
+            public Criteria andTypeCourseNotEqualTo(String value) {
+                addCriterion("'type_course <>", value, "type_course");
+                return (Criteria) this;
+            }
+
+            public Criteria andTypeCourseGreaterThan(String value) {
+                addCriterion("type_course >", value, "type_course");
+                return (Criteria) this;
+            }
+
+            public Criteria andTypeCourseGreaterThanOrEqualTo(String value) {
+                addCriterion("type_course >=", value, "type_course");
+                return (Criteria) this;
+            }
+
+            public Criteria andTypeCourseLessThan(String value) {
+                addCriterion("type_course <", value, "type_course");
+                return (Criteria) this;
+            }
+
+            public Criteria andTypeCourseLessThanOrEqualTo(Integer value) {
+                addCriterion("type_course <=", value, "type_course");
+                return (Criteria) this;
+            }
+
+            public Criteria andTypeCourseIn(List<String> values) {
+                addCriterion("${column.columnname} in", values, "${column.columnname}");
+                return (Criteria) this;
+            }
+
+            public Criteria andTypeCourseNotIn(List<String> values) {
+                addCriterion("type_course not in", values, "type_course");
+                return (Criteria) this;
+            }
+
+            public Criteria andTypeCourseBetween(String value1, String value2) {
+                addCriterion("type_course between", value1, value2, "type_course");
+                return (Criteria) this;
+            }
+
+            public Criteria andTypeCourseNotBetween(String value1, String value2) {
+                addCriterion("type_course not between", value1, value2, "type_course");
                 return (Criteria) this;
             }
                     public Criteria andStatusIsNull() {

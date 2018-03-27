@@ -113,12 +113,6 @@
             password: null,
             host: "base"
         },
-        beforeCreate: function () {
-        },
-        created: function () {
-        },
-        updated: function () {
-        },
         methods: {
             login: function (e) {
                 $(e.currentTarget).ajaxSubmit({
