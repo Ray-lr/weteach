@@ -11,6 +11,7 @@ package com.legend.cloud.service.system.impl;
         import tk.mybatis.mapper.common.Mapper;
 
         import javax.annotation.Resource;
+        import java.util.List;
 
 /**
  * @author Administrator
@@ -66,4 +67,11 @@ public class SystemPermissionServiceImpl extends AbstractLegendService<SystemPer
                 return example;
     }
 
+    @Override
+    public List<SystemPermission> getListByPermissionIds(List<Integer> ids) {
+        SystemPermissionExample example = new SystemPermissionExample();
+        SystemPermissionExample.Criteria criteria = example.createCriteria();
+        criteria.andIdIn(ids);
+        return getListByExample(example);
+    }
 }
