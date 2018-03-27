@@ -39,7 +39,7 @@
             <div class="collapse navbar-collapse" id="navbarToggler-left">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item ">
-                        <a class="nav-link " href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link " href="index">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Features</a>
@@ -70,9 +70,9 @@
                                  alt="Avatar">
                         </a>
                         <div class="dropdown-menu" aria-labelledby="personalMenu">
-                            <a class="dropdown-item" href="#">MyProfile</a>
+                            <a class="dropdown-item" href="myProfile">MyProfile</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Settings</a>
+                            <a class="dropdown-item" href="settings">Settings</a>
                             <a class="dropdown-item" href="#">Help</a>
                             <a class="dropdown-item " href="/logout">Sign out</a>
                         </div>
@@ -103,7 +103,7 @@
                         <li class="list-group-item">Cras justo odio</li>
                     </ul>
                     <div class="card-body">
-                        <a href="#" class="card-link">详细信息</a>
+                        <a href="myProfile" class="card-link">详细信息</a>
                     </div>
                 </div>
             </div>

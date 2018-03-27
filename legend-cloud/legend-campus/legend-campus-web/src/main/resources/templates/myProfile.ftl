@@ -39,7 +39,7 @@
             <div class="collapse navbar-collapse" id="navbarToggler-left">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item ">
-                        <a class="nav-link " href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link " href="index">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Features</a>
@@ -70,9 +70,9 @@
                                  alt="Avatar">
                         </a>
                         <div class="dropdown-menu" aria-labelledby="personalMenu">
-                            <a class="dropdown-item" href="#">MyProfile</a>
+                            <a class="dropdown-item" href="myProfile">MyProfile</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Settings</a>
+                            <a class="dropdown-item" href="settings">Settings</a>
                             <a class="dropdown-item" href="#">Help</a>
                             <a class="dropdown-item " href="/logout">Sign out</a>
                         </div>
@@ -211,6 +211,14 @@
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Hometown</label>
                                     <!-- 省份 -->
+                                    <div class="input-group ">
+                                        <div class="input-group-prepend">
+                                            <label class="input-group-text" for="inputGroupSelect01">-- 省份 --</label>
+                                        </div>
+                                        <!--<select class="custom-select" id="inputGroupSelect01">
+                                            <option v-for="item in provinces" value="item.id" v-text="item.name"></option>
+                                        </select>-->
+                                    </div>
                                     <div class="col col-md-4">
                                         <select class="form-control" id="province">
                                             <option>-- 省份 --</option>
@@ -231,7 +239,7 @@
                                     <div class="col col-md-4">
                                         <select class="form-control" id="county">
                                             <option>-- 区/县 --</option>
-                                            <option v-for="item in counties" value="item.id" v-text="item.name">1</option>
+                                            <option v-for="item in counties" value="item.id" v-text="item.name"></option>
 
                                         </select>
                                     </div>
@@ -239,12 +247,18 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect2">Example multiple select</label>
-                                    <select multiple class="form-control" id="exampleFormControlSelect2">
+                                    <!--<select multiple class="form-control" id="exampleFormControlSelect2">
                                         <option>1</option>
                                         <option>2</option>
                                         <option>3</option>
                                         <option>4</option>
                                         <option>5</option>
+                                    </select>-->
+                                    <select class="custom-select" id="inputGroupSelect03">
+                                        <option selected>Choose...</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -307,7 +321,17 @@
     let vm = new Vue({
         el: "#vm",
         data: {
+            user: "",
 
+            study: {
+                list: []
+            },
+            teaching: {
+                list: []
+            },
+            other: {
+                list: []
+            }
             provinces:[],
             cities:[],
             counties:[]
@@ -324,7 +348,7 @@
                     }
 
                 }
-            })
+            });
             $.ajax({
                 url:"/base/areas/list",
                 data:{
@@ -335,7 +359,18 @@
                         vm.cities=data.data;
                     }
                 }
-            })
+            });
+            $.ajax({
+                url:"/base/areas/list",
+                data:{
+                    typeAreas:3
+                },
+                success:function(data){
+                    if(data.result){
+                        vm.counties=data.data;
+                    }
+                }
+            });
         },
         created: function () {
         },
@@ -344,7 +379,7 @@
         methods: {
             search: function (e) {
                 alert($(e.currentTarget).val());
-            },
+            }
         }
     })
 </script>
