@@ -43,7 +43,7 @@ public class CampusCourseLessonController extends LegendController {
                     query);
             List<CampusCourseLessonVO> campusCourseLessonVOList = campusCourseLessonList.stream().map((entity) ->
                     new CampusCourseLessonVO().parseFrom(entity)).collect(Collectors.toList());
-            PageUtils pageUtils = new PageUtils(campusCourseLessonVOList, campusCourseLessonVOList.size(), query.getCurrentPage(), query.getPageSize());
+            PageUtils pageUtils = new PageUtils(campusCourseLessonVOList.size(), query.getCurrentPage(), query.getPageSize());
             return Ajax.success(campusCourseLessonVOList, AjaxMessage.QUERY_SUCCESS).put(Key.PAGINATION, pageUtils);
         } catch (Exception e) {
             e.printStackTrace();

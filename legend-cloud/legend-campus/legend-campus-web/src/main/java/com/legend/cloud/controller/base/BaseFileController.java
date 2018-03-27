@@ -44,8 +44,8 @@ public class BaseFileController extends LegendController {
                     query);
             List<BaseFileVO> baseFileVOList = baseFileList.stream().map((entity) ->
                     new BaseFileVO().parseFrom(entity)).collect(Collectors.toList());
-            PageUtils pageUtils = new PageUtils(baseFileVOList, baseFileVOList.size(), query.getCurrentPage(), query.getPageSize());
-            return Ajax.success(AjaxMessage.QUERY_SUCCESS).put(Key.PAGINATION, pageUtils);
+            PageUtils pageUtils = new PageUtils( baseFileVOList.size(), query.getCurrentPage(), query.getPageSize());
+            return Ajax.success(baseFileVOList,AjaxMessage.QUERY_SUCCESS).put(Key.PAGINATION, pageUtils);
         } catch (Exception e) {
             e.printStackTrace();
             return Ajax.error(AjaxMessage.SERVER_ERROR, AjaxCode.SERVER_ERROR);

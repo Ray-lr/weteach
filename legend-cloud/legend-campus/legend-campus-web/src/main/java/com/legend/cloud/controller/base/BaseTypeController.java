@@ -44,8 +44,8 @@ public class BaseTypeController extends LegendController {
                     query);
             List<BaseTypeVO> baseTypeVOList = baseTypeList.stream().map((entity) ->
                     new BaseTypeVO().parseFrom(entity)).collect(Collectors.toList());
-            PageUtils pageUtils = new PageUtils(baseTypeVOList, baseTypeVOList.size(), query.getCurrentPage(), query.getPageSize());
-            return Ajax.success(AjaxMessage.QUERY_SUCCESS).put(Key.PAGINATION, pageUtils);
+            PageUtils pageUtils = new PageUtils( baseTypeVOList.size(), query.getCurrentPage(), query.getPageSize());
+            return Ajax.success(baseTypeVOList,AjaxMessage.QUERY_SUCCESS).put(Key.PAGINATION, pageUtils);
         } catch (Exception e) {
             e.printStackTrace();
             return Ajax.error(AjaxMessage.SERVER_ERROR, AjaxCode.SERVER_ERROR);

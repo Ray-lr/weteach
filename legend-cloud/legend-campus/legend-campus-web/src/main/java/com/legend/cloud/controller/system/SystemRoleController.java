@@ -43,7 +43,7 @@ public class SystemRoleController extends LegendController {
                     query);
             List<SystemRoleVO> systemRoleVOList = systemRoleList.stream().map((entity) ->
                     new SystemRoleVO().parseFrom(entity)).collect(Collectors.toList());
-            PageUtils pageUtils = new PageUtils(systemRoleVOList, systemRoleVOList.size(), query.getCurrentPage(), query.getPageSize());
+            PageUtils pageUtils = new PageUtils(systemRoleVOList.size(), query.getCurrentPage(), query.getPageSize());
             return Ajax.success(systemRoleVOList, AjaxMessage.QUERY_SUCCESS).put(Key.PAGINATION, pageUtils);
         } catch (Exception e) {
             e.printStackTrace();

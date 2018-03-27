@@ -43,7 +43,7 @@ public class SystemPermissionController extends LegendController {
                     query);
             List<SystemPermissionVO> systemPermissionVOList = systemPermissionList.stream().map((entity) ->
                     new SystemPermissionVO().parseFrom(entity)).collect(Collectors.toList());
-            PageUtils pageUtils = new PageUtils(systemPermissionVOList, systemPermissionVOList.size(), query.getCurrentPage(), query.getPageSize());
+            PageUtils pageUtils = new PageUtils(systemPermissionVOList.size(), query.getCurrentPage(), query.getPageSize());
             return Ajax.success(systemPermissionVOList, AjaxMessage.QUERY_SUCCESS).put(Key.PAGINATION, pageUtils);
         } catch (Exception e) {
             e.printStackTrace();

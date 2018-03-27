@@ -43,7 +43,7 @@ public class CampusStatisticsController extends LegendController {
                     query);
             List<CampusStatisticsVO> campusStatisticsVOList = campusStatisticsList.stream().map((entity) ->
                     new CampusStatisticsVO().parseFrom(entity)).collect(Collectors.toList());
-            PageUtils pageUtils = new PageUtils(campusStatisticsVOList, campusStatisticsVOList.size(), query.getCurrentPage(), query.getPageSize());
+            PageUtils pageUtils = new PageUtils(campusStatisticsVOList.size(), query.getCurrentPage(), query.getPageSize());
             return Ajax.success(campusStatisticsVOList, AjaxMessage.QUERY_SUCCESS).put(Key.PAGINATION, pageUtils);
         } catch (Exception e) {
             e.printStackTrace();

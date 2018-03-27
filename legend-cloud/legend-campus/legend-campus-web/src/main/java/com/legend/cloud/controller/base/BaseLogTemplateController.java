@@ -44,8 +44,8 @@ public class BaseLogTemplateController extends LegendController {
                     query);
             List<BaseLogTemplateVO> baseLogTemplateVOList = baseLogTemplateList.stream().map((entity) ->
                     new BaseLogTemplateVO().parseFrom(entity)).collect(Collectors.toList());
-            PageUtils pageUtils = new PageUtils(baseLogTemplateVOList, baseLogTemplateVOList.size(), query.getCurrentPage(), query.getPageSize());
-            return Ajax.success(AjaxMessage.QUERY_SUCCESS).put(Key.PAGINATION, pageUtils);
+            PageUtils pageUtils = new PageUtils( baseLogTemplateVOList.size(), query.getCurrentPage(), query.getPageSize());
+            return Ajax.success(baseLogTemplateVOList,AjaxMessage.QUERY_SUCCESS).put(Key.PAGINATION, pageUtils);
         } catch (Exception e) {
             e.printStackTrace();
             return Ajax.error(AjaxMessage.SERVER_ERROR, AjaxCode.SERVER_ERROR);

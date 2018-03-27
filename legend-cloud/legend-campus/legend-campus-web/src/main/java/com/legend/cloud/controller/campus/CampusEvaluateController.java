@@ -43,7 +43,7 @@ public class CampusEvaluateController extends LegendController {
                     query);
             List<CampusEvaluateVO> campusEvaluateVOList = campusEvaluateList.stream().map((entity) ->
                     new CampusEvaluateVO().parseFrom(entity)).collect(Collectors.toList());
-            PageUtils pageUtils = new PageUtils(campusEvaluateVOList, campusEvaluateVOList.size(), query.getCurrentPage(), query.getPageSize());
+            PageUtils pageUtils = new PageUtils(campusEvaluateVOList.size(), query.getCurrentPage(), query.getPageSize());
             return Ajax.success(campusEvaluateVOList, AjaxMessage.QUERY_SUCCESS).put(Key.PAGINATION, pageUtils);
         } catch (Exception e) {
             e.printStackTrace();

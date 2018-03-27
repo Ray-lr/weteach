@@ -43,7 +43,7 @@ public class CampusVerifyController extends LegendController {
                     query);
             List<CampusVerifyVO> campusVerifyVOList = campusVerifyList.stream().map((entity) ->
                     new CampusVerifyVO().parseFrom(entity)).collect(Collectors.toList());
-            PageUtils pageUtils = new PageUtils(campusVerifyVOList, campusVerifyVOList.size(), query.getCurrentPage(), query.getPageSize());
+            PageUtils pageUtils = new PageUtils(campusVerifyVOList.size(), query.getCurrentPage(), query.getPageSize());
             return Ajax.success(campusVerifyVOList, AjaxMessage.QUERY_SUCCESS).put(Key.PAGINATION, pageUtils);
         } catch (Exception e) {
             e.printStackTrace();
