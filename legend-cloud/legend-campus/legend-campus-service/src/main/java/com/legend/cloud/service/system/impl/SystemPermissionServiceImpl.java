@@ -11,7 +11,6 @@ package com.legend.cloud.service.system.impl;
         import tk.mybatis.mapper.common.Mapper;
 
         import javax.annotation.Resource;
-        import java.util.List;
 
 /**
  * @author Administrator
@@ -55,15 +54,6 @@ public class SystemPermissionServiceImpl extends AbstractLegendService<SystemPer
                     if (systemPermission.getDescription() != null){
             criteria.andDescriptionEqualTo(systemPermission.getDescription());
         }
-                    if (systemPermission.getUrl() != null){
-            criteria.andUrlEqualTo(systemPermission.getUrl());
-        }
-                    if (systemPermission.getParentId() != null){
-            criteria.andParentIdEqualTo(systemPermission.getParentId());
-        }
-                    if (systemPermission.getSort() != null){
-            criteria.andSortEqualTo(systemPermission.getSort());
-        }
                     if (systemPermission.getCreateTime() != null){
             criteria.andCreateTimeEqualTo(systemPermission.getCreateTime());
         }
@@ -74,14 +64,6 @@ public class SystemPermissionServiceImpl extends AbstractLegendService<SystemPer
             criteria.andIsDeletedEqualTo(systemPermission.getIsDeleted());
         }
                 return example;
-    }
-
-    @Override
-    public List<SystemPermission> getListByPermissionIds(List<Integer> ids) {
-        SystemPermissionExample example = new SystemPermissionExample();
-        SystemPermissionExample.Criteria criteria = example.createCriteria();
-        criteria.andIdIn(ids);
-        return getListByExample(example);
     }
 
 }

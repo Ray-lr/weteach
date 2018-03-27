@@ -12,7 +12,7 @@ package com.legend.cloud.vo.system;
  * 菜单表
  *
  * @author hupeiD
- * @date 2018-03-26 22:25:04
+ * @date 2018-03-27 21:30:17
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
@@ -38,7 +38,7 @@ public class SystemMenuVO extends AbstractVO<SystemMenu> {
             /**
          * 菜单等级
          */
-        private Integer level;
+        private Integer hierarchy;
             /**
          * 父级id
          */
@@ -81,7 +81,7 @@ public class SystemMenuVO extends AbstractVO<SystemMenu> {
                                 ", name=" + getName() +
                                 ", url=" + getUrl() +
                                 ", description=" + getDescription() +
-                                ", level=" + getLevel() +
+                                ", hierarchy=" + getHierarchy() +
                                 ", parentId=" + getParentId() +
                                 ", sort=" + getSort() +
                                 ", className=" + getClassName() +

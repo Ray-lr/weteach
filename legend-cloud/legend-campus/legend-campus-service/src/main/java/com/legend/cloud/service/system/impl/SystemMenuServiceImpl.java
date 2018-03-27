@@ -54,8 +54,8 @@ public class SystemMenuServiceImpl extends AbstractLegendService<SystemMenu> imp
                     if (systemMenu.getDescription() != null){
             criteria.andDescriptionEqualTo(systemMenu.getDescription());
         }
-                    if (systemMenu.getLevel() != null){
-            criteria.andLevelEqualTo(systemMenu.getLevel());
+                    if (systemMenu.getHierarchy() != null){
+            criteria.andHierarchyEqualTo(systemMenu.getHierarchy());
         }
                     if (systemMenu.getParentId() != null){
             criteria.andParentIdEqualTo(systemMenu.getParentId());

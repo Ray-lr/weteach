@@ -13,7 +13,7 @@ import java.util.Date;
  * 系统权限
  *
  * @author hupeiD
- * @date 2018-03-26 22:25:05
+ * @date 2018-03-27 21:30:18
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
@@ -39,18 +39,6 @@ public class SystemPermission extends AbstractEntity<SystemPermission> {
      * 描述
      */
         	private String description;
-	/**
-     * 资源
-     */
-        	private String url;
-	/**
-     * 父级权限id
-     */
-        	private Integer parentId;
-	/**
-     * 排序
-     */
-        	private Integer sort;
 	/**
      * 创建时间
      */

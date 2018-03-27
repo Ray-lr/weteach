@@ -8,7 +8,7 @@ package com.legend.cloud.entity.system;
  * SystemMenu的example类
  *
  * @author hupeiD
- * @date 2018-03-26 22:25:04
+ * @date 2018-03-27 21:30:17
  */
 public class SystemMenuExample {
     protected String orderByClause;
@@ -347,63 +347,63 @@ public class SystemMenuExample {
                 addCriterion("description not between", value1, value2, "description");
                 return (Criteria) this;
             }
-                    public Criteria andLevelIsNull() {
-                addCriterion("level is null");
+                    public Criteria andHierarchyIsNull() {
+                addCriterion("hierarchy is null");
                 return (Criteria) this;
             }
 
-            public Criteria andLevelIsNotNull() {
-                addCriterion("level is not null");
+            public Criteria andHierarchyIsNotNull() {
+                addCriterion("hierarchy is not null");
                 return (Criteria) this;
             }
 
-            public Criteria andLevelEqualTo(Integer value) {
-                addCriterion("level =", value, "level");
+            public Criteria andHierarchyEqualTo(Integer value) {
+                addCriterion("hierarchy =", value, "hierarchy");
                 return (Criteria) this;
             }
 
-            public Criteria andLevelNotEqualTo(Integer value) {
-                addCriterion("'level <>", value, "level");
+            public Criteria andHierarchyNotEqualTo(Integer value) {
+                addCriterion("'hierarchy <>", value, "hierarchy");
                 return (Criteria) this;
             }
 
-            public Criteria andLevelGreaterThan(Integer value) {
-                addCriterion("level >", value, "level");
+            public Criteria andHierarchyGreaterThan(Integer value) {
+                addCriterion("hierarchy >", value, "hierarchy");
                 return (Criteria) this;
             }
 
-            public Criteria andLevelGreaterThanOrEqualTo(Integer value) {
-                addCriterion("level >=", value, "level");
+            public Criteria andHierarchyGreaterThanOrEqualTo(Integer value) {
+                addCriterion("hierarchy >=", value, "hierarchy");
                 return (Criteria) this;
             }
 
-            public Criteria andLevelLessThan(Integer value) {
-                addCriterion("level <", value, "level");
+            public Criteria andHierarchyLessThan(Integer value) {
+                addCriterion("hierarchy <", value, "hierarchy");
                 return (Criteria) this;
             }
 
-            public Criteria andLevelLessThanOrEqualTo(Integer value) {
-                addCriterion("level <=", value, "level");
+            public Criteria andHierarchyLessThanOrEqualTo(Integer value) {
+                addCriterion("hierarchy <=", value, "hierarchy");
                 return (Criteria) this;
             }
 
-            public Criteria andLevelIn(List<Integer> values) {
+            public Criteria andHierarchyIn(List<Integer> values) {
                 addCriterion("${column.columnname} in", values, "${column.columnname}");
                 return (Criteria) this;
             }
 
-            public Criteria andLevelNotIn(List<Integer> values) {
-                addCriterion("level not in", values, "level");
+            public Criteria andHierarchyNotIn(List<Integer> values) {
+                addCriterion("hierarchy not in", values, "hierarchy");
                 return (Criteria) this;
             }
 
-            public Criteria andLevelBetween(Integer value1, Integer value2) {
-                addCriterion("level between", value1, value2, "level");
+            public Criteria andHierarchyBetween(Integer value1, Integer value2) {
+                addCriterion("hierarchy between", value1, value2, "hierarchy");
                 return (Criteria) this;
             }
 
-            public Criteria andLevelNotBetween(Integer value1, Integer value2) {
-                addCriterion("level not between", value1, value2, "level");
+            public Criteria andHierarchyNotBetween(Integer value1, Integer value2) {
+                addCriterion("hierarchy not between", value1, value2, "hierarchy");
                 return (Criteria) this;
             }
                     public Criteria andParentIdIsNull() {

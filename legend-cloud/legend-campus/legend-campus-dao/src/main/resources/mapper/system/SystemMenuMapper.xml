@@ -9,7 +9,7 @@
                                                         <result column="name" property="name" jdbcType="VARCHAR"/>
                                                 <result column="url" property="url" jdbcType="VARCHAR"/>
                                                 <result column="description" property="description" jdbcType="VARCHAR"/>
-                                                <result column="level" property="level" jdbcType="INTEGER"/>
+                                                <result column="hierarchy" property="hierarchy" jdbcType="INTEGER"/>
                                                 <result column="parent_id" property="parentId" jdbcType="INTEGER"/>
                                                 <result column="sort" property="sort" jdbcType="INTEGER"/>
                                                 <result column="class_name" property="className" jdbcType="VARCHAR"/>
@@ -28,16 +28,16 @@
                         <foreach collection="criteria.criteria" item="criterion">
                             <choose>
                                 <when test="criterion.noValue">
-                                    and ${${criterion.condition}}
+                                    and ${criterion.condition}
                                 </when>
                                 <when test="criterion.singleValue">
-                                    and ${${criterion.condition}} #{criterion.value}
+                                    and ${criterion.condition} #{criterion.value}
                                 </when>
                                 <when test="criterion.betweenValue">
-                                    and ${${criterion.condition}} #{criterion.value}and #{criterion.secondValue}
+                                    and ${criterion.condition} #{criterion.value}and #{criterion.secondValue}
                                 </when>
                                 <when test="criterion.listValue">
-                                    and ${${criterion.condition}}
+                                    and ${criterion.condition}
                                     <foreach close=")" collection="criterion.value" item="listItem" open="("
                                              separator=",">
                                         #{listItem}
@@ -58,7 +58,7 @@
                                                             name,
                                                             url,
                                                             description,
-                                                            level,
+                                                            hierarchy,
                                                             parentId,
                                                             sort,
                                                             className,

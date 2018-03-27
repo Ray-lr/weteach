@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.legend.cloud.campus.verify.dao.mapper.CampusVerifyMapper">
-    <resultMap id="BaseResultMap" type="com.legend.cloud.entity.campus.CampusVerify">
+<mapper namespace="com.legend.cloud.base.userRelRole.dao.mapper.BaseUserRelRoleMapper">
+    <resultMap id="BaseResultMap" type="com.legend.cloud.entity.base.BaseUserRelRole">
         <!--
                 WARNING-@mbg.generated
             -->
         <id column="id" property="id" jdbcType="INTEGER"/>
-                                                        <result column="user_id" property="userId" jdbcType="INTEGER"/>
-                                                <result column="dept" property="dept" jdbcType="INTEGER"/>
-                                                <result column="major" property="major" jdbcType="INTEGER"/>
-                                                <result column="reason" property="reason" jdbcType="VARCHAR"/>
-                                                <result column="evidence" property="evidence" jdbcType="VARCHAR"/>
-                                                <result column="status" property="status" jdbcType="INTEGER"/>
+                                                        <result column="base_user_id" property="baseUserId" jdbcType="INTEGER"/>
+                                                <result column="system_role_id" property="systemRoleId" jdbcType="INTEGER"/>
                                                 <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
                                                 <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
                                                 <result column="is_deleted" property="isDeleted" jdbcType="BIT"/>
@@ -54,17 +50,13 @@
                 WARNING-@mbg.generated
                 -->
                                                 id,
-                                                            userId,
-                                                            dept,
-                                                            major,
-                                                            reason,
-                                                            evidence,
-                                                            status,
+                                                            baseUserId,
+                                                            systemRoleId,
                                                             createTime,
                                                             updateTime,
                                                             isDeleted,
                         </sql>
-    <select id="countByExample" parameterType="com.legend.cloud.entity.campus.CampusVerifyExample"
+    <select id="countByExample" parameterType="com.legend.cloud.entity.base.BaseUserRelRoleExample"
             resultType="java.lang
 .Long">
         <!--

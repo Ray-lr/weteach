@@ -1,6 +1,6 @@
-package com.legend.cloud.vo.system;
+package com.legend.cloud.vo.base;
 
-        import com.legend.cloud.entity.system.SystemPermission;
+        import com.legend.cloud.entity.base.BaseUserRelRole;
         import com.legend.module.core.vo.AbstractVO;
         import lombok.Data;
         import lombok.EqualsAndHashCode;
@@ -9,32 +9,28 @@ package com.legend.cloud.vo.system;
 
 
 /**
- * 系统权限
+ * 用户角色关联
  *
  * @author hupeiD
- * @date 2018-03-27 21:30:18
+ * @date 2018-03-27 21:30:17
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class SystemPermissionVO extends AbstractVO<SystemPermission> {
+public class BaseUserRelRoleVO extends AbstractVO<BaseUserRelRole> {
     private static final long serialVersionUID = 1L;
 
             /**
-         * 权限id
+         * 用户角色关联id
          */
         private Integer id;
             /**
-         * 权限名称
+         * 用户id
          */
-        private String permissionName;
+        private Integer baseUserId;
             /**
-         * 标识
+         * 系统角色id
          */
-        private String sign;
-            /**
-         * 描述
-         */
-        private String description;
+        private Integer systemRoleId;
             /**
          * 创建时间
          */
@@ -49,22 +45,21 @@ public class SystemPermissionVO extends AbstractVO<SystemPermission> {
         private Boolean isDeleted;
     
     @Override
-    public SystemPermission parseTo(String... ignoreProperties) {
+    public BaseUserRelRole parseTo(String... ignoreProperties) {
         return super.parseTo(ignoreProperties);
     }
 
     @Override
-    public SystemPermissionVO parseFrom(SystemPermission systemPermission, String... ignoreProperties) {
-        return (SystemPermissionVO) super.parseFrom(systemPermission, ignoreProperties);
+    public BaseUserRelRoleVO parseFrom(BaseUserRelRole baseUserRelRole, String... ignoreProperties) {
+        return (BaseUserRelRoleVO) super.parseFrom(baseUserRelRole, ignoreProperties);
     }
 
     @Override
     public String toString() {
-        return "SystemPermissionVO{" +
+        return "BaseUserRelRoleVO{" +
                                 ", id=" + getId() +
-                                ", permissionName=" + getPermissionName() +
-                                ", sign=" + getSign() +
-                                ", description=" + getDescription() +
+                                ", baseUserId=" + getBaseUserId() +
+                                ", systemRoleId=" + getSystemRoleId() +
                                 ", createTime=" + getCreateTime() +
                                 ", updateTime=" + getUpdateTime() +
                                 ", isDeleted=" + getIsDeleted() +

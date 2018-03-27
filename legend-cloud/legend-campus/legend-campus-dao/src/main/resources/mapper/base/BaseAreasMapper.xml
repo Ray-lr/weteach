@@ -6,18 +6,18 @@
                 WARNING-@mbg.generated
             -->
         <id column="id" property="id" jdbcType="INTEGER"/>
-        <result column="name" property="name" jdbcType="VARCHAR"/>
-        <result column="parent_id" property="parentId" jdbcType="INTEGER"/>
-        <result column="abbreviation" property="abbreviation" jdbcType="VARCHAR"/>
-        <result column="longitude" property="longitude" jdbcType="DOUBLE"/>
-        <result column="latitude" property="latitude" jdbcType="DOUBLE"/>
-        <result column="type_areas" property="typeAreas" jdbcType="INTEGER"/>
-        <result column="sign" property="sign" jdbcType="VARCHAR"/>
-        <result column="sort" property="sort" jdbcType="INTEGER"/>
-        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
-        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
-        <result column="is_deleted" property="isDeleted" jdbcType="BIT"/>
-    </resultMap>
+                                                        <result column="name" property="name" jdbcType="VARCHAR"/>
+                                                <result column="parent_id" property="parentId" jdbcType="INTEGER"/>
+                                                <result column="abbreviation" property="abbreviation" jdbcType="VARCHAR"/>
+                                                <result column="longitude" property="longitude" jdbcType="DOUBLE"/>
+                                                <result column="latitude" property="latitude" jdbcType="DOUBLE"/>
+                                                <result column="type_areas" property="typeAreas" jdbcType="INTEGER"/>
+                                                <result column="sign" property="sign" jdbcType="VARCHAR"/>
+                                                <result column="sort" property="sort" jdbcType="INTEGER"/>
+                                                <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+                                                <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
+                                                <result column="is_deleted" property="isDeleted" jdbcType="BIT"/>
+                        </resultMap>
     <sql id="Example_Where_Clause">
         <!--
                 WARNING-@mbg.generated
@@ -29,16 +29,16 @@
                         <foreach collection="criteria.criteria" item="criterion">
                             <choose>
                                 <when test="criterion.noValue">
-                                    and ${${criterion.condition}}
+                                    and ${criterion.condition}
                                 </when>
                                 <when test="criterion.singleValue">
-                                    and ${${criterion.condition}} #{criterion.value}
+                                    and ${criterion.condition} #{criterion.value}
                                 </when>
                                 <when test="criterion.betweenValue">
-                                    and ${${criterion.condition}} #{criterion.value}and #{criterion.secondValue}
+                                    and ${criterion.condition} #{criterion.value}and #{criterion.secondValue}
                                 </when>
                                 <when test="criterion.listValue">
-                                    and ${${criterion.condition}}
+                                    and ${criterion.condition}
                                     <foreach close=")" collection="criterion.value" item="listItem" open="("
                                              separator=",">
                                         #{listItem}
@@ -55,19 +55,19 @@
         <!--
                 WARNING-@mbg.generated
                 -->
-        id,
-        name,
-        parentId,
-        abbreviation,
-        longitude,
-        latitude,
-        typeAreas,
-        sign,
-        sort,
-        createTime,
-        updateTime,
-        isDeleted,
-    </sql>
+                                                id,
+                                                            name,
+                                                            parentId,
+                                                            abbreviation,
+                                                            longitude,
+                                                            latitude,
+                                                            typeAreas,
+                                                            sign,
+                                                            sort,
+                                                            createTime,
+                                                            updateTime,
+                                                            isDeleted,
+                        </sql>
     <select id="countByExample" parameterType="com.legend.cloud.entity.base.BaseAreasExample"
             resultType="java.lang
 .Long">
