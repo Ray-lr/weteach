@@ -74,7 +74,7 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Settings</a>
                             <a class="dropdown-item" href="#">Help</a>
-                            <a class="dropdown-item " href="/logout" >Sign out</a>
+                            <a class="dropdown-item " href="/logout">Sign out</a>
                         </div>
                     </li>
                 </ul>
@@ -96,8 +96,8 @@
                     <div class="card-body">
                         <h5 class="card-title font-weight-bold" v-text="user.nickName">
                         </h5>
-                        <h6 class="card-title font-weight-normal">HupeiD</h6>
-                        <p class="card-text font-weight-light">Nothing</p>
+                        <h6 class="card-title font-weight-normal" v-text="user.username"></h6>
+                        <p class="card-text font-weight-light"></p>
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">Cras justo odio</li>
@@ -263,7 +263,7 @@
         el: "#vm",
         data: {
             type: [],
-            user: [""],
+            user: null,
             course: {
                 study: {
                     list: []
@@ -277,10 +277,9 @@
             }
         },
         beforeCreate: function () {
-            $.get("/base/type/list", function (data) {
-                vm.type = data.data;
-            });
             $.ajax({
+                url: "/base/user/get",
+                type: "GET",
                 success: function (data) {
                     if (data.result) {
                         vm.user = data.data;
@@ -296,20 +295,6 @@
             search: function (e) {
                 alert($(e.currentTarget).val());
             },
-            SignOut: function () {
-                $.ajax({
-                    url: "/base/user/logout",
-                    type: "POST",
-                    data: {
-                        _method: "PUT"
-                    },
-                    success: function (data) {
-                        if (data.result) {
-                            window.location.href = data.url;
-                        }
-                    }
-                })
-            }
         }
     })
 </script>
