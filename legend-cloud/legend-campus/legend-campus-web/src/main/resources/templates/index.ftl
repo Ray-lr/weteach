@@ -1,19 +1,18 @@
-<!DOCTYPE html >
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>首页</title>
-    <!-- Required meta tags -->
-    <meta name="keywords" content="campus,校园，子系统"/>
+    <title>登录</title>
     <meta content="text/html" charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/static/external/HubSpot-messenger/build/css/messenger.css">
-    <link rel="stylesheet" href="/static/external/HubSpot-messenger/build/css/messenger-theme-air.css">
-    <link rel="stylesheet" href="/static/external/pace-master/themes/black/pace-theme-material.css">
-    <link rel="stylesheet" href="/static/css/main-campus.css"/>
-
-
+    <link rel="stylesheet" href="/static/css/bootstrap.css" media="screen">
+    <link rel="stylesheet" href="/static/external/HubSpot-messenger/build/css/messenger.css" media="screen">
+    <link rel="stylesheet" href="/static/external/HubSpot-messenger/build/css/messenger-theme-air.css" media="screen">
+    <link rel="stylesheet" href="/static/external/pace-master/themes/black/pace-theme-material.css" media="screen">
+    <link rel="stylesheet" href="/static/external/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.css"
+          media="screen">
+    <link rel="stylesheet" href="/static/css/main-campus.css" media="screen">
 </head>
 <body>
 <div id="vm">
@@ -75,7 +74,7 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Settings</a>
                             <a class="dropdown-item" href="#">Help</a>
-                            <a class="dropdown-item " href="#" @click="SignOut">Sign out</a>
+                            <a class="dropdown-item " href="/logout" >Sign out</a>
                         </div>
                     </li>
                 </ul>
@@ -251,16 +250,13 @@
     </div>
 </div>
 <script src="/static/js/jquery-3.3.1.js"></script>
-
-<script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-<script src="/static/js/bootstrap.min.js"></script>
-
 <script src="/static/js/jquery.form.js"></script>
+<script src="/static/js/popper.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
 <script src="/static/js/vue.js"></script>
 <script src="/static/external/HubSpot-messenger/build/js/messenger.js"></script>
 <script src="/static/external/pace-master/pace.js"></script>
+<script src="/static/external/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.js"></script>
 <script src="/static/js/main-campus.js"></script>
 <script>
     let vm = new Vue({
