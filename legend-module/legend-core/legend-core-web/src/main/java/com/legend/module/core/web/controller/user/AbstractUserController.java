@@ -87,7 +87,7 @@ public abstract class AbstractUserController<TVO extends UserVO> extends
      * 允许在子类重写方法
      * </p>
      */
-    protected Ajax logoutProcess(Object object) {
+    protected Ajax logoutProcess(TVO tvo) {
         return Ajax.success(UserResultMessage.LOGIN_OUT_SUCCESS);
     }
 
@@ -129,11 +129,11 @@ public abstract class AbstractUserController<TVO extends UserVO> extends
     @ResponseBody
     public Ajax logout() {
         try {
-            Object object = getCurrentUser();;
-            if (loginPreProcess((TVO) object)) {
+            TVO currentUser = (TVO) getCurrentUser();
+            if (loginPreProcess(currentUser)) {
                 removeCurrentUser();
             }
-            return logoutProcess(object);
+            return logoutProcess(currentUser);
         } catch (Exception e) {
             e.printStackTrace();
             return Ajax.error(AjaxMessage.SERVER_ERROR, AjaxCode.SERVER_ERROR);
