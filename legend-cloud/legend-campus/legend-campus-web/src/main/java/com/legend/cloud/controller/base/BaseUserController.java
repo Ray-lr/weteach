@@ -96,4 +96,14 @@ public class BaseUserController extends AbstractUserController<BaseUserVO> {
     protected Ajax logoutProcess(BaseUserVO baseUserVO) {
         return Ajax.error();
     }
+
+    @RequestMapping(value = "/get",method = RequestMethod.GET)
+    public Ajax get() {
+        try {
+            return Ajax.success(getCurrentUser());
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Ajax.error();
+        }
+    }
 }
