@@ -9,9 +9,6 @@
                                                         <result column="permission_name" property="permissionName" jdbcType="VARCHAR"/>
                                                 <result column="sign" property="sign" jdbcType="VARCHAR"/>
                                                 <result column="description" property="description" jdbcType="VARCHAR"/>
-                                                <result column="url" property="url" jdbcType="VARCHAR"/>
-                                                <result column="parent_id" property="parentId" jdbcType="INTEGER"/>
-                                                <result column="sort" property="sort" jdbcType="INTEGER"/>
                                                 <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
                                                 <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
                                                 <result column="is_deleted" property="isDeleted" jdbcType="BIT"/>
@@ -27,16 +24,16 @@
                         <foreach collection="criteria.criteria" item="criterion">
                             <choose>
                                 <when test="criterion.noValue">
-                                    and ${${criterion.condition}}
+                                    and ${criterion.condition}
                                 </when>
                                 <when test="criterion.singleValue">
-                                    and ${${criterion.condition}} #{criterion.value}
+                                    and ${criterion.condition} #{criterion.value}
                                 </when>
                                 <when test="criterion.betweenValue">
-                                    and ${${criterion.condition}} #{criterion.value}and #{criterion.secondValue}
+                                    and ${criterion.condition} #{criterion.value}and #{criterion.secondValue}
                                 </when>
                                 <when test="criterion.listValue">
-                                    and ${${criterion.condition}}
+                                    and ${criterion.condition}
                                     <foreach close=")" collection="criterion.value" item="listItem" open="("
                                              separator=",">
                                         #{listItem}
@@ -57,9 +54,6 @@
                                                             permissionName,
                                                             sign,
                                                             description,
-                                                            url,
-                                                            parentId,
-                                                            sort,
                                                             createTime,
                                                             updateTime,
                                                             isDeleted,

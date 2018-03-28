@@ -13,6 +13,7 @@ import com.legend.module.core.web.controller.LegendController;
 import com.legend.cloud.entity.campus.CampusCourse;
 import com.legend.cloud.service.campus.CampusCourseService;
 import com.legend.cloud.vo.campus.CampusCourseVO;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -37,7 +38,7 @@ public class CampusCourseController extends LegendController {
     private CampusCourseService campusCourseService;
 
     @RequestMapping(value = "/studyList", method = RequestMethod.GET)
-    // @RequiresPermissions("campus:course:list")
+    @RequiresPermissions("campus:course:list")
     public Ajax list(CampusCourseVO campusCourseVO, Query query) {
         try {
             campusCourseVO.setTypeCourse("求学");
