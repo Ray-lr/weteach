@@ -1,6 +1,6 @@
 package com.legend.cloud.entity.base;
 
-import com.legend.module.core.entity.AbstractEntity;
+import com.legend.module.core.entity.user.User;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -21,7 +21,7 @@ import java.util.Date;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @Table(name = "base_user")
-public class BaseUser extends AbstractEntity<BaseUser> {
+public class BaseUser extends User<BaseUser> {
     private static final long serialVersionUID = 1L;
 
     /**
