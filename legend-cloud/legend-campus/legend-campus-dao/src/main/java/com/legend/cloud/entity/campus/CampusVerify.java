@@ -4,9 +4,11 @@ import com.legend.module.core.entity.AbstractEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import javax.persistence.*;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
-
 
 
 /**
@@ -19,49 +21,49 @@ import java.util.Date;
 @Data
 @Table(name = "campus_verify")
 public class CampusVerify extends AbstractEntity<CampusVerify> {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	/**
+    /**
      * 教师资格id
      */
-        @Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-        	private Integer id;
-	/**
+    private Integer id;
+    /**
      * 用户id
      */
-        	private Integer userId;
-	/**
+    private Integer userId;
+    /**
      * 认证系别
      */
-        	private Integer dept;
-	/**
+    private Integer dept;
+    /**
      * 认证专业
      */
-        	private Integer major;
-	/**
+    private Integer major;
+    /**
      * 认证理由
      */
-        	private String reason;
-	/**
+    private String reason;
+    /**
      * 认证证明（证书等）
      */
-        	private String evidence;
-	/**
+    private String evidence;
+    /**
      * 状态（0，待审核；1，通过；2，未通过）
      */
-        	private Integer status;
-	/**
+    private Integer status;
+    /**
      * 创建时间
      */
-        	private Date createTime;
-	/**
+    private Date createTime;
+    /**
      * 更新时间
      */
-        	private Date updateTime;
-	/**
+    private Date updateTime;
+    /**
      * 是否删除
      */
-        	private Boolean isDeleted;
+    private Boolean isDeleted;
 
 }

@@ -1,10 +1,10 @@
 package com.legend.cloud.dao.mapper.campus;
 
-        import com.legend.cloud.entity.campus.CampusCourseLesson;
-        import com.legend.cloud.entity.campus.CampusCourseLessonExample;
-        import com.legend.module.core.dao.mapper.LegendMapper;
-        import org.apache.ibatis.annotations.Mapper;
-        import org.springframework.stereotype.Component;
+import com.legend.cloud.entity.campus.CampusCourseLesson;
+import com.legend.cloud.entity.campus.CampusCourseLessonExample;
+import com.legend.module.core.dao.mapper.LegendMapper;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Component;
 
 /**
  * CampusCourseLesson的mapper接口

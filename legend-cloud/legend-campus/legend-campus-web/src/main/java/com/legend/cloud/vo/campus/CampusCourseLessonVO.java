@@ -1,11 +1,11 @@
 package com.legend.cloud.vo.campus;
 
-        import com.legend.cloud.entity.campus.CampusCourseLesson;
-        import com.legend.module.core.vo.AbstractVO;
-        import lombok.Data;
-        import lombok.EqualsAndHashCode;
+import com.legend.cloud.entity.campus.CampusCourseLesson;
+import com.legend.module.core.vo.AbstractVO;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
-        import java.util.Date;
+import java.util.Date;
 
 
 /**
@@ -19,43 +19,43 @@ package com.legend.cloud.vo.campus;
 public class CampusCourseLessonVO extends AbstractVO<CampusCourseLesson> {
     private static final long serialVersionUID = 1L;
 
-            /**
-         * 课时id
-         */
-        private Integer id;
-            /**
-         * 课程id
-         */
-        private Integer courseId;
-            /**
-         * 上课时间
-         */
-        private Date beginTime;
-            /**
-         * 下课时间
-         */
-        private Date endTime;
-            /**
-         * 地点
-         */
-        private String location;
-            /**
-         * 状态（0、课时未开始 1、课时结束 2、课时进行中
-         */
-        private Integer status;
-            /**
-         * 创建时间
-         */
-        private Date createTime;
-            /**
-         * 更新时间
-         */
-        private Date updateTime;
-            /**
-         * 是否删除
-         */
-        private Boolean isDeleted;
-    
+    /**
+     * 课时id
+     */
+    private Integer id;
+    /**
+     * 课程id
+     */
+    private Integer courseId;
+    /**
+     * 上课时间
+     */
+    private Date beginTime;
+    /**
+     * 下课时间
+     */
+    private Date endTime;
+    /**
+     * 地点
+     */
+    private String location;
+    /**
+     * 状态（0、课时未开始 1、课时结束 2、课时进行中
+     */
+    private Integer status;
+    /**
+     * 创建时间
+     */
+    private Date createTime;
+    /**
+     * 更新时间
+     */
+    private Date updateTime;
+    /**
+     * 是否删除
+     */
+    private Boolean isDeleted;
+
     @Override
     public CampusCourseLesson parseTo(String... ignoreProperties) {
         return super.parseTo(ignoreProperties);
@@ -69,15 +69,15 @@ public class CampusCourseLessonVO extends AbstractVO<CampusCourseLesson> {
     @Override
     public String toString() {
         return "CampusCourseLessonVO{" +
-                                ", id=" + getId() +
-                                ", courseId=" + getCourseId() +
-                                ", beginTime=" + getBeginTime() +
-                                ", endTime=" + getEndTime() +
-                                ", location=" + getLocation() +
-                                ", status=" + getStatus() +
-                                ", createTime=" + getCreateTime() +
-                                ", updateTime=" + getUpdateTime() +
-                                ", isDeleted=" + getIsDeleted() +
-                            '}';
+                ", id=" + getId() +
+                ", courseId=" + getCourseId() +
+                ", beginTime=" + getBeginTime() +
+                ", endTime=" + getEndTime() +
+                ", location=" + getLocation() +
+                ", status=" + getStatus() +
+                ", createTime=" + getCreateTime() +
+                ", updateTime=" + getUpdateTime() +
+                ", isDeleted=" + getIsDeleted() +
+                '}';
     }
 }

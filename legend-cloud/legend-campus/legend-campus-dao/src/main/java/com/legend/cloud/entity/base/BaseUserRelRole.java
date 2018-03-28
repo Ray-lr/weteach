@@ -4,9 +4,11 @@ import com.legend.module.core.entity.AbstractEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import javax.persistence.*;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
-
 
 
 /**
@@ -19,33 +21,33 @@ import java.util.Date;
 @Data
 @Table(name = "base_user_rel_role")
 public class BaseUserRelRole extends AbstractEntity<BaseUserRelRole> {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	/**
+    /**
      * 用户角色关联id
      */
-        @Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-        	private Integer id;
-	/**
+    private Integer id;
+    /**
      * 用户id
      */
-        	private Integer baseUserId;
-	/**
+    private Integer baseUserId;
+    /**
      * 系统角色id
      */
-        	private Integer systemRoleId;
-	/**
+    private Integer systemRoleId;
+    /**
      * 创建时间
      */
-        	private Date createTime;
-	/**
+    private Date createTime;
+    /**
      * 更新时间
      */
-        	private Date updateTime;
-	/**
+    private Date updateTime;
+    /**
      * 是否删除
      */
-        	private Boolean isDeleted;
+    private Boolean isDeleted;
 
 }

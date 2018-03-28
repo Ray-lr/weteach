@@ -55,8 +55,8 @@ public class SystemRoleController extends LegendController {
     // @RequiresPermissions("role:role:details")
     public Ajax details(@PathVariable int id) {
         try {
-            SystemRole systemRole =systemRoleService.getById(id);
-                SystemRoleVO systemRoleVO = new SystemRoleVO().parseFrom(systemRole);
+            SystemRole systemRole = systemRoleService.getById(id);
+            SystemRoleVO systemRoleVO = new SystemRoleVO().parseFrom(systemRole);
             return Ajax.success(systemRoleVO, AjaxMessage.QUERY_SUCCESS);
         } catch (Exception e) {
             e.printStackTrace();

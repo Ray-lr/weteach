@@ -1,11 +1,11 @@
 package com.legend.cloud.vo.campus;
 
-        import com.legend.cloud.entity.campus.CampusCourseLimit;
-        import com.legend.module.core.vo.AbstractVO;
-        import lombok.Data;
-        import lombok.EqualsAndHashCode;
+import com.legend.cloud.entity.campus.CampusCourseLimit;
+import com.legend.module.core.vo.AbstractVO;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
-        import java.util.Date;
+import java.util.Date;
 
 
 /**
@@ -19,43 +19,43 @@ package com.legend.cloud.vo.campus;
 public class CampusCourseLimitVO extends AbstractVO<CampusCourseLimit> {
     private static final long serialVersionUID = 1L;
 
-            /**
-         * 
-         */
-        private Integer id;
-            /**
-         * 课程id
-         */
-        private Integer courseId;
-            /**
-         * 系别限制
-         */
-        private Integer dept;
-            /**
-         * 专业限制
-         */
-        private Integer major;
-            /**
-         * 性别限制
-         */
-        private Integer sex;
-            /**
-         * 年级限制
-         */
-        private Integer grade;
-            /**
-         * 创建时间
-         */
-        private Date createTime;
-            /**
-         * 更新时间
-         */
-        private Date updateTime;
-            /**
-         * 是否删除
-         */
-        private Boolean isDeleted;
-    
+    /**
+     *
+     */
+    private Integer id;
+    /**
+     * 课程id
+     */
+    private Integer courseId;
+    /**
+     * 系别限制
+     */
+    private Integer dept;
+    /**
+     * 专业限制
+     */
+    private Integer major;
+    /**
+     * 性别限制
+     */
+    private Integer sex;
+    /**
+     * 年级限制
+     */
+    private Integer grade;
+    /**
+     * 创建时间
+     */
+    private Date createTime;
+    /**
+     * 更新时间
+     */
+    private Date updateTime;
+    /**
+     * 是否删除
+     */
+    private Boolean isDeleted;
+
     @Override
     public CampusCourseLimit parseTo(String... ignoreProperties) {
         return super.parseTo(ignoreProperties);
@@ -69,15 +69,15 @@ public class CampusCourseLimitVO extends AbstractVO<CampusCourseLimit> {
     @Override
     public String toString() {
         return "CampusCourseLimitVO{" +
-                                ", id=" + getId() +
-                                ", courseId=" + getCourseId() +
-                                ", dept=" + getDept() +
-                                ", major=" + getMajor() +
-                                ", sex=" + getSex() +
-                                ", grade=" + getGrade() +
-                                ", createTime=" + getCreateTime() +
-                                ", updateTime=" + getUpdateTime() +
-                                ", isDeleted=" + getIsDeleted() +
-                            '}';
+                ", id=" + getId() +
+                ", courseId=" + getCourseId() +
+                ", dept=" + getDept() +
+                ", major=" + getMajor() +
+                ", sex=" + getSex() +
+                ", grade=" + getGrade() +
+                ", createTime=" + getCreateTime() +
+                ", updateTime=" + getUpdateTime() +
+                ", isDeleted=" + getIsDeleted() +
+                '}';
     }
 }

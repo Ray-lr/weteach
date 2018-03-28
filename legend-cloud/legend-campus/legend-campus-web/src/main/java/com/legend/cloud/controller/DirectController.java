@@ -1,6 +1,5 @@
 package com.legend.cloud.controller;
 
-import com.legend.module.core.model.contant.arribute.File;
 import com.legend.module.core.web.controller.LegendController;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;

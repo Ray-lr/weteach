@@ -1,16 +1,16 @@
 package com.legend.cloud.service.base.impl;
 
-        import com.legend.cloud.dao.mapper.base.BaseLogTemplateMapper;
-        import com.legend.cloud.entity.base.BaseLogTemplate;
-        import com.legend.cloud.entity.base.BaseLogTemplateExample;
-        import com.legend.cloud.service.base.BaseLogTemplateService;
-        import com.legend.module.core.service.core.impl.AbstractLegendService;
-        import org.apache.commons.lang.StringUtils;
-        import org.springframework.stereotype.Service;
-        import org.springframework.transaction.annotation.Transactional;
-        import tk.mybatis.mapper.common.Mapper;
+import com.legend.cloud.dao.mapper.base.BaseLogTemplateMapper;
+import com.legend.cloud.entity.base.BaseLogTemplate;
+import com.legend.cloud.entity.base.BaseLogTemplateExample;
+import com.legend.cloud.service.base.BaseLogTemplateService;
+import com.legend.module.core.service.core.impl.AbstractLegendService;
+import org.apache.commons.lang.StringUtils;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import tk.mybatis.mapper.common.Mapper;
 
-        import javax.annotation.Resource;
+import javax.annotation.Resource;
 
 /**
  * @author Administrator
@@ -30,34 +30,34 @@ public class BaseLogTemplateServiceImpl extends AbstractLegendService<BaseLogTem
 
     @Override
     protected Object getExample(BaseLogTemplate baseLogTemplate, String order, String sort) {
-            BaseLogTemplateExample example = new BaseLogTemplateExample();
+        BaseLogTemplateExample example = new BaseLogTemplateExample();
         if (StringUtils.isNotBlank(order)) {
             if (StringUtils.isNotBlank(sort)) {
                 order = order.concat(" ").concat(sort);
             }
             example.setOrderByClause(order);
         }
-            BaseLogTemplateExample.Criteria criteria = example.createCriteria().andIsDeletedEqualTo(false);
-        if (baseLogTemplate ==null){
+        BaseLogTemplateExample.Criteria criteria = example.createCriteria().andIsDeletedEqualTo(false);
+        if (baseLogTemplate == null) {
             return example;
         }
 
-                    if (baseLogTemplate.getId() != null){
+        if (baseLogTemplate.getId() != null) {
             criteria.andIdEqualTo(baseLogTemplate.getId());
         }
-                    if (baseLogTemplate.getTemplate() != null){
+        if (baseLogTemplate.getTemplate() != null) {
             criteria.andTemplateEqualTo(baseLogTemplate.getTemplate());
         }
-                    if (baseLogTemplate.getCreateTime() != null){
+        if (baseLogTemplate.getCreateTime() != null) {
             criteria.andCreateTimeEqualTo(baseLogTemplate.getCreateTime());
         }
-                    if (baseLogTemplate.getUpdateTime() != null){
+        if (baseLogTemplate.getUpdateTime() != null) {
             criteria.andUpdateTimeEqualTo(baseLogTemplate.getUpdateTime());
         }
-                    if (baseLogTemplate.getIsDeleted() != null){
+        if (baseLogTemplate.getIsDeleted() != null) {
             criteria.andIsDeletedEqualTo(baseLogTemplate.getIsDeleted());
         }
-                return example;
+        return example;
     }
 
 }

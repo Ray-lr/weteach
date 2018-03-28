@@ -1,6 +1,9 @@
 package com.legend.cloud.controller.campus;
 
 
+import com.legend.cloud.entity.campus.CampusCourse;
+import com.legend.cloud.service.campus.CampusCourseService;
+import com.legend.cloud.vo.campus.CampusCourseVO;
 import com.legend.module.core.model.contant.arribute.Column;
 import com.legend.module.core.model.contant.arribute.Key;
 import com.legend.module.core.model.contant.code.result.AjaxCode;
@@ -10,9 +13,6 @@ import com.legend.module.core.model.json.result.AjaxValidate;
 import com.legend.module.core.utils.PageUtils;
 import com.legend.module.core.utils.Query;
 import com.legend.module.core.web.controller.LegendController;
-import com.legend.cloud.entity.campus.CampusCourse;
-import com.legend.cloud.service.campus.CampusCourseService;
-import com.legend.cloud.vo.campus.CampusCourseVO;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
@@ -23,7 +23,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 /**

@@ -4,9 +4,11 @@ import com.legend.module.core.entity.AbstractEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import javax.persistence.*;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
-
 
 
 /**
@@ -19,49 +21,49 @@ import java.util.Date;
 @Data
 @Table(name = "base_file")
 public class BaseFile extends AbstractEntity<BaseFile> {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	/**
-     * 
+    /**
+     *
      */
-        @Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-        	private Integer id;
-	/**
+    private Integer id;
+    /**
      * 用户id
      */
-        	private Integer userId;
-	/**
+    private Integer userId;
+    /**
      * 用户类型
      */
-        	private String typeUser;
-	/**
+    private String typeUser;
+    /**
      * 标题
      */
-        	private String title;
-	/**
+    private String title;
+    /**
      * 内容
      */
-        	private String content;
-	/**
+    private String content;
+    /**
      * 地址
      */
-        	private String url;
-	/**
+    private String url;
+    /**
      * 文件名称
      */
-        	private String fileName;
-	/**
+    private String fileName;
+    /**
      * 创建时间
      */
-        	private Date createTime;
-	/**
+    private Date createTime;
+    /**
      * 更新时间
      */
-        	private Date updateTime;
-	/**
+    private Date updateTime;
+    /**
      * 是否删除
      */
-        	private Boolean isDeleted;
+    private Boolean isDeleted;
 
 }

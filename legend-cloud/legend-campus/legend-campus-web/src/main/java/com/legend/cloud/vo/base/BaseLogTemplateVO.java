@@ -1,11 +1,11 @@
 package com.legend.cloud.vo.base;
 
-        import com.legend.cloud.entity.base.BaseLogTemplate;
-        import com.legend.module.core.vo.AbstractVO;
-        import lombok.Data;
-        import lombok.EqualsAndHashCode;
+import com.legend.cloud.entity.base.BaseLogTemplate;
+import com.legend.module.core.vo.AbstractVO;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
-        import java.util.Date;
+import java.util.Date;
 
 
 /**
@@ -19,27 +19,27 @@ package com.legend.cloud.vo.base;
 public class BaseLogTemplateVO extends AbstractVO<BaseLogTemplate> {
     private static final long serialVersionUID = 1L;
 
-            /**
-         * 
-         */
-        private Integer id;
-            /**
-         * 模板内容
-         */
-        private String template;
-            /**
-         * 创建时间
-         */
-        private Date createTime;
-            /**
-         * 更新时间
-         */
-        private Date updateTime;
-            /**
-         * 是否删除
-         */
-        private Boolean isDeleted;
-    
+    /**
+     *
+     */
+    private Integer id;
+    /**
+     * 模板内容
+     */
+    private String template;
+    /**
+     * 创建时间
+     */
+    private Date createTime;
+    /**
+     * 更新时间
+     */
+    private Date updateTime;
+    /**
+     * 是否删除
+     */
+    private Boolean isDeleted;
+
     @Override
     public BaseLogTemplate parseTo(String... ignoreProperties) {
         return super.parseTo(ignoreProperties);
@@ -53,11 +53,11 @@ public class BaseLogTemplateVO extends AbstractVO<BaseLogTemplate> {
     @Override
     public String toString() {
         return "BaseLogTemplateVO{" +
-                                ", id=" + getId() +
-                                ", template=" + getTemplate() +
-                                ", createTime=" + getCreateTime() +
-                                ", updateTime=" + getUpdateTime() +
-                                ", isDeleted=" + getIsDeleted() +
-                            '}';
+                ", id=" + getId() +
+                ", template=" + getTemplate() +
+                ", createTime=" + getCreateTime() +
+                ", updateTime=" + getUpdateTime() +
+                ", isDeleted=" + getIsDeleted() +
+                '}';
     }
 }

@@ -157,45 +157,52 @@
                                 <!--真实姓名-->
                                 <div class="form-group">
                                     <label for="exampleFormControlInput1">True name</label>
-                                    <input type="text" class="form-control" id="exampleFormControlInput1" >
+                                    <input type="text" class="form-control" id="exampleFormControlInput1">
                                 </div>
                                 <!-- 真实性别 -->
                                 <div class="form-group">
 
                                     <label for="male">Male</label>
-                                    <input type="radio" name="sex" id="male" />
+                                    <input type="radio" name="sex" id="male"/>
 
                                     <label for="female">Female</label>
-                                    <input type="radio" name="sex" id="female" />
+                                    <input type="radio" name="sex" id="female"/>
                                 </div>
                                 <!--真实年龄-->
                                 <div class="form-group">
                                     <label for="exampleFormControlInput2">True age</label>
-                                    <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="18">
+                                    <input type="text" class="form-control" id="exampleFormControlInput2"
+                                           placeholder="18">
                                 </div>
                                 <!--电话号码-->
                                 <div class="form-group">
                                     <label for="exampleFormControlInput3">Mobile phone</label>
-                                    <input type="text" class="form-control" id="exampleFormControlInput3" placeholder="1XX-XXXX-XXXX">
+                                    <input type="text" class="form-control" id="exampleFormControlInput3"
+                                           placeholder="1XX-XXXX-XXXX">
                                 </div>
                                 <!--QQ号码-->
                                 <div class="form-group">
                                     <label for="exampleFormControlInput4">QQ number</label>
-                                    <input type="text" class="form-control" id="exampleFormControlInput4" placeholder="name@example.com">
+                                    <input type="text" class="form-control" id="exampleFormControlInput4"
+                                           placeholder="name@example.com">
                                 </div>
                                 <!--邮箱-->
                                 <div class="form-group">
                                     <label for="exampleFormControlInput5">Email address</label>
-                                    <input type="email" class="form-control" id="exampleFormControlInput5" placeholder="name@example.com">
+                                    <input type="email" class="form-control" id="exampleFormControlInput5"
+                                           placeholder="name@example.com">
                                 </div>
 
-                                <div class="input-group" >
-                                    <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Recipient's username"
+                                           aria-label="Recipient's username" aria-describedby="basic-addon2">
                                     <div class="input-group-append">
                                         <span class="input-group-text" id="basic-addon2">@example.com</span>
                                     </div>
                                     <div class="input-group-append">
-                                        <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <button type="button"
+                                                class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <span class="sr-only">Toggle Dropdown</span>
                                         </button>
                                         <div class="dropdown-menu">
@@ -222,15 +229,17 @@
                                     <div class="col col-md-4">
                                         <select class="form-control" id="province">
                                             <option>-- 省份 --</option>
-                                            <option v-for="item in provinces" value="item.id" v-text="item.name"></option>
+                                            <option v-for="item in provinces" value="item.id"
+                                                    v-text="item.name"></option>
 
                                         </select>
                                     </div>
                                     <!-- 市/州 -->
                                     <div class="col col-md-4">
                                         <select class="form-control" id="city">
-                                            <option >-- 市/州 --</option>
-                                            <option v-for="item1 in cities" value="item1.id" v-text="item1.name"></option>
+                                            <option>-- 市/州 --</option>
+                                            <option v-for="item1 in cities" value="item1.id"
+                                                    v-text="item1.name"></option>
 
                                         </select>
 
@@ -239,7 +248,8 @@
                                     <div class="col col-md-4">
                                         <select class="form-control" id="county">
                                             <option>-- 区/县 --</option>
-                                            <option v-for="item in counties" value="item.id" v-text="item.name"></option>
+                                            <option v-for="item in counties" value="item.id"
+                                                    v-text="item.name"></option>
 
                                         </select>
                                     </div>
@@ -332,42 +342,42 @@
             other: {
                 list: []
             }
-            provinces:[],
-            cities:[],
-            counties:[]
+            provinces: [],
+            cities: [],
+            counties: []
         },
         beforeCreate: function () {
             $.ajax({
-                url:"/base/areas/list",
-                data:{
-                    typeAreas:1
+                url: "/base/areas/list",
+                data: {
+                    typeAreas: 1
                 },
-                success:function(data){
-                    if (data.result){
+                success: function (data) {
+                    if (data.result) {
                         vm.provinces = data.data;
                     }
 
                 }
             });
             $.ajax({
-                url:"/base/areas/list",
-                data:{
-                    typeAreas:2
+                url: "/base/areas/list",
+                data: {
+                    typeAreas: 2
                 },
-                success:function(data){
-                    if(data.result){
-                        vm.cities=data.data;
+                success: function (data) {
+                    if (data.result) {
+                        vm.cities = data.data;
                     }
                 }
             });
             $.ajax({
-                url:"/base/areas/list",
-                data:{
-                    typeAreas:3
+                url: "/base/areas/list",
+                data: {
+                    typeAreas: 3
                 },
-                success:function(data){
-                    if(data.result){
-                        vm.counties=data.data;
+                success: function (data) {
+                    if (data.result) {
+                        vm.counties = data.data;
                     }
                 }
             });

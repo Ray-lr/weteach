@@ -1,16 +1,16 @@
 package com.legend.cloud.service.campus.impl;
 
-        import com.legend.cloud.dao.mapper.campus.CampusCourseLimitMapper;
-        import com.legend.cloud.entity.campus.CampusCourseLimit;
-        import com.legend.cloud.entity.campus.CampusCourseLimitExample;
-        import com.legend.cloud.service.campus.CampusCourseLimitService;
-        import com.legend.module.core.service.core.impl.AbstractLegendService;
-        import org.apache.commons.lang.StringUtils;
-        import org.springframework.stereotype.Service;
-        import org.springframework.transaction.annotation.Transactional;
-        import tk.mybatis.mapper.common.Mapper;
+import com.legend.cloud.dao.mapper.campus.CampusCourseLimitMapper;
+import com.legend.cloud.entity.campus.CampusCourseLimit;
+import com.legend.cloud.entity.campus.CampusCourseLimitExample;
+import com.legend.cloud.service.campus.CampusCourseLimitService;
+import com.legend.module.core.service.core.impl.AbstractLegendService;
+import org.apache.commons.lang.StringUtils;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import tk.mybatis.mapper.common.Mapper;
 
-        import javax.annotation.Resource;
+import javax.annotation.Resource;
 
 /**
  * @author Administrator
@@ -30,46 +30,46 @@ public class CampusCourseLimitServiceImpl extends AbstractLegendService<CampusCo
 
     @Override
     protected Object getExample(CampusCourseLimit campusCourseLimit, String order, String sort) {
-            CampusCourseLimitExample example = new CampusCourseLimitExample();
+        CampusCourseLimitExample example = new CampusCourseLimitExample();
         if (StringUtils.isNotBlank(order)) {
             if (StringUtils.isNotBlank(sort)) {
                 order = order.concat(" ").concat(sort);
             }
             example.setOrderByClause(order);
         }
-            CampusCourseLimitExample.Criteria criteria = example.createCriteria().andIsDeletedEqualTo(false);
-        if (campusCourseLimit ==null){
+        CampusCourseLimitExample.Criteria criteria = example.createCriteria().andIsDeletedEqualTo(false);
+        if (campusCourseLimit == null) {
             return example;
         }
 
-                    if (campusCourseLimit.getId() != null){
+        if (campusCourseLimit.getId() != null) {
             criteria.andIdEqualTo(campusCourseLimit.getId());
         }
-                    if (campusCourseLimit.getCourseId() != null){
+        if (campusCourseLimit.getCourseId() != null) {
             criteria.andCourseIdEqualTo(campusCourseLimit.getCourseId());
         }
-                    if (campusCourseLimit.getDept() != null){
+        if (campusCourseLimit.getDept() != null) {
             criteria.andDeptEqualTo(campusCourseLimit.getDept());
         }
-                    if (campusCourseLimit.getMajor() != null){
+        if (campusCourseLimit.getMajor() != null) {
             criteria.andMajorEqualTo(campusCourseLimit.getMajor());
         }
-                    if (campusCourseLimit.getSex() != null){
+        if (campusCourseLimit.getSex() != null) {
             criteria.andSexEqualTo(campusCourseLimit.getSex());
         }
-                    if (campusCourseLimit.getGrade() != null){
+        if (campusCourseLimit.getGrade() != null) {
             criteria.andGradeEqualTo(campusCourseLimit.getGrade());
         }
-                    if (campusCourseLimit.getCreateTime() != null){
+        if (campusCourseLimit.getCreateTime() != null) {
             criteria.andCreateTimeEqualTo(campusCourseLimit.getCreateTime());
         }
-                    if (campusCourseLimit.getUpdateTime() != null){
+        if (campusCourseLimit.getUpdateTime() != null) {
             criteria.andUpdateTimeEqualTo(campusCourseLimit.getUpdateTime());
         }
-                    if (campusCourseLimit.getIsDeleted() != null){
+        if (campusCourseLimit.getIsDeleted() != null) {
             criteria.andIsDeletedEqualTo(campusCourseLimit.getIsDeleted());
         }
-                return example;
+        return example;
     }
 
 }

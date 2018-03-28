@@ -1,12 +1,10 @@
 package com.legend.cloud.entity.base;
 
-import com.legend.module.core.entity.AbstractEntity;
 import com.legend.module.core.entity.user.User;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import javax.persistence.*;
-import java.util.Date;
+import javax.persistence.Table;
 
 
 /**

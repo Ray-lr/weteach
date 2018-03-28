@@ -1,10 +1,10 @@
 package com.legend.cloud.dao.mapper.base;
 
-        import com.legend.cloud.entity.base.BaseType;
-        import com.legend.cloud.entity.base.BaseTypeExample;
-        import com.legend.module.core.dao.mapper.LegendMapper;
-        import org.apache.ibatis.annotations.Mapper;
-        import org.springframework.stereotype.Component;
+import com.legend.cloud.entity.base.BaseType;
+import com.legend.cloud.entity.base.BaseTypeExample;
+import com.legend.module.core.dao.mapper.LegendMapper;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Component;
 
 /**
  * BaseType的mapper接口

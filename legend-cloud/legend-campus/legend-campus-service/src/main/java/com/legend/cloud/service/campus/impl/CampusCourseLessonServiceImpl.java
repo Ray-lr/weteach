@@ -1,16 +1,16 @@
 package com.legend.cloud.service.campus.impl;
 
-        import com.legend.cloud.dao.mapper.campus.CampusCourseLessonMapper;
-        import com.legend.cloud.entity.campus.CampusCourseLesson;
-        import com.legend.cloud.entity.campus.CampusCourseLessonExample;
-        import com.legend.cloud.service.campus.CampusCourseLessonService;
-        import com.legend.module.core.service.core.impl.AbstractLegendService;
-        import org.apache.commons.lang.StringUtils;
-        import org.springframework.stereotype.Service;
-        import org.springframework.transaction.annotation.Transactional;
-        import tk.mybatis.mapper.common.Mapper;
+import com.legend.cloud.dao.mapper.campus.CampusCourseLessonMapper;
+import com.legend.cloud.entity.campus.CampusCourseLesson;
+import com.legend.cloud.entity.campus.CampusCourseLessonExample;
+import com.legend.cloud.service.campus.CampusCourseLessonService;
+import com.legend.module.core.service.core.impl.AbstractLegendService;
+import org.apache.commons.lang.StringUtils;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import tk.mybatis.mapper.common.Mapper;
 
-        import javax.annotation.Resource;
+import javax.annotation.Resource;
 
 /**
  * @author Administrator
@@ -30,46 +30,46 @@ public class CampusCourseLessonServiceImpl extends AbstractLegendService<CampusC
 
     @Override
     protected Object getExample(CampusCourseLesson campusCourseLesson, String order, String sort) {
-            CampusCourseLessonExample example = new CampusCourseLessonExample();
+        CampusCourseLessonExample example = new CampusCourseLessonExample();
         if (StringUtils.isNotBlank(order)) {
             if (StringUtils.isNotBlank(sort)) {
                 order = order.concat(" ").concat(sort);
             }
             example.setOrderByClause(order);
         }
-            CampusCourseLessonExample.Criteria criteria = example.createCriteria().andIsDeletedEqualTo(false);
-        if (campusCourseLesson ==null){
+        CampusCourseLessonExample.Criteria criteria = example.createCriteria().andIsDeletedEqualTo(false);
+        if (campusCourseLesson == null) {
             return example;
         }
 
-                    if (campusCourseLesson.getId() != null){
+        if (campusCourseLesson.getId() != null) {
             criteria.andIdEqualTo(campusCourseLesson.getId());
         }
-                    if (campusCourseLesson.getCourseId() != null){
+        if (campusCourseLesson.getCourseId() != null) {
             criteria.andCourseIdEqualTo(campusCourseLesson.getCourseId());
         }
-                    if (campusCourseLesson.getBeginTime() != null){
+        if (campusCourseLesson.getBeginTime() != null) {
             criteria.andBeginTimeEqualTo(campusCourseLesson.getBeginTime());
         }
-                    if (campusCourseLesson.getEndTime() != null){
+        if (campusCourseLesson.getEndTime() != null) {
             criteria.andEndTimeEqualTo(campusCourseLesson.getEndTime());
         }
-                    if (campusCourseLesson.getLocation() != null){
+        if (campusCourseLesson.getLocation() != null) {
             criteria.andLocationEqualTo(campusCourseLesson.getLocation());
         }
-                    if (campusCourseLesson.getStatus() != null){
+        if (campusCourseLesson.getStatus() != null) {
             criteria.andStatusEqualTo(campusCourseLesson.getStatus());
         }
-                    if (campusCourseLesson.getCreateTime() != null){
+        if (campusCourseLesson.getCreateTime() != null) {
             criteria.andCreateTimeEqualTo(campusCourseLesson.getCreateTime());
         }
-                    if (campusCourseLesson.getUpdateTime() != null){
+        if (campusCourseLesson.getUpdateTime() != null) {
             criteria.andUpdateTimeEqualTo(campusCourseLesson.getUpdateTime());
         }
-                    if (campusCourseLesson.getIsDeleted() != null){
+        if (campusCourseLesson.getIsDeleted() != null) {
             criteria.andIsDeletedEqualTo(campusCourseLesson.getIsDeleted());
         }
-                return example;
+        return example;
     }
 
 }

@@ -1,6 +1,9 @@
 package com.legend.cloud.controller.base;
 
 
+import com.legend.cloud.entity.base.BaseUserRelRole;
+import com.legend.cloud.service.base.BaseUserRelRoleService;
+import com.legend.cloud.vo.base.BaseUserRelRoleVO;
 import com.legend.module.core.model.contant.arribute.Column;
 import com.legend.module.core.model.contant.arribute.Key;
 import com.legend.module.core.model.contant.code.result.AjaxCode;
@@ -10,9 +13,6 @@ import com.legend.module.core.model.json.result.AjaxValidate;
 import com.legend.module.core.utils.PageUtils;
 import com.legend.module.core.utils.Query;
 import com.legend.module.core.web.controller.LegendController;
-import com.legend.cloud.entity.base.BaseUserRelRole;
-import com.legend.cloud.service.base.BaseUserRelRoleService;
-import com.legend.cloud.vo.base.BaseUserRelRoleVO;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,7 +22,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 /**

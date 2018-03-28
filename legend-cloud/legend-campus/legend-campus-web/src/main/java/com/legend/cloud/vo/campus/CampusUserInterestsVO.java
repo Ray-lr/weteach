@@ -1,11 +1,11 @@
 package com.legend.cloud.vo.campus;
 
-        import com.legend.cloud.entity.campus.CampusUserInterests;
-        import com.legend.module.core.vo.AbstractVO;
-        import lombok.Data;
-        import lombok.EqualsAndHashCode;
+import com.legend.cloud.entity.campus.CampusUserInterests;
+import com.legend.module.core.vo.AbstractVO;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
-        import java.util.Date;
+import java.util.Date;
 
 
 /**
@@ -19,31 +19,31 @@ package com.legend.cloud.vo.campus;
 public class CampusUserInterestsVO extends AbstractVO<CampusUserInterests> {
     private static final long serialVersionUID = 1L;
 
-            /**
-         * id
-         */
-        private Integer id;
-            /**
-         * 用户id
-         */
-        private Integer userId;
-            /**
-         * 兴趣标签id
-         */
-        private Integer interestsId;
-            /**
-         * 创建时间
-         */
-        private Date createTime;
-            /**
-         * 更新时间
-         */
-        private Date updateTime;
-            /**
-         * 是否删除
-         */
-        private Boolean isDeleted;
-    
+    /**
+     * id
+     */
+    private Integer id;
+    /**
+     * 用户id
+     */
+    private Integer userId;
+    /**
+     * 兴趣标签id
+     */
+    private Integer interestsId;
+    /**
+     * 创建时间
+     */
+    private Date createTime;
+    /**
+     * 更新时间
+     */
+    private Date updateTime;
+    /**
+     * 是否删除
+     */
+    private Boolean isDeleted;
+
     @Override
     public CampusUserInterests parseTo(String... ignoreProperties) {
         return super.parseTo(ignoreProperties);
@@ -57,12 +57,12 @@ public class CampusUserInterestsVO extends AbstractVO<CampusUserInterests> {
     @Override
     public String toString() {
         return "CampusUserInterestsVO{" +
-                                ", id=" + getId() +
-                                ", userId=" + getUserId() +
-                                ", interestsId=" + getInterestsId() +
-                                ", createTime=" + getCreateTime() +
-                                ", updateTime=" + getUpdateTime() +
-                                ", isDeleted=" + getIsDeleted() +
-                            '}';
+                ", id=" + getId() +
+                ", userId=" + getUserId() +
+                ", interestsId=" + getInterestsId() +
+                ", createTime=" + getCreateTime() +
+                ", updateTime=" + getUpdateTime() +
+                ", isDeleted=" + getIsDeleted() +
+                '}';
     }
 }

@@ -43,7 +43,7 @@ public class SystemUserRelRoleController extends LegendController {
                     query);
             List<SystemUserRelRoleVO> systemUserRelRoleVOList = systemUserRelRoleList.stream().map((entity) ->
                     new SystemUserRelRoleVO().parseFrom(entity)).collect(Collectors.toList());
-            PageUtils pageUtils = new PageUtils( systemUserRelRoleVOList.size(), query.getCurrentPage(), query.getPageSize());
+            PageUtils pageUtils = new PageUtils(systemUserRelRoleVOList.size(), query.getCurrentPage(), query.getPageSize());
             return Ajax.success(systemUserRelRoleVOList, AjaxMessage.QUERY_SUCCESS).put(Key.PAGINATION, pageUtils);
         } catch (Exception e) {
             e.printStackTrace();
@@ -55,8 +55,8 @@ public class SystemUserRelRoleController extends LegendController {
     // @RequiresPermissions("userRelRole:userRelRole:details")
     public Ajax details(@PathVariable int id) {
         try {
-            SystemUserRelRole systemUserRelRole =systemUserRelRoleService.getById(id);
-                SystemUserRelRoleVO systemUserRelRoleVO = new SystemUserRelRoleVO().parseFrom(systemUserRelRole);
+            SystemUserRelRole systemUserRelRole = systemUserRelRoleService.getById(id);
+            SystemUserRelRoleVO systemUserRelRoleVO = new SystemUserRelRoleVO().parseFrom(systemUserRelRole);
             return Ajax.success(systemUserRelRoleVO, AjaxMessage.QUERY_SUCCESS);
         } catch (Exception e) {
             e.printStackTrace();

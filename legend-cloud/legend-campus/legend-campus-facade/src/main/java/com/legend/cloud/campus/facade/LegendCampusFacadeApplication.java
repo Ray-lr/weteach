@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class LegendCampusFacadeApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(LegendCampusFacadeApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(LegendCampusFacadeApplication.class, args);
+    }
 }

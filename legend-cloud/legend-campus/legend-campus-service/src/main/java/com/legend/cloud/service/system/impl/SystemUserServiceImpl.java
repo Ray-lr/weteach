@@ -30,49 +30,49 @@ public class SystemUserServiceImpl extends AbstractUserService<SystemUser> imple
 
     @Override
     protected Object getExample(SystemUser systemUser, String order, String sort) {
-            SystemUserExample example = new SystemUserExample();
+        SystemUserExample example = new SystemUserExample();
         if (StringUtils.isNotBlank(order)) {
             if (StringUtils.isNotBlank(sort)) {
                 order = order.concat(" ").concat(sort);
             }
             example.setOrderByClause(order);
         }
-            SystemUserExample.Criteria criteria = example.createCriteria().andIsDeletedEqualTo(false);
-        if (systemUser ==null){
+        SystemUserExample.Criteria criteria = example.createCriteria().andIsDeletedEqualTo(false);
+        if (systemUser == null) {
             return example;
         }
 
-                    if (systemUser.getId() != null){
+        if (systemUser.getId() != null) {
             criteria.andIdEqualTo(systemUser.getId());
         }
-                    if (systemUser.getUsername() != null){
+        if (systemUser.getUsername() != null) {
             criteria.andUsernameEqualTo(systemUser.getUsername());
         }
-                    if (systemUser.getPassword() != null){
+        if (systemUser.getPassword() != null) {
             criteria.andPasswordEqualTo(systemUser.getPassword());
         }
-                    if (systemUser.getPhone() != null){
+        if (systemUser.getPhone() != null) {
             criteria.andPhoneEqualTo(systemUser.getPhone());
         }
-                    if (systemUser.getNickName() != null){
+        if (systemUser.getNickName() != null) {
             criteria.andNickNameEqualTo(systemUser.getNickName());
         }
-                    if (systemUser.getLastLoginTime() != null){
+        if (systemUser.getLastLoginTime() != null) {
             criteria.andLastLoginTimeEqualTo(systemUser.getLastLoginTime());
         }
-                    if (systemUser.getIsEnabled() != null){
+        if (systemUser.getIsEnabled() != null) {
             criteria.andIsEnabledEqualTo(systemUser.getIsEnabled());
         }
-                    if (systemUser.getCreateTime() != null){
+        if (systemUser.getCreateTime() != null) {
             criteria.andCreateTimeEqualTo(systemUser.getCreateTime());
         }
-                    if (systemUser.getUpdateTime() != null){
+        if (systemUser.getUpdateTime() != null) {
             criteria.andUpdateTimeEqualTo(systemUser.getUpdateTime());
         }
-                    if (systemUser.getIsDeleted() != null){
+        if (systemUser.getIsDeleted() != null) {
             criteria.andIsDeletedEqualTo(systemUser.getIsDeleted());
         }
-                return example;
+        return example;
     }
 
     @Override

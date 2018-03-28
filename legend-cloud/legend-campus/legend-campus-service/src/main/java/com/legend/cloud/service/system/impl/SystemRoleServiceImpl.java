@@ -1,16 +1,16 @@
 package com.legend.cloud.service.system.impl;
 
-        import com.legend.cloud.dao.mapper.system.SystemRoleMapper;
-        import com.legend.cloud.entity.system.SystemRole;
-        import com.legend.cloud.entity.system.SystemRoleExample;
-        import com.legend.cloud.service.system.SystemRoleService;
-        import com.legend.module.core.service.core.impl.AbstractLegendService;
-        import org.apache.commons.lang.StringUtils;
-        import org.springframework.stereotype.Service;
-        import org.springframework.transaction.annotation.Transactional;
-        import tk.mybatis.mapper.common.Mapper;
+import com.legend.cloud.dao.mapper.system.SystemRoleMapper;
+import com.legend.cloud.entity.system.SystemRole;
+import com.legend.cloud.entity.system.SystemRoleExample;
+import com.legend.cloud.service.system.SystemRoleService;
+import com.legend.module.core.service.core.impl.AbstractLegendService;
+import org.apache.commons.lang.StringUtils;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import tk.mybatis.mapper.common.Mapper;
 
-        import javax.annotation.Resource;
+import javax.annotation.Resource;
 
 /**
  * @author Administrator
@@ -30,37 +30,37 @@ public class SystemRoleServiceImpl extends AbstractLegendService<SystemRole> imp
 
     @Override
     protected Object getExample(SystemRole systemRole, String order, String sort) {
-            SystemRoleExample example = new SystemRoleExample();
+        SystemRoleExample example = new SystemRoleExample();
         if (StringUtils.isNotBlank(order)) {
             if (StringUtils.isNotBlank(sort)) {
                 order = order.concat(" ").concat(sort);
             }
             example.setOrderByClause(order);
         }
-            SystemRoleExample.Criteria criteria = example.createCriteria().andIsDeletedEqualTo(false);
-        if (systemRole ==null){
+        SystemRoleExample.Criteria criteria = example.createCriteria().andIsDeletedEqualTo(false);
+        if (systemRole == null) {
             return example;
         }
 
-                    if (systemRole.getId() != null){
+        if (systemRole.getId() != null) {
             criteria.andIdEqualTo(systemRole.getId());
         }
-                    if (systemRole.getRoleName() != null){
+        if (systemRole.getRoleName() != null) {
             criteria.andRoleNameEqualTo(systemRole.getRoleName());
         }
-                    if (systemRole.getSign() != null){
+        if (systemRole.getSign() != null) {
             criteria.andSignEqualTo(systemRole.getSign());
         }
-                    if (systemRole.getCreateTime() != null){
+        if (systemRole.getCreateTime() != null) {
             criteria.andCreateTimeEqualTo(systemRole.getCreateTime());
         }
-                    if (systemRole.getUpdateTime() != null){
+        if (systemRole.getUpdateTime() != null) {
             criteria.andUpdateTimeEqualTo(systemRole.getUpdateTime());
         }
-                    if (systemRole.getIsDeleted() != null){
+        if (systemRole.getIsDeleted() != null) {
             criteria.andIsDeletedEqualTo(systemRole.getIsDeleted());
         }
-                return example;
+        return example;
     }
 
 }

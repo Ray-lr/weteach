@@ -6,19 +6,19 @@
                 WARNING-@mbg.generated
             -->
         <id column="id" property="id" jdbcType="INTEGER"/>
-                                                        <result column="user_id" property="userId" jdbcType="INTEGER"/>
-                                                <result column="content" property="content" jdbcType="VARCHAR"/>
-                                                <result column="type_option" property="typeOption" jdbcType="INTEGER"/>
-                                                <result column="type_user" property="typeUser" jdbcType="INTEGER"/>
-                                                <result column="ip" property="ip" jdbcType="VARCHAR"/>
-                                                <result column="method" property="method" jdbcType="VARCHAR"/>
-                                                <result column="execute_time" property="executeTime" jdbcType="TIMESTAMP"/>
-                                                <result column="status" property="status" jdbcType="INTEGER"/>
-                                                <result column="remark" property="remark" jdbcType="VARCHAR"/>
-                                                <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
-                                                <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
-                                                <result column="is_deleted" property="isDeleted" jdbcType="BIT"/>
-                        </resultMap>
+        <result column="user_id" property="userId" jdbcType="INTEGER"/>
+        <result column="content" property="content" jdbcType="VARCHAR"/>
+        <result column="type_option" property="typeOption" jdbcType="INTEGER"/>
+        <result column="type_user" property="typeUser" jdbcType="INTEGER"/>
+        <result column="ip" property="ip" jdbcType="VARCHAR"/>
+        <result column="method" property="method" jdbcType="VARCHAR"/>
+        <result column="execute_time" property="executeTime" jdbcType="TIMESTAMP"/>
+        <result column="status" property="status" jdbcType="INTEGER"/>
+        <result column="remark" property="remark" jdbcType="VARCHAR"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
+        <result column="is_deleted" property="isDeleted" jdbcType="BIT"/>
+    </resultMap>
     <sql id="Example_Where_Clause">
         <!--
                 WARNING-@mbg.generated
@@ -56,20 +56,20 @@
         <!--
                 WARNING-@mbg.generated
                 -->
-                                                id,
-                                                            userId,
-                                                            content,
-                                                            typeOption,
-                                                            typeUser,
-                                                            ip,
-                                                            method,
-                                                            executeTime,
-                                                            status,
-                                                            remark,
-                                                            createTime,
-                                                            updateTime,
-                                                            isDeleted,
-                        </sql>
+        id,
+        userId,
+        content,
+        typeOption,
+        typeUser,
+        ip,
+        method,
+        executeTime,
+        status,
+        remark,
+        createTime,
+        updateTime,
+        isDeleted,
+    </sql>
     <select id="countByExample" parameterType="com.legend.cloud.entity.base.BaseLogRecordExample"
             resultType="java.lang
 .Long">

@@ -1,16 +1,16 @@
 package com.legend.cloud.service.campus.impl;
 
-        import com.legend.cloud.dao.mapper.campus.CampusStatisticsMapper;
-        import com.legend.cloud.entity.campus.CampusStatistics;
-        import com.legend.cloud.entity.campus.CampusStatisticsExample;
-        import com.legend.cloud.service.campus.CampusStatisticsService;
-        import com.legend.module.core.service.core.impl.AbstractLegendService;
-        import org.apache.commons.lang.StringUtils;
-        import org.springframework.stereotype.Service;
-        import org.springframework.transaction.annotation.Transactional;
-        import tk.mybatis.mapper.common.Mapper;
+import com.legend.cloud.dao.mapper.campus.CampusStatisticsMapper;
+import com.legend.cloud.entity.campus.CampusStatistics;
+import com.legend.cloud.entity.campus.CampusStatisticsExample;
+import com.legend.cloud.service.campus.CampusStatisticsService;
+import com.legend.module.core.service.core.impl.AbstractLegendService;
+import org.apache.commons.lang.StringUtils;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import tk.mybatis.mapper.common.Mapper;
 
-        import javax.annotation.Resource;
+import javax.annotation.Resource;
 
 /**
  * @author Administrator
@@ -30,46 +30,46 @@ public class CampusStatisticsServiceImpl extends AbstractLegendService<CampusSta
 
     @Override
     protected Object getExample(CampusStatistics campusStatistics, String order, String sort) {
-            CampusStatisticsExample example = new CampusStatisticsExample();
+        CampusStatisticsExample example = new CampusStatisticsExample();
         if (StringUtils.isNotBlank(order)) {
             if (StringUtils.isNotBlank(sort)) {
                 order = order.concat(" ").concat(sort);
             }
             example.setOrderByClause(order);
         }
-            CampusStatisticsExample.Criteria criteria = example.createCriteria().andIsDeletedEqualTo(false);
-        if (campusStatistics ==null){
+        CampusStatisticsExample.Criteria criteria = example.createCriteria().andIsDeletedEqualTo(false);
+        if (campusStatistics == null) {
             return example;
         }
 
-                    if (campusStatistics.getId() != null){
+        if (campusStatistics.getId() != null) {
             criteria.andIdEqualTo(campusStatistics.getId());
         }
-                    if (campusStatistics.getDescription() != null){
+        if (campusStatistics.getDescription() != null) {
             criteria.andDescriptionEqualTo(campusStatistics.getDescription());
         }
-                    if (campusStatistics.getRemark() != null){
+        if (campusStatistics.getRemark() != null) {
             criteria.andRemarkEqualTo(campusStatistics.getRemark());
         }
-                    if (campusStatistics.getData() != null){
+        if (campusStatistics.getData() != null) {
             criteria.andDataEqualTo(campusStatistics.getData());
         }
-                    if (campusStatistics.getProbability() != null){
+        if (campusStatistics.getProbability() != null) {
             criteria.andProbabilityEqualTo(campusStatistics.getProbability());
         }
-                    if (campusStatistics.getCode() != null){
+        if (campusStatistics.getCode() != null) {
             criteria.andCodeEqualTo(campusStatistics.getCode());
         }
-                    if (campusStatistics.getCreateTime() != null){
+        if (campusStatistics.getCreateTime() != null) {
             criteria.andCreateTimeEqualTo(campusStatistics.getCreateTime());
         }
-                    if (campusStatistics.getUpdateTime() != null){
+        if (campusStatistics.getUpdateTime() != null) {
             criteria.andUpdateTimeEqualTo(campusStatistics.getUpdateTime());
         }
-                    if (campusStatistics.getIsDeleted() != null){
+        if (campusStatistics.getIsDeleted() != null) {
             criteria.andIsDeletedEqualTo(campusStatistics.getIsDeleted());
         }
-                return example;
+        return example;
     }
 
 }

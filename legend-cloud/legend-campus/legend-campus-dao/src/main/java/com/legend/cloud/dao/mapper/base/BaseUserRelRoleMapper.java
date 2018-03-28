@@ -1,10 +1,10 @@
 package com.legend.cloud.dao.mapper.base;
 
-        import com.legend.cloud.entity.base.BaseUserRelRole;
-        import com.legend.cloud.entity.base.BaseUserRelRoleExample;
-        import com.legend.module.core.dao.mapper.LegendMapper;
-        import org.apache.ibatis.annotations.Mapper;
-        import org.springframework.stereotype.Component;
+import com.legend.cloud.entity.base.BaseUserRelRole;
+import com.legend.cloud.entity.base.BaseUserRelRoleExample;
+import com.legend.module.core.dao.mapper.LegendMapper;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Component;
 
 /**
  * BaseUserRelRole的mapper接口

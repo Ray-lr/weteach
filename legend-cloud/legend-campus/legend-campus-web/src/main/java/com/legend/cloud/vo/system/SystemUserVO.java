@@ -1,8 +1,6 @@
 package com.legend.cloud.vo.system;
 
 import com.legend.cloud.entity.system.SystemUser;
-import com.legend.module.core.entity.user.User;
-import com.legend.module.core.vo.AbstractVO;
 import com.legend.module.core.vo.core.UserVO;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

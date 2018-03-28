@@ -1,11 +1,11 @@
 package com.legend.cloud.vo.system;
 
-        import com.legend.cloud.entity.system.SystemRole;
-        import com.legend.module.core.vo.AbstractVO;
-        import lombok.Data;
-        import lombok.EqualsAndHashCode;
+import com.legend.cloud.entity.system.SystemRole;
+import com.legend.module.core.vo.AbstractVO;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
-        import java.util.Date;
+import java.util.Date;
 
 
 /**
@@ -19,31 +19,31 @@ package com.legend.cloud.vo.system;
 public class SystemRoleVO extends AbstractVO<SystemRole> {
     private static final long serialVersionUID = 1L;
 
-            /**
-         * 系统角色id
-         */
-        private Integer id;
-            /**
-         * 角色名称
-         */
-        private String roleName;
-            /**
-         * 标识
-         */
-        private String sign;
-            /**
-         * 创建时间
-         */
-        private Date createTime;
-            /**
-         * 更新时间
-         */
-        private Date updateTime;
-            /**
-         * 是否删除
-         */
-        private Boolean isDeleted;
-    
+    /**
+     * 系统角色id
+     */
+    private Integer id;
+    /**
+     * 角色名称
+     */
+    private String roleName;
+    /**
+     * 标识
+     */
+    private String sign;
+    /**
+     * 创建时间
+     */
+    private Date createTime;
+    /**
+     * 更新时间
+     */
+    private Date updateTime;
+    /**
+     * 是否删除
+     */
+    private Boolean isDeleted;
+
     @Override
     public SystemRole parseTo(String... ignoreProperties) {
         return super.parseTo(ignoreProperties);
@@ -57,12 +57,12 @@ public class SystemRoleVO extends AbstractVO<SystemRole> {
     @Override
     public String toString() {
         return "SystemRoleVO{" +
-                                ", id=" + getId() +
-                                ", roleName=" + getRoleName() +
-                                ", sign=" + getSign() +
-                                ", createTime=" + getCreateTime() +
-                                ", updateTime=" + getUpdateTime() +
-                                ", isDeleted=" + getIsDeleted() +
-                            '}';
+                ", id=" + getId() +
+                ", roleName=" + getRoleName() +
+                ", sign=" + getSign() +
+                ", createTime=" + getCreateTime() +
+                ", updateTime=" + getUpdateTime() +
+                ", isDeleted=" + getIsDeleted() +
+                '}';
     }
 }

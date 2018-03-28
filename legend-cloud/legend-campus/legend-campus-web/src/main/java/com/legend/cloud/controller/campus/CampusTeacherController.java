@@ -1,28 +1,28 @@
 package com.legend.cloud.controller.campus;
 
 
-        import com.legend.cloud.entity.campus.CampusTeacher;
-        import com.legend.cloud.service.campus.CampusTeacherService;
-        import com.legend.module.core.model.contant.arribute.Column;
-        import com.legend.module.core.model.contant.arribute.Key;
-        import com.legend.module.core.model.contant.code.result.AjaxCode;
-        import com.legend.module.core.model.contant.message.result.AjaxMessage;
-        import com.legend.module.core.model.json.result.Ajax;
-        import com.legend.module.core.model.json.result.AjaxValidate;
-        import com.legend.module.core.utils.PageUtils;
-        import com.legend.module.core.utils.Query;
-        import com.legend.module.core.web.controller.LegendController;
-        import com.legend.cloud.vo.campus.CampusTeacherVO;
-        import org.springframework.validation.BindingResult;
-        import org.springframework.validation.annotation.Validated;
-        import org.springframework.web.bind.annotation.PathVariable;
-        import org.springframework.web.bind.annotation.RequestMapping;
-        import org.springframework.web.bind.annotation.RequestMethod;
-        import org.springframework.web.bind.annotation.RestController;
+import com.legend.cloud.entity.campus.CampusTeacher;
+import com.legend.cloud.service.campus.CampusTeacherService;
+import com.legend.cloud.vo.campus.CampusTeacherVO;
+import com.legend.module.core.model.contant.arribute.Column;
+import com.legend.module.core.model.contant.arribute.Key;
+import com.legend.module.core.model.contant.code.result.AjaxCode;
+import com.legend.module.core.model.contant.message.result.AjaxMessage;
+import com.legend.module.core.model.json.result.Ajax;
+import com.legend.module.core.model.json.result.AjaxValidate;
+import com.legend.module.core.utils.PageUtils;
+import com.legend.module.core.utils.Query;
+import com.legend.module.core.web.controller.LegendController;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
-        import javax.annotation.Resource;
-        import java.util.List;
-        import java.util.stream.Collectors;
+import javax.annotation.Resource;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author Administrator
@@ -55,8 +55,8 @@ public class CampusTeacherController extends LegendController {
     // @RequiresPermissions("campus:campusteacher:details")
     public Ajax details(@PathVariable int id) {
         try {
-            CampusTeacher campusTeacher =campusTeacherService.getById(id);
-                CampusTeacherVO campusTeacherVO = new CampusTeacherVO().parseFrom(campusTeacher);
+            CampusTeacher campusTeacher = campusTeacherService.getById(id);
+            CampusTeacherVO campusTeacherVO = new CampusTeacherVO().parseFrom(campusTeacher);
             return Ajax.success(campusTeacherVO, AjaxMessage.QUERY_SUCCESS);
         } catch (Exception e) {
             e.printStackTrace();

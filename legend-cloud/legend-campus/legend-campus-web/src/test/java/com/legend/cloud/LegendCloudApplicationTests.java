@@ -1,6 +1,5 @@
 package com.legend.cloud;
 
-import com.legend.cloud.LegendCloudApplication;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -16,8 +15,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Rollback
 public class LegendCloudApplicationTests {
 
-	@Test
-	public void contextLoads() {
-	}
+    @Test
+    public void contextLoads() {
+    }
 
 }

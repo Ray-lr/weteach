@@ -1,10 +1,10 @@
 package com.legend.cloud.dao.mapper.base;
 
-        import com.legend.cloud.entity.base.BaseLogTemplate;
-        import com.legend.cloud.entity.base.BaseLogTemplateExample;
-        import com.legend.module.core.dao.mapper.LegendMapper;
-        import org.apache.ibatis.annotations.Mapper;
-        import org.springframework.stereotype.Component;
+import com.legend.cloud.entity.base.BaseLogTemplate;
+import com.legend.cloud.entity.base.BaseLogTemplateExample;
+import com.legend.module.core.dao.mapper.LegendMapper;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Component;
 
 /**
  * BaseLogTemplate的mapper接口

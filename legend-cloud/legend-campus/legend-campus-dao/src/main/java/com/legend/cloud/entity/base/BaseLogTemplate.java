@@ -4,9 +4,11 @@ import com.legend.module.core.entity.AbstractEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import javax.persistence.*;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
-
 
 
 /**
@@ -19,29 +21,29 @@ import java.util.Date;
 @Data
 @Table(name = "base_log_template")
 public class BaseLogTemplate extends AbstractEntity<BaseLogTemplate> {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	/**
-     * 
+    /**
+     *
      */
-        @Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-        	private Integer id;
-	/**
+    private Integer id;
+    /**
      * 模板内容
      */
-        	private String template;
-	/**
+    private String template;
+    /**
      * 创建时间
      */
-        	private Date createTime;
-	/**
+    private Date createTime;
+    /**
      * 更新时间
      */
-        	private Date updateTime;
-	/**
+    private Date updateTime;
+    /**
      * 是否删除
      */
-        	private Boolean isDeleted;
+    private Boolean isDeleted;
 
 }

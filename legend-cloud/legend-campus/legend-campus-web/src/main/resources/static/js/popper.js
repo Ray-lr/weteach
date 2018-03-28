@@ -26,7 +26,8 @@
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
         typeof define === 'function' && define.amd ? define(factory) :
             (global.Popper = factory());
-}(this, (function () { 'use strict';
+}(this, (function () {
+    'use strict';
 
     var isBrowser = typeof window !== 'undefined' && typeof document !== 'undefined';
     var longerTimeoutBrowsers = ['Edge', 'Trident', 'Firefox'];
@@ -369,9 +370,6 @@
     }();
 
 
-
-
-
     var defineProperty = function (obj, key, value) {
         if (key in obj) {
             Object.defineProperty(obj, key, {
@@ -437,7 +435,8 @@
                 rect.left += scrollLeft;
                 rect.bottom += scrollTop;
                 rect.right += scrollLeft;
-            } catch (err) {}
+            } catch (err) {
+            }
         } else {
             rect = element.getBoundingClientRect();
         }
@@ -566,7 +565,7 @@
      */
     function getBoundaries(popper, reference, padding, boundariesElement) {
         // NOTE: 1 DOM access here
-        var boundaries = { top: 0, left: 0 };
+        var boundaries = {top: 0, left: 0};
         var offsetParent = findCommonOffsetParent(popper, reference);
 
         // Handle viewport case
@@ -720,7 +719,7 @@
      * @returns {String} flipped placement
      */
     function getOppositePlacement(placement) {
-        var hash = { left: 'right', right: 'left', bottom: 'top', top: 'bottom' };
+        var hash = {left: 'right', right: 'left', bottom: 'top', top: 'bottom'};
         return placement.replace(/left|right|bottom|top/g, function (matched) {
             return hash[matched];
         });
@@ -966,7 +965,7 @@
     function attachToScrollParents(scrollParent, event, callback, scrollParents) {
         var isBody = scrollParent.nodeName === 'BODY';
         var target = isBody ? scrollParent.ownerDocument.defaultView : scrollParent;
-        target.addEventListener(event, callback, { passive: true });
+        target.addEventListener(event, callback, {passive: true});
 
         if (!isBody) {
             attachToScrollParents(getScrollParent(target.parentNode), event, callback, scrollParents);
@@ -983,7 +982,7 @@
     function setupEventListeners(reference, options, state, updateBound) {
         // Resize event listener on window
         state.updateBound = updateBound;
-        getWindow(reference).addEventListener('resize', state.updateBound, { passive: true });
+        getWindow(reference).addEventListener('resize', state.updateBound, {passive: true});
 
         // Scroll event listener on scroll parents
         var scrollElement = getScrollParent(reference);
@@ -1143,7 +1142,7 @@
 
         // Apply `position` to popper before anything else because
         // without the position applied we can't guarantee correct computations
-        setStyles(popper, { position: 'absolute' });
+        setStyles(popper, {position: 'absolute'});
 
         return options;
     }
@@ -2254,7 +2253,8 @@
          * Access Popper.js instance with `data.instance`.
          * @prop {onCreate}
          */
-        onCreate: function onCreate() {},
+        onCreate: function onCreate() {
+        },
 
         /**
          * Callback called when the popper is updated, this callback is not called
@@ -2264,7 +2264,8 @@
          * Access Popper.js instance with `data.instance`.
          * @prop {onUpdate}
          */
-        onUpdate: function onUpdate() {},
+        onUpdate: function onUpdate() {
+        },
 
         /**
          * List of modifiers used to modify the offsets before they are applied to the popper.

@@ -4,9 +4,11 @@ import com.legend.module.core.entity.AbstractEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import javax.persistence.*;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
-
 
 
 /**
@@ -19,45 +21,45 @@ import java.util.Date;
 @Data
 @Table(name = "campus_course_lesson")
 public class CampusCourseLesson extends AbstractEntity<CampusCourseLesson> {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	/**
+    /**
      * 课时id
      */
-        @Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-        	private Integer id;
-	/**
+    private Integer id;
+    /**
      * 课程id
      */
-        	private Integer courseId;
-	/**
+    private Integer courseId;
+    /**
      * 上课时间
      */
-        	private Date beginTime;
-	/**
+    private Date beginTime;
+    /**
      * 下课时间
      */
-        	private Date endTime;
-	/**
+    private Date endTime;
+    /**
      * 地点
      */
-        	private String location;
-	/**
+    private String location;
+    /**
      * 状态（0、课时未开始 1、课时结束 2、课时进行中
      */
-        	private Integer status;
-	/**
+    private Integer status;
+    /**
      * 创建时间
      */
-        	private Date createTime;
-	/**
+    private Date createTime;
+    /**
      * 更新时间
      */
-        	private Date updateTime;
-	/**
+    private Date updateTime;
+    /**
      * 是否删除
      */
-        	private Boolean isDeleted;
+    private Boolean isDeleted;
 
 }

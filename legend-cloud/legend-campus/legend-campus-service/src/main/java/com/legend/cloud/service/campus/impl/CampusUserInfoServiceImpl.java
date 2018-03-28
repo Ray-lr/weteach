@@ -1,16 +1,16 @@
 package com.legend.cloud.service.campus.impl;
 
-        import com.legend.cloud.dao.mapper.campus.CampusUserInfoMapper;
-        import com.legend.cloud.entity.campus.CampusUserInfo;
-        import com.legend.cloud.entity.campus.CampusUserInfoExample;
-        import com.legend.cloud.service.campus.CampusUserInfoService;
-        import com.legend.module.core.service.core.impl.AbstractLegendService;
-        import org.apache.commons.lang.StringUtils;
-        import org.springframework.stereotype.Service;
-        import org.springframework.transaction.annotation.Transactional;
-        import tk.mybatis.mapper.common.Mapper;
+import com.legend.cloud.dao.mapper.campus.CampusUserInfoMapper;
+import com.legend.cloud.entity.campus.CampusUserInfo;
+import com.legend.cloud.entity.campus.CampusUserInfoExample;
+import com.legend.cloud.service.campus.CampusUserInfoService;
+import com.legend.module.core.service.core.impl.AbstractLegendService;
+import org.apache.commons.lang.StringUtils;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import tk.mybatis.mapper.common.Mapper;
 
-        import javax.annotation.Resource;
+import javax.annotation.Resource;
 
 /**
  * @author Administrator
@@ -30,82 +30,82 @@ public class CampusUserInfoServiceImpl extends AbstractLegendService<CampusUserI
 
     @Override
     protected Object getExample(CampusUserInfo campusUserInfo, String order, String sort) {
-            CampusUserInfoExample example = new CampusUserInfoExample();
+        CampusUserInfoExample example = new CampusUserInfoExample();
         if (StringUtils.isNotBlank(order)) {
             if (StringUtils.isNotBlank(sort)) {
                 order = order.concat(" ").concat(sort);
             }
             example.setOrderByClause(order);
         }
-            CampusUserInfoExample.Criteria criteria = example.createCriteria().andIsDeletedEqualTo(false);
-        if (campusUserInfo ==null){
+        CampusUserInfoExample.Criteria criteria = example.createCriteria().andIsDeletedEqualTo(false);
+        if (campusUserInfo == null) {
             return example;
         }
 
-                    if (campusUserInfo.getId() != null){
+        if (campusUserInfo.getId() != null) {
             criteria.andIdEqualTo(campusUserInfo.getId());
         }
-                    if (campusUserInfo.getBaseUserId() != null){
+        if (campusUserInfo.getBaseUserId() != null) {
             criteria.andBaseUserIdEqualTo(campusUserInfo.getBaseUserId());
         }
-                    if (campusUserInfo.getName() != null){
+        if (campusUserInfo.getName() != null) {
             criteria.andNameEqualTo(campusUserInfo.getName());
         }
-                    if (campusUserInfo.getNickname() != null){
+        if (campusUserInfo.getNickname() != null) {
             criteria.andNicknameEqualTo(campusUserInfo.getNickname());
         }
-                    if (campusUserInfo.getSex() != null){
+        if (campusUserInfo.getSex() != null) {
             criteria.andSexEqualTo(campusUserInfo.getSex());
         }
-                    if (campusUserInfo.getNativePlace() != null){
+        if (campusUserInfo.getNativePlace() != null) {
             criteria.andNativePlaceEqualTo(campusUserInfo.getNativePlace());
         }
-                    if (campusUserInfo.getDept() != null){
+        if (campusUserInfo.getDept() != null) {
             criteria.andDeptEqualTo(campusUserInfo.getDept());
         }
-                    if (campusUserInfo.getMajor() != null){
+        if (campusUserInfo.getMajor() != null) {
             criteria.andMajorEqualTo(campusUserInfo.getMajor());
         }
-                    if (campusUserInfo.getDirection() != null){
+        if (campusUserInfo.getDirection() != null) {
             criteria.andDirectionEqualTo(campusUserInfo.getDirection());
         }
-                    if (campusUserInfo.getPhone() != null){
+        if (campusUserInfo.getPhone() != null) {
             criteria.andPhoneEqualTo(campusUserInfo.getPhone());
         }
-                    if (campusUserInfo.getQicq() != null){
+        if (campusUserInfo.getQicq() != null) {
             criteria.andQicqEqualTo(campusUserInfo.getQicq());
         }
-                    if (campusUserInfo.getEmail() != null){
+        if (campusUserInfo.getEmail() != null) {
             criteria.andEmailEqualTo(campusUserInfo.getEmail());
         }
-                    if (campusUserInfo.getCredits() != null){
+        if (campusUserInfo.getCredits() != null) {
             criteria.andCreditsEqualTo(campusUserInfo.getCredits());
         }
-                    if (campusUserInfo.getCreditsLevel() != null){
+        if (campusUserInfo.getCreditsLevel() != null) {
             criteria.andCreditsLevelEqualTo(campusUserInfo.getCreditsLevel());
         }
-                    if (campusUserInfo.getOrderJoin() != null){
+        if (campusUserInfo.getOrderJoin() != null) {
             criteria.andOrderJoinEqualTo(campusUserInfo.getOrderJoin());
         }
-                    if (campusUserInfo.getOrderPublish() != null){
+        if (campusUserInfo.getOrderPublish() != null) {
             criteria.andOrderPublishEqualTo(campusUserInfo.getOrderPublish());
         }
-                    if (campusUserInfo.getOrderFinish() != null){
+        if (campusUserInfo.getOrderFinish() != null) {
             criteria.andOrderFinishEqualTo(campusUserInfo.getOrderFinish());
         }
-                    if (campusUserInfo.getPercentageComplete() != null){
+        if (campusUserInfo.getPercentageComplete() != null) {
             criteria.andPercentageCompleteEqualTo(campusUserInfo.getPercentageComplete());
         }
-                    if (campusUserInfo.getCreateTime() != null){
+        if (campusUserInfo.getCreateTime() != null) {
             criteria.andCreateTimeEqualTo(campusUserInfo.getCreateTime());
         }
-                    if (campusUserInfo.getUpdateTime() != null){
+        if (campusUserInfo.getUpdateTime() != null) {
             criteria.andUpdateTimeEqualTo(campusUserInfo.getUpdateTime());
         }
-                    if (campusUserInfo.getIsDeleted() != null){
+        if (campusUserInfo.getIsDeleted() != null) {
             criteria.andIsDeletedEqualTo(campusUserInfo.getIsDeleted());
         }
-                return example;
+        return example;
     }
 
 }

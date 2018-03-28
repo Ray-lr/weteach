@@ -1,29 +1,25 @@
 package com.legend.cloud.controller.base;
 
 
-        import com.legend.module.core.model.contant.arribute.Column;
-        import com.legend.module.core.model.contant.arribute.Key;
-        import com.legend.module.core.model.contant.code.result.AjaxCode;
-        import com.legend.module.core.model.contant.message.result.AjaxMessage;
-        import com.legend.module.core.model.json.result.Ajax;
-        import com.legend.module.core.model.json.result.AjaxValidate;
-        import com.legend.module.core.utils.PageUtils;
-        import com.legend.module.core.utils.Query;
-        import com.legend.module.core.web.controller.LegendController;
-        import com.legend.cloud.entity.base.BaseAreas;
-        import com.legend.cloud.service.base.BaseAreasService;
-        import com.legend.cloud.vo.base.BaseAreasVO;
-        import org.springframework.validation.BindingResult;
-        import org.springframework.validation.annotation.Validated;
-        import org.springframework.web.bind.annotation.PathVariable;
-        import org.springframework.web.bind.annotation.RequestMapping;
-        import org.springframework.web.bind.annotation.RequestMethod;
-        import org.springframework.web.bind.annotation.RestController;
+import com.legend.cloud.entity.base.BaseAreas;
+import com.legend.cloud.service.base.BaseAreasService;
+import com.legend.cloud.vo.base.BaseAreasVO;
+import com.legend.module.core.model.contant.arribute.Column;
+import com.legend.module.core.model.contant.code.result.AjaxCode;
+import com.legend.module.core.model.contant.message.result.AjaxMessage;
+import com.legend.module.core.model.json.result.Ajax;
+import com.legend.module.core.model.json.result.AjaxValidate;
+import com.legend.module.core.web.controller.LegendController;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
-        import javax.annotation.Resource;
-        import java.util.List;
-        import java.util.Map;
-        import java.util.stream.Collectors;
+import javax.annotation.Resource;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author Administrator
@@ -40,10 +36,10 @@ public class BaseAreasController extends LegendController {
     // @RequiresPermissions("base:areas:list")
     public Ajax list(BaseAreasVO baseAreasVO) {
         try {
-            List<BaseAreas> baseAreasList = baseAreasService.getList(baseAreasVO.parseTo() );
+            List<BaseAreas> baseAreasList = baseAreasService.getList(baseAreasVO.parseTo());
             List<BaseAreasVO> baseAreasVOList = baseAreasList.stream().map((entity) ->
                     new BaseAreasVO().parseFrom(entity)).collect(Collectors.toList());
-            return Ajax.success(baseAreasVOList,AjaxMessage.QUERY_SUCCESS);
+            return Ajax.success(baseAreasVOList, AjaxMessage.QUERY_SUCCESS);
         } catch (Exception e) {
             e.printStackTrace();
             return Ajax.error(AjaxMessage.SERVER_ERROR, AjaxCode.SERVER_ERROR);
@@ -54,8 +50,8 @@ public class BaseAreasController extends LegendController {
     // @RequiresPermissions("base:areas:details")
     public Ajax details(@PathVariable int id) {
         try {
-            BaseAreas baseAreas =baseAreasService.getById(id);
-                BaseAreasVO baseAreasVO = new BaseAreasVO().parseFrom(baseAreas);
+            BaseAreas baseAreas = baseAreasService.getById(id);
+            BaseAreasVO baseAreasVO = new BaseAreasVO().parseFrom(baseAreas);
             return Ajax.success(baseAreasVO, AjaxMessage.QUERY_SUCCESS);
         } catch (Exception e) {
             e.printStackTrace();

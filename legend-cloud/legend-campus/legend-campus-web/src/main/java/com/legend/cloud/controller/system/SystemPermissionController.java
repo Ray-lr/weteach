@@ -55,8 +55,8 @@ public class SystemPermissionController extends LegendController {
     // @RequiresPermissions("permission:permission:details")
     public Ajax details(@PathVariable int id) {
         try {
-            SystemPermission systemPermission =systemPermissionService.getById(id);
-                SystemPermissionVO systemPermissionVO = new SystemPermissionVO().parseFrom(systemPermission);
+            SystemPermission systemPermission = systemPermissionService.getById(id);
+            SystemPermissionVO systemPermissionVO = new SystemPermissionVO().parseFrom(systemPermission);
             return Ajax.success(systemPermissionVO, AjaxMessage.QUERY_SUCCESS);
         } catch (Exception e) {
             e.printStackTrace();

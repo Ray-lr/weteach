@@ -1,29 +1,28 @@
 package com.legend.cloud.controller.base;
 
 
-        import com.legend.module.core.model.contant.arribute.Column;
-        import com.legend.module.core.model.contant.arribute.Key;
-        import com.legend.module.core.model.contant.code.result.AjaxCode;
-        import com.legend.module.core.model.contant.message.result.AjaxMessage;
-        import com.legend.module.core.model.json.result.Ajax;
-        import com.legend.module.core.model.json.result.AjaxValidate;
-        import com.legend.module.core.utils.PageUtils;
-        import com.legend.module.core.utils.Query;
-        import com.legend.module.core.web.controller.LegendController;
-        import com.legend.cloud.entity.base.BaseOrder;
-        import com.legend.cloud.service.base.BaseOrderService;
-        import com.legend.cloud.vo.base.BaseOrderVO;
-        import org.springframework.validation.BindingResult;
-        import org.springframework.validation.annotation.Validated;
-        import org.springframework.web.bind.annotation.PathVariable;
-        import org.springframework.web.bind.annotation.RequestMapping;
-        import org.springframework.web.bind.annotation.RequestMethod;
-        import org.springframework.web.bind.annotation.RestController;
+import com.legend.cloud.entity.base.BaseOrder;
+import com.legend.cloud.service.base.BaseOrderService;
+import com.legend.cloud.vo.base.BaseOrderVO;
+import com.legend.module.core.model.contant.arribute.Column;
+import com.legend.module.core.model.contant.arribute.Key;
+import com.legend.module.core.model.contant.code.result.AjaxCode;
+import com.legend.module.core.model.contant.message.result.AjaxMessage;
+import com.legend.module.core.model.json.result.Ajax;
+import com.legend.module.core.model.json.result.AjaxValidate;
+import com.legend.module.core.utils.PageUtils;
+import com.legend.module.core.utils.Query;
+import com.legend.module.core.web.controller.LegendController;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
-        import javax.annotation.Resource;
-        import java.util.List;
-        import java.util.Map;
-        import java.util.stream.Collectors;
+import javax.annotation.Resource;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author Administrator
@@ -44,8 +43,8 @@ public class BaseOrderController extends LegendController {
                     query);
             List<BaseOrderVO> baseOrderVOList = baseOrderList.stream().map((entity) ->
                     new BaseOrderVO().parseFrom(entity)).collect(Collectors.toList());
-            PageUtils pageUtils = new PageUtils( baseOrderVOList.size(), query.getCurrentPage(), query.getPageSize());
-            return Ajax.success(baseOrderVOList,AjaxMessage.QUERY_SUCCESS).put(Key.PAGINATION, pageUtils);
+            PageUtils pageUtils = new PageUtils(baseOrderVOList.size(), query.getCurrentPage(), query.getPageSize());
+            return Ajax.success(baseOrderVOList, AjaxMessage.QUERY_SUCCESS).put(Key.PAGINATION, pageUtils);
         } catch (Exception e) {
             e.printStackTrace();
             return Ajax.error(AjaxMessage.SERVER_ERROR, AjaxCode.SERVER_ERROR);
@@ -56,8 +55,8 @@ public class BaseOrderController extends LegendController {
     // @RequiresPermissions("base:order:details")
     public Ajax details(@PathVariable int id) {
         try {
-            BaseOrder baseOrder =baseOrderService.getById(id);
-                BaseOrderVO baseOrderVO = new BaseOrderVO().parseFrom(baseOrder);
+            BaseOrder baseOrder = baseOrderService.getById(id);
+            BaseOrderVO baseOrderVO = new BaseOrderVO().parseFrom(baseOrder);
             return Ajax.success(baseOrderVO, AjaxMessage.QUERY_SUCCESS);
         } catch (Exception e) {
             e.printStackTrace();

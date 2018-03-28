@@ -55,8 +55,8 @@ public class CampusUserInfoController extends LegendController {
     // @RequiresPermissions("campus:userInfo:details")
     public Ajax details(@PathVariable int id) {
         try {
-            CampusUserInfo campusUserInfo =campusUserInfoService.getById(id);
-                CampusUserInfoVO campusUserInfoVO = new CampusUserInfoVO().parseFrom(campusUserInfo);
+            CampusUserInfo campusUserInfo = campusUserInfoService.getById(id);
+            CampusUserInfoVO campusUserInfoVO = new CampusUserInfoVO().parseFrom(campusUserInfo);
             return Ajax.success(campusUserInfoVO, AjaxMessage.QUERY_SUCCESS);
         } catch (Exception e) {
             e.printStackTrace();

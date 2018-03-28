@@ -1,29 +1,28 @@
 package com.legend.cloud.controller.base;
 
 
-        import com.legend.module.core.model.contant.arribute.Column;
-        import com.legend.module.core.model.contant.arribute.Key;
-        import com.legend.module.core.model.contant.code.result.AjaxCode;
-        import com.legend.module.core.model.contant.message.result.AjaxMessage;
-        import com.legend.module.core.model.json.result.Ajax;
-        import com.legend.module.core.model.json.result.AjaxValidate;
-        import com.legend.module.core.utils.PageUtils;
-        import com.legend.module.core.utils.Query;
-        import com.legend.module.core.web.controller.LegendController;
-        import com.legend.cloud.entity.base.BaseFile;
-        import com.legend.cloud.service.base.BaseFileService;
-        import com.legend.cloud.vo.base.BaseFileVO;
-        import org.springframework.validation.BindingResult;
-        import org.springframework.validation.annotation.Validated;
-        import org.springframework.web.bind.annotation.PathVariable;
-        import org.springframework.web.bind.annotation.RequestMapping;
-        import org.springframework.web.bind.annotation.RequestMethod;
-        import org.springframework.web.bind.annotation.RestController;
+import com.legend.cloud.entity.base.BaseFile;
+import com.legend.cloud.service.base.BaseFileService;
+import com.legend.cloud.vo.base.BaseFileVO;
+import com.legend.module.core.model.contant.arribute.Column;
+import com.legend.module.core.model.contant.arribute.Key;
+import com.legend.module.core.model.contant.code.result.AjaxCode;
+import com.legend.module.core.model.contant.message.result.AjaxMessage;
+import com.legend.module.core.model.json.result.Ajax;
+import com.legend.module.core.model.json.result.AjaxValidate;
+import com.legend.module.core.utils.PageUtils;
+import com.legend.module.core.utils.Query;
+import com.legend.module.core.web.controller.LegendController;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
-        import javax.annotation.Resource;
-        import java.util.List;
-        import java.util.Map;
-        import java.util.stream.Collectors;
+import javax.annotation.Resource;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author Administrator
@@ -44,8 +43,8 @@ public class BaseFileController extends LegendController {
                     query);
             List<BaseFileVO> baseFileVOList = baseFileList.stream().map((entity) ->
                     new BaseFileVO().parseFrom(entity)).collect(Collectors.toList());
-            PageUtils pageUtils = new PageUtils( baseFileVOList.size(), query.getCurrentPage(), query.getPageSize());
-            return Ajax.success(baseFileVOList,AjaxMessage.QUERY_SUCCESS).put(Key.PAGINATION, pageUtils);
+            PageUtils pageUtils = new PageUtils(baseFileVOList.size(), query.getCurrentPage(), query.getPageSize());
+            return Ajax.success(baseFileVOList, AjaxMessage.QUERY_SUCCESS).put(Key.PAGINATION, pageUtils);
         } catch (Exception e) {
             e.printStackTrace();
             return Ajax.error(AjaxMessage.SERVER_ERROR, AjaxCode.SERVER_ERROR);
@@ -56,8 +55,8 @@ public class BaseFileController extends LegendController {
     // @RequiresPermissions("base:file:details")
     public Ajax details(@PathVariable int id) {
         try {
-            BaseFile baseFile =baseFileService.getById(id);
-                BaseFileVO baseFileVO = new BaseFileVO().parseFrom(baseFile);
+            BaseFile baseFile = baseFileService.getById(id);
+            BaseFileVO baseFileVO = new BaseFileVO().parseFrom(baseFile);
             return Ajax.success(baseFileVO, AjaxMessage.QUERY_SUCCESS);
         } catch (Exception e) {
             e.printStackTrace();

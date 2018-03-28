@@ -6,15 +6,15 @@
                 WARNING-@mbg.generated
             -->
         <id column="id" property="id" jdbcType="INTEGER"/>
-                                                        <result column="description" property="description" jdbcType="VARCHAR"/>
-                                                <result column="remark" property="remark" jdbcType="VARCHAR"/>
-                                                <result column="data" property="data" jdbcType="INTEGER"/>
-                                                <result column="probability" property="probability" jdbcType="DOUBLE"/>
-                                                <result column="code" property="code" jdbcType="VARCHAR"/>
-                                                <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
-                                                <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
-                                                <result column="is_deleted" property="isDeleted" jdbcType="BIT"/>
-                        </resultMap>
+        <result column="description" property="description" jdbcType="VARCHAR"/>
+        <result column="remark" property="remark" jdbcType="VARCHAR"/>
+        <result column="data" property="data" jdbcType="INTEGER"/>
+        <result column="probability" property="probability" jdbcType="DOUBLE"/>
+        <result column="code" property="code" jdbcType="VARCHAR"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
+        <result column="is_deleted" property="isDeleted" jdbcType="BIT"/>
+    </resultMap>
     <sql id="Example_Where_Clause">
         <!--
                 WARNING-@mbg.generated
@@ -52,16 +52,16 @@
         <!--
                 WARNING-@mbg.generated
                 -->
-                                                id,
-                                                            description,
-                                                            remark,
-                                                            data,
-                                                            probability,
-                                                            code,
-                                                            createTime,
-                                                            updateTime,
-                                                            isDeleted,
-                        </sql>
+        id,
+        description,
+        remark,
+        data,
+        probability,
+        code,
+        createTime,
+        updateTime,
+        isDeleted,
+    </sql>
     <select id="countByExample" parameterType="com.legend.cloud.entity.campus.CampusStatisticsExample"
             resultType="java.lang
 .Long">

@@ -1,17 +1,17 @@
 package com.legend.cloud.service.system.impl;
 
-        import com.legend.cloud.dao.mapper.system.SystemRoleRelPermissionMapper;
-        import com.legend.cloud.entity.system.SystemRoleRelPermission;
-        import com.legend.cloud.entity.system.SystemRoleRelPermissionExample;
-        import com.legend.cloud.service.system.SystemRoleRelPermissionService;
-        import com.legend.module.core.service.core.impl.AbstractLegendService;
-        import org.apache.commons.lang.StringUtils;
-        import org.springframework.stereotype.Service;
-        import org.springframework.transaction.annotation.Transactional;
-        import tk.mybatis.mapper.common.Mapper;
+import com.legend.cloud.dao.mapper.system.SystemRoleRelPermissionMapper;
+import com.legend.cloud.entity.system.SystemRoleRelPermission;
+import com.legend.cloud.entity.system.SystemRoleRelPermissionExample;
+import com.legend.cloud.service.system.SystemRoleRelPermissionService;
+import com.legend.module.core.service.core.impl.AbstractLegendService;
+import org.apache.commons.lang.StringUtils;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import tk.mybatis.mapper.common.Mapper;
 
-        import javax.annotation.Resource;
-        import java.util.List;
+import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @author Administrator
@@ -31,37 +31,37 @@ public class SystemRoleRelPermissionServiceImpl extends AbstractLegendService<Sy
 
     @Override
     protected Object getExample(SystemRoleRelPermission systemRoleRelPermission, String order, String sort) {
-            SystemRoleRelPermissionExample example = new SystemRoleRelPermissionExample();
+        SystemRoleRelPermissionExample example = new SystemRoleRelPermissionExample();
         if (StringUtils.isNotBlank(order)) {
             if (StringUtils.isNotBlank(sort)) {
                 order = order.concat(" ").concat(sort);
             }
             example.setOrderByClause(order);
         }
-            SystemRoleRelPermissionExample.Criteria criteria = example.createCriteria().andIsDeletedEqualTo(false);
-        if (systemRoleRelPermission ==null){
+        SystemRoleRelPermissionExample.Criteria criteria = example.createCriteria().andIsDeletedEqualTo(false);
+        if (systemRoleRelPermission == null) {
             return example;
         }
 
-                    if (systemRoleRelPermission.getId() != null){
+        if (systemRoleRelPermission.getId() != null) {
             criteria.andIdEqualTo(systemRoleRelPermission.getId());
         }
-                    if (systemRoleRelPermission.getRoleId() != null){
+        if (systemRoleRelPermission.getRoleId() != null) {
             criteria.andRoleIdEqualTo(systemRoleRelPermission.getRoleId());
         }
-                    if (systemRoleRelPermission.getPermissionId() != null){
+        if (systemRoleRelPermission.getPermissionId() != null) {
             criteria.andPermissionIdEqualTo(systemRoleRelPermission.getPermissionId());
         }
-                    if (systemRoleRelPermission.getCreateTime() != null){
+        if (systemRoleRelPermission.getCreateTime() != null) {
             criteria.andCreateTimeEqualTo(systemRoleRelPermission.getCreateTime());
         }
-                    if (systemRoleRelPermission.getUpdateTime() != null){
+        if (systemRoleRelPermission.getUpdateTime() != null) {
             criteria.andUpdateTimeEqualTo(systemRoleRelPermission.getUpdateTime());
         }
-                    if (systemRoleRelPermission.getIsDeleted() != null){
+        if (systemRoleRelPermission.getIsDeleted() != null) {
             criteria.andIsDeletedEqualTo(systemRoleRelPermission.getIsDeleted());
         }
-                return example;
+        return example;
     }
 
     @Override

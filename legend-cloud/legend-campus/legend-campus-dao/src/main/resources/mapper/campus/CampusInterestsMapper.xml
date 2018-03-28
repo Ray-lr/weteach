@@ -6,12 +6,12 @@
                 WARNING-@mbg.generated
             -->
         <id column="id" property="id" jdbcType="INTEGER"/>
-                                                        <result column="name" property="name" jdbcType="VARCHAR"/>
-                                                <result column="description" property="description" jdbcType="VARCHAR"/>
-                                                <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
-                                                <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
-                                                <result column="is_deleted" property="isDeleted" jdbcType="BIT"/>
-                        </resultMap>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="description" property="description" jdbcType="VARCHAR"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
+        <result column="is_deleted" property="isDeleted" jdbcType="BIT"/>
+    </resultMap>
     <sql id="Example_Where_Clause">
         <!--
                 WARNING-@mbg.generated
@@ -49,13 +49,13 @@
         <!--
                 WARNING-@mbg.generated
                 -->
-                                                id,
-                                                            name,
-                                                            description,
-                                                            createTime,
-                                                            updateTime,
-                                                            isDeleted,
-                        </sql>
+        id,
+        name,
+        description,
+        createTime,
+        updateTime,
+        isDeleted,
+    </sql>
     <select id="countByExample" parameterType="com.legend.cloud.entity.campus.CampusInterestsExample"
             resultType="java.lang
 .Long">

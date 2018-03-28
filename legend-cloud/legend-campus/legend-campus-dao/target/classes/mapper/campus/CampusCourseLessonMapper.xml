@@ -6,15 +6,15 @@
                 WARNING-@mbg.generated
             -->
         <id column="id" property="id" jdbcType="INTEGER"/>
-                                                        <result column="course_id" property="courseId" jdbcType="INTEGER"/>
-                                                <result column="begin_time" property="beginTime" jdbcType="TIMESTAMP"/>
-                                                <result column="end_time" property="endTime" jdbcType="TIMESTAMP"/>
-                                                <result column="location" property="location" jdbcType="VARCHAR"/>
-                                                <result column="status" property="status" jdbcType="INTEGER"/>
-                                                <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
-                                                <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
-                                                <result column="is_deleted" property="isDeleted" jdbcType="BIT"/>
-                        </resultMap>
+        <result column="course_id" property="courseId" jdbcType="INTEGER"/>
+        <result column="begin_time" property="beginTime" jdbcType="TIMESTAMP"/>
+        <result column="end_time" property="endTime" jdbcType="TIMESTAMP"/>
+        <result column="location" property="location" jdbcType="VARCHAR"/>
+        <result column="status" property="status" jdbcType="INTEGER"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
+        <result column="is_deleted" property="isDeleted" jdbcType="BIT"/>
+    </resultMap>
     <sql id="Example_Where_Clause">
         <!--
                 WARNING-@mbg.generated
@@ -52,16 +52,16 @@
         <!--
                 WARNING-@mbg.generated
                 -->
-                                                id,
-                                                            courseId,
-                                                            beginTime,
-                                                            endTime,
-                                                            location,
-                                                            status,
-                                                            createTime,
-                                                            updateTime,
-                                                            isDeleted,
-                        </sql>
+        id,
+        courseId,
+        beginTime,
+        endTime,
+        location,
+        status,
+        createTime,
+        updateTime,
+        isDeleted,
+    </sql>
     <select id="countByExample" parameterType="com.legend.cloud.entity.campus.CampusCourseLessonExample"
             resultType="java.lang
 .Long">

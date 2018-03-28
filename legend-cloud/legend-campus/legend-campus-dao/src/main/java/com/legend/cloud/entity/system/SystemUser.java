@@ -1,11 +1,13 @@
 package com.legend.cloud.entity.system;
 
-import com.legend.module.core.entity.AbstractEntity;
 import com.legend.module.core.entity.user.User;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import javax.persistence.*;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
 
 

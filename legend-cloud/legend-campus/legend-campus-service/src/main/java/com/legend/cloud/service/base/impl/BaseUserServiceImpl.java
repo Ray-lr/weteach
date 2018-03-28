@@ -1,17 +1,16 @@
 package com.legend.cloud.service.base.impl;
 
-        import com.legend.cloud.dao.mapper.base.BaseUserMapper;
-        import com.legend.cloud.entity.base.BaseUser;
-        import com.legend.cloud.entity.base.BaseUserExample;
-        import com.legend.cloud.service.base.BaseUserService;
-        import com.legend.module.core.service.core.impl.AbstractLegendService;
-        import com.legend.module.core.service.user.impl.AbstractUserService;
-        import org.apache.commons.lang.StringUtils;
-        import org.springframework.stereotype.Service;
-        import org.springframework.transaction.annotation.Transactional;
-        import tk.mybatis.mapper.common.Mapper;
+import com.legend.cloud.dao.mapper.base.BaseUserMapper;
+import com.legend.cloud.entity.base.BaseUser;
+import com.legend.cloud.entity.base.BaseUserExample;
+import com.legend.cloud.service.base.BaseUserService;
+import com.legend.module.core.service.user.impl.AbstractUserService;
+import org.apache.commons.lang.StringUtils;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import tk.mybatis.mapper.common.Mapper;
 
-        import javax.annotation.Resource;
+import javax.annotation.Resource;
 
 /**
  * @author Administrator
@@ -31,52 +30,52 @@ public class BaseUserServiceImpl extends AbstractUserService<BaseUser> implement
 
     @Override
     protected Object getExample(BaseUser baseUser, String order, String sort) {
-            BaseUserExample example = new BaseUserExample();
+        BaseUserExample example = new BaseUserExample();
         if (StringUtils.isNotBlank(order)) {
             if (StringUtils.isNotBlank(sort)) {
                 order = order.concat(" ").concat(sort);
             }
             example.setOrderByClause(order);
         }
-            BaseUserExample.Criteria criteria = example.createCriteria().andIsDeletedEqualTo(false);
-        if (baseUser ==null){
+        BaseUserExample.Criteria criteria = example.createCriteria().andIsDeletedEqualTo(false);
+        if (baseUser == null) {
             return example;
         }
 
-                    if (baseUser.getId() != null){
+        if (baseUser.getId() != null) {
             criteria.andIdEqualTo(baseUser.getId());
         }
-                    if (baseUser.getUsername() != null){
+        if (baseUser.getUsername() != null) {
             criteria.andUsernameEqualTo(baseUser.getUsername());
         }
-                    if (baseUser.getPassword() != null){
+        if (baseUser.getPassword() != null) {
             criteria.andPasswordEqualTo(baseUser.getPassword());
         }
-                    if (baseUser.getPhone() != null){
+        if (baseUser.getPhone() != null) {
             criteria.andPhoneEqualTo(baseUser.getPhone());
         }
-                    if (baseUser.getNickName() != null){
+        if (baseUser.getNickName() != null) {
             criteria.andNickNameEqualTo(baseUser.getNickName());
         }
-                    if (baseUser.getIsEnabled() != null){
+        if (baseUser.getIsEnabled() != null) {
             criteria.andIsEnabledEqualTo(baseUser.getIsEnabled());
         }
-                    if (baseUser.getStatus() != null){
+        if (baseUser.getStatus() != null) {
             criteria.andStatusEqualTo(baseUser.getStatus());
         }
-                    if (baseUser.getLastLoginTime() != null){
+        if (baseUser.getLastLoginTime() != null) {
             criteria.andLastLoginTimeEqualTo(baseUser.getLastLoginTime());
         }
-                    if (baseUser.getCreateTime() != null){
+        if (baseUser.getCreateTime() != null) {
             criteria.andCreateTimeEqualTo(baseUser.getCreateTime());
         }
-                    if (baseUser.getUpdateTime() != null){
+        if (baseUser.getUpdateTime() != null) {
             criteria.andUpdateTimeEqualTo(baseUser.getUpdateTime());
         }
-                    if (baseUser.getIsDeleted() != null){
+        if (baseUser.getIsDeleted() != null) {
             criteria.andIsDeletedEqualTo(baseUser.getIsDeleted());
         }
-                return example;
+        return example;
     }
 
     @Override

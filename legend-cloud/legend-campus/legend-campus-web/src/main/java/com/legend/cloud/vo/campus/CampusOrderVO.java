@@ -1,11 +1,11 @@
 package com.legend.cloud.vo.campus;
 
-        import com.legend.cloud.entity.campus.CampusOrder;
-        import com.legend.module.core.vo.AbstractVO;
-        import lombok.Data;
-        import lombok.EqualsAndHashCode;
+import com.legend.cloud.entity.campus.CampusOrder;
+import com.legend.module.core.vo.AbstractVO;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
-        import java.util.Date;
+import java.util.Date;
 
 
 /**
@@ -19,47 +19,47 @@ package com.legend.cloud.vo.campus;
 public class CampusOrderVO extends AbstractVO<CampusOrder> {
     private static final long serialVersionUID = 1L;
 
-            /**
-         * 课程订单id
-         */
-        private Integer id;
-            /**
-         * 基础订单id
-         */
-        private Integer baseOrderId;
-            /**
-         * 用户id
-         */
-        private Integer userId;
-            /**
-         * 课程id
-         */
-        private Integer courseId;
-            /**
-         * 积分
-         */
-        private Integer credits;
-            /**
-         * 订单类型
-         */
-        private String typeCourse;
-            /**
-         * 状态{0、已创建 1、已完成 2、已取消）
-         */
-        private Integer status;
-            /**
-         * 创建时间
-         */
-        private Date createTime;
-            /**
-         * 更新时间
-         */
-        private Date updateTime;
-            /**
-         * 是否删除
-         */
-        private Boolean isDeleted;
-    
+    /**
+     * 课程订单id
+     */
+    private Integer id;
+    /**
+     * 基础订单id
+     */
+    private Integer baseOrderId;
+    /**
+     * 用户id
+     */
+    private Integer userId;
+    /**
+     * 课程id
+     */
+    private Integer courseId;
+    /**
+     * 积分
+     */
+    private Integer credits;
+    /**
+     * 订单类型
+     */
+    private String typeCourse;
+    /**
+     * 状态{0、已创建 1、已完成 2、已取消）
+     */
+    private Integer status;
+    /**
+     * 创建时间
+     */
+    private Date createTime;
+    /**
+     * 更新时间
+     */
+    private Date updateTime;
+    /**
+     * 是否删除
+     */
+    private Boolean isDeleted;
+
     @Override
     public CampusOrder parseTo(String... ignoreProperties) {
         return super.parseTo(ignoreProperties);
@@ -73,16 +73,16 @@ public class CampusOrderVO extends AbstractVO<CampusOrder> {
     @Override
     public String toString() {
         return "CampusOrderVO{" +
-                                ", id=" + getId() +
-                                ", baseOrderId=" + getBaseOrderId() +
-                                ", userId=" + getUserId() +
-                                ", courseId=" + getCourseId() +
-                                ", credits=" + getCredits() +
-                                ", typeCourse=" + getTypeCourse() +
-                                ", status=" + getStatus() +
-                                ", createTime=" + getCreateTime() +
-                                ", updateTime=" + getUpdateTime() +
-                                ", isDeleted=" + getIsDeleted() +
-                            '}';
+                ", id=" + getId() +
+                ", baseOrderId=" + getBaseOrderId() +
+                ", userId=" + getUserId() +
+                ", courseId=" + getCourseId() +
+                ", credits=" + getCredits() +
+                ", typeCourse=" + getTypeCourse() +
+                ", status=" + getStatus() +
+                ", createTime=" + getCreateTime() +
+                ", updateTime=" + getUpdateTime() +
+                ", isDeleted=" + getIsDeleted() +
+                '}';
     }
 }

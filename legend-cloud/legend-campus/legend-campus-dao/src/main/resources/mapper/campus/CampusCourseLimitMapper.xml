@@ -6,15 +6,15 @@
                 WARNING-@mbg.generated
             -->
         <id column="id" property="id" jdbcType="INTEGER"/>
-                                                        <result column="course_id" property="courseId" jdbcType="INTEGER"/>
-                                                <result column="dept" property="dept" jdbcType="INTEGER"/>
-                                                <result column="major" property="major" jdbcType="INTEGER"/>
-                                                <result column="sex" property="sex" jdbcType="INTEGER"/>
-                                                <result column="grade" property="grade" jdbcType="INTEGER"/>
-                                                <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
-                                                <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
-                                                <result column="is_deleted" property="isDeleted" jdbcType="BIT"/>
-                        </resultMap>
+        <result column="course_id" property="courseId" jdbcType="INTEGER"/>
+        <result column="dept" property="dept" jdbcType="INTEGER"/>
+        <result column="major" property="major" jdbcType="INTEGER"/>
+        <result column="sex" property="sex" jdbcType="INTEGER"/>
+        <result column="grade" property="grade" jdbcType="INTEGER"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
+        <result column="is_deleted" property="isDeleted" jdbcType="BIT"/>
+    </resultMap>
     <sql id="Example_Where_Clause">
         <!--
                 WARNING-@mbg.generated
@@ -52,16 +52,16 @@
         <!--
                 WARNING-@mbg.generated
                 -->
-                                                id,
-                                                            courseId,
-                                                            dept,
-                                                            major,
-                                                            sex,
-                                                            grade,
-                                                            createTime,
-                                                            updateTime,
-                                                            isDeleted,
-                        </sql>
+        id,
+        courseId,
+        dept,
+        major,
+        sex,
+        grade,
+        createTime,
+        updateTime,
+        isDeleted,
+    </sql>
     <select id="countByExample" parameterType="com.legend.cloud.entity.campus.CampusCourseLimitExample"
             resultType="java.lang
 .Long">

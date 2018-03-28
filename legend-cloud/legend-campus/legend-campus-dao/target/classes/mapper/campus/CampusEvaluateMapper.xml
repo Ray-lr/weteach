@@ -6,16 +6,16 @@
                 WARNING-@mbg.generated
             -->
         <id column="id" property="id" jdbcType="INTEGER"/>
-                                                        <result column="user_id" property="userId" jdbcType="INTEGER"/>
-                                                <result column="course_id" property="courseId" jdbcType="INTEGER"/>
-                                                <result column="evaluate_star" property="evaluateStar" jdbcType="VARCHAR"/>
-                                                <result column="detail" property="detail" jdbcType="VARCHAR"/>
-                                                <result column="superaddition" property="superaddition" jdbcType="VARCHAR"/>
-                                                <result column="status" property="status" jdbcType="INTEGER"/>
-                                                <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
-                                                <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
-                                                <result column="is_deleted" property="isDeleted" jdbcType="BIT"/>
-                        </resultMap>
+        <result column="user_id" property="userId" jdbcType="INTEGER"/>
+        <result column="course_id" property="courseId" jdbcType="INTEGER"/>
+        <result column="evaluate_star" property="evaluateStar" jdbcType="VARCHAR"/>
+        <result column="detail" property="detail" jdbcType="VARCHAR"/>
+        <result column="superaddition" property="superaddition" jdbcType="VARCHAR"/>
+        <result column="status" property="status" jdbcType="INTEGER"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
+        <result column="is_deleted" property="isDeleted" jdbcType="BIT"/>
+    </resultMap>
     <sql id="Example_Where_Clause">
         <!--
                 WARNING-@mbg.generated
@@ -53,17 +53,17 @@
         <!--
                 WARNING-@mbg.generated
                 -->
-                                                id,
-                                                            userId,
-                                                            courseId,
-                                                            evaluateStar,
-                                                            detail,
-                                                            superaddition,
-                                                            status,
-                                                            createTime,
-                                                            updateTime,
-                                                            isDeleted,
-                        </sql>
+        id,
+        userId,
+        courseId,
+        evaluateStar,
+        detail,
+        superaddition,
+        status,
+        createTime,
+        updateTime,
+        isDeleted,
+    </sql>
     <select id="countByExample" parameterType="com.legend.cloud.entity.campus.CampusEvaluateExample"
             resultType="java.lang
 .Long">

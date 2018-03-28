@@ -6,23 +6,23 @@
                 WARNING-@mbg.generated
             -->
         <id column="id" property="id" jdbcType="INTEGER"/>
-                                                        <result column="user_id" property="userId" jdbcType="INTEGER"/>
-                                                <result column="type_user" property="typeUser" jdbcType="VARCHAR"/>
-                                                <result column="order_number" property="orderNumber" jdbcType="VARCHAR"/>
-                                                <result column="title" property="title" jdbcType="VARCHAR"/>
-                                                <result column="description" property="description" jdbcType="VARCHAR"/>
-                                                <result column="details" property="details" jdbcType="VARCHAR"/>
-                                                <result column="remark" property="remark" jdbcType="VARCHAR"/>
-                                                <result column="type_currency" property="typeCurrency" jdbcType="VARCHAR"/>
-                                                <result column="payment_amount" property="paymentAmount" jdbcType="DECIMAL"/>
-                                                <result column="type_payment" property="typePayment" jdbcType="VARCHAR"/>
-                                                <result column="begin_time" property="beginTime" jdbcType="TIMESTAMP"/>
-                                                <result column="end_time" property="endTime" jdbcType="TIMESTAMP"/>
-                                                <result column="status" property="status" jdbcType="INTEGER"/>
-                                                <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
-                                                <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
-                                                <result column="is_deleted" property="isDeleted" jdbcType="BIT"/>
-                        </resultMap>
+        <result column="user_id" property="userId" jdbcType="INTEGER"/>
+        <result column="type_user" property="typeUser" jdbcType="VARCHAR"/>
+        <result column="order_number" property="orderNumber" jdbcType="VARCHAR"/>
+        <result column="title" property="title" jdbcType="VARCHAR"/>
+        <result column="description" property="description" jdbcType="VARCHAR"/>
+        <result column="details" property="details" jdbcType="VARCHAR"/>
+        <result column="remark" property="remark" jdbcType="VARCHAR"/>
+        <result column="type_currency" property="typeCurrency" jdbcType="VARCHAR"/>
+        <result column="payment_amount" property="paymentAmount" jdbcType="DECIMAL"/>
+        <result column="type_payment" property="typePayment" jdbcType="VARCHAR"/>
+        <result column="begin_time" property="beginTime" jdbcType="TIMESTAMP"/>
+        <result column="end_time" property="endTime" jdbcType="TIMESTAMP"/>
+        <result column="status" property="status" jdbcType="INTEGER"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
+        <result column="is_deleted" property="isDeleted" jdbcType="BIT"/>
+    </resultMap>
     <sql id="Example_Where_Clause">
         <!--
                 WARNING-@mbg.generated
@@ -60,24 +60,24 @@
         <!--
                 WARNING-@mbg.generated
                 -->
-                                                id,
-                                                            userId,
-                                                            typeUser,
-                                                            orderNumber,
-                                                            title,
-                                                            description,
-                                                            details,
-                                                            remark,
-                                                            typeCurrency,
-                                                            paymentAmount,
-                                                            typePayment,
-                                                            beginTime,
-                                                            endTime,
-                                                            status,
-                                                            createTime,
-                                                            updateTime,
-                                                            isDeleted,
-                        </sql>
+        id,
+        userId,
+        typeUser,
+        orderNumber,
+        title,
+        description,
+        details,
+        remark,
+        typeCurrency,
+        paymentAmount,
+        typePayment,
+        beginTime,
+        endTime,
+        status,
+        createTime,
+        updateTime,
+        isDeleted,
+    </sql>
     <select id="countByExample" parameterType="com.legend.cloud.entity.base.BaseOrderExample"
             resultType="java.lang
 .Long">

@@ -5,13 +5,13 @@ import com.legend.cloud.entity.campus.CampusCourse;
 import com.legend.cloud.entity.campus.CampusCourseExample;
 import com.legend.cloud.service.campus.CampusCourseService;
 import com.legend.module.core.service.core.impl.AbstractLegendService;
+import com.legend.module.core.utils.Query;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.common.Mapper;
 
 import javax.annotation.Resource;
-import com.legend.module.core.utils.Query;
 import java.util.List;
 
 /**

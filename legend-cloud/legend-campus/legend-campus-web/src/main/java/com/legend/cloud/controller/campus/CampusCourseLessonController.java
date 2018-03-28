@@ -3,6 +3,7 @@ package com.legend.cloud.controller.campus;
 
 import com.legend.cloud.entity.campus.CampusCourseLesson;
 import com.legend.cloud.service.campus.CampusCourseLessonService;
+import com.legend.cloud.vo.campus.CampusCourseLessonVO;
 import com.legend.module.core.model.contant.arribute.Column;
 import com.legend.module.core.model.contant.arribute.Key;
 import com.legend.module.core.model.contant.code.result.AjaxCode;
@@ -12,7 +13,6 @@ import com.legend.module.core.model.json.result.AjaxValidate;
 import com.legend.module.core.utils.PageUtils;
 import com.legend.module.core.utils.Query;
 import com.legend.module.core.web.controller.LegendController;
-import com.legend.cloud.vo.campus.CampusCourseLessonVO;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;

@@ -1,16 +1,16 @@
 package com.legend.cloud.service.base.impl;
 
-        import com.legend.cloud.dao.mapper.base.BaseTypeMapper;
-        import com.legend.cloud.entity.base.BaseType;
-        import com.legend.cloud.entity.base.BaseTypeExample;
-        import com.legend.cloud.service.base.BaseTypeService;
-        import com.legend.module.core.service.core.impl.AbstractLegendService;
-        import org.apache.commons.lang.StringUtils;
-        import org.springframework.stereotype.Service;
-        import org.springframework.transaction.annotation.Transactional;
-        import tk.mybatis.mapper.common.Mapper;
+import com.legend.cloud.dao.mapper.base.BaseTypeMapper;
+import com.legend.cloud.entity.base.BaseType;
+import com.legend.cloud.entity.base.BaseTypeExample;
+import com.legend.cloud.service.base.BaseTypeService;
+import com.legend.module.core.service.core.impl.AbstractLegendService;
+import org.apache.commons.lang.StringUtils;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import tk.mybatis.mapper.common.Mapper;
 
-        import javax.annotation.Resource;
+import javax.annotation.Resource;
 
 /**
  * @author Administrator
@@ -30,43 +30,43 @@ public class BaseTypeServiceImpl extends AbstractLegendService<BaseType> impleme
 
     @Override
     protected Object getExample(BaseType baseType, String order, String sort) {
-            BaseTypeExample example = new BaseTypeExample();
+        BaseTypeExample example = new BaseTypeExample();
         if (StringUtils.isNotBlank(order)) {
             if (StringUtils.isNotBlank(sort)) {
                 order = order.concat(" ").concat(sort);
             }
             example.setOrderByClause(order);
         }
-            BaseTypeExample.Criteria criteria = example.createCriteria().andIsDeletedEqualTo(false);
-        if (baseType ==null){
+        BaseTypeExample.Criteria criteria = example.createCriteria().andIsDeletedEqualTo(false);
+        if (baseType == null) {
             return example;
         }
 
-                    if (baseType.getId() != null){
+        if (baseType.getId() != null) {
             criteria.andIdEqualTo(baseType.getId());
         }
-                    if (baseType.getName() != null){
+        if (baseType.getName() != null) {
             criteria.andNameEqualTo(baseType.getName());
         }
-                    if (baseType.getDescription() != null){
+        if (baseType.getDescription() != null) {
             criteria.andDescriptionEqualTo(baseType.getDescription());
         }
-                    if (baseType.getSign() != null){
+        if (baseType.getSign() != null) {
             criteria.andSignEqualTo(baseType.getSign());
         }
-                    if (baseType.getParameter() != null){
+        if (baseType.getParameter() != null) {
             criteria.andParameterEqualTo(baseType.getParameter());
         }
-                    if (baseType.getCreateTime() != null){
+        if (baseType.getCreateTime() != null) {
             criteria.andCreateTimeEqualTo(baseType.getCreateTime());
         }
-                    if (baseType.getUpdateTime() != null){
+        if (baseType.getUpdateTime() != null) {
             criteria.andUpdateTimeEqualTo(baseType.getUpdateTime());
         }
-                    if (baseType.getIsDeleted() != null){
+        if (baseType.getIsDeleted() != null) {
             criteria.andIsDeletedEqualTo(baseType.getIsDeleted());
         }
-                return example;
+        return example;
     }
 
 }

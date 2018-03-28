@@ -6,16 +6,16 @@
                 WARNING-@mbg.generated
             -->
         <id column="id" property="id" jdbcType="INTEGER"/>
-                                                        <result column="user_id" property="userId" jdbcType="INTEGER"/>
-                                                <result column="dept" property="dept" jdbcType="INTEGER"/>
-                                                <result column="major" property="major" jdbcType="INTEGER"/>
-                                                <result column="reason" property="reason" jdbcType="VARCHAR"/>
-                                                <result column="evidence" property="evidence" jdbcType="VARCHAR"/>
-                                                <result column="status" property="status" jdbcType="INTEGER"/>
-                                                <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
-                                                <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
-                                                <result column="is_deleted" property="isDeleted" jdbcType="BIT"/>
-                        </resultMap>
+        <result column="user_id" property="userId" jdbcType="INTEGER"/>
+        <result column="dept" property="dept" jdbcType="INTEGER"/>
+        <result column="major" property="major" jdbcType="INTEGER"/>
+        <result column="reason" property="reason" jdbcType="VARCHAR"/>
+        <result column="evidence" property="evidence" jdbcType="VARCHAR"/>
+        <result column="status" property="status" jdbcType="INTEGER"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
+        <result column="is_deleted" property="isDeleted" jdbcType="BIT"/>
+    </resultMap>
     <sql id="Example_Where_Clause">
         <!--
                 WARNING-@mbg.generated
@@ -53,17 +53,17 @@
         <!--
                 WARNING-@mbg.generated
                 -->
-                                                id,
-                                                            userId,
-                                                            dept,
-                                                            major,
-                                                            reason,
-                                                            evidence,
-                                                            status,
-                                                            createTime,
-                                                            updateTime,
-                                                            isDeleted,
-                        </sql>
+        id,
+        userId,
+        dept,
+        major,
+        reason,
+        evidence,
+        status,
+        createTime,
+        updateTime,
+        isDeleted,
+    </sql>
     <select id="countByExample" parameterType="com.legend.cloud.entity.campus.CampusVerifyExample"
             resultType="java.lang
 .Long">

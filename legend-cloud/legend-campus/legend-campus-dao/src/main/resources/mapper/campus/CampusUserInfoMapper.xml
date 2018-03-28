@@ -6,27 +6,27 @@
                 WARNING-@mbg.generated
             -->
         <id column="id" property="id" jdbcType="INTEGER"/>
-                                                        <result column="base_user_id" property="baseUserId" jdbcType="INTEGER"/>
-                                                <result column="name" property="name" jdbcType="VARCHAR"/>
-                                                <result column="nickname" property="nickname" jdbcType="VARCHAR"/>
-                                                <result column="sex" property="sex" jdbcType="VARCHAR"/>
-                                                <result column="native_place" property="nativePlace" jdbcType="VARCHAR"/>
-                                                <result column="dept" property="dept" jdbcType="VARCHAR"/>
-                                                <result column="major" property="major" jdbcType="VARCHAR"/>
-                                                <result column="direction" property="direction" jdbcType="VARCHAR"/>
-                                                <result column="phone" property="phone" jdbcType="VARCHAR"/>
-                                                <result column="qicq" property="qicq" jdbcType="VARCHAR"/>
-                                                <result column="email" property="email" jdbcType="VARCHAR"/>
-                                                <result column="credits" property="credits" jdbcType="INTEGER"/>
-                                                <result column="credits_level" property="creditsLevel" jdbcType="VARCHAR"/>
-                                                <result column="order_join" property="orderJoin" jdbcType="INTEGER"/>
-                                                <result column="order_publish" property="orderPublish" jdbcType="INTEGER"/>
-                                                <result column="order_finish" property="orderFinish" jdbcType="INTEGER"/>
-                                                <result column="percentage_complete" property="percentageComplete" jdbcType="DOUBLE"/>
-                                                <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
-                                                <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
-                                                <result column="is_deleted" property="isDeleted" jdbcType="BIT"/>
-                        </resultMap>
+        <result column="base_user_id" property="baseUserId" jdbcType="INTEGER"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="nickname" property="nickname" jdbcType="VARCHAR"/>
+        <result column="sex" property="sex" jdbcType="VARCHAR"/>
+        <result column="native_place" property="nativePlace" jdbcType="VARCHAR"/>
+        <result column="dept" property="dept" jdbcType="VARCHAR"/>
+        <result column="major" property="major" jdbcType="VARCHAR"/>
+        <result column="direction" property="direction" jdbcType="VARCHAR"/>
+        <result column="phone" property="phone" jdbcType="VARCHAR"/>
+        <result column="qicq" property="qicq" jdbcType="VARCHAR"/>
+        <result column="email" property="email" jdbcType="VARCHAR"/>
+        <result column="credits" property="credits" jdbcType="INTEGER"/>
+        <result column="credits_level" property="creditsLevel" jdbcType="VARCHAR"/>
+        <result column="order_join" property="orderJoin" jdbcType="INTEGER"/>
+        <result column="order_publish" property="orderPublish" jdbcType="INTEGER"/>
+        <result column="order_finish" property="orderFinish" jdbcType="INTEGER"/>
+        <result column="percentage_complete" property="percentageComplete" jdbcType="DOUBLE"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
+        <result column="is_deleted" property="isDeleted" jdbcType="BIT"/>
+    </resultMap>
     <sql id="Example_Where_Clause">
         <!--
                 WARNING-@mbg.generated
@@ -64,28 +64,28 @@
         <!--
                 WARNING-@mbg.generated
                 -->
-                                                id,
-                                                            baseUserId,
-                                                            name,
-                                                            nickname,
-                                                            sex,
-                                                            nativePlace,
-                                                            dept,
-                                                            major,
-                                                            direction,
-                                                            phone,
-                                                            qicq,
-                                                            email,
-                                                            credits,
-                                                            creditsLevel,
-                                                            orderJoin,
-                                                            orderPublish,
-                                                            orderFinish,
-                                                            percentageComplete,
-                                                            createTime,
-                                                            updateTime,
-                                                            isDeleted,
-                        </sql>
+        id,
+        baseUserId,
+        name,
+        nickname,
+        sex,
+        nativePlace,
+        dept,
+        major,
+        direction,
+        phone,
+        qicq,
+        email,
+        credits,
+        creditsLevel,
+        orderJoin,
+        orderPublish,
+        orderFinish,
+        percentageComplete,
+        createTime,
+        updateTime,
+        isDeleted,
+    </sql>
     <select id="countByExample" parameterType="com.legend.cloud.entity.campus.CampusUserInfoExample"
             resultType="java.lang
 .Long">

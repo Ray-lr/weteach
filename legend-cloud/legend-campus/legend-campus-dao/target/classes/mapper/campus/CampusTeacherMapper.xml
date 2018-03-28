@@ -6,17 +6,17 @@
                 WARNING-@mbg.generated
             -->
         <id column="id" property="id" jdbcType="INTEGER"/>
-                                                        <result column="user_id" property="userId" jdbcType="INTEGER"/>
-                                                <result column="verify_num" property="verifyNum" jdbcType="INTEGER"/>
-                                                <result column="is_enabled" property="isEnabled" jdbcType="BIT"/>
-                                                <result column="order_join" property="orderJoin" jdbcType="INTEGER"/>
-                                                <result column="order_publish" property="orderPublish" jdbcType="INTEGER"/>
-                                                <result column="order_finish" property="orderFinish" jdbcType="INTEGER"/>
-                                                <result column="percentage_complete" property="percentageComplete" jdbcType="DOUBLE"/>
-                                                <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
-                                                <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
-                                                <result column="is_deleted" property="isDeleted" jdbcType="BIT"/>
-                        </resultMap>
+        <result column="user_id" property="userId" jdbcType="INTEGER"/>
+        <result column="verify_num" property="verifyNum" jdbcType="INTEGER"/>
+        <result column="is_enabled" property="isEnabled" jdbcType="BIT"/>
+        <result column="order_join" property="orderJoin" jdbcType="INTEGER"/>
+        <result column="order_publish" property="orderPublish" jdbcType="INTEGER"/>
+        <result column="order_finish" property="orderFinish" jdbcType="INTEGER"/>
+        <result column="percentage_complete" property="percentageComplete" jdbcType="DOUBLE"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
+        <result column="is_deleted" property="isDeleted" jdbcType="BIT"/>
+    </resultMap>
     <sql id="Example_Where_Clause">
         <!--
                 WARNING-@mbg.generated
@@ -54,18 +54,18 @@
         <!--
                 WARNING-@mbg.generated
                 -->
-                                                id,
-                                                            userId,
-                                                            verifyNum,
-                                                            isEnabled,
-                                                            orderJoin,
-                                                            orderPublish,
-                                                            orderFinish,
-                                                            percentageComplete,
-                                                            createTime,
-                                                            updateTime,
-                                                            isDeleted,
-                        </sql>
+        id,
+        userId,
+        verifyNum,
+        isEnabled,
+        orderJoin,
+        orderPublish,
+        orderFinish,
+        percentageComplete,
+        createTime,
+        updateTime,
+        isDeleted,
+    </sql>
     <select id="countByExample" parameterType="com.legend.cloud.entity.campus.CampusTeacherExample"
             resultType="java.lang
 .Long">

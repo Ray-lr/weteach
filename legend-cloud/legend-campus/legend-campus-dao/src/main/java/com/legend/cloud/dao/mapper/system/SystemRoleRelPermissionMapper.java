@@ -1,10 +1,10 @@
 package com.legend.cloud.dao.mapper.system;
 
-        import com.legend.cloud.entity.system.SystemRoleRelPermission;
-        import com.legend.cloud.entity.system.SystemRoleRelPermissionExample;
-        import com.legend.module.core.dao.mapper.LegendMapper;
-        import org.apache.ibatis.annotations.Mapper;
-        import org.springframework.stereotype.Component;
+import com.legend.cloud.entity.system.SystemRoleRelPermission;
+import com.legend.cloud.entity.system.SystemRoleRelPermissionExample;
+import com.legend.module.core.dao.mapper.LegendMapper;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Component;
 
 /**
  * SystemRoleRelPermission的mapper接口

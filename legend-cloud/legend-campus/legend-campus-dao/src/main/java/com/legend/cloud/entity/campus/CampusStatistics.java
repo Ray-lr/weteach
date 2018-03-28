@@ -4,9 +4,11 @@ import com.legend.module.core.entity.AbstractEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import javax.persistence.*;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
-
 
 
 /**
@@ -19,45 +21,45 @@ import java.util.Date;
 @Data
 @Table(name = "campus_statistics")
 public class CampusStatistics extends AbstractEntity<CampusStatistics> {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	/**
-     * 
+    /**
+     *
      */
-        @Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-        	private Integer id;
-	/**
+    private Integer id;
+    /**
      * 描述
      */
-        	private String description;
-	/**
+    private String description;
+    /**
      * 备注
      */
-        	private String remark;
-	/**
+    private String remark;
+    /**
      * 具体数据
      */
-        	private Integer data;
-	/**
+    private Integer data;
+    /**
      * 概率数据
      */
-        	private Double probability;
-	/**
+    private Double probability;
+    /**
      * 编号
      */
-        	private String code;
-	/**
+    private String code;
+    /**
      * 创建时间
      */
-        	private Date createTime;
-	/**
+    private Date createTime;
+    /**
      * 修改时间
      */
-        	private Date updateTime;
-	/**
+    private Date updateTime;
+    /**
      * 是否删除
      */
-        	private Boolean isDeleted;
+    private Boolean isDeleted;
 
 }
