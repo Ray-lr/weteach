@@ -153,7 +153,7 @@ public class ${className}Example {
             }
 
             public Criteria and${column.attrName}In(List<${column.attrType}> values) {
-                addCriterion("${column.columnname} in", values, "${column.columnname}");
+                addCriterion("${column.columnName} in", values, "${column.columnName}");
                 return (Criteria) this;
             }
 
