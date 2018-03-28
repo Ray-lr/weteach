@@ -6,8 +6,8 @@
                 WARNING-@mbg.generated
             -->
         <id column="id" property="id" jdbcType="INTEGER"/>
-        <result column="user_id" property="userId" jdbcType="INTEGER"/>
-        <result column="role_id" property="roleId" jdbcType="INTEGER"/>
+        <result column="system_user_id" property="systemUserId" jdbcType="INTEGER"/>
+        <result column="system_role_id" property="systemRoleId" jdbcType="INTEGER"/>
         <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
         <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
         <result column="is_deleted" property="isDeleted" jdbcType="BIT"/>
@@ -50,8 +50,8 @@
                 WARNING-@mbg.generated
                 -->
         id,
-        userId,
-        roleId,
+        systemUserId,
+        systemRoleId,
         createTime,
         updateTime,
         isDeleted,
