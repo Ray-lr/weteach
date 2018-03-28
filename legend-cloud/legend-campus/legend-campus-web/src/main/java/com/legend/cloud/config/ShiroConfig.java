@@ -1,6 +1,7 @@
 package com.legend.cloud.config;
 
 import com.legend.cloud.realm.ShiroRealm;
+import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.spring.LifecycleBeanPostProcessor;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
@@ -23,8 +24,8 @@ public class ShiroConfig {
     /**
      * shiro拦截器
      *
-     * @param securityManager
-     * @return
+     * @param securityManager 安全管理器
+     * @return shiroFilterFactoryBean
      */
     @Bean
     public ShiroFilterFactoryBean shirFilter(SecurityManager securityManager) {
@@ -38,14 +39,12 @@ public class ShiroConfig {
         Map<String, String> filterChainDefinitionMap = new LinkedHashMap<>();
         // 不用验证的url
         filterChainDefinitionMap.put("/static/**", "anon");
-        filterChainDefinitionMap.put("/system/user/login", "anon");
         filterChainDefinitionMap.put("/base/user/login", "anon");
+        filterChainDefinitionMap.put("/system/user/login", "anon");
         // 登出的url，具体方法，shiro已经实现
         filterChainDefinitionMap.put("/logout", "logout");
         // 剩下的所有url都需要经过验证才可以访问
-        filterChainDefinitionMap.put("/*", "authc");
         filterChainDefinitionMap.put("/**", "authc");
-        filterChainDefinitionMap.put("/*.*", "authc");
         // 将配置好的拦截url赋给ShiroFilterFactoryBean
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
         return shiroFilterFactoryBean;
@@ -57,24 +56,39 @@ public class ShiroConfig {
      * @return authorizationAttributeSourceAdvisor
      */
     @Bean
-    public AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor() {
+    public AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor(HashedCredentialsMatcher hashedCredentialsMatcher) {
         AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor = new
                 AuthorizationAttributeSourceAdvisor();
-        authorizationAttributeSourceAdvisor.setSecurityManager(getSecurityManager());
+        authorizationAttributeSourceAdvisor.setSecurityManager(securityManager(hashedCredentialsMatcher));
         return authorizationAttributeSourceAdvisor;
     }
 
     /**
      * shiro的安全管理器
      *
+     * @param hashedCredentialsMatcher 密码凭证管理器
      * @return securityManager
      */
     @Bean
-    public SecurityManager getSecurityManager() {
+    public SecurityManager securityManager(HashedCredentialsMatcher hashedCredentialsMatcher) {
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
-        securityManager.setRealm(getShiroRealm());
-        securityManager.setRememberMeManager(getCookieRememberMeManager());
+        securityManager.setRealm(shiroRealm(hashedCredentialsMatcher));
+        securityManager.setRememberMeManager(cookieRememberMeManager());
         return securityManager;
+    }
+
+    /***
+     * 密码匹配凭证管理器
+     * @return hashedCredentialsMatcher
+     */
+    @Bean
+    public HashedCredentialsMatcher hashedCredentialsMatcher() {
+        HashedCredentialsMatcher hashedCredentialsMatcher = new HashedCredentialsMatcher();
+        // 采用MD5方式加密
+        hashedCredentialsMatcher.setHashAlgorithmName("MD5");
+        // 设置加密次数
+        hashedCredentialsMatcher.setHashIterations(1024);
+        return hashedCredentialsMatcher;
     }
 
     /**
@@ -83,8 +97,10 @@ public class ShiroConfig {
      * @return shiroRealm
      */
     @Bean
-    public ShiroRealm getShiroRealm() {
-        return new ShiroRealm();
+    public ShiroRealm shiroRealm(HashedCredentialsMatcher hashedCredentialsMatcher) {
+        ShiroRealm shiroRealm = new ShiroRealm();
+        shiroRealm.setCredentialsMatcher(hashedCredentialsMatcher);
+        return shiroRealm;
     }
 
     /**
@@ -93,9 +109,9 @@ public class ShiroConfig {
      * @return cookieRememberMeManager
      */
     @Bean
-    public CookieRememberMeManager getCookieRememberMeManager() {
+    public CookieRememberMeManager cookieRememberMeManager() {
         CookieRememberMeManager cookieRememberMeManager = new CookieRememberMeManager();
-        cookieRememberMeManager.setCookie(getRememberMeCookie());
+        cookieRememberMeManager.setCookie(rememberMeCookie());
         return cookieRememberMeManager;
     }
 
@@ -105,7 +121,7 @@ public class ShiroConfig {
      * @return simpleCookie
      */
     @Bean
-    public SimpleCookie getRememberMeCookie() {
+    public SimpleCookie rememberMeCookie() {
         SimpleCookie simpleCookie = new SimpleCookie("rememberMe");
         simpleCookie.setMaxAge(86400);
         return simpleCookie;
@@ -117,7 +133,7 @@ public class ShiroConfig {
      * @return lifecycleBeanPostProcessor
      */
     @Bean
-    public LifecycleBeanPostProcessor getLifecycleBeanPostProcessor() {
+    public LifecycleBeanPostProcessor lifecycleBeanPostProcessor() {
         return new LifecycleBeanPostProcessor();
     }
 

@@ -15,11 +15,15 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
+import org.apache.shiro.crypto.hash.Md5Hash;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
+import org.apache.shiro.util.ByteSource;
 
 import javax.annotation.Resource;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
@@ -53,7 +57,7 @@ public class ShiroRealm extends AuthorizingRealm {
      */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
-        List<String> permissionSigns = null;
+        Set<String> permissionSigns = new HashSet<>();
         if ("system".equals(usernamePasswordToken.getHost())) {
             User currentUser = (User) principalCollection.getPrimaryPrincipal();
             List<Integer> roleIds = systemUserRelRoleService.getListByUserId(currentUser.getId()).stream().map
@@ -61,7 +65,7 @@ public class ShiroRealm extends AuthorizingRealm {
             List<Integer> permissionIds = systemRoleRelPermissionService.getListByRoleIds(roleIds).stream().map
                     (SystemRoleRelPermission::getPermissionId).collect(Collectors.toList());
             permissionSigns = systemPermissionService.getListByPermissionIds(permissionIds).stream
-                    ().map(SystemPermission::getSign).collect(Collectors.toList());
+                    ().map(SystemPermission::getSign).collect(Collectors.toSet());
         } else if ("base".equals(usernamePasswordToken.getHost())) {
             System.out.println("baseUser login");
         }
@@ -92,8 +96,11 @@ public class ShiroRealm extends AuthorizingRealm {
         if (currentUser == null) {
             throw new AuthenticationException(UserExceptionMessage.USERNAME_IS_NOT_EXIST);
         }
+
+        ByteSource salt = ByteSource.Util.bytes(currentUser.getUsername());
+        System.out.println(new Md5Hash(usernamePasswordToken.getPassword(), salt, 1024));
         //将主体对象放入了Principal中
-        return new SimpleAuthenticationInfo(currentUser, currentUser.getPassword(), getName());
+        return new SimpleAuthenticationInfo(currentUser, currentUser.getPassword(), salt, getName());
     }
 
 }
