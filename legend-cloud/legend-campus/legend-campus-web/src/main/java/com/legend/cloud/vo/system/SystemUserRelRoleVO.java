@@ -12,7 +12,7 @@ import java.util.Date;
  * 系统用户关联系统角色
  *
  * @author hupeiD
- * @date 2018-03-26 22:25:07
+ * @date 2018-03-28 10:17:15
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
@@ -26,11 +26,11 @@ public class SystemUserRelRoleVO extends AbstractVO<SystemUserRelRole> {
     /**
      * 系统用户id
      */
-    private Integer userId;
+    private Integer systemUserId;
     /**
      * 系统角色id
      */
-    private Integer roleId;
+    private Integer systemRoleId;
     /**
      * 创建时间
      */
@@ -43,7 +43,7 @@ public class SystemUserRelRoleVO extends AbstractVO<SystemUserRelRole> {
      * 是否删除
      */
     private Boolean isDeleted;
-
+    
     @Override
     public SystemUserRelRole parseTo(String... ignoreProperties) {
         return super.parseTo(ignoreProperties);
@@ -58,11 +58,11 @@ public class SystemUserRelRoleVO extends AbstractVO<SystemUserRelRole> {
     public String toString() {
         return "SystemUserRelRoleVO{" +
                 ", id=" + getId() +
-                ", userId=" + getUserId() +
-                ", roleId=" + getRoleId() +
+                ", systemUserId=" + getSystemUserId() +
+                ", systemRoleId=" + getSystemRoleId() +
                 ", createTime=" + getCreateTime() +
                 ", updateTime=" + getUpdateTime() +
                 ", isDeleted=" + getIsDeleted() +
-                '}';
+                            '}';
     }
 }
