@@ -38,8 +38,10 @@ public class UserResultMessage {
     public static final String IS_BLANK = "信息不能为空";
 
     public static final String USERNAME_OR_PASSWORD_WRONG = "用户名或密码错误";
-    
+
     public static final String USERNAME_WRONG = "用户名错误";
+
+    public static final String PERMISSIONS_INSUFFICIENT = "权限不足";
 
 
 }

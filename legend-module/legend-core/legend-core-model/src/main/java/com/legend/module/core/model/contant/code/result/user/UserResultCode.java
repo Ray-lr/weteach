@@ -37,4 +37,6 @@ public class UserResultCode {
 
     public static final int USERNAME_WRONG = 10114;
 
+    public static final int PERMISSIONS_INSUFFICIENT = 10200;
+
 }
