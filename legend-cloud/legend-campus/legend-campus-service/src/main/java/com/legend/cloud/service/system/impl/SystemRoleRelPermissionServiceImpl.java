@@ -67,11 +67,11 @@ public class SystemRoleRelPermissionServiceImpl extends AbstractLegendService<Sy
 
     @Override
     public List<SystemRoleRelPermission> getListByRoleIds(List<Integer> ids) {
+        if (ids == null) {
+            throw new NullPointerException();
+        }
         SystemRoleRelPermissionExample example = new SystemRoleRelPermissionExample();
         SystemRoleRelPermissionExample.Criteria criteria = example.createCriteria().andIsDeletedEqualTo(false);
-        if(ids!=null&&!ids.isEmpty()){
-            return new ArrayList<>();
-        }
         criteria.andRoleIdIn(ids);
         return getListByExample(example);
 

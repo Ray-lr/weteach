@@ -11,7 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.common.Mapper;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -70,11 +69,11 @@ public class SystemPermissionServiceImpl extends AbstractLegendService<SystemPer
 
     @Override
     public List<SystemPermission> getListByPermissionIds(List<Integer> ids) {
+        if (ids == null) {
+            throw new NullPointerException();
+        }
         SystemPermissionExample example = new SystemPermissionExample();
         SystemPermissionExample.Criteria criteria = example.createCriteria();
-        if(ids!=null&&!ids.isEmpty()){
-            return new ArrayList<>();
-        }
         criteria.andIdIn(ids);
         return getListByExample(example);
     }
