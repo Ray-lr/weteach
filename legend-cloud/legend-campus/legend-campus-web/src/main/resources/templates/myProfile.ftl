@@ -105,9 +105,17 @@
                     <div class="card-body">
                         <a href="#" class="card-link">Card link</a>
                     </div>
+
+                </div>
+                <div align="center">
+                    <a href="verify">
+                        <button type="button" class="btn btn-outline-success"
+                                style="width: 100%;height:50px;font-size:20px;">我想当老师！
+                        </button>
+                    </a>
                 </div>
             </div>
-            <div class="col-12 col-md-6" id="principal">
+            <div class="col-12 col-md-8" id="principal">
 
                 <!-- 课程列表 -->
                 <div class="row-fluid" id="courseList">
@@ -222,38 +230,37 @@
                                         <div class="input-group-prepend">
                                             <label class="input-group-text" for="inputGroupSelect01">-- 省份 --</label>
                                         </div>
-                                        <!--<select class="custom-select" id="inputGroupSelect01">
+                                        <select class="custom-select" id="inputGroupSelect01">
                                             <option v-for="item in provinces" value="item.id" v-text="item.name"></option>
-                                        </select>-->
-                                    </div>
-                                    <div class="col col-md-4">
-                                        <select class="form-control" id="province">
-                                            <option>-- 省份 --</option>
-                                            <option v-for="item in provinces" value="item.id"
-                                                    v-text="item.name"></option>
-
                                         </select>
                                     </div>
-                                    <!-- 市/州 -->
-                                    <div class="col col-md-4">
-                                        <select class="form-control" id="city">
-                                            <option>-- 市/州 --</option>
-                                            <option v-for="item1 in cities" value="item1.id"
-                                                    v-text="item1.name"></option>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <select class="form-control" id="province">
+                                                <option>-- 省/直辖市/自治区 --</option>
+                                                <option v-for="item in provinces" value="item.id"
+                                                        v-text="item.name"></option>
 
-                                        </select>
+                                            </select>
+                                        </div>
+                                        <!-- 市/州 -->
+                                        <div class="col-md-4">
+                                            <select class="form-control" id="city">
+                                                <option>-- 市/自治州 --</option>
+                                                <option v-for="item in cities" value="item.id"
+                                                        v-text="item.name"></option>
 
+                                            </select>
+                                        </div>
+                                        <!-- 区/县 -->
+                                        <div class="col col-md-4">
+                                            <select class="form-control" id="county">
+                                                <option>-- 区/县 --</option>
+                                                <option v-for="item in counties" value="item.id"
+                                                        v-text="item.name"></option>
+                                            </select>
+                                        </div>
                                     </div>
-                                    <!-- 区/县 -->
-                                    <div class="col col-md-4">
-                                        <select class="form-control" id="county">
-                                            <option>-- 区/县 --</option>
-                                            <option v-for="item in counties" value="item.id"
-                                                    v-text="item.name"></option>
-
-                                        </select>
-                                    </div>
-
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect2">Example multiple select</label>
@@ -275,7 +282,10 @@
                                     <label for="exampleFormControlTextarea1">个性签名</label>
                                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                                 </div>
-                                <button type="button" class="btn btn-outline-primary">Primary</button>
+                                <div align="center" style="height:150px;">
+                                    <button type="button" class="btn btn-outline-primary btn-lg btn-block">Submit
+                                    </button>
+                                </div>
                             </form>
                         </div>
                         <!--浏览历史-->
@@ -303,18 +313,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col col-md-2" id="external">
-                <div class="alert alert-success" role="alert">
-                    <h4 class="alert-heading">Well done!</h4>
-                    <p>Aww yeah, you successfully read this important alert message. This example text is going to
-                        run a bit
-                        longer so that you can see how spacing within an alert works with this kind of content.</p>
-                    <hr>
-                    <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and
-                        tidy.
-                    </p>
-                </div>
-            </div>
+
         </div>
     </div>
 </div>
@@ -341,7 +340,7 @@
             },
             other: {
                 list: []
-            }
+            },
             provinces: [],
             cities: [],
             counties: []
@@ -370,7 +369,7 @@
                     }
                 }
             });
-            $.ajax({
+            /*$.ajax({
                 url: "/base/areas/list",
                 data: {
                     typeAreas: 3
@@ -380,7 +379,7 @@
                         vm.counties = data.data;
                     }
                 }
-            });
+            });*/
         },
         created: function () {
         },
