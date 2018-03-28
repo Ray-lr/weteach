@@ -5,6 +5,7 @@ D:\My\git\repositories\Bugs\legend-cloud\legend-campus\legend-campus-dao\src\mai
 D:\My\git\repositories\Bugs\legend-cloud\legend-campus\legend-campus-dao\src\main\java\com\legend\cloud\entity\system\SystemRoleRelPermission.java
 D:\My\git\repositories\Bugs\legend-cloud\legend-campus\legend-campus-dao\src\main\java\com\legend\cloud\dao\mapper\campus\CampusUserInfoMapper.java
 D:\My\git\repositories\Bugs\legend-cloud\legend-campus\legend-campus-dao\src\main\java\com\legend\cloud\dao\mapper\campus\CampusUserInterestsMapper.java
+D:\My\git\repositories\Bugs\legend-cloud\legend-campus\legend-campus-dao\src\main\java\com\legend\cloud\entity\base\BaseUserRelRole.java
 D:\My\git\repositories\Bugs\legend-cloud\legend-campus\legend-campus-dao\src\main\java\com\legend\cloud\entity\system\SystemUserExample.java
 D:\My\git\repositories\Bugs\legend-cloud\legend-campus\legend-campus-dao\src\main\java\com\legend\cloud\dao\mapper\campus\CampusStatisticsMapper.java
 D:\My\git\repositories\Bugs\legend-cloud\legend-campus\legend-campus-dao\src\main\java\com\legend\cloud\entity\campus\CampusOrderExample.java
@@ -13,7 +14,9 @@ D:\My\git\repositories\Bugs\legend-cloud\legend-campus\legend-campus-dao\src\mai
 D:\My\git\repositories\Bugs\legend-cloud\legend-campus\legend-campus-dao\src\main\java\com\legend\cloud\dao\mapper\base\BaseOrderMapper.java
 D:\My\git\repositories\Bugs\legend-cloud\legend-campus\legend-campus-dao\src\main\java\com\legend\cloud\dao\mapper\system\SystemRoleRelPermissionMapper.java
 D:\My\git\repositories\Bugs\legend-cloud\legend-campus\legend-campus-dao\src\main\java\com\legend\cloud\entity\campus\CampusStatisticsExample.java
+D:\My\git\repositories\Bugs\legend-cloud\legend-campus\legend-campus-dao\src\main\java\com\legend\cloud\dao\mapper\base\BaseUserRelRoleMapper.java
 D:\My\git\repositories\Bugs\legend-cloud\legend-campus\legend-campus-dao\src\main\java\com\legend\cloud\entity\base\BaseAreas.java
+D:\My\git\repositories\Bugs\legend-cloud\legend-campus\legend-campus-dao\src\main\java\com\legend\cloud\entity\base\BaseUserRelRoleExample.java
 D:\My\git\repositories\Bugs\legend-cloud\legend-campus\legend-campus-dao\src\main\java\com\legend\cloud\dao\mapper\system\SystemPermissionMapper.java
 D:\My\git\repositories\Bugs\legend-cloud\legend-campus\legend-campus-dao\src\main\java\com\legend\cloud\dao\mapper\campus\CampusTeacherMapper.java
 D:\My\git\repositories\Bugs\legend-cloud\legend-campus\legend-campus-dao\src\main\java\com\legend\cloud\entity\system\SystemRoleRelPermissionExample.java

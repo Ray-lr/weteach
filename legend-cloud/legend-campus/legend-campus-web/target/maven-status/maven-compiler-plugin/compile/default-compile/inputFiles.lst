@@ -29,7 +29,9 @@ D:\My\git\repositories\Bugs\legend-cloud\legend-campus\legend-campus-web\src\mai
 D:\My\git\repositories\Bugs\legend-cloud\legend-campus\legend-campus-web\src\main\java\com\legend\cloud\realm\ShiroRealm.java
 D:\My\git\repositories\Bugs\legend-cloud\legend-campus\legend-campus-web\src\main\java\com\legend\cloud\vo\base\BaseOrderVO.java
 D:\My\git\repositories\Bugs\legend-cloud\legend-campus\legend-campus-web\src\main\java\com\legend\cloud\controller\campus\CampusOrderController.java
+D:\My\git\repositories\Bugs\legend-cloud\legend-campus\legend-campus-web\src\main\java\com\legend\cloud\controller\base\BaseUserRelRoleController.java
 D:\My\git\repositories\Bugs\legend-cloud\legend-campus\legend-campus-web\src\main\java\com\legend\cloud\vo\base\BaseUserVO.java
+D:\My\git\repositories\Bugs\legend-cloud\legend-campus\legend-campus-web\src\main\java\com\legend\cloud\vo\base\BaseUserRelRoleVO.java
 D:\My\git\repositories\Bugs\legend-cloud\legend-campus\legend-campus-web\src\main\java\com\legend\cloud\vo\system\SystemRoleVO.java
 D:\My\git\repositories\Bugs\legend-cloud\legend-campus\legend-campus-web\src\main\java\com\legend\cloud\vo\campus\CampusOrderVO.java
 D:\My\git\repositories\Bugs\legend-cloud\legend-campus\legend-campus-web\src\main\java\com\legend\cloud\controller\campus\CampusCourseController.java

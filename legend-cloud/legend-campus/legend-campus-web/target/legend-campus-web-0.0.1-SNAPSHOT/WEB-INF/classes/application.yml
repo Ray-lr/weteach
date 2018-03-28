@@ -9,7 +9,7 @@ spring:
     datasource:
         type: com.alibaba.druid.pool.DruidDataSource
         druid:
-            url: jdbc:mysql://39.108.222.60:3306/campus?useUnicode=true&characterEncoding=UTF-8
+            url: jdbc:mysql://39.108.222.60:3306/campus?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
             username: hp
             password: root
             driver-class-name: com.mysql.jdbc.Driver
@@ -21,7 +21,7 @@ spring:
     freemarker:
         allow-request-override: false
         allow-session-override: false
-        cache: true
+        cache: false
         charset: utf-8
         check-template-location: true
         content-type: text/html
@@ -33,6 +33,8 @@ spring:
         prefix: /templates/
         suffix: .ftl
         template-loader-path: classpath:/templates/
+        settings:
+            template_update_delay: 0
     mvc:
         date-format: yyyy-MM-dd HH:mm:ss
         view:

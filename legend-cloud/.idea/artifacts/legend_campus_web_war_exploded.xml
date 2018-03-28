@@ -19,6 +19,7 @@
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-freemarker:2.0.0.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter:2.0.0.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot:2.0.0.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-autoconfigure:2.0.0.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-logging:2.0.0.RELEASE" />
           <element id="library" level="project" name="Maven: ch.qos.logback:logback-classic:1.2.3" />
           <element id="library" level="project" name="Maven: ch.qos.logback:logback-core:1.2.3" />
@@ -47,6 +48,7 @@
           <element id="library" level="project" name="Maven: org.apache.shiro:shiro-web:1.4.0" />
           <element id="library" level="project" name="Maven: org.apache.shiro:shiro-ehcache:1.2.5" />
           <element id="library" level="project" name="Maven: net.sf.ehcache:ehcache-core:2.5.0" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.25" />
           <element id="library" level="project" name="Maven: org.springframework:spring-core:5.0.4.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-jcl:5.0.4.RELEASE" />
           <element id="library" level="project" name="Maven: com.legend.module:legend-core-web:0.0.1-SNAPSHOT" />
@@ -73,6 +75,8 @@
           <element id="library" level="project" name="Maven: tk.mybatis:mapper-spring-boot-autoconfigure:1.2.3" />
           <element id="library" level="project" name="Maven: tk.mybatis:mapper:3.5.2" />
           <element id="library" level="project" name="Maven: javax.persistence:persistence-api:1.0" />
+          <element id="library" level="project" name="Maven: com.alibaba:druid-spring-boot-starter:1.1.8" />
+          <element id="library" level="project" name="Maven: com.alibaba:druid:1.1.8" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-devtools:2.0.0.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-aop:2.0.0.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-aop:5.0.4.RELEASE" />
@@ -97,11 +101,8 @@
           <element id="library" level="project" name="Maven: org.apache.tomcat.embed:tomcat-embed-websocket:8.5.28" />
           <element id="library" level="project" name="Maven: org.springframework:spring-web:5.0.4.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:5.0.4.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-configuration-processor:2.0.0.RELEASE" />
           <element id="library" level="project" name="Maven: org.projectlombok:lombok:1.16.20" />
-          <element id="library" level="project" name="Maven: com.alibaba:druid-spring-boot-starter:1.1.8" />
-          <element id="library" level="project" name="Maven: com.alibaba:druid:1.1.8" />
-          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.25" />
-          <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-autoconfigure:2.0.0.RELEASE" />
         </element>
       </element>
       <element id="directory" name="META-INF">
