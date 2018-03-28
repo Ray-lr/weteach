@@ -11,43 +11,44 @@ import javax.persistence.Table;
 import java.util.Date;
 
 
+
 /**
  * 兴趣标签表
  *
  * @author hupeiD
- * @date 2018-03-26 22:25:05
+ * @date 2018-03-28 10:33:29
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
 @Table(name = "campus_interests")
 public class CampusInterests extends AbstractEntity<CampusInterests> {
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    /**
-     * 兴趣爱好id
+	/**
+	 * 兴趣爱好id
      */
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    /**
-     * 名称
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+	/**
+	 * 名称
      */
-    private String name;
-    /**
-     * 描述
+	private String name;
+	/**
+	 * 描述
      */
-    private String description;
-    /**
-     * 创建时间
+	private String description;
+	/**
+	 * 创建时间
      */
-    private Date createTime;
-    /**
-     * 修改时间
+	private Date createTime;
+	/**
+	 * 修改时间
      */
-    private Date updateTime;
-    /**
-     * 是否删除
+	private Date updateTime;
+	/**
+	 * 是否删除
      */
-    private Boolean isDeleted;
+	private Boolean isDeleted;
 
 }

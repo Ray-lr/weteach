@@ -8,7 +8,7 @@ import java.util.List;
  * SystemUser的example类
  *
  * @author hupeiD
- * @date 2018-03-26 22:25:07
+ * @date 2018-03-28 10:33:30
  */
 public class SystemUserExample {
     protected String orderByClause;
@@ -21,20 +21,20 @@ public class SystemUserExample {
         oredCriteria = new ArrayList<Criteria>();
     }
 
-    public String getOrderByClause() {
-        return orderByClause;
-    }
-
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
     }
 
-    public boolean isDistinct() {
-        return distinct;
+    public String getOrderByClause() {
+        return orderByClause;
     }
 
     public void setDistinct(boolean distinct) {
         this.distinct = distinct;
+    }
+
+    public boolean isDistinct() {
+        return distinct;
     }
 
     public List<Criteria> getOredCriteria() {
@@ -152,7 +152,7 @@ public class SystemUserExample {
         }
 
         public Criteria andIdIn(List<Integer> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("id in", values, "id");
             return (Criteria) this;
         }
 
@@ -212,7 +212,7 @@ public class SystemUserExample {
         }
 
         public Criteria andUsernameIn(List<String> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("username in", values, "username");
             return (Criteria) this;
         }
 
@@ -272,7 +272,7 @@ public class SystemUserExample {
         }
 
         public Criteria andPasswordIn(List<String> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("password in", values, "password");
             return (Criteria) this;
         }
 
@@ -332,7 +332,7 @@ public class SystemUserExample {
         }
 
         public Criteria andPhoneIn(List<String> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("phone in", values, "phone");
             return (Criteria) this;
         }
 
@@ -392,7 +392,7 @@ public class SystemUserExample {
         }
 
         public Criteria andNickNameIn(List<String> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("nick_name in", values, "nick_name");
             return (Criteria) this;
         }
 
@@ -452,7 +452,7 @@ public class SystemUserExample {
         }
 
         public Criteria andLastLoginTimeIn(List<Date> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("last_login_time in", values, "last_login_time");
             return (Criteria) this;
         }
 
@@ -512,7 +512,7 @@ public class SystemUserExample {
         }
 
         public Criteria andIsEnabledIn(List<Boolean> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("is_enabled in", values, "is_enabled");
             return (Criteria) this;
         }
 
@@ -572,7 +572,7 @@ public class SystemUserExample {
         }
 
         public Criteria andCreateTimeIn(List<Date> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("create_time in", values, "create_time");
             return (Criteria) this;
         }
 
@@ -632,7 +632,7 @@ public class SystemUserExample {
         }
 
         public Criteria andUpdateTimeIn(List<Date> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("update_time in", values, "update_time");
             return (Criteria) this;
         }
 
@@ -692,7 +692,7 @@ public class SystemUserExample {
         }
 
         public Criteria andIsDeletedIn(List<Boolean> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("is_deleted in", values, "is_deleted");
             return (Criteria) this;
         }
 
@@ -736,6 +736,38 @@ public class SystemUserExample {
 
         private String typeHandler;
 
+        public String getCondition() {
+            return condition;
+        }
+
+        public Object getValue() {
+            return value;
+        }
+
+        public Object getSecondValue() {
+            return secondValue;
+        }
+
+        public boolean isNoValue() {
+            return noValue;
+        }
+
+        public boolean isSingleValue() {
+            return singleValue;
+        }
+
+        public boolean isBetweenValue() {
+            return betweenValue;
+        }
+
+        public boolean isListValue() {
+            return listValue;
+        }
+
+        public String getTypeHandler() {
+            return typeHandler;
+        }
+
         protected Criterion(String condition) {
             super();
             this.condition = condition;
@@ -770,38 +802,6 @@ public class SystemUserExample {
 
         protected Criterion(String condition, Object value, Object secondValue) {
             this(condition, value, secondValue, null);
-        }
-
-        public String getCondition() {
-            return condition;
-        }
-
-        public Object getValue() {
-            return value;
-        }
-
-        public Object getSecondValue() {
-            return secondValue;
-        }
-
-        public boolean isNoValue() {
-            return noValue;
-        }
-
-        public boolean isSingleValue() {
-            return singleValue;
-        }
-
-        public boolean isBetweenValue() {
-            return betweenValue;
-        }
-
-        public boolean isListValue() {
-            return listValue;
-        }
-
-        public String getTypeHandler() {
-            return typeHandler;
         }
     }
 }

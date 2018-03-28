@@ -11,55 +11,56 @@ import javax.persistence.Table;
 import java.util.Date;
 
 
+
 /**
  * 统计
  *
  * @author hupeiD
- * @date 2018-03-26 22:25:06
+ * @date 2018-03-28 10:33:30
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
 @Table(name = "campus_statistics")
 public class CampusStatistics extends AbstractEntity<CampusStatistics> {
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    /**
-     *
+	/**
+	 *
+	 */
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+	/**
+	 * 描述
      */
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    /**
-     * 描述
+	private String description;
+	/**
+	 * 备注
      */
-    private String description;
-    /**
-     * 备注
+	private String remark;
+	/**
+	 * 具体数据
      */
-    private String remark;
-    /**
-     * 具体数据
+	private Integer data;
+	/**
+	 * 概率数据
      */
-    private Integer data;
-    /**
-     * 概率数据
+	private Double probability;
+	/**
+	 * 编号
      */
-    private Double probability;
-    /**
-     * 编号
+	private String code;
+	/**
+	 * 创建时间
      */
-    private String code;
-    /**
-     * 创建时间
+	private Date createTime;
+	/**
+	 * 修改时间
      */
-    private Date createTime;
-    /**
-     * 修改时间
+	private Date updateTime;
+	/**
+	 * 是否删除
      */
-    private Date updateTime;
-    /**
-     * 是否删除
-     */
-    private Boolean isDeleted;
+	private Boolean isDeleted;
 
 }

@@ -8,7 +8,7 @@ import java.util.List;
  * SystemUserRelRole的example类
  *
  * @author hupeiD
- * @date 2018-03-26 22:25:07
+ * @date 2018-03-28 10:33:30
  */
 public class SystemUserRelRoleExample {
     protected String orderByClause;
@@ -21,20 +21,20 @@ public class SystemUserRelRoleExample {
         oredCriteria = new ArrayList<Criteria>();
     }
 
-    public String getOrderByClause() {
-        return orderByClause;
-    }
-
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
     }
 
-    public boolean isDistinct() {
-        return distinct;
+    public String getOrderByClause() {
+        return orderByClause;
     }
 
     public void setDistinct(boolean distinct) {
         this.distinct = distinct;
+    }
+
+    public boolean isDistinct() {
+        return distinct;
     }
 
     public List<Criteria> getOredCriteria() {
@@ -152,7 +152,7 @@ public class SystemUserRelRoleExample {
         }
 
         public Criteria andIdIn(List<Integer> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("id in", values, "id");
             return (Criteria) this;
         }
 
@@ -171,123 +171,123 @@ public class SystemUserRelRoleExample {
             return (Criteria) this;
         }
 
-        public Criteria andUserIdIsNull() {
-            addCriterion("user_id is null");
+        public Criteria andSystemUserIdIsNull() {
+            addCriterion("system_user_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdIsNotNull() {
-            addCriterion("user_id is not null");
+        public Criteria andSystemUserIdIsNotNull() {
+            addCriterion("system_user_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdEqualTo(Integer value) {
-            addCriterion("user_id =", value, "user_id");
+        public Criteria andSystemUserIdEqualTo(Integer value) {
+            addCriterion("system_user_id =", value, "system_user_id");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotEqualTo(Integer value) {
-            addCriterion("'user_id <>", value, "user_id");
+        public Criteria andSystemUserIdNotEqualTo(Integer value) {
+            addCriterion("'system_user_id <>", value, "system_user_id");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdGreaterThan(Integer value) {
-            addCriterion("user_id >", value, "user_id");
+        public Criteria andSystemUserIdGreaterThan(Integer value) {
+            addCriterion("system_user_id >", value, "system_user_id");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("user_id >=", value, "user_id");
+        public Criteria andSystemUserIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("system_user_id >=", value, "system_user_id");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdLessThan(Integer value) {
-            addCriterion("user_id <", value, "user_id");
+        public Criteria andSystemUserIdLessThan(Integer value) {
+            addCriterion("system_user_id <", value, "system_user_id");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdLessThanOrEqualTo(Integer value) {
-            addCriterion("user_id <=", value, "user_id");
+        public Criteria andSystemUserIdLessThanOrEqualTo(Integer value) {
+            addCriterion("system_user_id <=", value, "system_user_id");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdIn(List<Integer> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+        public Criteria andSystemUserIdIn(List<Integer> values) {
+            addCriterion("system_user_id in", values, "system_user_id");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotIn(List<Integer> values) {
-            addCriterion("user_id not in", values, "user_id");
+        public Criteria andSystemUserIdNotIn(List<Integer> values) {
+            addCriterion("system_user_id not in", values, "system_user_id");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdBetween(Integer value1, Integer value2) {
-            addCriterion("user_id between", value1, value2, "user_id");
+        public Criteria andSystemUserIdBetween(Integer value1, Integer value2) {
+            addCriterion("system_user_id between", value1, value2, "system_user_id");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("user_id not between", value1, value2, "user_id");
+        public Criteria andSystemUserIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("system_user_id not between", value1, value2, "system_user_id");
             return (Criteria) this;
         }
 
-        public Criteria andRoleIdIsNull() {
-            addCriterion("role_id is null");
+        public Criteria andSystemRoleIdIsNull() {
+            addCriterion("system_role_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andRoleIdIsNotNull() {
-            addCriterion("role_id is not null");
+        public Criteria andSystemRoleIdIsNotNull() {
+            addCriterion("system_role_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andRoleIdEqualTo(Integer value) {
-            addCriterion("role_id =", value, "role_id");
+        public Criteria andSystemRoleIdEqualTo(Integer value) {
+            addCriterion("system_role_id =", value, "system_role_id");
             return (Criteria) this;
         }
 
-        public Criteria andRoleIdNotEqualTo(Integer value) {
-            addCriterion("'role_id <>", value, "role_id");
+        public Criteria andSystemRoleIdNotEqualTo(Integer value) {
+            addCriterion("'system_role_id <>", value, "system_role_id");
             return (Criteria) this;
         }
 
-        public Criteria andRoleIdGreaterThan(Integer value) {
-            addCriterion("role_id >", value, "role_id");
+        public Criteria andSystemRoleIdGreaterThan(Integer value) {
+            addCriterion("system_role_id >", value, "system_role_id");
             return (Criteria) this;
         }
 
-        public Criteria andRoleIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("role_id >=", value, "role_id");
+        public Criteria andSystemRoleIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("system_role_id >=", value, "system_role_id");
             return (Criteria) this;
         }
 
-        public Criteria andRoleIdLessThan(Integer value) {
-            addCriterion("role_id <", value, "role_id");
+        public Criteria andSystemRoleIdLessThan(Integer value) {
+            addCriterion("system_role_id <", value, "system_role_id");
             return (Criteria) this;
         }
 
-        public Criteria andRoleIdLessThanOrEqualTo(Integer value) {
-            addCriterion("role_id <=", value, "role_id");
+        public Criteria andSystemRoleIdLessThanOrEqualTo(Integer value) {
+            addCriterion("system_role_id <=", value, "system_role_id");
             return (Criteria) this;
         }
 
-        public Criteria andRoleIdIn(List<Integer> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+        public Criteria andSystemRoleIdIn(List<Integer> values) {
+            addCriterion("system_role_id in", values, "system_role_id");
             return (Criteria) this;
         }
 
-        public Criteria andRoleIdNotIn(List<Integer> values) {
-            addCriterion("role_id not in", values, "role_id");
+        public Criteria andSystemRoleIdNotIn(List<Integer> values) {
+            addCriterion("system_role_id not in", values, "system_role_id");
             return (Criteria) this;
         }
 
-        public Criteria andRoleIdBetween(Integer value1, Integer value2) {
-            addCriterion("role_id between", value1, value2, "role_id");
+        public Criteria andSystemRoleIdBetween(Integer value1, Integer value2) {
+            addCriterion("system_role_id between", value1, value2, "system_role_id");
             return (Criteria) this;
         }
 
-        public Criteria andRoleIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("role_id not between", value1, value2, "role_id");
+        public Criteria andSystemRoleIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("system_role_id not between", value1, value2, "system_role_id");
             return (Criteria) this;
         }
 
@@ -332,7 +332,7 @@ public class SystemUserRelRoleExample {
         }
 
         public Criteria andCreateTimeIn(List<Date> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("create_time in", values, "create_time");
             return (Criteria) this;
         }
 
@@ -392,7 +392,7 @@ public class SystemUserRelRoleExample {
         }
 
         public Criteria andUpdateTimeIn(List<Date> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("update_time in", values, "update_time");
             return (Criteria) this;
         }
 
@@ -452,7 +452,7 @@ public class SystemUserRelRoleExample {
         }
 
         public Criteria andIsDeletedIn(List<Boolean> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("is_deleted in", values, "is_deleted");
             return (Criteria) this;
         }
 
@@ -496,6 +496,38 @@ public class SystemUserRelRoleExample {
 
         private String typeHandler;
 
+        public String getCondition() {
+            return condition;
+        }
+
+        public Object getValue() {
+            return value;
+        }
+
+        public Object getSecondValue() {
+            return secondValue;
+        }
+
+        public boolean isNoValue() {
+            return noValue;
+        }
+
+        public boolean isSingleValue() {
+            return singleValue;
+        }
+
+        public boolean isBetweenValue() {
+            return betweenValue;
+        }
+
+        public boolean isListValue() {
+            return listValue;
+        }
+
+        public String getTypeHandler() {
+            return typeHandler;
+        }
+
         protected Criterion(String condition) {
             super();
             this.condition = condition;
@@ -530,38 +562,6 @@ public class SystemUserRelRoleExample {
 
         protected Criterion(String condition, Object value, Object secondValue) {
             this(condition, value, secondValue, null);
-        }
-
-        public String getCondition() {
-            return condition;
-        }
-
-        public Object getValue() {
-            return value;
-        }
-
-        public Object getSecondValue() {
-            return secondValue;
-        }
-
-        public boolean isNoValue() {
-            return noValue;
-        }
-
-        public boolean isSingleValue() {
-            return singleValue;
-        }
-
-        public boolean isBetweenValue() {
-            return betweenValue;
-        }
-
-        public boolean isListValue() {
-            return listValue;
-        }
-
-        public String getTypeHandler() {
-            return typeHandler;
         }
     }
 }

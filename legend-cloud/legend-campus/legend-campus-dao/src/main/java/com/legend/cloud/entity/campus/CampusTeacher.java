@@ -11,63 +11,64 @@ import javax.persistence.Table;
 import java.util.Date;
 
 
+
 /**
  * 教师表
  *
  * @author hupeiD
- * @date 2018-03-26 22:25:06
+ * @date 2018-03-28 10:33:29
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
 @Table(name = "campus_teacher")
 public class CampusTeacher extends AbstractEntity<CampusTeacher> {
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    /**
-     * 教师id
+	/**
+	 * 教师id
      */
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    /**
-     * 用户id
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+	/**
+	 * 用户id
      */
-    private Integer userId;
-    /**
-     * 认证资格数量
+	private Integer userId;
+	/**
+	 * 认证资格数量
      */
-    private Integer verifyNum;
-    /**
-     *
+	private Integer verifyNum;
+	/**
+	 *
+	 */
+	private Boolean isEnabled;
+	/**
+	 * 课程参与量
      */
-    private Boolean isEnabled;
-    /**
-     * 课程参与量
+	private Integer orderJoin;
+	/**
+	 * 课程发布量
      */
-    private Integer orderJoin;
-    /**
-     * 课程发布量
+	private Integer orderPublish;
+	/**
+	 * 课程完成量
      */
-    private Integer orderPublish;
-    /**
-     * 课程完成量
+	private Integer orderFinish;
+	/**
+	 * 教学完成率
      */
-    private Integer orderFinish;
-    /**
-     * 教学完成率
+	private Double percentageComplete;
+	/**
+	 * 创建时间
      */
-    private Double percentageComplete;
-    /**
-     * 创建时间
+	private Date createTime;
+	/**
+	 * 修改时间
      */
-    private Date createTime;
-    /**
-     * 修改时间
+	private Date updateTime;
+	/**
+	 * 是否删除
      */
-    private Date updateTime;
-    /**
-     * 是否删除
-     */
-    private Boolean isDeleted;
+	private Boolean isDeleted;
 
 }

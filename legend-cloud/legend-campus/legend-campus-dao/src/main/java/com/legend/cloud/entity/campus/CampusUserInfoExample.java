@@ -8,7 +8,7 @@ import java.util.List;
  * CampusUserInfo的example类
  *
  * @author hupeiD
- * @date 2018-03-26 22:25:05
+ * @date 2018-03-28 10:33:29
  */
 public class CampusUserInfoExample {
     protected String orderByClause;
@@ -21,20 +21,20 @@ public class CampusUserInfoExample {
         oredCriteria = new ArrayList<Criteria>();
     }
 
-    public String getOrderByClause() {
-        return orderByClause;
-    }
-
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
     }
 
-    public boolean isDistinct() {
-        return distinct;
+    public String getOrderByClause() {
+        return orderByClause;
     }
 
     public void setDistinct(boolean distinct) {
         this.distinct = distinct;
+    }
+
+    public boolean isDistinct() {
+        return distinct;
     }
 
     public List<Criteria> getOredCriteria() {
@@ -152,7 +152,7 @@ public class CampusUserInfoExample {
         }
 
         public Criteria andIdIn(List<Integer> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("id in", values, "id");
             return (Criteria) this;
         }
 
@@ -212,7 +212,7 @@ public class CampusUserInfoExample {
         }
 
         public Criteria andBaseUserIdIn(List<Integer> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("base_user_id in", values, "base_user_id");
             return (Criteria) this;
         }
 
@@ -272,7 +272,7 @@ public class CampusUserInfoExample {
         }
 
         public Criteria andNameIn(List<String> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("name in", values, "name");
             return (Criteria) this;
         }
 
@@ -332,7 +332,7 @@ public class CampusUserInfoExample {
         }
 
         public Criteria andNicknameIn(List<String> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("nickname in", values, "nickname");
             return (Criteria) this;
         }
 
@@ -392,7 +392,7 @@ public class CampusUserInfoExample {
         }
 
         public Criteria andSexIn(List<String> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("sex in", values, "sex");
             return (Criteria) this;
         }
 
@@ -452,7 +452,7 @@ public class CampusUserInfoExample {
         }
 
         public Criteria andNativePlaceIn(List<String> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("native_place in", values, "native_place");
             return (Criteria) this;
         }
 
@@ -512,7 +512,7 @@ public class CampusUserInfoExample {
         }
 
         public Criteria andDeptIn(List<String> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("dept in", values, "dept");
             return (Criteria) this;
         }
 
@@ -572,7 +572,7 @@ public class CampusUserInfoExample {
         }
 
         public Criteria andMajorIn(List<String> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("major in", values, "major");
             return (Criteria) this;
         }
 
@@ -632,7 +632,7 @@ public class CampusUserInfoExample {
         }
 
         public Criteria andDirectionIn(List<String> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("direction in", values, "direction");
             return (Criteria) this;
         }
 
@@ -692,7 +692,7 @@ public class CampusUserInfoExample {
         }
 
         public Criteria andPhoneIn(List<String> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("phone in", values, "phone");
             return (Criteria) this;
         }
 
@@ -752,7 +752,7 @@ public class CampusUserInfoExample {
         }
 
         public Criteria andQicqIn(List<String> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("qicq in", values, "qicq");
             return (Criteria) this;
         }
 
@@ -812,7 +812,7 @@ public class CampusUserInfoExample {
         }
 
         public Criteria andEmailIn(List<String> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("email in", values, "email");
             return (Criteria) this;
         }
 
@@ -872,7 +872,7 @@ public class CampusUserInfoExample {
         }
 
         public Criteria andCreditsIn(List<Integer> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("credits in", values, "credits");
             return (Criteria) this;
         }
 
@@ -932,7 +932,7 @@ public class CampusUserInfoExample {
         }
 
         public Criteria andCreditsLevelIn(List<String> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("credits_level in", values, "credits_level");
             return (Criteria) this;
         }
 
@@ -992,7 +992,7 @@ public class CampusUserInfoExample {
         }
 
         public Criteria andOrderJoinIn(List<Integer> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("order_join in", values, "order_join");
             return (Criteria) this;
         }
 
@@ -1052,7 +1052,7 @@ public class CampusUserInfoExample {
         }
 
         public Criteria andOrderPublishIn(List<Integer> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("order_publish in", values, "order_publish");
             return (Criteria) this;
         }
 
@@ -1112,7 +1112,7 @@ public class CampusUserInfoExample {
         }
 
         public Criteria andOrderFinishIn(List<Integer> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("order_finish in", values, "order_finish");
             return (Criteria) this;
         }
 
@@ -1172,7 +1172,7 @@ public class CampusUserInfoExample {
         }
 
         public Criteria andPercentageCompleteIn(List<Double> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("percentage_complete in", values, "percentage_complete");
             return (Criteria) this;
         }
 
@@ -1232,7 +1232,7 @@ public class CampusUserInfoExample {
         }
 
         public Criteria andCreateTimeIn(List<Date> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("create_time in", values, "create_time");
             return (Criteria) this;
         }
 
@@ -1292,7 +1292,7 @@ public class CampusUserInfoExample {
         }
 
         public Criteria andUpdateTimeIn(List<Date> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("update_time in", values, "update_time");
             return (Criteria) this;
         }
 
@@ -1352,7 +1352,7 @@ public class CampusUserInfoExample {
         }
 
         public Criteria andIsDeletedIn(List<Boolean> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("is_deleted in", values, "is_deleted");
             return (Criteria) this;
         }
 
@@ -1396,6 +1396,38 @@ public class CampusUserInfoExample {
 
         private String typeHandler;
 
+        public String getCondition() {
+            return condition;
+        }
+
+        public Object getValue() {
+            return value;
+        }
+
+        public Object getSecondValue() {
+            return secondValue;
+        }
+
+        public boolean isNoValue() {
+            return noValue;
+        }
+
+        public boolean isSingleValue() {
+            return singleValue;
+        }
+
+        public boolean isBetweenValue() {
+            return betweenValue;
+        }
+
+        public boolean isListValue() {
+            return listValue;
+        }
+
+        public String getTypeHandler() {
+            return typeHandler;
+        }
+
         protected Criterion(String condition) {
             super();
             this.condition = condition;
@@ -1430,38 +1462,6 @@ public class CampusUserInfoExample {
 
         protected Criterion(String condition, Object value, Object secondValue) {
             this(condition, value, secondValue, null);
-        }
-
-        public String getCondition() {
-            return condition;
-        }
-
-        public Object getValue() {
-            return value;
-        }
-
-        public Object getSecondValue() {
-            return secondValue;
-        }
-
-        public boolean isNoValue() {
-            return noValue;
-        }
-
-        public boolean isSingleValue() {
-            return singleValue;
-        }
-
-        public boolean isBetweenValue() {
-            return betweenValue;
-        }
-
-        public boolean isListValue() {
-            return listValue;
-        }
-
-        public String getTypeHandler() {
-            return typeHandler;
         }
     }
 }

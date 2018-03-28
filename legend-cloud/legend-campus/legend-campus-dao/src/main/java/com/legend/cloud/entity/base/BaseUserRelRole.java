@@ -11,11 +11,12 @@ import javax.persistence.Table;
 import java.util.Date;
 
 
+
 /**
  * 用户角色关联
  *
  * @author hupeiD
- * @date 2018-03-27 21:30:17
+ * @date 2018-03-28 10:33:28
  */
 @EqualsAndHashCode(callSuper = true)
 @Data

@@ -16,7 +16,7 @@ import java.util.Date;
  * 基础订单
  *
  * @author hupeiD
- * @date 2018-03-26 22:19:01
+ * @date 2018-03-28 10:33:28
  */
 @EqualsAndHashCode(callSuper = true)
 @Data

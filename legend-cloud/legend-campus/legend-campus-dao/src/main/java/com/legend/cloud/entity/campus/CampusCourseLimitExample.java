@@ -8,7 +8,7 @@ import java.util.List;
  * CampusCourseLimit的example类
  *
  * @author hupeiD
- * @date 2018-03-26 22:25:06
+ * @date 2018-03-28 10:33:30
  */
 public class CampusCourseLimitExample {
     protected String orderByClause;
@@ -21,20 +21,20 @@ public class CampusCourseLimitExample {
         oredCriteria = new ArrayList<Criteria>();
     }
 
-    public String getOrderByClause() {
-        return orderByClause;
-    }
-
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
     }
 
-    public boolean isDistinct() {
-        return distinct;
+    public String getOrderByClause() {
+        return orderByClause;
     }
 
     public void setDistinct(boolean distinct) {
         this.distinct = distinct;
+    }
+
+    public boolean isDistinct() {
+        return distinct;
     }
 
     public List<Criteria> getOredCriteria() {
@@ -152,7 +152,7 @@ public class CampusCourseLimitExample {
         }
 
         public Criteria andIdIn(List<Integer> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("id in", values, "id");
             return (Criteria) this;
         }
 
@@ -212,7 +212,7 @@ public class CampusCourseLimitExample {
         }
 
         public Criteria andCourseIdIn(List<Integer> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("course_id in", values, "course_id");
             return (Criteria) this;
         }
 
@@ -272,7 +272,7 @@ public class CampusCourseLimitExample {
         }
 
         public Criteria andDeptIn(List<Integer> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("dept in", values, "dept");
             return (Criteria) this;
         }
 
@@ -332,7 +332,7 @@ public class CampusCourseLimitExample {
         }
 
         public Criteria andMajorIn(List<Integer> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("major in", values, "major");
             return (Criteria) this;
         }
 
@@ -392,7 +392,7 @@ public class CampusCourseLimitExample {
         }
 
         public Criteria andSexIn(List<Integer> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("sex in", values, "sex");
             return (Criteria) this;
         }
 
@@ -452,7 +452,7 @@ public class CampusCourseLimitExample {
         }
 
         public Criteria andGradeIn(List<Integer> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("grade in", values, "grade");
             return (Criteria) this;
         }
 
@@ -512,7 +512,7 @@ public class CampusCourseLimitExample {
         }
 
         public Criteria andCreateTimeIn(List<Date> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("create_time in", values, "create_time");
             return (Criteria) this;
         }
 
@@ -572,7 +572,7 @@ public class CampusCourseLimitExample {
         }
 
         public Criteria andUpdateTimeIn(List<Date> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("update_time in", values, "update_time");
             return (Criteria) this;
         }
 
@@ -632,7 +632,7 @@ public class CampusCourseLimitExample {
         }
 
         public Criteria andIsDeletedIn(List<Boolean> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("is_deleted in", values, "is_deleted");
             return (Criteria) this;
         }
 
@@ -676,6 +676,38 @@ public class CampusCourseLimitExample {
 
         private String typeHandler;
 
+        public String getCondition() {
+            return condition;
+        }
+
+        public Object getValue() {
+            return value;
+        }
+
+        public Object getSecondValue() {
+            return secondValue;
+        }
+
+        public boolean isNoValue() {
+            return noValue;
+        }
+
+        public boolean isSingleValue() {
+            return singleValue;
+        }
+
+        public boolean isBetweenValue() {
+            return betweenValue;
+        }
+
+        public boolean isListValue() {
+            return listValue;
+        }
+
+        public String getTypeHandler() {
+            return typeHandler;
+        }
+
         protected Criterion(String condition) {
             super();
             this.condition = condition;
@@ -710,38 +742,6 @@ public class CampusCourseLimitExample {
 
         protected Criterion(String condition, Object value, Object secondValue) {
             this(condition, value, secondValue, null);
-        }
-
-        public String getCondition() {
-            return condition;
-        }
-
-        public Object getValue() {
-            return value;
-        }
-
-        public Object getSecondValue() {
-            return secondValue;
-        }
-
-        public boolean isNoValue() {
-            return noValue;
-        }
-
-        public boolean isSingleValue() {
-            return singleValue;
-        }
-
-        public boolean isBetweenValue() {
-            return betweenValue;
-        }
-
-        public boolean isListValue() {
-            return listValue;
-        }
-
-        public String getTypeHandler() {
-            return typeHandler;
         }
     }
 }

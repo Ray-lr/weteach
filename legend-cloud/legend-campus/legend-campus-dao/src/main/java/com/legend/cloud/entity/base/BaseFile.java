@@ -11,11 +11,12 @@ import javax.persistence.Table;
 import java.util.Date;
 
 
+
 /**
  * 文件存储表
  *
  * @author hupeiD
- * @date 2018-03-26 22:19:02
+ * @date 2018-03-28 10:33:28
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
@@ -24,7 +25,7 @@ public class BaseFile extends AbstractEntity<BaseFile> {
     private static final long serialVersionUID = 1L;
 
     /**
-     *
+     * 
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

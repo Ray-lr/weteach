@@ -8,7 +8,7 @@ import java.util.List;
  * SystemMenu的example类
  *
  * @author hupeiD
- * @date 2018-03-27 21:30:17
+ * @date 2018-03-28 10:33:28
  */
 public class SystemMenuExample {
     protected String orderByClause;
@@ -21,20 +21,20 @@ public class SystemMenuExample {
         oredCriteria = new ArrayList<Criteria>();
     }
 
-    public String getOrderByClause() {
-        return orderByClause;
-    }
-
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
     }
 
-    public boolean isDistinct() {
-        return distinct;
+    public String getOrderByClause() {
+        return orderByClause;
     }
 
     public void setDistinct(boolean distinct) {
         this.distinct = distinct;
+    }
+
+    public boolean isDistinct() {
+        return distinct;
     }
 
     public List<Criteria> getOredCriteria() {
@@ -152,7 +152,7 @@ public class SystemMenuExample {
         }
 
         public Criteria andIdIn(List<Integer> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("id in", values, "id");
             return (Criteria) this;
         }
 
@@ -212,7 +212,7 @@ public class SystemMenuExample {
         }
 
         public Criteria andNameIn(List<String> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("name in", values, "name");
             return (Criteria) this;
         }
 
@@ -272,7 +272,7 @@ public class SystemMenuExample {
         }
 
         public Criteria andUrlIn(List<String> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("url in", values, "url");
             return (Criteria) this;
         }
 
@@ -332,7 +332,7 @@ public class SystemMenuExample {
         }
 
         public Criteria andDescriptionIn(List<String> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("description in", values, "description");
             return (Criteria) this;
         }
 
@@ -392,7 +392,7 @@ public class SystemMenuExample {
         }
 
         public Criteria andHierarchyIn(List<Integer> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("hierarchy in", values, "hierarchy");
             return (Criteria) this;
         }
 
@@ -452,7 +452,7 @@ public class SystemMenuExample {
         }
 
         public Criteria andParentIdIn(List<Integer> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("parent_id in", values, "parent_id");
             return (Criteria) this;
         }
 
@@ -512,7 +512,7 @@ public class SystemMenuExample {
         }
 
         public Criteria andSortIn(List<Integer> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("sort in", values, "sort");
             return (Criteria) this;
         }
 
@@ -572,7 +572,7 @@ public class SystemMenuExample {
         }
 
         public Criteria andClassNameIn(List<String> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("class_name in", values, "class_name");
             return (Criteria) this;
         }
 
@@ -632,7 +632,7 @@ public class SystemMenuExample {
         }
 
         public Criteria andCreateTimeIn(List<Date> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("create_time in", values, "create_time");
             return (Criteria) this;
         }
 
@@ -692,7 +692,7 @@ public class SystemMenuExample {
         }
 
         public Criteria andUpdateTimeIn(List<Date> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("update_time in", values, "update_time");
             return (Criteria) this;
         }
 
@@ -752,7 +752,7 @@ public class SystemMenuExample {
         }
 
         public Criteria andIsDeletedIn(List<Boolean> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("is_deleted in", values, "is_deleted");
             return (Criteria) this;
         }
 
@@ -796,6 +796,38 @@ public class SystemMenuExample {
 
         private String typeHandler;
 
+        public String getCondition() {
+            return condition;
+        }
+
+        public Object getValue() {
+            return value;
+        }
+
+        public Object getSecondValue() {
+            return secondValue;
+        }
+
+        public boolean isNoValue() {
+            return noValue;
+        }
+
+        public boolean isSingleValue() {
+            return singleValue;
+        }
+
+        public boolean isBetweenValue() {
+            return betweenValue;
+        }
+
+        public boolean isListValue() {
+            return listValue;
+        }
+
+        public String getTypeHandler() {
+            return typeHandler;
+        }
+
         protected Criterion(String condition) {
             super();
             this.condition = condition;
@@ -830,38 +862,6 @@ public class SystemMenuExample {
 
         protected Criterion(String condition, Object value, Object secondValue) {
             this(condition, value, secondValue, null);
-        }
-
-        public String getCondition() {
-            return condition;
-        }
-
-        public Object getValue() {
-            return value;
-        }
-
-        public Object getSecondValue() {
-            return secondValue;
-        }
-
-        public boolean isNoValue() {
-            return noValue;
-        }
-
-        public boolean isSingleValue() {
-            return singleValue;
-        }
-
-        public boolean isBetweenValue() {
-            return betweenValue;
-        }
-
-        public boolean isListValue() {
-            return listValue;
-        }
-
-        public String getTypeHandler() {
-            return typeHandler;
         }
     }
 }

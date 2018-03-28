@@ -11,59 +11,60 @@ import javax.persistence.Table;
 import java.util.Date;
 
 
+
 /**
  * 课程订单
  *
  * @author hupeiD
- * @date 2018-03-26 22:25:06
+ * @date 2018-03-28 10:33:30
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
 @Table(name = "campus_order")
 public class CampusOrder extends AbstractEntity<CampusOrder> {
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    /**
-     * 课程订单id
+	/**
+	 * 课程订单id
      */
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    /**
-     * 基础订单id
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+	/**
+	 * 基础订单id
      */
-    private Integer baseOrderId;
-    /**
-     * 用户id
+	private Integer baseOrderId;
+	/**
+	 * 用户id
      */
-    private Integer userId;
-    /**
-     * 课程id
+	private Integer userId;
+	/**
+	 * 课程id
      */
-    private Integer courseId;
-    /**
-     * 积分
+	private Integer courseId;
+	/**
+	 * 积分
      */
-    private Integer credits;
-    /**
-     * 订单类型
+	private Integer credits;
+	/**
+	 * 订单类型(求学或教学)
+	 */
+	private String typeCourse;
+	/**
+	 * 状态{0、已创建 1、已完成 2、已取消）
      */
-    private String typeCourse;
-    /**
-     * 状态{0、已创建 1、已完成 2、已取消）
+	private Integer status;
+	/**
+	 * 创建时间
      */
-    private Integer status;
-    /**
-     * 创建时间
+	private Date createTime;
+	/**
+	 * 更新时间
      */
-    private Date createTime;
-    /**
-     * 更新时间
+	private Date updateTime;
+	/**
+	 * 是否删除
      */
-    private Date updateTime;
-    /**
-     * 是否删除
-     */
-    private Boolean isDeleted;
+	private Boolean isDeleted;
 
 }

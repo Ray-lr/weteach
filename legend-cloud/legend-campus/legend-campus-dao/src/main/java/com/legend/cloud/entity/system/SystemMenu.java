@@ -11,63 +11,64 @@ import javax.persistence.Table;
 import java.util.Date;
 
 
+
 /**
  * 菜单表
  *
  * @author hupeiD
- * @date 2018-03-27 21:30:17
+ * @date 2018-03-28 10:33:28
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
 @Table(name = "system_menu")
 public class SystemMenu extends AbstractEntity<SystemMenu> {
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    /**
-     *
+	/**
+	 *
+	 */
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+	/**
+	 * 菜单名称
      */
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    /**
-     * 菜单名称
+	private String name;
+	/**
+	 * url
      */
-    private String name;
-    /**
-     * url
+	private String url;
+	/**
+	 * 描述
      */
-    private String url;
-    /**
-     * 描述
+	private String description;
+	/**
+	 * 菜单等级
      */
-    private String description;
-    /**
-     * 菜单等级
+	private Integer hierarchy;
+	/**
+	 * 父级id
      */
-    private Integer hierarchy;
-    /**
-     * 父级id
+	private Integer parentId;
+	/**
+	 * 排序
      */
-    private Integer parentId;
-    /**
-     * 排序
+	private Integer sort;
+	/**
+	 * 额外添加的类
      */
-    private Integer sort;
-    /**
-     * 额外添加的类
+	private String className;
+	/**
+	 * 创建时间
      */
-    private String className;
-    /**
-     * 创建时间
+	private Date createTime;
+	/**
+	 * 更新时间
      */
-    private Date createTime;
-    /**
-     * 更新时间
+	private Date updateTime;
+	/**
+	 * 是否删除
      */
-    private Date updateTime;
-    /**
-     * 是否删除
-     */
-    private Boolean isDeleted;
+	private Boolean isDeleted;
 
 }

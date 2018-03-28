@@ -8,7 +8,7 @@ import java.util.List;
  * BaseAreas的example类
  *
  * @author hupeiD
- * @date 2018-03-26 22:19:05
+ * @date 2018-03-28 10:33:31
  */
 public class BaseAreasExample {
     protected String orderByClause;
@@ -21,20 +21,20 @@ public class BaseAreasExample {
         oredCriteria = new ArrayList<Criteria>();
     }
 
-    public String getOrderByClause() {
-        return orderByClause;
-    }
-
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
     }
 
-    public boolean isDistinct() {
-        return distinct;
+    public String getOrderByClause() {
+        return orderByClause;
     }
 
     public void setDistinct(boolean distinct) {
         this.distinct = distinct;
+    }
+
+    public boolean isDistinct() {
+        return distinct;
     }
 
     public List<Criteria> getOredCriteria() {
@@ -152,7 +152,7 @@ public class BaseAreasExample {
         }
 
         public Criteria andIdIn(List<Integer> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("id in", values, "id");
             return (Criteria) this;
         }
 
@@ -212,7 +212,7 @@ public class BaseAreasExample {
         }
 
         public Criteria andNameIn(List<String> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("name in", values, "name");
             return (Criteria) this;
         }
 
@@ -272,7 +272,7 @@ public class BaseAreasExample {
         }
 
         public Criteria andParentIdIn(List<Integer> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("parent_id in", values, "parent_id");
             return (Criteria) this;
         }
 
@@ -332,7 +332,7 @@ public class BaseAreasExample {
         }
 
         public Criteria andAbbreviationIn(List<String> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("abbreviation in", values, "abbreviation");
             return (Criteria) this;
         }
 
@@ -392,7 +392,7 @@ public class BaseAreasExample {
         }
 
         public Criteria andLongitudeIn(List<Double> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("longitude in", values, "longitude");
             return (Criteria) this;
         }
 
@@ -452,7 +452,7 @@ public class BaseAreasExample {
         }
 
         public Criteria andLatitudeIn(List<Double> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("latitude in", values, "latitude");
             return (Criteria) this;
         }
 
@@ -512,7 +512,7 @@ public class BaseAreasExample {
         }
 
         public Criteria andTypeAreasIn(List<Integer> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("type_areas in", values, "type_areas");
             return (Criteria) this;
         }
 
@@ -572,7 +572,7 @@ public class BaseAreasExample {
         }
 
         public Criteria andSignIn(List<String> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("sign in", values, "sign");
             return (Criteria) this;
         }
 
@@ -632,7 +632,7 @@ public class BaseAreasExample {
         }
 
         public Criteria andSortIn(List<Integer> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("sort in", values, "sort");
             return (Criteria) this;
         }
 
@@ -692,7 +692,7 @@ public class BaseAreasExample {
         }
 
         public Criteria andCreateTimeIn(List<Date> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("create_time in", values, "create_time");
             return (Criteria) this;
         }
 
@@ -752,7 +752,7 @@ public class BaseAreasExample {
         }
 
         public Criteria andUpdateTimeIn(List<Date> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("update_time in", values, "update_time");
             return (Criteria) this;
         }
 
@@ -812,7 +812,7 @@ public class BaseAreasExample {
         }
 
         public Criteria andIsDeletedIn(List<Boolean> values) {
-            addCriterion("${column.columnname} in", values, "${column.columnname}");
+            addCriterion("is_deleted in", values, "is_deleted");
             return (Criteria) this;
         }
 
@@ -856,6 +856,38 @@ public class BaseAreasExample {
 
         private String typeHandler;
 
+        public String getCondition() {
+            return condition;
+        }
+
+        public Object getValue() {
+            return value;
+        }
+
+        public Object getSecondValue() {
+            return secondValue;
+        }
+
+        public boolean isNoValue() {
+            return noValue;
+        }
+
+        public boolean isSingleValue() {
+            return singleValue;
+        }
+
+        public boolean isBetweenValue() {
+            return betweenValue;
+        }
+
+        public boolean isListValue() {
+            return listValue;
+        }
+
+        public String getTypeHandler() {
+            return typeHandler;
+        }
+
         protected Criterion(String condition) {
             super();
             this.condition = condition;
@@ -890,38 +922,6 @@ public class BaseAreasExample {
 
         protected Criterion(String condition, Object value, Object secondValue) {
             this(condition, value, secondValue, null);
-        }
-
-        public String getCondition() {
-            return condition;
-        }
-
-        public Object getValue() {
-            return value;
-        }
-
-        public Object getSecondValue() {
-            return secondValue;
-        }
-
-        public boolean isNoValue() {
-            return noValue;
-        }
-
-        public boolean isSingleValue() {
-            return singleValue;
-        }
-
-        public boolean isBetweenValue() {
-            return betweenValue;
-        }
-
-        public boolean isListValue() {
-            return listValue;
-        }
-
-        public String getTypeHandler() {
-            return typeHandler;
         }
     }
 }
