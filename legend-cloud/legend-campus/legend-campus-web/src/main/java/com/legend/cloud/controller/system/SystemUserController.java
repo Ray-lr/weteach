@@ -53,6 +53,9 @@ public class SystemUserController extends AbstractUserController<SystemUserVO> {
         Subject subject = SecurityUtils.getSubject();
         try {
             subject.login(token);
+            if (!subject.isAuthenticated()) {
+                return Ajax.error();
+            }
             SystemUser currentUser = (SystemUser) subject.getPrincipal();
             // 更新最后登录时间
             currentUser.setLastLoginTime(new Date());

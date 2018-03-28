@@ -55,6 +55,9 @@ public class BaseUserController extends AbstractUserController<BaseUserVO> {
         Subject subject = SecurityUtils.getSubject();
         try {
             subject.login(token);
+            if (!subject.isAuthenticated()) {
+                return Ajax.error();
+            }
             BaseUser currentUser = (BaseUser) subject.getPrincipal();
             // 更新最后登录时间
             currentUser.setLastLoginTime(new Date());
