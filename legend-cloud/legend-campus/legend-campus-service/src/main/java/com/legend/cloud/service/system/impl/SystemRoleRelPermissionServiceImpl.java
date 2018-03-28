@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.common.Mapper;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -68,8 +69,12 @@ public class SystemRoleRelPermissionServiceImpl extends AbstractLegendService<Sy
     public List<SystemRoleRelPermission> getListByRoleIds(List<Integer> ids) {
         SystemRoleRelPermissionExample example = new SystemRoleRelPermissionExample();
         SystemRoleRelPermissionExample.Criteria criteria = example.createCriteria().andIsDeletedEqualTo(false);
+        if(ids!=null&&!ids.isEmpty()){
+            return new ArrayList<>();
+        }
         criteria.andRoleIdIn(ids);
         return getListByExample(example);
+
     }
 
 }
