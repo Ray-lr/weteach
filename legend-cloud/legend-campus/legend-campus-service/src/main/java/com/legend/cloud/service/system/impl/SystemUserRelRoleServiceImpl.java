@@ -46,11 +46,11 @@ public class SystemUserRelRoleServiceImpl extends AbstractLegendService<SystemUs
         if (systemUserRelRole.getId() != null) {
             criteria.andIdEqualTo(systemUserRelRole.getId());
         }
-        if (systemUserRelRole.getUserId() != null) {
-            criteria.andUserIdEqualTo(systemUserRelRole.getUserId());
+        if (systemUserRelRole.getSystemUserId() != null) {
+            criteria.andSystemUserIdEqualTo(systemUserRelRole.getSystemUserId());
         }
-        if (systemUserRelRole.getRoleId() != null) {
-            criteria.andRoleIdEqualTo(systemUserRelRole.getRoleId());
+        if (systemUserRelRole.getSystemRoleId() != null) {
+            criteria.andSystemRoleIdEqualTo(systemUserRelRole.getSystemRoleId());
         }
         if (systemUserRelRole.getCreateTime() != null) {
             criteria.andCreateTimeEqualTo(systemUserRelRole.getCreateTime());
@@ -67,7 +67,8 @@ public class SystemUserRelRoleServiceImpl extends AbstractLegendService<SystemUs
     @Override
     public List<SystemUserRelRole> getListByUserId(Integer userId) {
         SystemUserRelRole systemUserRelRole = new SystemUserRelRole();
-        systemUserRelRole.setUserId(userId);
+        systemUserRelRole.setSystemUserId(userId);
+        systemUserRelRole.setIsDeleted(false);
         return getList(systemUserRelRole);
     }
 

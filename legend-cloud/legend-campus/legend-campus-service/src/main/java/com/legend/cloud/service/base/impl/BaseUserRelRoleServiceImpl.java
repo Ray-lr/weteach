@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.common.Mapper;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @author Administrator
@@ -63,4 +64,11 @@ public class BaseUserRelRoleServiceImpl extends AbstractLegendService<BaseUserRe
         return example;
     }
 
+    @Override
+    public List<BaseUserRelRole> getListByUserId(Integer userId) {
+        BaseUserRelRole baseUserRelRole = new BaseUserRelRole();
+        baseUserRelRole.setBaseUserId(userId);
+        baseUserRelRole.setIsDeleted(false);
+        return getList(baseUserRelRole);
+    }
 }
