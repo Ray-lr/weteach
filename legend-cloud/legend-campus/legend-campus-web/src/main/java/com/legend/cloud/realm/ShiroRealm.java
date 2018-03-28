@@ -23,6 +23,7 @@ import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.util.ByteSource;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -63,23 +64,23 @@ public class ShiroRealm extends AuthorizingRealm {
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
         User currentUser = (User) principalCollection.getPrimaryPrincipal();
-        List<Integer> roleIds;
+        List<Integer> roleIds = new ArrayList<>();
         List<Integer> permissionIds;
         Set<String> permissionSigns = new HashSet<>();
         if (Key.SYSTEM.equals(usernamePasswordToken.getHost())) {
             roleIds = systemUserRelRoleService.getListByUserId(currentUser.getId()).stream().map
                     (SystemUserRelRole::getSystemRoleId).collect(Collectors.toList());
-            permissionIds = systemRoleRelPermissionService.getListByRoleIds(roleIds).stream().map
-                    (SystemRoleRelPermission::getPermissionId).collect(Collectors.toList());
-            permissionSigns = systemPermissionService.getListByPermissionIds(permissionIds).stream
-                    ().map(SystemPermission::getSign).collect(Collectors.toSet());
         } else if (Key.BASE.equals(usernamePasswordToken.getHost())) {
             roleIds = baseUserRelRoleService.getListByUserId(currentUser.getId()).stream().map
                     (BaseUserRelRole::getSystemRoleId).collect(Collectors.toList());
+        }
+        if (!roleIds.isEmpty()) {
             permissionIds = systemRoleRelPermissionService.getListByRoleIds(roleIds).stream().map
                     (SystemRoleRelPermission::getPermissionId).collect(Collectors.toList());
-            permissionSigns = systemPermissionService.getListByPermissionIds(permissionIds).stream
-                    ().map(SystemPermission::getSign).collect(Collectors.toSet());
+            if (!permissionIds.isEmpty()) {
+                permissionSigns = systemPermissionService.getListByPermissionIds(permissionIds).stream
+                        ().map(SystemPermission::getSign).collect(Collectors.toSet());
+            }
         }
         SimpleAuthorizationInfo simpleAuthorizationInfo = new SimpleAuthorizationInfo();
         simpleAuthorizationInfo.addStringPermissions(permissionSigns);
