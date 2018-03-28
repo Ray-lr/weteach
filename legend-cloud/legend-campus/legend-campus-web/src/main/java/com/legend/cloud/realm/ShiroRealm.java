@@ -1,9 +1,11 @@
 package com.legend.cloud.realm;
 
+import com.legend.cloud.entity.base.BaseUserRelRole;
 import com.legend.cloud.entity.system.SystemPermission;
 import com.legend.cloud.entity.system.SystemRoleRelPermission;
 import com.legend.cloud.entity.system.SystemUserRelRole;
 import com.legend.cloud.model.constant.attribute.Key;
+import com.legend.cloud.service.base.BaseUserRelRoleService;
 import com.legend.cloud.service.base.BaseUserService;
 import com.legend.cloud.service.system.SystemPermissionService;
 import com.legend.cloud.service.system.SystemRoleRelPermissionService;
@@ -42,6 +44,9 @@ public class ShiroRealm extends AuthorizingRealm {
     private SystemUserRelRoleService systemUserRelRoleService;
 
     @Resource
+    private BaseUserRelRoleService baseUserRelRoleService;
+
+    @Resource
     private SystemRoleRelPermissionService systemRoleRelPermissionService;
 
     @Resource
@@ -57,17 +62,24 @@ public class ShiroRealm extends AuthorizingRealm {
      */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
+        User currentUser = (User) principalCollection.getPrimaryPrincipal();
+        List<Integer> roleIds;
+        List<Integer> permissionIds;
         Set<String> permissionSigns = new HashSet<>();
-        if ("system".equals(usernamePasswordToken.getHost())) {
-            User currentUser = (User) principalCollection.getPrimaryPrincipal();
-            List<Integer> roleIds = systemUserRelRoleService.getListByUserId(currentUser.getId()).stream().map
-                    (SystemUserRelRole::getRoleId).collect(Collectors.toList());
-            List<Integer> permissionIds = systemRoleRelPermissionService.getListByRoleIds(roleIds).stream().map
+        if (Key.SYSTEM.equals(usernamePasswordToken.getHost())) {
+            roleIds = systemUserRelRoleService.getListByUserId(currentUser.getId()).stream().map
+                    (SystemUserRelRole::getSystemRoleId).collect(Collectors.toList());
+            permissionIds = systemRoleRelPermissionService.getListByRoleIds(roleIds).stream().map
                     (SystemRoleRelPermission::getPermissionId).collect(Collectors.toList());
             permissionSigns = systemPermissionService.getListByPermissionIds(permissionIds).stream
                     ().map(SystemPermission::getSign).collect(Collectors.toSet());
-        } else if ("base".equals(usernamePasswordToken.getHost())) {
-            System.out.println("baseUser login");
+        } else if (Key.BASE.equals(usernamePasswordToken.getHost())) {
+            roleIds = baseUserRelRoleService.getListByUserId(currentUser.getId()).stream().map
+                    (BaseUserRelRole::getSystemRoleId).collect(Collectors.toList());
+            permissionIds = systemRoleRelPermissionService.getListByRoleIds(roleIds).stream().map
+                    (SystemRoleRelPermission::getPermissionId).collect(Collectors.toList());
+            permissionSigns = systemPermissionService.getListByPermissionIds(permissionIds).stream
+                    ().map(SystemPermission::getSign).collect(Collectors.toSet());
         }
         SimpleAuthorizationInfo simpleAuthorizationInfo = new SimpleAuthorizationInfo();
         simpleAuthorizationInfo.addStringPermissions(permissionSigns);
