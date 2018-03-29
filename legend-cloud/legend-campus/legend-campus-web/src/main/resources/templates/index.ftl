@@ -320,20 +320,6 @@
             search: function (e) {
                 alert($(e.currentTarget).val());
             },
-            SignOut: function () {
-                $.ajax({
-                    url: "/base/user/logout",
-                    type: "POST",
-                    data: {
-                        _method: "PUT"
-                    },
-                    success: function (data) {
-                        if (data.result) {
-                            window.location.href = data.url;
-                        }
-                    }
-                })
-            }
         }
     })
 </script>
