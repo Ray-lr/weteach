@@ -39,7 +39,7 @@ import java.util.Set;
 @EqualsAndHashCode(callSuper = true)
 @Data
 public abstract class AbstractUserController<TVO extends UserVO> extends
-        LegendController<TVO> {
+        LegendController {
 
     private static final Validator VALIDATOR = Validation.byProvider(HibernateValidator.class).configure().failFast
             (false).buildValidatorFactory().getValidator();
