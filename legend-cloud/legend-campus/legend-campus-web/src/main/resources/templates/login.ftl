@@ -108,6 +108,7 @@
 <script>
     let vm = new Vue({
         el: "#vm",
+        contentType:"application/json;charset=utf-8",
         data: {
             username: null,
             password: null,
@@ -118,6 +119,7 @@
                 $(e.currentTarget).ajaxSubmit({
                     url: "/" + vm.host + "/user/login",
                     type: "post",
+
                     success: function (data) {
                         Messenger().post({
                             id: "loginMessenger",

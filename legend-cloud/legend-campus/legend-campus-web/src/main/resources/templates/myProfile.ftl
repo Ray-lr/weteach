@@ -94,18 +94,17 @@
                              alt="Card image cap">
                     </a>
                     <div class="card-body">
-                        <h5 class="card-title font-weight-bold">
+                        <h5 class="card-title font-weight-bold">{{user.nickName}}
                         </h5>
-                        <h6 class="card-title font-weight-normal"></h6>
-                        <p class="card-text font-weight-light"></p>
+                        <h6 class="card-title font-weight-normal">{{user.username}}</h6>
+                        <p class="card-text font-weight-light">{{user.phone}}</p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Cras justo odio</li>
+                        <li class="list-group-item">{{user.id}}</li>
                     </ul>
                     <div class="card-body">
-                        <a href="#" class="card-link">Card link</a>
+                        <a href="myProfile" class="card-link">详细信息</a>
                     </div>
-
                 </div>
                 <div align="center">
                     <a href="verify">
@@ -161,19 +160,22 @@
                         <!-- second list -->
                         <!-- 个人信息完善 -->
                         <div class="tab-pane fade" id="teaching" role="tabpanel" aria-labelledby="teaching-tab">
-                            <form>
+                            <form @submit.prevent="update($event)">
+                                <!--隐藏的id-->
+                                <input type="hidden" name="id" :value="userInfo.id">
                                 <!--真实姓名-->
                                 <div class="form-group">
-                                    <label for="exampleFormControlInput1">True name</label>
-                                    <input type="text" class="form-control" id="exampleFormControlInput1">
+                                    <label for="exampleFormControlInput1">真实姓名{{userInfo.id}}</label>
+                                    <input type="text" class="form-control" id="exampleFormControlInput1"
+                                           name="name" :value="userInfo.name">
                                 </div>
                                 <!-- 真实性别 -->
                                 <div class="form-group">
 
-                                    <label for="male">Male</label>
-                                    <input type="radio" name="sex" id="male"/>
+                                    <label for="male">男</label>
+                                    <input type="radio" name="sex" id="male" :value="userInfo.sex" checked/>
 
-                                    <label for="female">Female</label>
+                                    <label for="female">女</label>
                                     <input type="radio" name="sex" id="female"/>
                                 </div>
                                 <!--真实年龄-->
@@ -184,21 +186,21 @@
                                 </div>
                                 <!--电话号码-->
                                 <div class="form-group">
-                                    <label for="exampleFormControlInput3">Mobile phone</label>
+                                    <label for="exampleFormControlInput3">手机号</label>
                                     <input type="text" class="form-control" id="exampleFormControlInput3"
-                                           placeholder="1XX-XXXX-XXXX">
+                                           placeholder="1XX-XXXX-XXXX" name="phone" :value="userInfo.phone">
                                 </div>
                                 <!--QQ号码-->
                                 <div class="form-group">
-                                    <label for="exampleFormControlInput4">QQ number</label>
+                                    <label for="exampleFormControlInput4">QQ号</label>
                                     <input type="text" class="form-control" id="exampleFormControlInput4"
-                                           placeholder="name@example.com">
+                                           placeholder="name@example.com" name="qicq" :value="userInfo.qicq">
                                 </div>
                                 <!--邮箱-->
                                 <div class="form-group">
-                                    <label for="exampleFormControlInput5">Email address</label>
+                                    <label for="exampleFormControlInput5">邮箱</label>
                                     <input type="email" class="form-control" id="exampleFormControlInput5"
-                                           placeholder="name@example.com">
+                                           placeholder="name@example.com" name="email" :value="userInfo.email">
                                 </div>
 
                                 <div class="input-group">
@@ -218,20 +220,22 @@
                                             <a class="dropdown-item" href="#">@126.com</a>
                                             <a class="dropdown-item" href="#">@qq.com</a>
                                             <div role="separator" class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">another email</a>
+                                            <a class="dropdown-item" href="#">other emails</a>
                                         </div>
                                     </div>
                                 </div>
                                 <!-- 籍贯 -->
                                 <div class="form-group">
-                                    <label for="exampleFormControlSelect1">Hometown</label>
+                                    <label for="exampleFormControlSelect1">籍贯</label>
                                     <!-- 省份 -->
                                     <div class="input-group ">
                                         <div class="input-group-prepend">
                                             <label class="input-group-text" for="inputGroupSelect01">-- 省份 --</label>
                                         </div>
                                         <select class="custom-select" id="inputGroupSelect01">
-                                            <option v-for="item in provinces" value="item.id" v-text="item.name"></option>
+                                            <option selected="selected" :value="userInfo.native_place"></option>
+                                            <option v-for="item in provinces" value="item.id"
+                                                    v-text="item.name"></option>
                                         </select>
                                     </div>
                                     <div class="row">
@@ -254,7 +258,7 @@
                                         </div>
                                         <!-- 区/县 -->
                                         <div class="col col-md-4">
-                                            <select class="form-control" id="county">
+                                            <select class="form-control" id="county" name="native_place">
                                                 <option>-- 区/县 --</option>
                                                 <option v-for="item in counties" value="item.id"
                                                         v-text="item.name"></option>
@@ -283,8 +287,8 @@
                                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                                 </div>
                                 <div align="center" style="height:150px;">
-                                    <button type="button" class="btn btn-outline-primary btn-lg btn-block">Submit
-                                    </button>
+                                    <button type="submit" class="btn btn-outline-primary btn-lg btn-block" value="提交">提交</button>
+
                                 </div>
                             </form>
                         </div>
@@ -331,7 +335,7 @@
         el: "#vm",
         data: {
             user: "",
-
+            userInfo: "",
             study: {
                 list: []
             },
@@ -347,6 +351,15 @@
         },
         beforeCreate: function () {
             $.ajax({
+                url: "/base/user/getUser",
+                type: "GET",
+                success: function (data) {
+                    if (data.result) {
+                        vm.user = data.data;
+                    }
+                }
+            });
+            $.ajax({
                 url: "/base/areas/list",
                 data: {
                     typeAreas: 1
@@ -355,7 +368,6 @@
                     if (data.result) {
                         vm.provinces = data.data;
                     }
-
                 }
             });
             $.ajax({
@@ -369,6 +381,16 @@
                     }
                 }
             });
+            $.ajax({
+                url: "/campus/userInfo/detail/2",
+                type: "get",
+                success: function (data) {
+                    if (data.result) {
+                        vm.userInfo = data.data;
+                    }
+                }
+            });
+
             /*$.ajax({
                 url: "/base/areas/list",
                 data: {
@@ -382,12 +404,25 @@
             });*/
         },
         created: function () {
+
         },
         updated: function () {
         },
         methods: {
             search: function (e) {
                 alert($(e.currentTarget).val());
+            },
+            update: function (e) {
+                $(e.currentTarget).ajaxSubmit({
+                    url: "/campus/userInfo/update",
+                    type: "PUT",
+                    success: function (data) {
+                        if (data.result) {
+                            alert(data.msg);
+                            window.location.reload();
+                        }
+                    }
+                });
             }
         }
     })

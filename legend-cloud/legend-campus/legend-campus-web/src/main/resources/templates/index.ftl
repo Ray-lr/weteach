@@ -289,7 +289,7 @@
             },
             other: {
                 list: []
-            },
+            }
 
         },
         beforeCreate: function () {

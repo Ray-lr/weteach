@@ -1,8 +1,12 @@
 package com.legend.cloud.controller.campus;
 
 
+import com.legend.cloud.entity.base.BaseUser;
 import com.legend.cloud.entity.campus.CampusUserInfo;
+import com.legend.cloud.entity.campus.CampusUserInfoExample;
+import com.legend.cloud.service.base.BaseUserService;
 import com.legend.cloud.service.campus.CampusUserInfoService;
+import com.legend.cloud.vo.base.BaseUserVO;
 import com.legend.cloud.vo.campus.CampusUserInfoVO;
 import com.legend.module.core.model.contant.arribute.Column;
 import com.legend.module.core.model.contant.arribute.Key;
@@ -15,10 +19,7 @@ import com.legend.module.core.utils.Query;
 import com.legend.module.core.web.controller.LegendController;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -111,5 +112,16 @@ public class CampusUserInfoController extends LegendController {
             return Ajax.error(AjaxMessage.SERVER_ERROR, AjaxCode.SERVER_ERROR);
         }
     }
-
+    @RequestMapping(value="/detail/{userId}",method = RequestMethod.GET)
+    public Ajax get(@PathVariable Integer userId){
+        try {
+            CampusUserInfo campusUserInfo = new CampusUserInfo();
+            campusUserInfo.setBaseUserId(userId);
+            CampusUserInfo cui=campusUserInfoService.get(campusUserInfo);
+            return  Ajax.success(cui);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Ajax.error(AjaxMessage.SERVER_ERROR,AjaxCode.SERVER_ERROR);
+        }
+    }
 }

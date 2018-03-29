@@ -19,5 +19,5 @@ public interface CampusCourseService extends LegendService<CampusCourse> {
      * @param query        分页
      * @return 课程List
      */
-    List<CampusCourse> studyList(CampusCourse campusCourse, Query query);
+    List<CampusCourse> getListByStatuses(CampusCourse campusCourse,List<Integer> status, Query query);
 }

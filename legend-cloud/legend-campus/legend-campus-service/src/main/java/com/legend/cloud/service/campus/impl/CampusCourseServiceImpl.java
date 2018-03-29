@@ -102,9 +102,9 @@ public class CampusCourseServiceImpl extends AbstractLegendService<CampusCourse>
     }
 
     @Override
-    public List<CampusCourse> studyList(CampusCourse campusCourse, Query query) {
+    public List<CampusCourse> getListByStatuses(CampusCourse campusCourse,List<Integer> status, Query query) {
         CampusCourseExample example = (CampusCourseExample) getExample(campusCourse, "publish_time", "desc");
-        example.createCriteria().andStatusBetween(3, 5);
+        example.createCriteria().andStatusIn(status);
         return getListByExample(example, query.getCurrentPage(), query.getPageSize());
     }
 }
