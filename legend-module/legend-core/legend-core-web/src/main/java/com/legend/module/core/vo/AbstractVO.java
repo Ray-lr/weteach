@@ -20,31 +20,6 @@ public abstract class AbstractVO<T extends AbstractEntity> extends AbstractPojo<
     private static final long serialVersionUID = 1L;
 
     /**
-     * 主键id
-     */
-    @NotNull
-    private Integer id;
-
-    /**
-     * 创建时间
-     */
-    @NotNull
-    private Date createTime;
-
-    /**
-     * 更新时间
-     */
-    @NotNull
-    private Date updateTime;
-
-    /**
-     * 是否删除
-     */
-    @NotNull
-    private Boolean isDeleted;
-
-
-    /**
      * 将VO赋值到Entity
      *
      * @param ignoreProperties 忽略的字段
