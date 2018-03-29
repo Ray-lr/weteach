@@ -2,17 +2,16 @@ package com.legend.cloud.realm;
 
 import com.legend.cloud.entity.base.BaseUserRelRole;
 import com.legend.cloud.entity.system.SystemPermission;
+import com.legend.cloud.entity.system.SystemRole;
 import com.legend.cloud.entity.system.SystemRoleRelPermission;
 import com.legend.cloud.entity.system.SystemUserRelRole;
-import com.legend.cloud.model.constant.attribute.Key;
+import com.legend.cloud.model.constant.attribute.Module;
 import com.legend.cloud.service.base.BaseUserRelRoleService;
 import com.legend.cloud.service.base.BaseUserService;
-import com.legend.cloud.service.system.SystemPermissionService;
-import com.legend.cloud.service.system.SystemRoleRelPermissionService;
-import com.legend.cloud.service.system.SystemUserRelRoleService;
-import com.legend.cloud.service.system.SystemUserService;
+import com.legend.cloud.service.system.*;
 import com.legend.module.core.entity.user.User;
 import com.legend.module.core.model.contant.message.exception.UserExceptionMessage;
+import com.legend.module.core.utils.HttpSessionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
@@ -21,6 +20,8 @@ import org.apache.shiro.crypto.hash.Md5Hash;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.util.ByteSource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -35,6 +36,8 @@ import java.util.stream.Collectors;
  */
 public class ShiroRealm extends AuthorizingRealm {
 
+    public static final Logger LOGGER = LoggerFactory.getLogger(ShiroRealm.class);
+
     @Resource
     private SystemUserService systemUserService;
 
@@ -45,6 +48,9 @@ public class ShiroRealm extends AuthorizingRealm {
     private SystemUserRelRoleService systemUserRelRoleService;
 
     @Resource
+    private SystemRoleService systemRoleService;
+
+    @Resource
     private BaseUserRelRoleService baseUserRelRoleService;
 
     @Resource
@@ -52,8 +58,6 @@ public class ShiroRealm extends AuthorizingRealm {
 
     @Resource
     private SystemPermissionService systemPermissionService;
-
-    private UsernamePasswordToken usernamePasswordToken;
 
     /**
      * 授权
@@ -66,27 +70,31 @@ public class ShiroRealm extends AuthorizingRealm {
         User currentUser = (User) principalCollection.getPrimaryPrincipal();
         List<Integer> roleIds = new ArrayList<>();
         List<Integer> permissionIds;
+        Set<String> roleSigns;
         Set<String> permissionSigns = new HashSet<>();
-        try {
-            if (Key.SYSTEM.equals(usernamePasswordToken.getHost())) {
-                roleIds = systemUserRelRoleService.getListByUserId(currentUser.getId()).stream().map
-                        (SystemUserRelRole::getSystemRoleId).collect(Collectors.toList());
-            } else if (Key.BASE.equals(usernamePasswordToken.getHost())) {
-                roleIds = baseUserRelRoleService.getListByUserId(currentUser.getId()).stream().map
-                        (BaseUserRelRole::getSystemRoleId).collect(Collectors.toList());
-            }
-            if (!roleIds.isEmpty()) {
-                permissionIds = systemRoleRelPermissionService.getListByRoleIds(roleIds).stream().map
-                        (SystemRoleRelPermission::getPermissionId).collect(Collectors.toList());
-                if (!permissionIds.isEmpty()) {
-                    permissionSigns = systemPermissionService.getListByPermissionIds(permissionIds).stream
-                            ().map(SystemPermission::getSign).collect(Collectors.toSet());
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+        String host = (String) HttpSessionUtils.getAttribute("host");
+        if (Module.SYSTEM.equals(host)) {
+            roleIds = systemUserRelRoleService.getListByUserId(currentUser.getId()).stream().map
+                    (SystemUserRelRole::getSystemRoleId).collect(Collectors.toList());
+        } else if (Module.BASE.equals(host)) {
+            roleIds = baseUserRelRoleService.getListByUserId(currentUser.getId()).stream().map
+                    (BaseUserRelRole::getSystemRoleId).collect(Collectors.toList());
         }
         SimpleAuthorizationInfo simpleAuthorizationInfo = new SimpleAuthorizationInfo();
+        if (roleIds.isEmpty()) {
+            LOGGER.info("Permission denied");
+            return simpleAuthorizationInfo;
+        }
+        roleSigns = systemRoleService.getListByIds(roleIds).stream().map(SystemRole::getSign).collect(Collectors.toSet());
+        permissionIds = systemRoleRelPermissionService.getListByRoleIds(roleIds).stream().map
+                (SystemRoleRelPermission::getPermissionId).collect(Collectors.toList());
+        if (!permissionIds.isEmpty()) {
+            permissionSigns = systemPermissionService.getListByPermissionIds(permissionIds).stream
+                    ().map(SystemPermission::getSign).collect(Collectors.toSet());
+        }
+        LOGGER.info("roleSigns:" + roleSigns.toString());
+        LOGGER.info("permissionSigns:" + permissionSigns.toString());
+        simpleAuthorizationInfo.addRoles(roleSigns);
         simpleAuthorizationInfo.addStringPermissions(permissionSigns);
         return simpleAuthorizationInfo;
     }
@@ -100,22 +108,24 @@ public class ShiroRealm extends AuthorizingRealm {
      */
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
-        usernamePasswordToken = (UsernamePasswordToken) authenticationToken;
+        UsernamePasswordToken usernamePasswordToken = (UsernamePasswordToken) authenticationToken;
         if (StringUtils.isBlank(usernamePasswordToken.getUsername())) {
             throw new AuthenticationException(UserExceptionMessage.USERNAME_IS_BLANK);
         }
         User currentUser = null;
-        if (Key.SYSTEM.equals(usernamePasswordToken.getHost())) {
+        if (Module.SYSTEM.equals(usernamePasswordToken.getHost())) {
             currentUser = systemUserService.getByUserName(usernamePasswordToken.getUsername());
-        } else if (Key.BASE.equals(usernamePasswordToken.getHost())) {
+            HttpSessionUtils.setAttribute("host", usernamePasswordToken.getHost());
+        } else if (Module.BASE.equals(usernamePasswordToken.getHost())) {
             currentUser = baseUserService.getByUserName(usernamePasswordToken.getUsername());
+            HttpSessionUtils.setAttribute("host", usernamePasswordToken.getHost());
         }
         if (currentUser == null) {
             throw new AuthenticationException(UserExceptionMessage.USERNAME_IS_NOT_EXIST);
         }
 
         ByteSource salt = ByteSource.Util.bytes(currentUser.getUsername());
-        System.out.println(new Md5Hash(usernamePasswordToken.getPassword(), salt, 1024));
+        LOGGER.info(String.valueOf(new Md5Hash(usernamePasswordToken.getPassword(), salt, 1024)));
         //将主体对象放入了Principal中
         return new SimpleAuthenticationInfo(currentUser, currentUser.getPassword(), salt, getName());
     }
