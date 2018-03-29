@@ -36,7 +36,7 @@ import java.util.stream.Collectors;
  */
 public class ShiroRealm extends AuthorizingRealm {
 
-    public static final Logger LOGGER = LoggerFactory.getLogger(ShiroRealm.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ShiroRealm.class);
 
     @Resource
     private SystemUserService systemUserService;
