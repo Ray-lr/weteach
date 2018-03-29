@@ -3,7 +3,6 @@ package com.legend.cloud.controller.campus;
 
 import com.legend.cloud.entity.base.BaseUser;
 import com.legend.cloud.entity.campus.CampusUserInfo;
-import com.legend.cloud.entity.campus.CampusUserInfoExample;
 import com.legend.cloud.service.base.BaseUserService;
 import com.legend.cloud.service.campus.CampusUserInfoService;
 import com.legend.cloud.vo.base.BaseUserVO;
@@ -19,7 +18,10 @@ import com.legend.module.core.utils.Query;
 import com.legend.module.core.web.controller.LegendController;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -35,6 +37,8 @@ public class CampusUserInfoController extends LegendController {
 
     @Resource
     private CampusUserInfoService campusUserInfoService;
+    @Resource
+    private BaseUserService baseUserService;
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     // @RequiresPermissions("campus:userInfo:list")
@@ -91,8 +95,12 @@ public class CampusUserInfoController extends LegendController {
                 return Ajax.error(AjaxMessage.PARAMETER_ERROR, AjaxCode.PARAMETER_ERROR).put(AjaxValidate.parseFieldError(bindingResult
                         .getFieldErrors()));
             }
-            int updateResult = campusUserInfoService.updateById(campusUserInfoVO.parseTo());
-            return updateResult == 1 ? Ajax.success(AjaxMessage.UPDATE_SUCCESS) : Ajax.error(AjaxMessage.UPDATE_FAILURE, AjaxCode
+            BaseUserVO b = (BaseUserVO) getCurrentUser();
+            b.setNickName(campusUserInfoVO.getNickname());
+            BaseUser baseUser = b.parseTo();
+            int updateResult = baseUserService.updateById(baseUser);
+            updateResult += campusUserInfoService.updateById(campusUserInfoVO.parseTo());
+            return updateResult >= 1 ? Ajax.success(AjaxMessage.UPDATE_SUCCESS) : Ajax.error(AjaxMessage.UPDATE_FAILURE, AjaxCode
                     .UPDATE_FAILURE);
         } catch (Exception e) {
             e.printStackTrace();

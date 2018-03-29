@@ -165,7 +165,7 @@
                                 <input type="hidden" name="id" :value="userInfo.id">
                                 <!--真实姓名-->
                                 <div class="form-group">
-                                    <label for="exampleFormControlInput1">真实姓名{{userInfo.id}}</label>
+                                    <label for="exampleFormControlInput1">真实姓名</label>
                                     <input type="text" class="form-control" id="exampleFormControlInput1"
                                            name="name" :value="userInfo.name">
                                 </div>
@@ -178,11 +178,11 @@
                                     <label for="female">女</label>
                                     <input type="radio" name="sex" id="female"/>
                                 </div>
-                                <!--真实年龄-->
+                                <!--昵称-->
                                 <div class="form-group">
-                                    <label for="exampleFormControlInput2">True age</label>
+                                    <label for="exampleFormControlInput2">昵称</label>
                                     <input type="text" class="form-control" id="exampleFormControlInput2"
-                                           placeholder="18">
+                                           placeholder="18" name="nickname" :value="userInfo.nickname">
                                 </div>
                                 <!--电话号码-->
                                 <div class="form-group">
@@ -196,7 +196,7 @@
                                     <input type="text" class="form-control" id="exampleFormControlInput4"
                                            placeholder="name@example.com" name="qicq" :value="userInfo.qicq">
                                 </div>
-                                <!--邮箱-->
+                                <!--<!--邮箱&ndash;&gt;
                                 <div class="form-group">
                                     <label for="exampleFormControlInput5">邮箱</label>
                                     <input type="email" class="form-control" id="exampleFormControlInput5"
@@ -223,22 +223,12 @@
                                             <a class="dropdown-item" href="#">other emails</a>
                                         </div>
                                     </div>
-                                </div>
+                                </div>-->
                                 <!-- 籍贯 -->
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">籍贯</label>
-                                    <!-- 省份 -->
-                                    <div class="input-group ">
-                                        <div class="input-group-prepend">
-                                            <label class="input-group-text" for="inputGroupSelect01">-- 省份 --</label>
-                                        </div>
-                                        <select class="custom-select" id="inputGroupSelect01">
-                                            <option selected="selected" :value="userInfo.native_place"></option>
-                                            <option v-for="item in provinces" value="item.id"
-                                                    v-text="item.name"></option>
-                                        </select>
-                                    </div>
                                     <div class="row">
+                                        <!-- 省、直辖市-->
                                         <div class="col-md-4">
                                             <select class="form-control" id="province">
                                                 <option>-- 省/直辖市/自治区 --</option>
@@ -265,22 +255,6 @@
                                             </select>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleFormControlSelect2">Example multiple select</label>
-                                    <!--<select multiple class="form-control" id="exampleFormControlSelect2">
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                    </select>-->
-                                    <select class="custom-select" id="inputGroupSelect03">
-                                        <option selected>Choose...</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
-                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlTextarea1">个性签名</label>
@@ -356,6 +330,15 @@
                 success: function (data) {
                     if (data.result) {
                         vm.user = data.data;
+                        $.ajax({
+                            url: "/campus/userInfo/detail/" + vm.user.id,
+                            type: "get",
+                            success: function (data) {
+                                if (data.result) {
+                                    vm.userInfo = data.data;
+                                }
+                            }
+                        });
                     }
                 }
             });
@@ -370,7 +353,7 @@
                     }
                 }
             });
-            $.ajax({
+            /*$.ajax({
                 url: "/base/areas/list",
                 data: {
                     typeAreas: 2
@@ -380,16 +363,16 @@
                         vm.cities = data.data;
                     }
                 }
-            });
-            $.ajax({
-                url: "/campus/userInfo/detail/2",
+            });*/
+            /*$.ajax({
+                url: "/campus/userInfo/detail/"+vm.user.id,
                 type: "get",
                 success: function (data) {
                     if (data.result) {
                         vm.userInfo = data.data;
                     }
                 }
-            });
+            });*/
 
             /*$.ajax({
                 url: "/base/areas/list",
