@@ -17,10 +17,7 @@ import org.apache.shiro.authz.AuthorizationException;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -37,7 +34,7 @@ public class CampusCourseController extends LegendController {
     @Resource
     private CampusCourseService campusCourseService;
 
-    @RequestMapping(value = "/studyList", method = RequestMethod.GET)
+    @GetMapping
     @RequiresPermissions("campus:course:list")
     public Ajax list(CampusCourseVO campusCourseVO, Query query) {
         try {
@@ -56,7 +53,7 @@ public class CampusCourseController extends LegendController {
         }
     }
 
-    @RequestMapping(value = "/details/{id}", method = RequestMethod.GET)
+    @GetMapping("/{id}")
     // @RequiresPermissions("campus:course:details")
     public Ajax details(@PathVariable int id) {
         try {
@@ -70,7 +67,7 @@ public class CampusCourseController extends LegendController {
     }
 
 
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    @PostMapping
     // @RequiresPermissions("campus:course:add")
     public Ajax add(@Validated CampusCourseVO campusCourseVO, BindingResult bindingResult) {
         try {
@@ -87,7 +84,7 @@ public class CampusCourseController extends LegendController {
         }
     }
 
-    @RequestMapping(value = "/update", method = RequestMethod.PUT)
+    @PutMapping
     // @RequiresPermissions("campus:course:update")
     public Ajax update(@Validated CampusCourseVO campusCourseVO, BindingResult bindingResult) {
         try {
@@ -104,7 +101,7 @@ public class CampusCourseController extends LegendController {
         }
     }
 
-    @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
+    @DeleteMapping("/{id}")
     // @RequiresPermissions("campus:course:delete")
     public Ajax delete(@PathVariable Integer id) {
         try {
