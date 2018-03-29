@@ -1,6 +1,7 @@
 package com.legend.cloud.controller.base;
 
 
+import com.alibaba.fastjson.JSON;
 import com.legend.cloud.entity.base.BaseUser;
 import com.legend.cloud.service.base.BaseUserService;
 import com.legend.cloud.vo.base.BaseUserVO;
@@ -15,6 +16,8 @@ import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.subject.Subject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,6 +32,8 @@ import java.util.Date;
 @RestController
 @RequestMapping("/base/user")
 public class BaseUserController extends AbstractUserController<BaseUserVO> {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(BaseUserController.class);
 
     @Resource
     private BaseUserService baseUserService;
@@ -63,8 +68,10 @@ public class BaseUserController extends AbstractUserController<BaseUserVO> {
             currentUser.setLastLoginTime(new Date());
             baseUserService.updateById(currentUser);
             // 设置用户到session
-            setCurrentUser(new BaseUserVO().parseFrom(currentUser, "password",
-                    "last_login_time", "create_time", "update_time"));
+            LOGGER.info(JSON.toJSONString(new BaseUserVO().parseFrom(currentUser, "password", "is_enabled", "status", "create_time",
+                    "update_time", "is_deleted")));
+            setCurrentUser(JSON.toJSONString(new BaseUserVO().parseFrom(currentUser, "password", "is_enabled", "status", "create_time",
+                    "update_time", "is_deleted")));
             return Ajax.success(UserResultMessage.LOGIN_SUCCESS).put(Key.URL, "/direct/index");
         } catch (IncorrectCredentialsException e) {
             System.err.println(e.getLocalizedMessage());

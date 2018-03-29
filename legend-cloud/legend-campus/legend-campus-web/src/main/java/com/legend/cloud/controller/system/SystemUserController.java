@@ -1,6 +1,8 @@
 package com.legend.cloud.controller.system;
 
 
+import com.alibaba.fastjson.JSON;
+import com.legend.cloud.controller.base.BaseUserController;
 import com.legend.cloud.entity.system.SystemUser;
 import com.legend.cloud.service.system.SystemUserService;
 import com.legend.cloud.vo.system.SystemUserVO;
@@ -15,6 +17,8 @@ import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.subject.Subject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,6 +32,8 @@ import java.util.Date;
 @RestController
 @RequestMapping("/system/user")
 public class SystemUserController extends AbstractUserController<SystemUserVO> {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(BaseUserController.class);
 
     @Resource
     private SystemUserService systemUserService;
@@ -61,8 +67,11 @@ public class SystemUserController extends AbstractUserController<SystemUserVO> {
             currentUser.setLastLoginTime(new Date());
             systemUserService.updateById(currentUser);
             // 设置用户到session
-            setCurrentUser(new SystemUserVO().parseFrom(currentUser, "password",
-                    "last_login_time", "create_time", "update_time"));
+            LOGGER.info(JSON.toJSONString(new SystemUserVO().parseFrom(currentUser, "password", "is_enabled", "status",
+                    "create_time",
+                    "update_time", "is_deleted")));
+            setCurrentUser(JSON.toJSONString(new SystemUserVO().parseFrom(currentUser, "password", "is_enabled", "status", "create_time",
+                    "update_time", "is_deleted")));
             return Ajax.success(UserResultMessage.LOGIN_SUCCESS).put(Key.URL, "/direct/index");
         } catch (IncorrectCredentialsException e) {
             System.err.println(e.getLocalizedMessage());
