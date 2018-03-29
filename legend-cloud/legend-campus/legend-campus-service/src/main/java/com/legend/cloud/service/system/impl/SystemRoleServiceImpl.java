@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.common.Mapper;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @author Administrator
@@ -63,4 +64,14 @@ public class SystemRoleServiceImpl extends AbstractLegendService<SystemRole> imp
         return example;
     }
 
+    @Override
+    public List<SystemRole> getListByIds(List<Integer> ids) {
+        if (ids == null) {
+            throw new NullPointerException();
+        }
+        SystemRoleExample example = new SystemRoleExample();
+        SystemRoleExample.Criteria criteria = example.createCriteria().andIsDeletedEqualTo(false);
+        criteria.andIdIn(ids);
+        return getListByExample(example);
+    }
 }

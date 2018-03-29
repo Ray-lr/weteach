@@ -3,6 +3,8 @@ package com.legend.cloud.entity.base;
 import com.legend.module.core.entity.user.User;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,6 +23,7 @@ import java.util.Date;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @Table(name = "base_user")
+@ToString
 public class BaseUser extends User<BaseUser> {
     private static final long serialVersionUID = 1L;
 
@@ -61,10 +64,12 @@ public class BaseUser extends User<BaseUser> {
     /**
      * 创建时间
      */
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createTime;
     /**
      * 更新时间
      */
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date updateTime;
     /**
      * 是否删除

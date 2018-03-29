@@ -13,6 +13,16 @@
     <link rel="stylesheet" href="/static/external/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.css"
           media="screen">
     <link rel="stylesheet" href="/static/css/main-campus.css" media="screen">
+
+    <script src="/static/js/jquery-3.3.1.js"></script>
+    <script src="/static/js/jquery.form.js"></script>
+    <script src="/static/js/popper.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/vue.js"></script>
+    <script src="/static/external/HubSpot-messenger/build/js/messenger.js"></script>
+    <script src="/static/external/pace-master/pace.js"></script>
+    <script src="/static/external/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.js"></script>
+    <script src="/static/js/main-campus.js"></script>
 </head>
 <body>
 <div id="vm">
@@ -95,16 +105,18 @@
                              alt="Card image cap">
                     </a>
                     <div class="card-body">
-                        <h5 class="card-title font-weight-bold">{{user.nickName}}
+                        <h5 class="card-title font-weight-bold" v-text="user.nickName">
                         </h5>
-                        <h6 class="card-title font-weight-normal">{{user.username}}</h6>
-                        <p class="card-text font-weight-light">{{user.phone}}</p>
+                        <h6 class="card-title font-weight-normal" v-text="user.username"></h6>
+                        <p class="card-text font-weight-light" v-text="user.phone"></p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Cras justo odio</li>
+                        <li class="list-group-item">
+
+                        </li>
                     </ul>
                     <div class="card-body">
-                        <a href="myProfile" class="card-link">详细信息</a>
+                        <a href="/direct/myProfile" class="card-link">详细信息</a>
                     </div>
                 </div>
             </div>
@@ -174,7 +186,7 @@
                                         <button class="btn btn-link" data-toggle="collapse"
                                                 :data-target="'#collapse-study-'+index"
                                                 aria-expanded="true" :aria-controls="'collapse-study-'+index">
-                                            {{item.title}}
+                                            <span v-text="item.title"></span>
                                         </button>
                                     </h5>
                                 </div>
@@ -185,7 +197,7 @@
                                     <div class="card-body">
                                         <img class="rounded-left cover" src="/static/image/avatar/Avatar.png"
                                              alt="Cover">
-                                        {{index}}-{{item.description}}
+                                        <p v-text="item.description"></p>
                                     </div>
                                 </div>
                             </div>
@@ -266,20 +278,12 @@
         </div>
     </div>
 </div>
-<script src="/static/js/jquery-3.3.1.js"></script>
-<script src="/static/js/jquery.form.js"></script>
-<script src="/static/js/popper.js"></script>
-<script src="/static/js/bootstrap.min.js"></script>
-<script src="/static/js/vue.js"></script>
-<script src="/static/external/HubSpot-messenger/build/js/messenger.js"></script>
-<script src="/static/external/pace-master/pace.js"></script>
-<script src="/static/external/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.js"></script>
-<script src="/static/js/main-campus.js"></script>
+
 <script>
     let vm = new Vue({
         el: "#vm",
         data: {
-            user: "",
+            user: ${currentUser},
 
             study: {
                 list: []
@@ -294,15 +298,6 @@
         },
         beforeCreate: function () {
             $.ajax({
-                url: "/base/user/getUser",
-                type: "GET",
-                success: function (data) {
-                    if (data.result) {
-                        vm.user = data.data;
-                    }
-                }
-            });
-            $.ajax({
                 url: "/campus/course/studyList",
                 type: "GET",
                 success: function (data) {
@@ -310,7 +305,7 @@
                         vm.study.list = data.data;
                     }
                 }
-            })
+            });
         },
         created: function () {
         },
@@ -319,7 +314,7 @@
         methods: {
             search: function (e) {
                 alert($(e.currentTarget).val());
-            },
+            }
         }
     })
 </script>
