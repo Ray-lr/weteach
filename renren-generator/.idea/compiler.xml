@@ -9,7 +9,7 @@
         <module name="renren-generator" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="1.8">
       <module name="renren-generator" target="1.8" />
     </bytecodeTargetLevel>
   </component>

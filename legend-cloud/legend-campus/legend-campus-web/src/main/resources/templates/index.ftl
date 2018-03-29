@@ -293,7 +293,7 @@
             },
             other: {
                 list: []
-            },
+            }
 
         },
         beforeCreate: function () {

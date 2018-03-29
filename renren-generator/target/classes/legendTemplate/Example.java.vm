@@ -1,9 +1,14 @@
 package ${package}.entity.${moduleName};
 
         import java.util.ArrayList;
-        import java.util.Date;
         import java.util.List;
+#if(${hasDate})
+        import java.util.Date;
+#end
 
+#if(${hasBigDecimal})
+        import java.math.BigDecimal;
+#end
 /**
  * ${className}的example类
  *
@@ -153,7 +158,7 @@ public class ${className}Example {
             }
 
             public Criteria and${column.attrName}In(List<${column.attrType}> values) {
-                addCriterion("${column.columnname} in", values, "${column.columnname}");
+                addCriterion("${column.columnName} in", values, "${column.columnName}");
                 return (Criteria) this;
             }
 

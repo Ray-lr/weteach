@@ -73,6 +73,7 @@
                             <a class="dropdown-item" href="myProfile">MyProfile</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="settings">Settings</a>
+                            <a class="dropdown-item" href="messages">Messages</a>
                             <a class="dropdown-item" href="#">Help</a>
                             <a class="dropdown-item " href="/logout">Sign out</a>
                         </div>
@@ -237,6 +238,20 @@
                 </div>
             </div>
             <div class="col col-md-2" id="external">
+                <div>
+                    <a href="#">
+                        <button type="button" class="btn btn-info"
+                                style="width: 100%;height:50px;font-size:20px;">I want to study！
+                        </button>
+                    </a>
+                </div>
+                <div>
+                    <a href="#">
+                        <button type="button" class="btn btn-info"
+                                style="width: 100%;height:50px;font-size:20px;">I want to teach!
+                        </button>
+                    </a>
+                </div>
                 <div class="alert alert-success" role="alert">
                     <h4 class="alert-heading">Well done!</h4>
                     <p>Aww yeah, you successfully read this important alert message. This example text is going to
@@ -274,7 +289,7 @@
             },
             other: {
                 list: []
-            }
+            },
 
         },
         beforeCreate: function () {
