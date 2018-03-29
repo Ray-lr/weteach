@@ -1,5 +1,7 @@
 package com.legend.module.core.vo.core;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.legend.module.core.entity.user.User;
 import com.legend.module.core.model.contant.message.result.user.UserResultMessage;
 import com.legend.module.core.model.contant.regex.Regexp;
@@ -10,6 +12,7 @@ import com.legend.module.core.model.group.user.UpdatePasswordGroup;
 import com.legend.module.core.vo.AbstractVO;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -23,6 +26,7 @@ import java.util.Date;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
+@ToString
 public class UserVO<T extends User> extends AbstractVO<T> {
 
     /**
@@ -47,6 +51,7 @@ public class UserVO<T extends User> extends AbstractVO<T> {
             UpdatePasswordGroup.class})
     @Size(min = 6, message = UserResultMessage.PASSWORD_LENGTH_MIN, groups = {AccountLoginGroup.class, RegisterGroup
             .class, UpdatePasswordGroup.class})
+    @JsonIgnore
     private String password;
 
     /**
@@ -59,6 +64,7 @@ public class UserVO<T extends User> extends AbstractVO<T> {
      */
     @NotNull(message = UserResultMessage.IMAGE_CODE_IS_BLANK, groups = {RegisterGroup.class})
     @Size(min = 4, max = 4, message = UserResultMessage.IMAGE_CODE_WRONG, groups = {RegisterGroup.class})
+    @JsonIgnore
     private String imageCode;
 
     /**
@@ -66,21 +72,25 @@ public class UserVO<T extends User> extends AbstractVO<T> {
      */
     @NotNull(message = UserResultMessage.SMS_CODE_IS_BLANK, groups = {RegisterGroup.class, PhoneLoginGroup.class})
     @Size(min = 4, max = 4, message = UserResultMessage.SMS_CODE_WRONG, groups = {RegisterGroup.class, PhoneLoginGroup.class})
+    @JsonIgnore
     private String smsCode;
 
     /**
      * 最后登录时间
      */
+    @JsonIgnore
     private Date lastLoginTime;
 
     /**
      * 状态（0、离线 1、在线）
      */
+    @JsonIgnore
     private Integer status;
 
     /**
      * 是否启用
      */
+    @JsonIgnore
     private Boolean isEnabled;
 
 
