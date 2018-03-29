@@ -12,7 +12,7 @@
         <module name="legend-campus-web" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="1.8">
       <module name="legend-campus" target="1.8" />
       <module name="legend-campus-dao" target="1.8" />
       <module name="legend-campus-facade" target="1.8" />

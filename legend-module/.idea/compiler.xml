@@ -12,7 +12,7 @@
         <module name="legend-core-web" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="1.8">
       <module name="legend-core" target="1.8" />
       <module name="legend-core-dao" target="1.8" />
       <module name="legend-core-model" target="1.8" />
