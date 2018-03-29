@@ -1,6 +1,5 @@
 package com.legend.cloud.config;
 
-import com.legend.cloud.filter.ShiroPermissionFilter;
 import com.legend.cloud.realm.ShiroRealm;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.mgt.SecurityManager;
@@ -13,7 +12,6 @@ import org.apache.shiro.web.servlet.SimpleCookie;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import javax.servlet.Filter;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
