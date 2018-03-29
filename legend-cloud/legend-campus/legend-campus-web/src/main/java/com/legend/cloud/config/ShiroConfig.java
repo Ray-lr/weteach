@@ -1,5 +1,6 @@
 package com.legend.cloud.config;
 
+import com.legend.cloud.filter.ShiroPermissionFilter;
 import com.legend.cloud.realm.ShiroRealm;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.mgt.SecurityManager;
@@ -12,6 +13,7 @@ import org.apache.shiro.web.servlet.SimpleCookie;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import javax.servlet.Filter;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -30,6 +32,7 @@ public class ShiroConfig {
     @Bean
     public ShiroFilterFactoryBean shirFilter(SecurityManager securityManager) {
         ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
+        // 设置安全管理器
         shiroFilterFactoryBean.setSecurityManager(securityManager);
         // 如不设置默认寻找的是login.jsp而非login.ftl
         shiroFilterFactoryBean.setLoginUrl("/direct/login");
@@ -39,8 +42,7 @@ public class ShiroConfig {
         Map<String, String> filterChainDefinitionMap = new LinkedHashMap<>();
         // 不用验证的url
         filterChainDefinitionMap.put("/static/**", "anon");
-        filterChainDefinitionMap.put("/base/user/login", "anon");
-        filterChainDefinitionMap.put("/system/user/login", "anon");
+        filterChainDefinitionMap.put("/**/login", "anon");
         // 登出的url，具体方法，shiro已经实现
         filterChainDefinitionMap.put("/logout", "logout");
         // 剩下的所有url都需要经过验证才可以访问
