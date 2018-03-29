@@ -9,14 +9,14 @@ import com.legend.module.core.vo.core.UserVO;
  * @author Administrator
  * @date 2018/3/8
  */
-public class LegendController<TVO extends UserVO> {
+public class LegendController {
     /**
      * 设置当前用户，存入session中
      *
-     * @param tvo 当前用户
+     * @param object 当前用户
      */
-    protected void setCurrentUser(TVO tvo) {
-        HttpSessionUtils.setAttribute(Key.CURRENT_USER, tvo);
+    protected void setCurrentUser(Object object) {
+        HttpSessionUtils.setAttribute(Key.CURRENT_USER, object);
     }
 
     /**
