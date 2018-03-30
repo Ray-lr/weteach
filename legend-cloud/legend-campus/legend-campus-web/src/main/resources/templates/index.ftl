@@ -272,7 +272,7 @@
         },
         beforeCreate: function () {
             $.ajax({
-                url: "/campus/course/studyList",
+                url: "/campus/course/list",
                 type: "GET",
                 success: function (data) {
                     if (data.result) {
