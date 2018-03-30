@@ -1,20 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>登录</title>
-    <meta content="text/html" charset="utf-8">
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="/static/css/bootstrap.css" media="screen">
-    <link rel="stylesheet" href="/static/external/HubSpot-messenger/build/css/messenger.css" media="screen">
-    <link rel="stylesheet" href="/static/external/HubSpot-messenger/build/css/messenger-theme-air.css" media="screen">
-    <link rel="stylesheet" href="/static/external/pace-master/themes/black/pace-theme-material.css" media="screen">
-    <link rel="stylesheet" href="/static/external/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.css"
-          media="screen">
-    <link rel="stylesheet" href="/static/css/main-campus.css" media="screen">
-</head>
-<body>
+<#include "./common/head.ftl">
+
 <div id="vm">
     <nav class="navbar navbar-expand-lg navbar-dark bg-grayblack-tp90 sticky-top">
         <div class="container">
@@ -95,16 +80,18 @@
                              alt="Card image cap">
                     </a>
                     <div class="card-body">
-                        <h5 class="card-title font-weight-bold">{{user.nickName}}
+                        <h5 class="card-title font-weight-bold" v-text="user.nickName">
                         </h5>
-                        <h6 class="card-title font-weight-normal">{{user.username}}</h6>
-                        <p class="card-text font-weight-light">{{user.phone}}</p>
+                        <h6 class="card-title font-weight-normal" v-text="user.username"></h6>
+                        <p class="card-text font-weight-light" v-text="user.phone"></p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Cras justo odio</li>
+                        <li class="list-group-item">
+
+                        </li>
                     </ul>
                     <div class="card-body">
-                        <a href="myProfile" class="card-link">详细信息</a>
+                        <a href="/direct/myProfile" class="card-link">详细信息</a>
                     </div>
                 </div>
             </div>
@@ -174,7 +161,7 @@
                                         <button class="btn btn-link" data-toggle="collapse"
                                                 :data-target="'#collapse-study-'+index"
                                                 aria-expanded="true" :aria-controls="'collapse-study-'+index">
-                                            {{item.title}}
+                                            <span v-text="item.title"></span>
                                         </button>
                                     </h5>
                                 </div>
@@ -185,7 +172,7 @@
                                     <div class="card-body">
                                         <img class="rounded-left cover" src="/static/image/avatar/Avatar.png"
                                              alt="Cover">
-                                        {{index}}-{{item.description}}
+                                        <p v-text="item.description"></p>
                                     </div>
                                 </div>
                             </div>
@@ -266,20 +253,12 @@
         </div>
     </div>
 </div>
-<script src="/static/js/jquery-3.3.1.js"></script>
-<script src="/static/js/jquery.form.js"></script>
-<script src="/static/js/popper.js"></script>
-<script src="/static/js/bootstrap.min.js"></script>
-<script src="/static/js/vue.js"></script>
-<script src="/static/external/HubSpot-messenger/build/js/messenger.js"></script>
-<script src="/static/external/pace-master/pace.js"></script>
-<script src="/static/external/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.js"></script>
-<script src="/static/js/main-campus.js"></script>
+
 <script>
     let vm = new Vue({
         el: "#vm",
         data: {
-            user: "",
+            user: ${currentUser},
 
             study: {
                 list: []
@@ -289,19 +268,10 @@
             },
             other: {
                 list: []
-            },
+            }
 
         },
         beforeCreate: function () {
-            $.ajax({
-                url: "/base/user/getUser",
-                type: "GET",
-                success: function (data) {
-                    if (data.result) {
-                        vm.user = data.data;
-                    }
-                }
-            });
             $.ajax({
                 url: "/campus/course/studyList",
                 type: "GET",
@@ -310,7 +280,7 @@
                         vm.study.list = data.data;
                     }
                 }
-            })
+            });
         },
         created: function () {
         },
@@ -319,23 +289,8 @@
         methods: {
             search: function (e) {
                 alert($(e.currentTarget).val());
-            },
-            SignOut: function () {
-                $.ajax({
-                    url: "/base/user/logout",
-                    type: "POST",
-                    data: {
-                        _method: "PUT"
-                    },
-                    success: function (data) {
-                        if (data.result) {
-                            window.location.href = data.url;
-                        }
-                    }
-                })
             }
         }
     })
 </script>
-</body>
-</html>
+<#include "./common/foot.ftl">

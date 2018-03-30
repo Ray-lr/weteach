@@ -21,25 +21,33 @@ spring:
     freemarker:
         allow-request-override: false
         allow-session-override: false
-        cache: false
+        cache: true
         charset: utf-8
         check-template-location: true
         content-type: text/html
         enabled: true
         expose-request-attributes: false
-        expose-session-attributes: false
+        expose-session-attributes: true
         expose-spring-macro-helpers: true
         prefer-file-system-access: true
-        prefix: /templates/
-        suffix: .ftl
         template-loader-path: classpath:/templates/
         settings:
-            template_update_delay: 0
+            template_update_delay: 1
+            whitespace_stripping: true
+            locale: zh_CN
+            date_format: yyyy-MM-dd
+            datetime_format: yyyy-MM-dd HH:mm:ss
+            number_format: 0.######
+            boolean_format: true,false
+            tag_syntax: auto_detect
+            url_escaping_charset: UTF-8
+            default_encoding: UTF-8
+            classic_compatible: true
     mvc:
-        date-format: yyyy-MM-dd HH:mm:ss
-        view:
-            prefix: /templates/
-            suffix: .ftl
+      view:
+          prefix: /templates/
+          suffix: .ftl
+      date-format: yyyy-MM-dd HH:mm:ss
 # Mybatis配置
 mybatis:
     mapperLocations: classpath:mapper/**/*.xml

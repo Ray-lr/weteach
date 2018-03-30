@@ -1,4 +1,20 @@
-<#include "./common/head.ftl">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>登录</title>
+    <meta content="text/html" charset="utf-8">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/static/css/bootstrap.css" media="screen">
+    <link rel="stylesheet" href="/static/external/HubSpot-messenger/build/css/messenger.css" media="screen">
+    <link rel="stylesheet" href="/static/external/HubSpot-messenger/build/css/messenger-theme-air.css" media="screen">
+    <link rel="stylesheet" href="/static/external/pace-master/themes/black/pace-theme-material.css" media="screen">
+    <link rel="stylesheet" href="/static/external/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.css"
+          media="screen">
+    <link rel="stylesheet" href="/static/css/main-campus.css" media="screen">
+</head>
+<body>
 <div id="vm">
     <nav class="navbar navbar-expand-lg navbar-dark bg-grayblack-tp90 sticky-top">
         <div class="container">
@@ -78,27 +94,20 @@
                              alt="Card image cap">
                     </a>
                     <div class="card-body">
-                        <h5 class="card-title font-weight-bold">{{user.nickName}}
+                        <h5 class="card-title font-weight-bold">
                         </h5>
-                        <h6 class="card-title font-weight-normal">{{user.username}}</h6>
-                        <p class="card-text font-weight-light">{{user.phone}}</p>
+                        <h6 class="card-title font-weight-normal"></h6>
+                        <p class="card-text font-weight-light"></p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">{{user.id}}</li>
+                        <li class="list-group-item">Cras justo odio</li>
                     </ul>
                     <div class="card-body">
-                        <a href="myProfile" class="card-link">详细信息</a>
+                        <a href="#" class="card-link">Card link</a>
                     </div>
                 </div>
-                <div align="center">
-                    <a href="verify">
-                        <button type="button" class="btn btn-outline-success"
-                                style="width: 100%;height:50px;font-size:20px;">我想当老师！
-                        </button>
-                    </a>
-                </div>
             </div>
-            <div class="col-12 col-md-8" id="principal">
+            <div class="col-12 col-md-6" id="principal">
 
                 <!-- 课程列表 -->
                 <div class="row-fluid" id="courseList">
@@ -144,22 +153,19 @@
                         <!-- second list -->
                         <!-- 个人信息完善 -->
                         <div class="tab-pane fade" id="teaching" role="tabpanel" aria-labelledby="teaching-tab">
-                            <form @submit.prevent="update($event)">
-                                <!--隐藏的id-->
-                                <input type="hidden" name="id" :value="userInfo.id">
+                            <form>
                                 <!--真实姓名-->
                                 <div class="form-group">
-                                    <label for="exampleFormControlInput1">真实姓名{{userInfo.id}}</label>
-                                    <input type="text" class="form-control" id="exampleFormControlInput1"
-                                           name="name" :value="userInfo.name">
+                                    <label for="exampleFormControlInput1">True name</label>
+                                    <input type="text" class="form-control" id="exampleFormControlInput1">
                                 </div>
                                 <!-- 真实性别 -->
                                 <div class="form-group">
 
-                                    <label for="male">男</label>
-                                    <input type="radio" name="sex" id="male" :value="userInfo.sex" checked/>
+                                    <label for="male">Male</label>
+                                    <input type="radio" name="sex" id="male"/>
 
-                                    <label for="female">女</label>
+                                    <label for="female">Female</label>
                                     <input type="radio" name="sex" id="female"/>
                                 </div>
                                 <!--真实年龄-->
@@ -170,21 +176,21 @@
                                 </div>
                                 <!--电话号码-->
                                 <div class="form-group">
-                                    <label for="exampleFormControlInput3">手机号</label>
+                                    <label for="exampleFormControlInput3">Mobile phone</label>
                                     <input type="text" class="form-control" id="exampleFormControlInput3"
-                                           placeholder="1XX-XXXX-XXXX" name="phone" :value="userInfo.phone">
+                                           placeholder="1XX-XXXX-XXXX">
                                 </div>
                                 <!--QQ号码-->
                                 <div class="form-group">
-                                    <label for="exampleFormControlInput4">QQ号</label>
+                                    <label for="exampleFormControlInput4">QQ number</label>
                                     <input type="text" class="form-control" id="exampleFormControlInput4"
-                                           placeholder="name@example.com" name="qicq" :value="userInfo.qicq">
+                                           placeholder="name@example.com">
                                 </div>
                                 <!--邮箱-->
                                 <div class="form-group">
-                                    <label for="exampleFormControlInput5">邮箱</label>
+                                    <label for="exampleFormControlInput5">Email address</label>
                                     <input type="email" class="form-control" id="exampleFormControlInput5"
-                                           placeholder="name@example.com" name="email" :value="userInfo.email">
+                                           placeholder="name@example.com">
                                 </div>
 
                                 <div class="input-group">
@@ -204,51 +210,50 @@
                                             <a class="dropdown-item" href="#">@126.com</a>
                                             <a class="dropdown-item" href="#">@qq.com</a>
                                             <div role="separator" class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">other emails</a>
+                                            <a class="dropdown-item" href="#">another email</a>
                                         </div>
                                     </div>
                                 </div>
                                 <!-- 籍贯 -->
                                 <div class="form-group">
-                                    <label for="exampleFormControlSelect1">籍贯</label>
+                                    <label for="exampleFormControlSelect1">Hometown</label>
                                     <!-- 省份 -->
                                     <div class="input-group ">
                                         <div class="input-group-prepend">
                                             <label class="input-group-text" for="inputGroupSelect01">-- 省份 --</label>
                                         </div>
-                                        <select class="custom-select" id="inputGroupSelect01">
-                                            <option selected="selected" :value="userInfo.native_place"></option>
+                                        <!--<select class="custom-select" id="inputGroupSelect01">
+                                            <option v-for="item in provinces" value="item.id" v-text="item.name"></option>
+                                        </select>-->
+                                    </div>
+                                    <div class="col col-md-4">
+                                        <select class="form-control" id="province">
+                                            <option>-- 省份 --</option>
                                             <option v-for="item in provinces" value="item.id"
                                                     v-text="item.name"></option>
+
                                         </select>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <select class="form-control" id="province">
-                                                <option>-- 省/直辖市/自治区 --</option>
-                                                <option v-for="item in provinces" value="item.id"
-                                                        v-text="item.name"></option>
+                                    <!-- 市/州 -->
+                                    <div class="col col-md-4">
+                                        <select class="form-control" id="city">
+                                            <option>-- 市/州 --</option>
+                                            <option v-for="item1 in cities" value="item1.id"
+                                                    v-text="item1.name"></option>
 
-                                            </select>
-                                        </div>
-                                        <!-- 市/州 -->
-                                        <div class="col-md-4">
-                                            <select class="form-control" id="city">
-                                                <option>-- 市/自治州 --</option>
-                                                <option v-for="item in cities" value="item.id"
-                                                        v-text="item.name"></option>
+                                        </select>
 
-                                            </select>
-                                        </div>
-                                        <!-- 区/县 -->
-                                        <div class="col col-md-4">
-                                            <select class="form-control" id="county" name="native_place">
-                                                <option>-- 区/县 --</option>
-                                                <option v-for="item in counties" value="item.id"
-                                                        v-text="item.name"></option>
-                                            </select>
-                                        </div>
                                     </div>
+                                    <!-- 区/县 -->
+                                    <div class="col col-md-4">
+                                        <select class="form-control" id="county">
+                                            <option>-- 区/县 --</option>
+                                            <option v-for="item in counties" value="item.id"
+                                                    v-text="item.name"></option>
+
+                                        </select>
+                                    </div>
+
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect2">Example multiple select</label>
@@ -270,10 +275,7 @@
                                     <label for="exampleFormControlTextarea1">个性签名</label>
                                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                                 </div>
-                                <div align="center" style="height:150px;">
-                                    <button type="submit" class="btn btn-outline-primary btn-lg btn-block" value="提交">提交</button>
-
-                                </div>
+                                <button type="button" class="btn btn-outline-primary">Primary</button>
                             </form>
                         </div>
                         <!--浏览历史-->
@@ -301,7 +303,18 @@
                     </div>
                 </div>
             </div>
-
+            <div class="col col-md-2" id="external">
+                <div class="alert alert-success" role="alert">
+                    <h4 class="alert-heading">Well done!</h4>
+                    <p>Aww yeah, you successfully read this important alert message. This example text is going to
+                        run a bit
+                        longer so that you can see how spacing within an alert works with this kind of content.</p>
+                    <hr>
+                    <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and
+                        tidy.
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -319,7 +332,7 @@
         el: "#vm",
         data: {
             user: "",
-            userInfo: "",
+
             study: {
                 list: []
             },
@@ -328,21 +341,12 @@
             },
             other: {
                 list: []
-            },
+            }
             provinces: [],
             cities: [],
             counties: []
         },
         beforeCreate: function () {
-            $.ajax({
-                url: "/base/user/getUser",
-                type: "GET",
-                success: function (data) {
-                    if (data.result) {
-                        vm.user = data.data;
-                    }
-                }
-            });
             $.ajax({
                 url: "/base/areas/list",
                 data: {
@@ -352,6 +356,7 @@
                     if (data.result) {
                         vm.provinces = data.data;
                     }
+
                 }
             });
             $.ajax({
@@ -366,16 +371,6 @@
                 }
             });
             $.ajax({
-                url: "/campus/userInfo/detail/2",
-                type: "get",
-                success: function (data) {
-                    if (data.result) {
-                        vm.userInfo = data.data;
-                    }
-                }
-            });
-
-            /*$.ajax({
                 url: "/base/areas/list",
                 data: {
                     typeAreas: 3
@@ -385,30 +380,18 @@
                         vm.counties = data.data;
                     }
                 }
-            });*/
+            });
         },
         created: function () {
-
         },
         updated: function () {
         },
         methods: {
             search: function (e) {
                 alert($(e.currentTarget).val());
-            },
-            update: function (e) {
-                $(e.currentTarget).ajaxSubmit({
-                    url: "/campus/userInfo/update",
-                    type: "PUT",
-                    success: function (data) {
-                        if (data.result) {
-                            alert(data.msg);
-                            window.location.reload();
-                        }
-                    }
-                });
             }
         }
     })
 </script>
-<#include "./common/foot.ftl">
+</body>
+</html>

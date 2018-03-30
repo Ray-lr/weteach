@@ -1,20 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>登录</title>
-    <meta content="text/html" charset="utf-8">
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="/static/css/bootstrap.css" media="screen">
-    <link rel="stylesheet" href="/static/external/HubSpot-messenger/build/css/messenger.css" media="screen">
-    <link rel="stylesheet" href="/static/external/HubSpot-messenger/build/css/messenger-theme-air.css" media="screen">
-    <link rel="stylesheet" href="/static/external/pace-master/themes/black/pace-theme-material.css" media="screen">
-    <link rel="stylesheet" href="/static/external/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.css"
-          media="screen">
-    <link rel="stylesheet" href="/static/css/main-campus.css" media="screen">
-</head>
-<body>
+<#include "./common/head.ftl">
 <div id="vm">
     <div class="jumbotron jumbotron-fluid align-items-center">
         <div class="container-fluid ">
@@ -96,18 +80,11 @@
         </div>
     </div>
 </div>
-<script src="/static/js/jquery-3.3.1.js"></script>
-<script src="/static/js/jquery.form.js"></script>
-<script src="/static/js/popper.js"></script>
-<script src="/static/js/bootstrap.min.js"></script>
-<script src="/static/js/vue.js"></script>
-<script src="/static/external/HubSpot-messenger/build/js/messenger.js"></script>
-<script src="/static/external/pace-master/pace.js"></script>
-<script src="/static/external/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.js"></script>
-<script src="/static/js/main-campus.js"></script>
+
 <script>
     let vm = new Vue({
         el: "#vm",
+        contentType:"application/json;charset=utf-8",
         data: {
             username: null,
             password: null,
@@ -118,6 +95,7 @@
                 $(e.currentTarget).ajaxSubmit({
                     url: "/" + vm.host + "/user/login",
                     type: "post",
+
                     success: function (data) {
                         Messenger().post({
                             id: "loginMessenger",
@@ -140,6 +118,4 @@
         }
     });
 </script>
-
-</body>
-</html>
+<#include "./common/foot.ftl">
