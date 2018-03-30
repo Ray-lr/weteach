@@ -70,8 +70,7 @@ public class CampusMajorController extends CampusController {
     public Ajax add(@Validated CampusMajorVO campusMajorVO, BindingResult bindingResult) {
         try {
             if (bindingResult.hasErrors()) {
-                return Ajax.error(AjaxMessage.PARAMETER_ERROR, AjaxCode.PARAMETER_ERROR).put(AjaxValidate.parseFieldError(bindingResult
-                        .getFieldErrors()));
+                return AjaxValidate.processBindingResult(bindingResult);
             }
             int saveResult = campusMajorService.save(campusMajorVO.parseTo(Column.ID));
             return saveResult == 1 ? Ajax.success(AjaxMessage.SAVE_SUCCESS) : Ajax.error(AjaxMessage.SAVE_FAILURE, AjaxCode
@@ -87,8 +86,7 @@ public class CampusMajorController extends CampusController {
     public Ajax update(@Validated CampusMajorVO campusMajorVO, BindingResult bindingResult) {
         try {
             if (bindingResult.hasErrors()) {
-                return Ajax.error(AjaxMessage.PARAMETER_ERROR, AjaxCode.PARAMETER_ERROR).put(AjaxValidate.parseFieldError(bindingResult
-                        .getFieldErrors()));
+                return AjaxValidate.processBindingResult(bindingResult);
             }
             int updateResult = campusMajorService.updateById(campusMajorVO.parseTo());
             return updateResult == 1 ? Ajax.success(AjaxMessage.UPDATE_SUCCESS) : Ajax.error(AjaxMessage.UPDATE_FAILURE, AjaxCode

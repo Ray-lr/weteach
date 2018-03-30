@@ -70,8 +70,7 @@ public class BaseLogRecordController extends CampusController {
     public Ajax add(@Validated BaseLogRecordVO baseLogRecordVO, BindingResult bindingResult) {
         try {
             if (bindingResult.hasErrors()) {
-                return Ajax.error(AjaxMessage.PARAMETER_ERROR, AjaxCode.PARAMETER_ERROR).put(AjaxValidate.parseFieldError(bindingResult
-                        .getFieldErrors()));
+                return AjaxValidate.processBindingResult(bindingResult);
             }
             int saveResult = baseLogRecordService.save(baseLogRecordVO.parseTo(Column.ID));
             return saveResult == 1 ? Ajax.success(AjaxMessage.SAVE_SUCCESS) : Ajax.error(AjaxMessage.SAVE_FAILURE, AjaxCode
@@ -87,8 +86,7 @@ public class BaseLogRecordController extends CampusController {
     public Ajax update(@Validated BaseLogRecordVO baseLogRecordVO, BindingResult bindingResult) {
         try {
             if (bindingResult.hasErrors()) {
-                return Ajax.error(AjaxMessage.PARAMETER_ERROR, AjaxCode.PARAMETER_ERROR).put(AjaxValidate.parseFieldError(bindingResult
-                        .getFieldErrors()));
+                return AjaxValidate.processBindingResult(bindingResult);
             }
             int updateResult = baseLogRecordService.updateById(baseLogRecordVO.parseTo());
             return updateResult == 1 ? Ajax.success(AjaxMessage.UPDATE_SUCCESS) : Ajax.error(AjaxMessage.UPDATE_FAILURE, AjaxCode

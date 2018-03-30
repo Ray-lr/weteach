@@ -75,8 +75,7 @@ public class CampusUserInfoController extends CampusController {
     public Ajax add(@Validated CampusUserInfoVO campusUserInfoVO, BindingResult bindingResult) {
         try {
             if (bindingResult.hasErrors()) {
-                return Ajax.error(AjaxMessage.PARAMETER_ERROR, AjaxCode.PARAMETER_ERROR).put(AjaxValidate.parseFieldError(bindingResult
-                        .getFieldErrors()));
+                return AjaxValidate.processBindingResult(bindingResult);
             }
             int saveResult = campusUserInfoService.save(campusUserInfoVO.parseTo(Column.ID));
             return saveResult == 1 ? Ajax.success(AjaxMessage.SAVE_SUCCESS) : Ajax.error(AjaxMessage.SAVE_FAILURE, AjaxCode
@@ -92,8 +91,7 @@ public class CampusUserInfoController extends CampusController {
     public Ajax update(@Validated CampusUserInfoVO campusUserInfoVO, BindingResult bindingResult) {
         try {
             if (bindingResult.hasErrors()) {
-                return Ajax.error(AjaxMessage.PARAMETER_ERROR, AjaxCode.PARAMETER_ERROR).put(AjaxValidate.parseFieldError(bindingResult
-                        .getFieldErrors()));
+                return AjaxValidate.processBindingResult(bindingResult);
             }
             BaseUserVO b = (BaseUserVO) getCurrentUser();
             b.setNickName(campusUserInfoVO.getNickname());
@@ -120,16 +118,17 @@ public class CampusUserInfoController extends CampusController {
             return Ajax.error(AjaxMessage.SERVER_ERROR, AjaxCode.SERVER_ERROR);
         }
     }
-    @RequestMapping(value="/detail/{userId}",method = RequestMethod.GET)
-    public Ajax get(@PathVariable Integer userId){
+
+    @RequestMapping(value = "/detail/{userId}", method = RequestMethod.GET)
+    public Ajax get(@PathVariable Integer userId) {
         try {
             CampusUserInfo campusUserInfo = new CampusUserInfo();
             campusUserInfo.setBaseUserId(userId);
-            CampusUserInfo cui=campusUserInfoService.get(campusUserInfo);
-            return  Ajax.success(cui);
+            CampusUserInfo cui = campusUserInfoService.get(campusUserInfo);
+            return Ajax.success(cui);
         } catch (Exception e) {
             e.printStackTrace();
-            return Ajax.error(AjaxMessage.SERVER_ERROR,AjaxCode.SERVER_ERROR);
+            return Ajax.error(AjaxMessage.SERVER_ERROR, AjaxCode.SERVER_ERROR);
         }
     }
 }
