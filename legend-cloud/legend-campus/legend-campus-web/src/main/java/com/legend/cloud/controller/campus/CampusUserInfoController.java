@@ -1,6 +1,7 @@
 package com.legend.cloud.controller.campus;
 
 
+import com.alibaba.fastjson.JSON;
 import com.legend.cloud.controller.CampusController;
 import com.legend.cloud.entity.base.BaseUser;
 import com.legend.cloud.entity.campus.CampusUserInfo;
@@ -14,6 +15,7 @@ import com.legend.module.core.model.contant.code.result.AjaxCode;
 import com.legend.module.core.model.contant.message.result.AjaxMessage;
 import com.legend.module.core.model.json.result.Ajax;
 import com.legend.module.core.model.json.result.AjaxValidate;
+import com.legend.module.core.utils.HttpSessionUtils;
 import com.legend.module.core.utils.PageUtils;
 import com.legend.module.core.utils.Query;
 import org.springframework.validation.BindingResult;
@@ -93,12 +95,13 @@ public class CampusUserInfoController extends CampusController {
             if (bindingResult.hasErrors()) {
                 return AjaxValidate.processBindingResult(bindingResult);
             }
-            BaseUserVO b = (BaseUserVO) getCurrentUser();
+            BaseUserVO b = JSON.parseObject((String) HttpSessionUtils.getAttribute("currentUser"), BaseUserVO.class);
             b.setNickName(campusUserInfoVO.getNickname());
+            b.setPhone(campusUserInfoVO.getPhone());
             BaseUser baseUser = b.parseTo();
             int updateResult = baseUserService.updateById(baseUser);
             updateResult += campusUserInfoService.updateById(campusUserInfoVO.parseTo());
-            return updateResult >= 1 ? Ajax.success(AjaxMessage.UPDATE_SUCCESS) : Ajax.error(AjaxMessage.UPDATE_FAILURE, AjaxCode
+            return updateResult == 2 ? Ajax.success(AjaxMessage.UPDATE_SUCCESS) : Ajax.error(AjaxMessage.UPDATE_FAILURE, AjaxCode
                     .UPDATE_FAILURE);
         } catch (Exception e) {
             e.printStackTrace();

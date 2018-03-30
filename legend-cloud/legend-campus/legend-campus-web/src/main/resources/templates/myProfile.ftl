@@ -15,13 +15,13 @@
                              alt="Card image cap">
                     </a>
                     <div class="card-body">
-                        <h5 class="card-title font-weight-bold">{{user.nickName}}
+                        <h5 class="card-title font-weight-bold" v-text="userInfo.nickname">
                         </h5>
-                        <h6 class="card-title font-weight-normal">{{user.username}}</h6>
-                        <p class="card-text font-weight-light">{{user.phone}}</p>
+                        <h6 class="card-title font-weight-normal" v-text="user.username"></h6>
+                        <p class="card-text font-weight-light" v-text="userInfo.phone"></p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">{{user.id}}</li>
+                        <li class="list-group-item" v-text="user.id"></li>
                     </ul>
                     <div class="card-body">
                         <a href="myProfile" class="card-link">详细信息</a>
@@ -220,7 +220,7 @@
     let vm = new Vue({
         el: "#vm",
         data: {
-            user: "",
+            user: ${currentUser},
             userInfo: "",
             study: {
                 list: []
@@ -236,24 +236,7 @@
             counties: []
         },
         beforeCreate: function () {
-            $.ajax({
-                url: "/base/user/getUser",
-                type: "GET",
-                success: function (data) {
-                    if (data.result) {
-                        vm.user = data.data;
-                        $.ajax({
-                            url: "/campus/userInfo/detail/" + vm.user.id,
-                            type: "get",
-                            success: function (data) {
-                                if (data.result) {
-                                    vm.userInfo = data.data;
-                                }
-                            }
-                        });
-                    }
-                }
-            });
+
             $.ajax({
                 url: "/base/areas/list",
                 data: {
@@ -299,9 +282,24 @@
             });*/
         },
         created: function () {
+            $.ajax({
+                        url: "/campus/userInfo/detail/" + ${currentUser}.id,
+                    type
+        :
+            "get",
+                    success
+        :
 
+            function (data) {
+                if (data.result) {
+                    vm.userInfo = data.data;
+                }
+            }
+        })
+            ;
         },
         updated: function () {
+
         },
         methods: {
             search: function (e) {
