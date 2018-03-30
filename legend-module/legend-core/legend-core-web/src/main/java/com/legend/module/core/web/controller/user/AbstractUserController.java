@@ -228,41 +228,40 @@ public abstract class AbstractUserController<TVO extends UserVO> extends
      * @return Ajax
      */
     private Ajax checkUser(TVO tvo) {
-        if (loginPreProcess(tvo)) {
-            if (getCurrentUser() != null) {
-                return Ajax.success(UserResultMessage.LOGIN_SUCCESS);
+        if (!loginPreProcess(tvo)) {
+            return loginProcess(tvo);
+        }
+        if (getCurrentUser() != null) {
+            return Ajax.success(UserResultMessage.LOGIN_SUCCESS);
+        }
+        AjaxError ajaxerror;
+        User user;
+        if (StringUtils.isBlank(tvo.getPhone()) && StringUtils.isBlank(tvo.getUsername())) {
+            return Ajax.error(UserResultMessage.IS_BLANK, UserResultCode.IS_BLANK);
+        }
+        if (StringUtils.isBlank(tvo.getUsername())) {
+            if ((ajaxerror = validatePhoneLogin(tvo)) != null) {
+                return Ajax.error(ajaxerror);
             }
-            AjaxError ajaxerror;
-            User user;
-            if (StringUtils.isBlank(tvo.getPhone()) && StringUtils.isBlank(tvo.getUsername())) {
-                return Ajax.error(UserResultMessage.IS_BLANK, UserResultCode.IS_BLANK);
+            if ((ajaxerror = checkPhone(tvo.getPhone())) != null) {
+                return Ajax.error(ajaxerror);
             }
-            if (StringUtils.isBlank(tvo.getUsername())) {
-                if ((ajaxerror = validatePhoneLogin(tvo)) != null) {
-                    return Ajax.error(ajaxerror);
-                }
-                if ((ajaxerror = checkPhone(tvo.getPhone())) != null) {
-                    return Ajax.error(ajaxerror);
-                }
-                if ((ajaxerror = checkSMSCode(tvo.getSmsCode())) != null) {
-                    return Ajax.error(ajaxerror);
-                }
-                if ((user = getUserService().getByPhone(tvo.getPhone())) == null) {
-                    return Ajax.error(UserResultMessage.USER_NOT_EXIST, UserResultCode.USER_NOT_EXIST);
-                }
-            } else {
-                if ((ajaxerror = validateAccountLogin(tvo)) != null) {
-                    return Ajax.error(ajaxerror);
-                }
-                if ((ajaxerror = checkImageCode(tvo.getImageCode())) != null) {
-                    return Ajax.error(ajaxerror);
-                }
-                if ((user = getUserService().getByUsernameAndPassword(tvo.getUsername(), tvo.getPassword())) == null) {
-                    return Ajax.error(UserResultMessage.USER_NOT_EXIST, UserResultCode.USER_NOT_EXIST);
-                }
+            if ((ajaxerror = checkSMSCode(tvo.getSmsCode())) != null) {
+                return Ajax.error(ajaxerror);
             }
-            setCurrentUser((TVO) tvo.parseFrom(user, "password",
-                    "last_login_time", "create_time", "update_time"));
+            if ((user = getUserService().getByPhone(tvo.getPhone())) == null) {
+                return Ajax.error(UserResultMessage.USER_NOT_EXIST, UserResultCode.USER_NOT_EXIST);
+            }
+        } else {
+            if ((ajaxerror = validateAccountLogin(tvo)) != null) {
+                return Ajax.error(ajaxerror);
+            }
+            if ((ajaxerror = checkImageCode(tvo.getImageCode())) != null) {
+                return Ajax.error(ajaxerror);
+            }
+            if ((user = getUserService().getByUsernameAndPassword(tvo.getUsername(), tvo.getPassword())) == null) {
+                return Ajax.error(UserResultMessage.USER_NOT_EXIST, UserResultCode.USER_NOT_EXIST);
+            }
         }
         return loginProcess(tvo);
     }
