@@ -1,8 +1,11 @@
 package com.legend.module.core.model.json.result;
 
 
+import com.legend.module.core.model.contant.code.result.AjaxCode;
 import com.legend.module.core.model.contant.message.exception.validate.ValidateExceptionMessage;
+import com.legend.module.core.model.contant.message.result.AjaxMessage;
 import lombok.Data;
+import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 
 import javax.validation.ConstraintViolation;
@@ -33,15 +36,16 @@ public class AjaxValidate {
             return ajaxErrors;
         }
         violationSet.forEach(aViolationSet -> {
-            ConstraintViolation constraintViolation = (ConstraintViolation) aViolationSet;
-            ajaxErrors.add(new AjaxError(String.valueOf(constraintViolation.getPropertyPath()), constraintViolation.getMessage
+            ajaxErrors.add(new AjaxError(String.valueOf(aViolationSet.getPropertyPath()), aViolationSet.getMessage
                     (), null));
         });
         return ajaxErrors;
     }
 
-    public static List<AjaxError> parseFieldError(List<FieldError> fieldErrors) {
-        return fieldErrors.stream().map(error -> new AjaxError(error.getField(), error.getDefaultMessage
-                ())).collect(Collectors.toList());
+    public static Ajax processBindingResult(BindingResult bindingResult) {
+        List<FieldError> fieldErrors = bindingResult.getFieldErrors();
+        List<AjaxError> ajaxErrors = fieldErrors.stream().map(error -> new AjaxError(error.getField(),
+                error.getDefaultMessage())).collect(Collectors.toList());
+        return Ajax.error(AjaxMessage.PARAMETER_ERROR, AjaxCode.PARAMETER_ERROR).put(ajaxErrors);
     }
 }
