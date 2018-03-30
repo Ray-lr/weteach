@@ -55,11 +55,6 @@ public class UserVO<T extends User> extends AbstractVO<T> {
     private String password;
 
     /**
-     * 昵称
-     */
-    private String nickName;
-
-    /**
      * 图片验证码
      */
     @NotNull(message = UserResultMessage.IMAGE_CODE_IS_BLANK, groups = {RegisterGroup.class})
@@ -74,25 +69,6 @@ public class UserVO<T extends User> extends AbstractVO<T> {
     @Size(min = 4, max = 4, message = UserResultMessage.SMS_CODE_WRONG, groups = {RegisterGroup.class, PhoneLoginGroup.class})
     @JsonIgnore
     private String smsCode;
-
-    /**
-     * 最后登录时间
-     */
-    @JsonIgnore
-    private Date lastLoginTime;
-
-    /**
-     * 状态（0、离线 1、在线）
-     */
-    @JsonIgnore
-    private Integer status;
-
-    /**
-     * 是否启用
-     */
-    @JsonIgnore
-    private Boolean isEnabled;
-
 
     @Override
     public T parseTo(String... ignoreProperties) {
