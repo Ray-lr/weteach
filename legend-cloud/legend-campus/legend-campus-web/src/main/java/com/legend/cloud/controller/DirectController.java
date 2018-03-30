@@ -21,7 +21,6 @@ public class DirectController extends LegendController {
     @RequestMapping(value = "direct/{url}", method = RequestMethod.GET)
     public String redirect(@PathVariable String url) {
         try {
-            LOGGER.info(String.valueOf(getCurrentUser()));
             return url;
         } catch (Exception e) {
             e.printStackTrace();

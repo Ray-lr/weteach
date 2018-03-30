@@ -1,6 +1,7 @@
 package com.legend.cloud.controller.campus;
 
 
+import com.legend.cloud.controller.CampusController;
 import com.legend.cloud.entity.campus.CampusCourse;
 import com.legend.cloud.service.campus.CampusCourseService;
 import com.legend.cloud.vo.campus.CampusCourseVO;
@@ -12,7 +13,6 @@ import com.legend.module.core.model.json.result.Ajax;
 import com.legend.module.core.model.json.result.AjaxValidate;
 import com.legend.module.core.utils.PageUtils;
 import com.legend.module.core.utils.Query;
-import com.legend.module.core.web.controller.LegendController;
 import org.apache.shiro.authz.AuthorizationException;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.validation.BindingResult;
@@ -29,12 +29,12 @@ import java.util.stream.Collectors;
  */
 @RestController
 @RequestMapping("/campus/course")
-public class CampusCourseController extends LegendController {
+public class CampusCourseController extends CampusController {
 
     @Resource
     private CampusCourseService campusCourseService;
 
-    @GetMapping
+    @GetMapping("/list")
     @RequiresPermissions("campus:course:list")
     public Ajax list(CampusCourseVO campusCourseVO, Query query) {
         try {
@@ -53,7 +53,7 @@ public class CampusCourseController extends LegendController {
         }
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("details/{id}")
     // @RequiresPermissions("campus:course:details")
     public Ajax details(@PathVariable int id) {
         try {
@@ -67,7 +67,7 @@ public class CampusCourseController extends LegendController {
     }
 
 
-    @PostMapping
+    @PostMapping("/add")
     // @RequiresPermissions("campus:course:add")
     public Ajax add(@Validated CampusCourseVO campusCourseVO, BindingResult bindingResult) {
         try {
@@ -84,7 +84,7 @@ public class CampusCourseController extends LegendController {
         }
     }
 
-    @PutMapping
+    @PutMapping("/update")
     // @RequiresPermissions("campus:course:update")
     public Ajax update(@Validated CampusCourseVO campusCourseVO, BindingResult bindingResult) {
         try {
