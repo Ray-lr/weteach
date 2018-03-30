@@ -112,8 +112,8 @@
                             </div>
                         </div>
                         <div align="center" style="height:150px;">
-                            <button type="button" class="btn btn-outline-success btn-lg btn-block"
-                                    data-toggle="modal" data-target="#myModal">Submit
+                            <button id="dd" type="button" class="btn btn-success btn-lg btn-block"
+                                    data-toggle="modal" data-target="#myModal" onclick="textChange()">提交申请
                             </button>
                             <!-- 模态框（Modal） -->
                             <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
@@ -130,7 +130,7 @@
                                             您的申请已提交，请耐心等待一到两个工作日，我们会在第一时间给您消息，谢谢。
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-light" data-dismiss="modal">确定
+                                            <button id="qd" type="button" class="btn btn-light" data-dismiss="modal">确定
                                             </button>
 
                                         </div>
@@ -207,5 +207,17 @@
             }
         }
     })
+    /*submit点击后不可选取*/
+    $(document).ready(function () {
+        $("#qd").click(function () {
+            $("#dd").addClass('diabled');
+            $("#dd").prop('disabled', true);
+        });
+    });
+
+    /*submit点击后文字改变*/
+    function textChange() {
+        document.getElementById("dd").innerHTML = "请耐心等待";
+    }
 </script>
 <#include "./common/foot.ftl">
