@@ -1,6 +1,7 @@
 package com.legend.cloud.controller.campus;
 
 
+import com.legend.cloud.controller.CampusController;
 import com.legend.cloud.entity.campus.CampusVerify;
 import com.legend.cloud.service.campus.CampusVerifyService;
 import com.legend.cloud.vo.campus.CampusVerifyVO;
@@ -12,7 +13,6 @@ import com.legend.module.core.model.json.result.Ajax;
 import com.legend.module.core.model.json.result.AjaxValidate;
 import com.legend.module.core.utils.PageUtils;
 import com.legend.module.core.utils.Query;
-import com.legend.module.core.web.controller.LegendController;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,7 +30,7 @@ import java.util.stream.Collectors;
  */
 @RestController
 @RequestMapping("/campus/verify")
-public class CampusVerifyController extends LegendController {
+public class CampusVerifyController extends CampusController {
 
     @Resource
     private CampusVerifyService campusVerifyService;

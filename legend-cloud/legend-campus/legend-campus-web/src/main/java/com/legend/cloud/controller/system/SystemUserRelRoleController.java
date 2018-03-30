@@ -1,6 +1,7 @@
 package com.legend.cloud.controller.system;
 
 
+import com.legend.cloud.controller.CampusController;
 import com.legend.cloud.entity.system.SystemUserRelRole;
 import com.legend.cloud.service.system.SystemUserRelRoleService;
 import com.legend.cloud.vo.system.SystemUserRelRoleVO;
@@ -12,7 +13,6 @@ import com.legend.module.core.model.json.result.Ajax;
 import com.legend.module.core.model.json.result.AjaxValidate;
 import com.legend.module.core.utils.PageUtils;
 import com.legend.module.core.utils.Query;
-import com.legend.module.core.web.controller.LegendController;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,7 +30,7 @@ import java.util.stream.Collectors;
  */
 @RestController
 @RequestMapping("/system/userRelRole")
-public class SystemUserRelRoleController extends LegendController {
+public class SystemUserRelRoleController extends CampusController {
 
     @Resource
     private SystemUserRelRoleService systemUserRelRoleService;

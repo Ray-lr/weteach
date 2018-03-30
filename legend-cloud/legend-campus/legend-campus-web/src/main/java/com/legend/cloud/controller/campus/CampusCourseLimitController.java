@@ -1,6 +1,7 @@
 package com.legend.cloud.controller.campus;
 
 
+import com.legend.cloud.controller.CampusController;
 import com.legend.cloud.entity.campus.CampusCourseLimit;
 import com.legend.cloud.service.campus.CampusCourseLimitService;
 import com.legend.cloud.vo.campus.CampusCourseLimitVO;
@@ -12,7 +13,6 @@ import com.legend.module.core.model.json.result.Ajax;
 import com.legend.module.core.model.json.result.AjaxValidate;
 import com.legend.module.core.utils.PageUtils;
 import com.legend.module.core.utils.Query;
-import com.legend.module.core.web.controller.LegendController;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,7 +30,7 @@ import java.util.stream.Collectors;
  */
 @RestController
 @RequestMapping("/campus/courseLimit")
-public class CampusCourseLimitController extends LegendController {
+public class CampusCourseLimitController extends CampusController {
 
     @Resource
     private CampusCourseLimitService campusCourseLimitService;

@@ -1,6 +1,7 @@
 package com.legend.cloud.controller.base;
 
 
+import com.legend.cloud.controller.CampusController;
 import com.legend.cloud.entity.base.BaseAreas;
 import com.legend.cloud.service.base.BaseAreasService;
 import com.legend.cloud.vo.base.BaseAreasVO;
@@ -9,7 +10,6 @@ import com.legend.module.core.model.contant.code.result.AjaxCode;
 import com.legend.module.core.model.contant.message.result.AjaxMessage;
 import com.legend.module.core.model.json.result.Ajax;
 import com.legend.module.core.model.json.result.AjaxValidate;
-import com.legend.module.core.web.controller.LegendController;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,7 +27,7 @@ import java.util.stream.Collectors;
  */
 @RestController
 @RequestMapping("/base/areas")
-public class BaseAreasController extends LegendController {
+public class BaseAreasController extends CampusController {
 
     @Resource
     private BaseAreasService baseAreasService;

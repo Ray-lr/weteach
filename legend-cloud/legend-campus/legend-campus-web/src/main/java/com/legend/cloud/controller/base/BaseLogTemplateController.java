@@ -1,6 +1,7 @@
 package com.legend.cloud.controller.base;
 
 
+import com.legend.cloud.controller.CampusController;
 import com.legend.cloud.entity.base.BaseLogTemplate;
 import com.legend.cloud.service.base.BaseLogTemplateService;
 import com.legend.cloud.vo.base.BaseLogTemplateVO;
@@ -12,7 +13,6 @@ import com.legend.module.core.model.json.result.Ajax;
 import com.legend.module.core.model.json.result.AjaxValidate;
 import com.legend.module.core.utils.PageUtils;
 import com.legend.module.core.utils.Query;
-import com.legend.module.core.web.controller.LegendController;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,7 +30,7 @@ import java.util.stream.Collectors;
  */
 @RestController
 @RequestMapping("/base/logTemplate")
-public class BaseLogTemplateController extends LegendController {
+public class BaseLogTemplateController extends CampusController {
 
     @Resource
     private BaseLogTemplateService baseLogTemplateService;

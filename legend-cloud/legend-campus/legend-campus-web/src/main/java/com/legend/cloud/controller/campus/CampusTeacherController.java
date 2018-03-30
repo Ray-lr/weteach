@@ -1,6 +1,7 @@
 package com.legend.cloud.controller.campus;
 
 
+import com.legend.cloud.controller.CampusController;
 import com.legend.cloud.entity.campus.CampusTeacher;
 import com.legend.cloud.service.campus.CampusTeacherService;
 import com.legend.cloud.vo.campus.CampusTeacherVO;
@@ -12,7 +13,6 @@ import com.legend.module.core.model.json.result.Ajax;
 import com.legend.module.core.model.json.result.AjaxValidate;
 import com.legend.module.core.utils.PageUtils;
 import com.legend.module.core.utils.Query;
-import com.legend.module.core.web.controller.LegendController;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,7 +30,7 @@ import java.util.stream.Collectors;
  */
 @RestController
 @RequestMapping("/campus/teacher")
-public class CampusTeacherController extends LegendController {
+public class CampusTeacherController extends CampusController {
 
     @Resource
     private CampusTeacherService campusTeacherService;
