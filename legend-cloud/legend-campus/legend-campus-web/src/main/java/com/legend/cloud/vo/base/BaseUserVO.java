@@ -36,6 +36,7 @@ public class BaseUserVO extends UserVO<BaseUser> {
     /**
      * 记住我
      */
+    @JsonIgnore
     private boolean rememberMe;
     /**
      * 最后登录时间
