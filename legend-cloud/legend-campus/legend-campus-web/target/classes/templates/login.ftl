@@ -80,7 +80,6 @@
         </div>
     </div>
 </div>
-
 <script>
     let vm = new Vue({
         el: "#vm",

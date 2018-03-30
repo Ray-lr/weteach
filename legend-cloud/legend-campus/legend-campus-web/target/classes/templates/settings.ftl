@@ -100,15 +100,6 @@
         </div>
     </div>
 </div>
-<script src="/static/js/jquery-3.3.1.js"></script>
-<script src="/static/js/jquery.form.js"></script>
-<script src="/static/js/popper.js"></script>
-<script src="/static/js/bootstrap.min.js"></script>
-<script src="/static/js/vue.js"></script>
-<script src="/static/external/HubSpot-messenger/build/js/messenger.js"></script>
-<script src="/static/external/pace-master/pace.js"></script>
-<script src="/static/external/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.js"></script>
-<script src="/static/js/main-campus.js"></script>
 <script>
     let vm = new Vue({
         el: "#vm",
