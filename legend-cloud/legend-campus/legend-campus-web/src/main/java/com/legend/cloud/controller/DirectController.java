@@ -17,9 +17,16 @@ public class DirectController extends CampusController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(DirectController.class);
 
+    /**
+     * 所有的页面的都通过这里跳转
+     *
+     * @param url url
+     * @return url
+     */
     @RequestMapping(value = "direct/{url}", method = RequestMethod.GET)
     public String redirect(@PathVariable String url) {
         try {
+            LOGGER.info("url:" + url);
             return url;
         } catch (Exception e) {
             e.printStackTrace();

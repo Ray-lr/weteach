@@ -19,7 +19,6 @@ import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -92,13 +91,5 @@ public class BaseUserController extends AbstractUserController<BaseUserVO> {
         return Ajax.error();
     }
 
-    @RequestMapping(value = "/getUser", method = RequestMethod.GET)
-    public Ajax getUser() {
-        try {
-            return Ajax.success(getCurrentUser());
-        } catch (Exception e) {
-            e.printStackTrace();
-            return Ajax.error();
-        }
-    }
+
 }

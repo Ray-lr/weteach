@@ -9,16 +9,15 @@ import com.legend.module.core.model.contant.arribute.Column;
 import com.legend.module.core.model.contant.arribute.Key;
 import com.legend.module.core.model.contant.code.result.AjaxCode;
 import com.legend.module.core.model.contant.message.result.AjaxMessage;
+import com.legend.module.core.model.group.option.AddGroup;
+import com.legend.module.core.model.group.option.UpdateGroup;
 import com.legend.module.core.model.json.result.Ajax;
 import com.legend.module.core.model.json.result.AjaxValidate;
 import com.legend.module.core.utils.PageUtils;
 import com.legend.module.core.utils.Query;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -35,7 +34,7 @@ public class SystemUserRelRoleController extends CampusController {
     @Resource
     private SystemUserRelRoleService systemUserRelRoleService;
 
-    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    @GetMapping("/list")
     // @RequiresPermissions("userRelRole:userRelRole:list")
     public Ajax list(SystemUserRelRoleVO systemUserRelRoleVO, Query query) {
         try {
@@ -51,7 +50,7 @@ public class SystemUserRelRoleController extends CampusController {
         }
     }
 
-    @RequestMapping(value = "/details/{id}", method = RequestMethod.GET)
+    @GetMapping("/details/{id}")
     // @RequiresPermissions("userRelRole:userRelRole:details")
     public Ajax details(@PathVariable int id) {
         try {
@@ -65,9 +64,9 @@ public class SystemUserRelRoleController extends CampusController {
     }
 
 
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    @PostMapping("/add")
     // @RequiresPermissions("userRelRole:userRelRole:add")
-    public Ajax add(@Validated SystemUserRelRoleVO systemUserRelRoleVO, BindingResult bindingResult) {
+    public Ajax add(@Validated(AddGroup.class) SystemUserRelRoleVO systemUserRelRoleVO, BindingResult bindingResult) {
         try {
             if (bindingResult.hasErrors()) {
                 return AjaxValidate.processBindingResult(bindingResult);
@@ -81,9 +80,9 @@ public class SystemUserRelRoleController extends CampusController {
         }
     }
 
-    @RequestMapping(value = "/update", method = RequestMethod.PUT)
+    @PutMapping("/update")
     // @RequiresPermissions("userRelRole:userRelRole:update")
-    public Ajax update(@Validated SystemUserRelRoleVO systemUserRelRoleVO, BindingResult bindingResult) {
+    public Ajax update(@Validated(UpdateGroup.class) SystemUserRelRoleVO systemUserRelRoleVO, BindingResult bindingResult) {
         try {
             if (bindingResult.hasErrors()) {
                 return AjaxValidate.processBindingResult(bindingResult);
@@ -97,7 +96,7 @@ public class SystemUserRelRoleController extends CampusController {
         }
     }
 
-    @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
+    @DeleteMapping("/delete/{id}")
     // @RequiresPermissions("userRelRole:userRelRole:delete")
     public Ajax delete(@PathVariable Integer id) {
         try {

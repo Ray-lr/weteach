@@ -15,10 +15,7 @@ import com.legend.module.core.utils.PageUtils;
 import com.legend.module.core.utils.Query;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -35,7 +32,7 @@ public class CampusVerifyController extends CampusController {
     @Resource
     private CampusVerifyService campusVerifyService;
 
-    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    @GetMapping("/list")
     // @RequiresPermissions("campus:campusverify:list")
     public Ajax list(CampusVerifyVO campusVerifyVO, Query query) {
         try {
@@ -51,7 +48,7 @@ public class CampusVerifyController extends CampusController {
         }
     }
 
-    @RequestMapping(value = "/details/{id}", method = RequestMethod.GET)
+    @GetMapping("/details/{id}")
     // @RequiresPermissions("campus:campusverify:details")
     public Ajax details(@PathVariable int id) {
         try {
@@ -65,7 +62,7 @@ public class CampusVerifyController extends CampusController {
     }
 
 
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    @PostMapping("/add")
     // @RequiresPermissions("campus:campusverify:add")
     public Ajax add(@Validated CampusVerifyVO campusVerifyVO, BindingResult bindingResult) {
         try {
@@ -81,7 +78,7 @@ public class CampusVerifyController extends CampusController {
         }
     }
 
-    @RequestMapping(value = "/update", method = RequestMethod.PUT)
+    @PutMapping("/update")
     // @RequiresPermissions("campus:campusverify:update")
     public Ajax update(@Validated CampusVerifyVO campusVerifyVO, BindingResult bindingResult) {
         try {
@@ -97,7 +94,7 @@ public class CampusVerifyController extends CampusController {
         }
     }
 
-    @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
+    @DeleteMapping("/delete/{id}")
     // @RequiresPermissions("campus:campusverify:delete")
     public Ajax delete(@PathVariable Integer id) {
         try {

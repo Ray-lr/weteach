@@ -26,6 +26,10 @@ public class CampusController extends LegendController {
 
     /**
      * 权限异常
+     *
+     * @param request  请求
+     * @param response 应答
+     * @return url
      */
     @ExceptionHandler({UnauthorizedException.class, AuthorizationException.class})
     public String authorizationException(HttpServletRequest request, HttpServletResponse response) {
