@@ -22,8 +22,8 @@ import org.apache.commons.lang.StringUtils;
 import org.hibernate.validator.HibernateValidator;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.validation.ConstraintViolation;
@@ -111,7 +111,7 @@ public abstract class AbstractUserController<TVO extends UserVO> extends
 
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    @PostMapping("/login")
     @ResponseBody
     public Ajax login(TVO tvo) {
         try {
@@ -125,7 +125,7 @@ public abstract class AbstractUserController<TVO extends UserVO> extends
         }
     }
 
-    @RequestMapping(value = "/logout", method = RequestMethod.PUT)
+    @PutMapping("/logout")
     @ResponseBody
     public Ajax logout() {
         try {
@@ -140,25 +140,25 @@ public abstract class AbstractUserController<TVO extends UserVO> extends
         }
     }
 
-    @RequestMapping("/image/")
+    @PostMapping("/image/")
     @ResponseBody
     public Ajax imageCode(String code) {
         return null;
     }
 
-    @RequestMapping("/sms")
+    @PostMapping("/sms")
     @ResponseBody
     public Ajax sendSMS(String phone) {
         return null;
     }
 
-    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    @PostMapping("/register")
     @ResponseBody
     public Ajax register(@Validated({RegisterGroup.class}) TVO tvo, BindingResult bindingResult) {
         return null;
     }
 
-    @RequestMapping(value = "/updatePassword", method = RequestMethod.POST)
+    @PutMapping("/updatePassword")
     @ResponseBody
     public Ajax updatePassword() {
         return null;
