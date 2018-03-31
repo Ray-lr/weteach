@@ -13,6 +13,8 @@ import com.legend.module.core.model.contant.arribute.Column;
 import com.legend.module.core.model.contant.arribute.Key;
 import com.legend.module.core.model.contant.code.result.AjaxCode;
 import com.legend.module.core.model.contant.message.result.AjaxMessage;
+import com.legend.module.core.model.group.option.AddGroup;
+import com.legend.module.core.model.group.option.UpdateGroup;
 import com.legend.module.core.model.json.result.Ajax;
 import com.legend.module.core.model.json.result.AjaxValidate;
 import com.legend.module.core.utils.HttpSessionUtils;
@@ -71,7 +73,7 @@ public class CampusUserInfoController extends CampusController {
 
     @PostMapping("/add")
     // @RequiresPermissions("campus:userInfo:add")
-    public Ajax add(@Validated CampusUserInfoVO campusUserInfoVO, BindingResult bindingResult) {
+    public Ajax add(@Validated(AddGroup.class) CampusUserInfoVO campusUserInfoVO, BindingResult bindingResult) {
         try {
             if (bindingResult.hasErrors()) {
                 return AjaxValidate.processBindingResult(bindingResult);
@@ -87,7 +89,7 @@ public class CampusUserInfoController extends CampusController {
 
     @PutMapping("/update")
     // @RequiresPermissions("campus:userInfo:update")
-    public Ajax update(@Validated CampusUserInfoVO campusUserInfoVO, BindingResult bindingResult) {
+    public Ajax update(@Validated(UpdateGroup.class) CampusUserInfoVO campusUserInfoVO, BindingResult bindingResult) {
         try {
             if (bindingResult.hasErrors()) {
                 return AjaxValidate.processBindingResult(bindingResult);

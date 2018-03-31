@@ -9,6 +9,8 @@ import com.legend.module.core.model.contant.arribute.Column;
 import com.legend.module.core.model.contant.arribute.Key;
 import com.legend.module.core.model.contant.code.result.AjaxCode;
 import com.legend.module.core.model.contant.message.result.AjaxMessage;
+import com.legend.module.core.model.group.option.AddGroup;
+import com.legend.module.core.model.group.option.UpdateGroup;
 import com.legend.module.core.model.json.result.Ajax;
 import com.legend.module.core.model.json.result.AjaxValidate;
 import com.legend.module.core.utils.PageUtils;
@@ -64,7 +66,8 @@ public class SystemRoleRelPermissionController extends CampusController {
 
     @PostMapping("/add")
     // @RequiresPermissions("roleRelPermission:roleRelPermission:add")
-    public Ajax add(@Validated SystemRoleRelPermissionVO systemRoleRelPermissionVO, BindingResult bindingResult) {
+    public Ajax add(@Validated(AddGroup.class) SystemRoleRelPermissionVO systemRoleRelPermissionVO, BindingResult
+            bindingResult) {
         try {
             if (bindingResult.hasErrors()) {
                 return AjaxValidate.processBindingResult(bindingResult);
@@ -80,7 +83,8 @@ public class SystemRoleRelPermissionController extends CampusController {
 
     @PutMapping("/update")
     // @RequiresPermissions("roleRelPermission:roleRelPermission:update")
-    public Ajax update(@Validated SystemRoleRelPermissionVO systemRoleRelPermissionVO, BindingResult bindingResult) {
+    public Ajax update(@Validated(UpdateGroup.class) SystemRoleRelPermissionVO systemRoleRelPermissionVO, BindingResult
+            bindingResult) {
         try {
             if (bindingResult.hasErrors()) {
                 return AjaxValidate.processBindingResult(bindingResult);

@@ -9,6 +9,8 @@ import com.legend.module.core.model.contant.arribute.Column;
 import com.legend.module.core.model.contant.arribute.Key;
 import com.legend.module.core.model.contant.code.result.AjaxCode;
 import com.legend.module.core.model.contant.message.result.AjaxMessage;
+import com.legend.module.core.model.group.option.AddGroup;
+import com.legend.module.core.model.group.option.UpdateGroup;
 import com.legend.module.core.model.json.result.Ajax;
 import com.legend.module.core.model.json.result.AjaxValidate;
 import com.legend.module.core.utils.PageUtils;
@@ -64,7 +66,7 @@ public class BaseOrderController extends CampusController {
 
     @PostMapping("/add")
     // @RequiresPermissions("base:order:add")
-    public Ajax add(@Validated BaseOrderVO baseOrderVO, BindingResult bindingResult) {
+    public Ajax add(@Validated(AddGroup.class) BaseOrderVO baseOrderVO, BindingResult bindingResult) {
         try {
             if (bindingResult.hasErrors()) {
                 return AjaxValidate.processBindingResult(bindingResult);
@@ -80,7 +82,7 @@ public class BaseOrderController extends CampusController {
 
     @PutMapping("/update")
     // @RequiresPermissions("base:order:update")
-    public Ajax update(@Validated BaseOrderVO baseOrderVO, BindingResult bindingResult) {
+    public Ajax update(@Validated(UpdateGroup.class) BaseOrderVO baseOrderVO, BindingResult bindingResult) {
         try {
             if (bindingResult.hasErrors()) {
                 return AjaxValidate.processBindingResult(bindingResult);
