@@ -20,13 +20,19 @@
                         <h6 class="card-title font-weight-normal" v-text="user.username"></h6>
                         <p class="card-text font-weight-light" v-text="userInfo.phone"></p>
                     </div>
+                    <div class="dropdown-divider"></div>
+                    <div class="card-body">
+                        <p class="card-text font-weight-light" v-text="userInfo.dept"></p>
+                        <p class="card-text font-weight-light" v-text="userInfo.major"></p>
+                    </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item" v-text="user.id"></li>
+                        <li class="list-group-item" v-text="userInfo.credits"></li>
                     </ul>
                     <div class="card-body">
                         <a href="myProfile" class="card-link">详细信息</a>
                     </div>
                 </div>
+
                 <div align="center">
                     <a href="verify">
                         <button type="button" class="btn btn-outline-success"
