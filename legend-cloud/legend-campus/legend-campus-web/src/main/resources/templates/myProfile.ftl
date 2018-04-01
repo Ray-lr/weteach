@@ -46,13 +46,14 @@
                 <!-- 课程列表 -->
                 <div class="row-fluid" id="courseList">
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" id="study-tab" data-toggle="tab" href="#study" role="tab"
-                               aria-controls="study" aria-selected="true">我的课程相关</a>
-                        </li>
+
                         <li class="nav-item">
                             <a class="nav-link" id="teaching-tab" data-toggle="tab" href="#teaching" role="tab"
-                               aria-controls="teaching" aria-selected="false">个人信息中心</a>
+                               aria-controls="teaching" aria-selected="true">个人信息中心</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" id="study-tab" data-toggle="tab" href="#study" role="tab"
+                               aria-controls="study" aria-selected="false">我的课程相关</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="other-tab" data-toggle="tab" href="#other" role="tab"
@@ -123,52 +124,52 @@
                                     <input type="text" class="form-control" id="exampleFormControlInput4"
                                            placeholder="name@example.com" name="qicq" :value="userInfo.qicq">
                                 </div>
-                                <!--<!--邮箱&ndash;&gt;
+                                <!--邮箱-->
                                 <div class="form-group">
                                     <label for="exampleFormControlInput5">邮箱</label>
                                     <input type="email" class="form-control" id="exampleFormControlInput5"
                                            placeholder="name@example.com" name="email" :value="userInfo.email">
                                 </div>
-
-                                <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Recipient's username"
-                                           aria-label="Recipient's username" aria-describedby="basic-addon2">
-                                    <div class="input-group-append">
-                                        <span class="input-group-text" id="basic-addon2">@example.com</span>
+                            <#--
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Recipient's username"
+                                       aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                    <span class="input-group-text" id="basic-addon2">@example.com</span>
+                                </div>
+                                <div class="input-group-append">
+                                    <button type="button"
+                                            class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">@163.com</a>
+                                        <a class="dropdown-item" href="#">@126.com</a>
+                                        <a class="dropdown-item" href="#">@qq.com</a>
+                                        <div role="separator" class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">other emails</a>
                                     </div>
-                                    <div class="input-group-append">
-                                        <button type="button"
-                                                class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
-                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <span class="sr-only">Toggle Dropdown</span>
-                                        </button>
-                                        <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="#">@163.com</a>
-                                            <a class="dropdown-item" href="#">@126.com</a>
-                                            <a class="dropdown-item" href="#">@qq.com</a>
-                                            <div role="separator" class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">other emails</a>
-                                        </div>
-                                    </div>
-                                </div>-->
+                                </div>
+                            </div>-->
                                 <!-- 籍贯 -->
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">籍贯</label>
                                     <div class="row">
                                         <!-- 省、直辖市-->
                                         <div class="col-md-4">
-                                            <select class="form-control" id="province">
+                                            <select class="form-control" id="province" @change="changeProvince">
                                                 <option>-- 省/直辖市/自治区 --</option>
-                                                <option v-for="item in provinces" value="item.id"
+                                                <option v-for="item in provinces.list" :value="item.id"
                                                         v-text="item.name"></option>
 
                                             </select>
                                         </div>
                                         <!-- 市/州 -->
                                         <div class="col-md-4">
-                                            <select class="form-control" id="city">
-                                                <option>-- 市/自治州 --</option>
-                                                <option v-for="item in cities" value="item.id"
+                                            <select class="form-control" id="city" @change="changeCity">
+                                                <option selected="selected" id="cityOption">-- 市/自治州 --</option>
+                                                <option v-for="item in cities" :value="item.id"
                                                         v-text="item.name"></option>
 
                                             </select>
@@ -176,7 +177,7 @@
                                         <!-- 区/县 -->
                                         <div class="col col-md-4">
                                             <select class="form-control" id="county" name="native_place">
-                                                <option>-- 区/县 --</option>
+                                                <option selected="selected">-- 区/县 --</option>
                                                 <option v-for="item in counties" value="item.id"
                                                         v-text="item.name"></option>
                                             </select>
@@ -188,7 +189,9 @@
                                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                                 </div>
                                 <div align="center" style="height:150px;">
-                                    <button type="submit" class="btn btn-outline-primary btn-lg btn-block" value="提交">提交</button>
+                                    <button type="submit" class="btn btn-outline-primary btn-lg btn-block" value="提交">
+                                        提交
+                                    </button>
 
                                 </div>
                             </form>
@@ -229,6 +232,7 @@
             user: ${currentUser},
             userInfo: "",
             study: {
+
                 list: []
             },
             teaching: {
@@ -237,20 +241,23 @@
             other: {
                 list: []
             },
-            provinces: [],
+            provinces: {
+                list: []
+            },
             cities: [],
             counties: []
         },
         beforeCreate: function () {
-
+            /*查省*/
             $.ajax({
                 url: "/base/areas/list",
+                type: "get",
                 data: {
                     typeAreas: 1
                 },
                 success: function (data) {
                     if (data.result) {
-                        vm.provinces = data.data;
+                        vm.provinces.list = data.data;
                     }
                 }
             });
@@ -322,7 +329,36 @@
                         }
                     }
                 });
-            }
+            },
+            changeProvince: function (e) {
+                $.ajax({
+                    url: "/base/areas/list",
+                    data: {
+                        parentId: e.target.value
+                    },
+                    success: function (data) {
+                        if (data.result) {
+                            vm.cities = data.data;
+                            /*当省改变的时候，将市的选择框改为未选择的默认值*/
+                            $("#cityOption").prop("selected", "selected");
+                            vm.counties = null;
+                        }
+                    }
+                });
+            },
+            changeCity: function (e) {
+                $.ajax({
+                    url: "/base/areas/list",
+                    data: {
+                        parentId: e.target.value
+                    },
+                    success: function (data) {
+                        if (data.result) {
+                            vm.counties = data.data;
+                        }
+                    }
+                });
+            },
         }
     })
 </script>
