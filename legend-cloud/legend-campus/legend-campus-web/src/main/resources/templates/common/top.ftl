@@ -41,7 +41,7 @@
                     <a class="nav-link" href="messages">消息中心</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">积分商城</a>
+                    <a class="nav-link" href="supermarket">积分商城</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"

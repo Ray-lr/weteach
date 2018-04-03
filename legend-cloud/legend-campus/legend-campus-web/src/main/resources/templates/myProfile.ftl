@@ -26,7 +26,7 @@
                         <p class="card-text font-weight-light" v-text="userInfo.major"></p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item" v-text="userInfo.credits"></li>
+                        <li class="list-group-item" v-text="user.id"></li>
                     </ul>
                     <div class="card-body">
                         <a href="myProfile" class="card-link">详细信息</a>
@@ -112,6 +112,30 @@
                                     <input type="text" class="form-control" id="exampleFormControlInput2"
                                            placeholder="18" name="nickname" :value="userInfo.nickname">
                                 </div>
+                                <!--生日-->
+                                <label for="dateTime">出生日期</label>
+                                <div class="input-group date form_datetime">
+                                    <input type="text" class="form-control" id="dateTime"
+                                           name="dateTime"
+                                           data-toggle="tooltip"
+                                           data-placement="left" title="请输入日期"
+                                           aria-describedby="dateTimeHelp" placeholder="Date Time"
+                                           readonly>
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+                                </div>
+                                <small id="dateTimeHelp" class="form-text text-muted">
+
+                                </small>
+                                <!--入学年份-->
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1">入学年份</label>
+                                    <select class="form-control" id="exampleFormControlSelect1">
+                                        <option>2014</option>
+                                        <option>2015</option>
+                                        <option>2016</option>
+                                        <option>2017</option>
+                                    </select>
+                                </div>
                                 <!--电话号码-->
                                 <div class="form-group">
                                     <label for="exampleFormControlInput3">手机号</label>
@@ -122,7 +146,13 @@
                                 <div class="form-group">
                                     <label for="exampleFormControlInput4">QQ号</label>
                                     <input type="text" class="form-control" id="exampleFormControlInput4"
-                                           placeholder="name@example.com" name="qicq" :value="userInfo.qicq">
+                                           name="qicq" :value="userInfo.qicq">
+                                </div>
+                                <!--邮箱-->
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput5">邮箱</label>
+                                    <input type="text" class="form-control" id="exampleFormControlInput5"
+                                           placeholder="name@example.com" name="email" :value="userInfo.email">
                                 </div>
                                 <!--邮箱-->
                                 <div class="form-group">
@@ -182,11 +212,13 @@
                                                         v-text="item.name"></option>
                                             </select>
                                         </div>
+
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlTextarea1">个性签名</label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                                              name="signature" :value="userInfo.signature"></textarea>
                                 </div>
                                 <div align="center" style="height:150px;">
                                     <button type="submit" class="btn btn-outline-primary btn-lg btn-block" value="提交">

@@ -7,8 +7,8 @@ import java.util.List;
 /**
  * CampusUserInfo的example类
  *
- * @author hupeiD
- * @date 2018-03-28 10:33:29
+ * @author Jim
+ * @date 2018-04-03 16:42:07
  */
 public class CampusUserInfoExample {
     protected String orderByClause;
@@ -411,6 +411,66 @@ public class CampusUserInfoExample {
             return (Criteria) this;
         }
 
+        public Criteria andBirthdayIsNull() {
+            addCriterion("birthday is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBirthdayIsNotNull() {
+            addCriterion("birthday is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBirthdayEqualTo(Date value) {
+            addCriterion("birthday =", value, "birthday");
+            return (Criteria) this;
+        }
+
+        public Criteria andBirthdayNotEqualTo(Date value) {
+            addCriterion("'birthday <>", value, "birthday");
+            return (Criteria) this;
+        }
+
+        public Criteria andBirthdayGreaterThan(Date value) {
+            addCriterion("birthday >", value, "birthday");
+            return (Criteria) this;
+        }
+
+        public Criteria andBirthdayGreaterThanOrEqualTo(Date value) {
+            addCriterion("birthday >=", value, "birthday");
+            return (Criteria) this;
+        }
+
+        public Criteria andBirthdayLessThan(Date value) {
+            addCriterion("birthday <", value, "birthday");
+            return (Criteria) this;
+        }
+
+        public Criteria andBirthdayLessThanOrEqualTo(Integer value) {
+            addCriterion("birthday <=", value, "birthday");
+            return (Criteria) this;
+        }
+
+        public Criteria andBirthdayIn(List<Date> values) {
+            addCriterion("birthday in", values, "birthday");
+            return (Criteria) this;
+        }
+
+        public Criteria andBirthdayNotIn(List<Date> values) {
+            addCriterion("birthday not in", values, "birthday");
+            return (Criteria) this;
+        }
+
+        public Criteria andBirthdayBetween(Date value1, Date value2) {
+            addCriterion("birthday between", value1, value2, "birthday");
+            return (Criteria) this;
+        }
+
+        public Criteria andBirthdayNotBetween(Date value1, Date value2) {
+            addCriterion("birthday not between", value1, value2, "birthday");
+            return (Criteria) this;
+        }
+
         public Criteria andNativePlaceIsNull() {
             addCriterion("native_place is null");
             return (Criteria) this;
@@ -468,6 +528,66 @@ public class CampusUserInfoExample {
 
         public Criteria andNativePlaceNotBetween(String value1, String value2) {
             addCriterion("native_place not between", value1, value2, "native_place");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnrollmentYearIsNull() {
+            addCriterion("enrollment_year is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnrollmentYearIsNotNull() {
+            addCriterion("enrollment_year is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnrollmentYearEqualTo(String value) {
+            addCriterion("enrollment_year =", value, "enrollment_year");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnrollmentYearNotEqualTo(String value) {
+            addCriterion("'enrollment_year <>", value, "enrollment_year");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnrollmentYearGreaterThan(String value) {
+            addCriterion("enrollment_year >", value, "enrollment_year");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnrollmentYearGreaterThanOrEqualTo(String value) {
+            addCriterion("enrollment_year >=", value, "enrollment_year");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnrollmentYearLessThan(String value) {
+            addCriterion("enrollment_year <", value, "enrollment_year");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnrollmentYearLessThanOrEqualTo(Integer value) {
+            addCriterion("enrollment_year <=", value, "enrollment_year");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnrollmentYearIn(List<String> values) {
+            addCriterion("enrollment_year in", values, "enrollment_year");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnrollmentYearNotIn(List<String> values) {
+            addCriterion("enrollment_year not in", values, "enrollment_year");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnrollmentYearBetween(String value1, String value2) {
+            addCriterion("enrollment_year between", value1, value2, "enrollment_year");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnrollmentYearNotBetween(String value1, String value2) {
+            addCriterion("enrollment_year not between", value1, value2, "enrollment_year");
             return (Criteria) this;
         }
 
@@ -828,6 +948,66 @@ public class CampusUserInfoExample {
 
         public Criteria andEmailNotBetween(String value1, String value2) {
             addCriterion("email not between", value1, value2, "email");
+            return (Criteria) this;
+        }
+
+        public Criteria andSignatureIsNull() {
+            addCriterion("signature is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSignatureIsNotNull() {
+            addCriterion("signature is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSignatureEqualTo(String value) {
+            addCriterion("signature =", value, "signature");
+            return (Criteria) this;
+        }
+
+        public Criteria andSignatureNotEqualTo(String value) {
+            addCriterion("'signature <>", value, "signature");
+            return (Criteria) this;
+        }
+
+        public Criteria andSignatureGreaterThan(String value) {
+            addCriterion("signature >", value, "signature");
+            return (Criteria) this;
+        }
+
+        public Criteria andSignatureGreaterThanOrEqualTo(String value) {
+            addCriterion("signature >=", value, "signature");
+            return (Criteria) this;
+        }
+
+        public Criteria andSignatureLessThan(String value) {
+            addCriterion("signature <", value, "signature");
+            return (Criteria) this;
+        }
+
+        public Criteria andSignatureLessThanOrEqualTo(Integer value) {
+            addCriterion("signature <=", value, "signature");
+            return (Criteria) this;
+        }
+
+        public Criteria andSignatureIn(List<String> values) {
+            addCriterion("signature in", values, "signature");
+            return (Criteria) this;
+        }
+
+        public Criteria andSignatureNotIn(List<String> values) {
+            addCriterion("signature not in", values, "signature");
+            return (Criteria) this;
+        }
+
+        public Criteria andSignatureBetween(String value1, String value2) {
+            addCriterion("signature between", value1, value2, "signature");
+            return (Criteria) this;
+        }
+
+        public Criteria andSignatureNotBetween(String value1, String value2) {
+            addCriterion("signature not between", value1, value2, "signature");
             return (Criteria) this;
         }
 
