@@ -1,48 +1,12 @@
 <#include "./common/head.ftl">
 <div id="vm">
     <!--顶部功能栏-->
-    <#include "./common/top.ftl">
+<#include "./common/top.ftl">
 
     <div class="container margin-top10" id="principal">
         <div class="row">
-            <div class="col col-md-3" id="personal">
-                <!-- 个人信息 -->
-                <div class="card">
-                    <a href="#">
-                        <img class="card-img-top" src="/static/image/avatar/Avatar.png"
-                             data-toggle="tooltip"
-                             data-placement="bottom" title="更换头像"
-                             alt="Card image cap">
-                    </a>
-                    <div class="card-body">
-                        <h5 class="card-title font-weight-bold" v-text="userInfo.nickname">
-                        </h5>
-                        <h6 class="card-title font-weight-normal" v-text="user.username"></h6>
-                        <p class="card-text font-weight-light" v-text="userInfo.phone"></p>
-                    </div>
-                    <div class="dropdown-divider"></div>
-                    <div class="card-body">
-                        <p class="card-text font-weight-light" v-text="userInfo.dept"></p>
-                        <p class="card-text font-weight-light" v-text="userInfo.major"></p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item" v-text="user.id"></li>
-                    </ul>
-                    <div class="card-body">
-                        <a href="myProfile" class="card-link">详细信息</a>
-                    </div>
-                </div>
-
-                <div align="center">
-                    <a href="verify">
-                        <button type="button" class="btn btn-outline-success"
-                                style="width: 100%;height:50px;font-size:20px;">我想当老师！
-                        </button>
-                    </a>
-                </div>
-            </div>
+        <#include "./personal/personal-info.ftl">
             <div class="col-12 col-md-8" id="principal">
-
                 <!-- 课程列表 -->
                 <div class="row-fluid" id="courseList">
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -153,34 +117,6 @@
                                     <input type="text" class="form-control" id="exampleFormControlInput5"
                                            placeholder="name@example.com" name="email" :value="userInfo.email">
                                 </div>
-                                <!--<!--邮箱&ndash;&gt;
-                                <div class="form-group">
-                                    <label for="exampleFormControlInput5">邮箱</label>
-                                    <input type="email" class="form-control" id="exampleFormControlInput5"
-                                           placeholder="name@example.com" name="email" :value="userInfo.email">
-                                </div>
-
-                                <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Recipient's username"
-                                           aria-label="Recipient's username" aria-describedby="basic-addon2">
-                                    <div class="input-group-append">
-                                        <span class="input-group-text" id="basic-addon2">@example.com</span>
-                                    </div>
-                                    <div class="input-group-append">
-                                        <button type="button"
-                                                class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
-                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <span class="sr-only">Toggle Dropdown</span>
-                                        </button>
-                                        <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="#">@163.com</a>
-                                            <a class="dropdown-item" href="#">@126.com</a>
-                                            <a class="dropdown-item" href="#">@qq.com</a>
-                                            <div role="separator" class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">other emails</a>
-                                        </div>
-                                    </div>
-                                </div>-->
                                 <!-- 籍贯 -->
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">籍贯</label>
@@ -220,7 +156,9 @@
                                               name="signature" :value="userInfo.signature"></textarea>
                                 </div>
                                 <div align="center" style="height:150px;">
-                                    <button type="submit" class="btn btn-outline-primary btn-lg btn-block" value="提交">提交</button>
+                                    <button type="submit" class="btn btn-outline-primary btn-lg btn-block" value="提交">
+                                        提交
+                                    </button>
 
                                 </div>
                             </form>
@@ -286,55 +224,14 @@
                     }
                 }
             });
-            /*$.ajax({
-                url: "/base/areas/list",
-                data: {
-                    typeAreas: 2
-                },
-                success: function (data) {
-                    if (data.result) {
-                        vm.cities = data.data;
-                    }
-                }
-            });*/
-            /*$.ajax({
-                url: "/campus/userInfo/detail/"+vm.user.id,
-                type: "get",
-                success: function (data) {
-                    if (data.result) {
-                        vm.userInfo = data.data;
-                    }
-                }
-            });*/
-
-            /*$.ajax({
-                url: "/base/areas/list",
-                data: {
-                    typeAreas: 3
-                },
-                success: function (data) {
-                    if (data.result) {
-                        vm.counties = data.data;
-                    }
-                }
-            });*/
         },
         created: function () {
-            $.ajax({
-                        url: "/campus/userInfo/detail/" + ${currentUser}.id,
-                    type
-        :
-            "get",
-                    success
-        :
-
-            function (data) {
+            let _this = this;
+            $.get("/campus/userInfo/detail/" + _this.user.id, function (data) {
                 if (data.result) {
                     vm.userInfo = data.data;
                 }
-            }
-        })
-            ;
+            });
         },
         updated: function () {
 
