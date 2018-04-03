@@ -26,7 +26,7 @@
                         <p class="card-text font-weight-light" v-text="userInfo.major"></p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item" v-text="userInfo.credits"></li>
+                        <li class="list-group-item" v-text="user.id"></li>
                     </ul>
                     <div class="card-body">
                         <a href="myProfile" class="card-link">详细信息</a>
@@ -181,11 +181,13 @@
                                                         v-text="item.name"></option>
                                             </select>
                                         </div>
+
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlTextarea1">个性签名</label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                                              name="signature" :value="userInfo.signature"></textarea>
                                 </div>
                                 <div align="center" style="height:150px;">
                                     <button type="submit" class="btn btn-outline-primary btn-lg btn-block" value="提交">提交</button>

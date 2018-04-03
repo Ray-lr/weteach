@@ -57,8 +57,14 @@ public class CampusUserInfoServiceImpl extends AbstractLegendService<CampusUserI
         if (campusUserInfo.getSex() != null) {
             criteria.andSexEqualTo(campusUserInfo.getSex());
         }
+        if (campusUserInfo.getBirthday() != null) {
+            criteria.andBirthdayEqualTo(campusUserInfo.getBirthday());
+        }
         if (campusUserInfo.getNativePlace() != null) {
             criteria.andNativePlaceEqualTo(campusUserInfo.getNativePlace());
+        }
+        if (campusUserInfo.getEnrollmentYear() != null) {
+            criteria.andEnrollmentYearEqualTo(campusUserInfo.getEnrollmentYear());
         }
         if (campusUserInfo.getDept() != null) {
             criteria.andDeptEqualTo(campusUserInfo.getDept());
@@ -77,6 +83,9 @@ public class CampusUserInfoServiceImpl extends AbstractLegendService<CampusUserI
         }
         if (campusUserInfo.getEmail() != null) {
             criteria.andEmailEqualTo(campusUserInfo.getEmail());
+        }
+        if (campusUserInfo.getSignature() != null) {
+            criteria.andSignatureEqualTo(campusUserInfo.getSignature());
         }
         if (campusUserInfo.getCredits() != null) {
             criteria.andCreditsEqualTo(campusUserInfo.getCredits());

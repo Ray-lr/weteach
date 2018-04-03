@@ -12,7 +12,7 @@ import java.util.Date;
  * 个人信息表
  *
  * @author hupeiD
- * @date 2018-03-26 22:25:05
+ * @date 2018-04-03 16:42:07
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
@@ -40,9 +40,17 @@ public class CampusUserInfoVO extends AbstractVO<CampusUserInfo> {
      */
     private String sex;
     /**
+     * 出生年月
+     */
+    private Date birthday;
+    /**
      * 籍贯
      */
     private String nativePlace;
+    /**
+     * 入学年份
+     */
+    private String enrollmentYear;
     /**
      * 系别
      */
@@ -67,6 +75,10 @@ public class CampusUserInfoVO extends AbstractVO<CampusUserInfo> {
      * 邮箱地址
      */
     private String email;
+    /**
+     * 个性签名
+     */
+    private String signature;
     /**
      * 积分量
      */
@@ -103,7 +115,7 @@ public class CampusUserInfoVO extends AbstractVO<CampusUserInfo> {
      * 是否删除
      */
     private Boolean isDeleted;
-
+    
     @Override
     public CampusUserInfo parseTo(String... ignoreProperties) {
         return super.parseTo(ignoreProperties);
@@ -122,13 +134,16 @@ public class CampusUserInfoVO extends AbstractVO<CampusUserInfo> {
                 ", name=" + getName() +
                 ", nickname=" + getNickname() +
                 ", sex=" + getSex() +
+                ", birthday=" + getBirthday() +
                 ", nativePlace=" + getNativePlace() +
+                ", enrollmentYear=" + getEnrollmentYear() +
                 ", dept=" + getDept() +
                 ", major=" + getMajor() +
                 ", direction=" + getDirection() +
                 ", phone=" + getPhone() +
                 ", qicq=" + getQicq() +
                 ", email=" + getEmail() +
+                ", signature=" + getSignature() +
                 ", credits=" + getCredits() +
                 ", creditsLevel=" + getCreditsLevel() +
                 ", orderJoin=" + getOrderJoin() +
@@ -136,8 +151,8 @@ public class CampusUserInfoVO extends AbstractVO<CampusUserInfo> {
                 ", orderFinish=" + getOrderFinish() +
                 ", percentageComplete=" + getPercentageComplete() +
                 ", createTime=" + getCreateTime() +
-                ", updateTime=" + getUpdateTime() +
-                ", isDeleted=" + getIsDeleted() +
-                '}';
+                                ", updateTime=" + getUpdateTime() +
+                                ", isDeleted=" + getIsDeleted() +
+                            '}';
     }
 }
