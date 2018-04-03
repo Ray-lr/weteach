@@ -1,105 +1,12 @@
 <#include "./common/head.ftl">
 <div id="vm">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-grayblack-tp90 sticky-top">
-        <div class="container">
-            <!-- 图标 -->
-            <a class="navbar-brand" id="Logo" href="#">
-                <img src="/static/image/icon/bootstrap-solid.png" width="30" height="30"
-                     class="d-inline-block align-top"
-                     alt="Logo">
-            </a>
-            <!-- 搜索框 -->
-            <form class="form-inline my-1 my-lg-0 input-group-sm">
-                <input class="form-control mr-sm-1 rounded " type="search" placeholder="Search"
-                       aria-label="Search"
-                       @keyup.enter="search($event)">
-            </form>
-
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler-left"
-                    aria-controls="navbarToggler-left" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <!-- 内容 -->
-            <div class="collapse navbar-collapse" id="navbarToggler-left">
-                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li class="nav-item ">
-                        <a class="nav-link " href="index">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
-                           data-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="false">
-                            Dropdown link
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                    </li>
-
-                </ul>
-                <ul class="navbar-nav">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="personalMenu"
-                           data-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="false">
-                            <img class="avatar-small image-fluid rounded" src="/static/image/avatar/Avatar.png"
-                                 alt="Avatar">
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="personalMenu">
-                            <a class="dropdown-item" href="myProfile">MyProfile</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="settings">Settings</a>
-                            <a class="dropdown-item" href="#">Help</a>
-                            <a class="dropdown-item " href="/logout">Sign out</a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <!--顶部功能栏-->
+<#include "./common/top.ftl">
 
     <div class="container margin-top10" id="principal">
         <div class="row">
-            <div class="col col-md-3" id="personal">
-                <!-- 个人信息 -->
-                <div class="card">
-                    <a href="#">
-                        <img class="card-img-top" src="/static/image/avatar/Avatar.png"
-                             data-toggle="tooltip"
-                             data-placement="bottom" title="更换头像"
-                             alt="Card image cap">
-                    </a>
-                    <div class="card-body">
-                        <h5 class="card-title font-weight-bold">{{user.nickName}}
-                        </h5>
-                        <h6 class="card-title font-weight-normal">{{user.username}}</h6>
-                        <p class="card-text font-weight-light">{{user.phone}}</p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">{{user.id}}</li>
-                    </ul>
-                    <div class="card-body">
-                        <a href="myProfile" class="card-link">详细信息</a>
-                    </div>
-                </div>
-                <div align="center">
-                    <a href="verify">
-                        <button type="button" class="btn btn-outline-success"
-                                style="width: 100%;height:50px;font-size:20px;">我想当老师！
-                        </button>
-                    </a>
-                </div>
-            </div>
+        <#include "./personal/personal-info.ftl">
             <div class="col-12 col-md-8" id="principal">
-
                 <!-- 课程列表 -->
                 <div class="row-fluid" id="courseList">
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -168,6 +75,30 @@
                                     <input type="text" class="form-control" id="exampleFormControlInput2"
                                            placeholder="18" name="nickname" :value="userInfo.nickname">
                                 </div>
+                                <!--生日-->
+                                <label for="dateTime">出生日期</label>
+                                <div class="input-group date form_datetime">
+                                    <input type="text" class="form-control" id="dateTime"
+                                           name="dateTime"
+                                           data-toggle="tooltip"
+                                           data-placement="left" title="请输入日期"
+                                           aria-describedby="dateTimeHelp" placeholder="Date Time"
+                                           readonly>
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+                                </div>
+                                <small id="dateTimeHelp" class="form-text text-muted">
+
+                                </small>
+                                <!--入学年份-->
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1">入学年份</label>
+                                    <select class="form-control" id="exampleFormControlSelect1">
+                                        <option>2014</option>
+                                        <option>2015</option>
+                                        <option>2016</option>
+                                        <option>2017</option>
+                                    </select>
+                                </div>
                                 <!--电话号码-->
                                 <div class="form-group">
                                     <label for="exampleFormControlInput3">手机号</label>
@@ -178,36 +109,14 @@
                                 <div class="form-group">
                                     <label for="exampleFormControlInput4">QQ号</label>
                                     <input type="text" class="form-control" id="exampleFormControlInput4"
-                                           placeholder="name@example.com" name="qicq" :value="userInfo.qicq">
+                                           name="qicq" :value="userInfo.qicq">
                                 </div>
-                                <!--<!--邮箱&ndash;&gt;
+                                <!--邮箱-->
                                 <div class="form-group">
                                     <label for="exampleFormControlInput5">邮箱</label>
-                                    <input type="email" class="form-control" id="exampleFormControlInput5"
+                                    <input type="text" class="form-control" id="exampleFormControlInput5"
                                            placeholder="name@example.com" name="email" :value="userInfo.email">
                                 </div>
-
-                                <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Recipient's username"
-                                           aria-label="Recipient's username" aria-describedby="basic-addon2">
-                                    <div class="input-group-append">
-                                        <span class="input-group-text" id="basic-addon2">@example.com</span>
-                                    </div>
-                                    <div class="input-group-append">
-                                        <button type="button"
-                                                class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
-                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <span class="sr-only">Toggle Dropdown</span>
-                                        </button>
-                                        <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="#">@163.com</a>
-                                            <a class="dropdown-item" href="#">@126.com</a>
-                                            <a class="dropdown-item" href="#">@qq.com</a>
-                                            <div role="separator" class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">other emails</a>
-                                        </div>
-                                    </div>
-                                </div>-->
                                 <!-- 籍贯 -->
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">籍贯</label>
@@ -238,14 +147,18 @@
                                                         v-text="item.name"></option>
                                             </select>
                                         </div>
+
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlTextarea1">个性签名</label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                                              name="signature" :value="userInfo.signature"></textarea>
                                 </div>
                                 <div align="center" style="height:150px;">
-                                    <button type="submit" class="btn btn-outline-primary btn-lg btn-block" value="提交">提交</button>
+                                    <button type="submit" class="btn btn-outline-primary btn-lg btn-block" value="提交">
+                                        提交
+                                    </button>
 
                                 </div>
                             </form>
@@ -283,7 +196,7 @@
     let vm = new Vue({
         el: "#vm",
         data: {
-            user: "",
+            user: ${currentUser},
             userInfo: "",
             study: {
                 list: []
@@ -299,24 +212,7 @@
             counties: []
         },
         beforeCreate: function () {
-            $.ajax({
-                url: "/base/user/getUser",
-                type: "GET",
-                success: function (data) {
-                    if (data.result) {
-                        vm.user = data.data;
-                        $.ajax({
-                            url: "/campus/userInfo/detail/" + vm.user.id,
-                            type: "get",
-                            success: function (data) {
-                                if (data.result) {
-                                    vm.userInfo = data.data;
-                                }
-                            }
-                        });
-                    }
-                }
-            });
+
             $.ajax({
                 url: "/base/areas/list",
                 data: {
@@ -328,43 +224,17 @@
                     }
                 }
             });
-            /*$.ajax({
-                url: "/base/areas/list",
-                data: {
-                    typeAreas: 2
-                },
-                success: function (data) {
-                    if (data.result) {
-                        vm.cities = data.data;
-                    }
-                }
-            });*/
-            /*$.ajax({
-                url: "/campus/userInfo/detail/"+vm.user.id,
-                type: "get",
-                success: function (data) {
-                    if (data.result) {
-                        vm.userInfo = data.data;
-                    }
-                }
-            });*/
-
-            /*$.ajax({
-                url: "/base/areas/list",
-                data: {
-                    typeAreas: 3
-                },
-                success: function (data) {
-                    if (data.result) {
-                        vm.counties = data.data;
-                    }
-                }
-            });*/
         },
         created: function () {
-
+            let _this = this;
+            $.get("/campus/userInfo/detail/" + _this.user.id, function (data) {
+                if (data.result) {
+                    vm.userInfo = data.data;
+                }
+            });
         },
         updated: function () {
+
         },
         methods: {
             search: function (e) {
