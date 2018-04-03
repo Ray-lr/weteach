@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 /**
  * CampusUserInfo的mapper接口
  *
- * @author hupeiD
+ * @author Jim
  * @date 2018-04-03 16:42:07
  */
 @Mapper

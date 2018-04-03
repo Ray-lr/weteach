@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * CampusUserInfo的example类
  *
- * @author hupeiD
+ * @author Jim
  * @date 2018-04-03 16:42:07
  */
 public class CampusUserInfoExample {

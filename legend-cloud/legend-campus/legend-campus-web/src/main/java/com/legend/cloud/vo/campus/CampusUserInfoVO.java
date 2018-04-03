@@ -11,7 +11,7 @@ import java.util.Date;
 /**
  * 个人信息表
  *
- * @author hupeiD
+ * @author Jim
  * @date 2018-04-03 16:42:07
  */
 @EqualsAndHashCode(callSuper = true)

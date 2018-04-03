@@ -111,6 +111,30 @@
                                     <input type="text" class="form-control" id="exampleFormControlInput2"
                                            placeholder="18" name="nickname" :value="userInfo.nickname">
                                 </div>
+                                <!--生日-->
+                                <label for="dateTime">出生日期</label>
+                                <div class="input-group date form_datetime">
+                                    <input type="text" class="form-control" id="dateTime"
+                                           name="dateTime"
+                                           data-toggle="tooltip"
+                                           data-placement="left" title="请输入日期"
+                                           aria-describedby="dateTimeHelp" placeholder="Date Time"
+                                           readonly>
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+                                </div>
+                                <small id="dateTimeHelp" class="form-text text-muted">
+
+                                </small>
+                                <!--入学年份-->
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1">入学年份</label>
+                                    <select class="form-control" id="exampleFormControlSelect1">
+                                        <option>2014</option>
+                                        <option>2015</option>
+                                        <option>2016</option>
+                                        <option>2017</option>
+                                    </select>
+                                </div>
                                 <!--电话号码-->
                                 <div class="form-group">
                                     <label for="exampleFormControlInput3">手机号</label>
@@ -121,7 +145,13 @@
                                 <div class="form-group">
                                     <label for="exampleFormControlInput4">QQ号</label>
                                     <input type="text" class="form-control" id="exampleFormControlInput4"
-                                           placeholder="name@example.com" name="qicq" :value="userInfo.qicq">
+                                           name="qicq" :value="userInfo.qicq">
+                                </div>
+                                <!--邮箱-->
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput5">邮箱</label>
+                                    <input type="text" class="form-control" id="exampleFormControlInput5"
+                                           placeholder="name@example.com" name="email" :value="userInfo.email">
                                 </div>
                                 <!--<!--邮箱&ndash;&gt;
                                 <div class="form-group">
