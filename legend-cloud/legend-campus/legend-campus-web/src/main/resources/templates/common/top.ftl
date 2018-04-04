@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-grayblack-tp90 sticky-top">
     <div class="container">
         <!-- 图标 -->
-        <a class="navbar-brand" id="Logo" href="index">
+        <a class="navbar-brand" id="Logo" href="/direct/index">
             <img src="/static/image/icon/bootstrap-solid.png" width="30" height="30"
                  class="d-inline-block align-top"
                  alt="Logo">
@@ -22,39 +22,41 @@
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <!--主页index-->
                 <li class="nav-item ">
-                    <a class="nav-link " href="index">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link " href="/direct/index">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <!--发布public-->
+                <!--个人中心具体选项-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink1"
+                       data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
+                        个人中心
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1">
+                        <a class="dropdown-item" href="/direct/myProfile">我的课程相关</a>
+                        <a class="dropdown-item" href="/direct/myProfile">个人信息中心</a>
+                        <a class="dropdown-item" href="/direct/myProfile">我的数据统计</a>
+                    </div>
+                </li>
+                <!--发布publish-->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2"
                        data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">
                         发布课程
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="course">求学贴</a>
-                        <a class="dropdown-item" href="course">教学贴</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
+                        <a class="dropdown-item" href="/direct/course">求学贴</a>
+                        <a class="dropdown-item" href="/direct/course?name=教学贴">教学贴</a>
 
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="messages">消息中心</a>
+                    <a class="nav-link" href="/direct/messages">消息中心</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="supermarket">积分商城</a>
+                    <a class="nav-link" href="/direct/shop">积分商城</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
-                       data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">
-                        Dropdown link
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li>
+
 
             </ul>
             <ul class="navbar-nav">
@@ -66,11 +68,11 @@
                              alt="Avatar">
                     </a>
                     <div class="dropdown-menu" aria-labelledby="personalMenu">
-                        <a class="dropdown-item" href="myProfile">个人主页</a>
+                        <a class="dropdown-item" href="/direct/myProfile">个人主页</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="messages">消息中心</a>
-                        <a class="dropdown-item" href="settings">设置</a>
-                        <a class="dropdown-item" href="help">帮助</a>
+                        <a class="dropdown-item" href="/direct/messages">消息中心</a>
+                        <a class="dropdown-item" href="/direct/settings">设置</a>
+                        <a class="dropdown-item" href="/direct/help">帮助</a>
                         <a class="dropdown-item " href="/logout">退出登录</a>
                     </div>
                 </li>

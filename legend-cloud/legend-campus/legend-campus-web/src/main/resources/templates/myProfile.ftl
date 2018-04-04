@@ -1,7 +1,7 @@
 <#include "./common/head.ftl">
 <div id="vm">
     <!--顶部功能栏-->
-<#include "./common/top.ftl">
+    <#include "./common/top.ftl">
 
     <div class="container margin-top10" id="principal">
         <div class="row">
@@ -20,7 +20,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="other-tab" data-toggle="tab" href="#other" role="tab"
-                               aria-controls="other" aria-selected="false">浏览历史</a>
+                               aria-controls="other" aria-selected="false">我的数据相关</a>
                         </li>
                     </ul>
 
@@ -62,7 +62,9 @@
                                 </div>
                                 <!-- 真实性别 -->
                                 <div class="form-group">
-
+                                    <div>
+                                        <label for="exampleFormControlInput1">性别</label>
+                                    </div>
                                     <label for="male">男</label>
                                     <input type="radio" name="sex" id="male" :value="userInfo.sex" checked/>
 
@@ -89,34 +91,6 @@
                                 <small id="dateTimeHelp" class="form-text text-muted">
 
                                 </small>
-                                <!--入学年份-->
-                                <div class="form-group">
-                                    <label for="exampleFormControlSelect1">入学年份</label>
-                                    <select class="form-control" id="exampleFormControlSelect1">
-                                        <option>2014</option>
-                                        <option>2015</option>
-                                        <option>2016</option>
-                                        <option>2017</option>
-                                    </select>
-                                </div>
-                                <!--电话号码-->
-                                <div class="form-group">
-                                    <label for="exampleFormControlInput3">手机号</label>
-                                    <input type="text" class="form-control" id="exampleFormControlInput3"
-                                           placeholder="1XX-XXXX-XXXX" name="phone" :value="userInfo.phone">
-                                </div>
-                                <!--QQ号码-->
-                                <div class="form-group">
-                                    <label for="exampleFormControlInput4">QQ号</label>
-                                    <input type="text" class="form-control" id="exampleFormControlInput4"
-                                           name="qicq" :value="userInfo.qicq">
-                                </div>
-                                <!--邮箱-->
-                                <div class="form-group">
-                                    <label for="exampleFormControlInput5">邮箱</label>
-                                    <input type="text" class="form-control" id="exampleFormControlInput5"
-                                           placeholder="name@example.com" name="email" :value="userInfo.email">
-                                </div>
                                 <!-- 籍贯 -->
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">籍贯</label>
@@ -150,6 +124,36 @@
 
                                     </div>
                                 </div>
+                                <!--入学年份-->
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1">入学年份</label>
+                                    <select class="form-control" id="exampleFormControlSelect1" disabled="disabled">
+                                        <!--name="enrollment_year" :value="userInfo.enrollment_year"-->
+                                        <option value="2014" selected="selected">2014学年</option>
+                                        <option value="2015">2015学年</option>
+                                        <option value="2016">2016学年</option>
+                                        <option value="2017">2017学年</option>
+                                    </select>
+                                </div>
+                                <!--电话号码-->
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput3">手机号</label>
+                                    <input type="text" class="form-control" id="exampleFormControlInput3"
+                                           placeholder="1XX-XXXX-XXXX" name="phone" :value="userInfo.phone">
+                                </div>
+                                <!--QQ号码-->
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput4">QQ号</label>
+                                    <input type="text" class="form-control" id="exampleFormControlInput4"
+                                           name="qicq" :value="userInfo.qicq">
+                                </div>
+                                <!--邮箱-->
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput5">邮箱</label>
+                                    <input type="text" class="form-control" id="exampleFormControlInput5"
+                                           placeholder="name@example.com" name="email" :value="userInfo.email">
+                                </div>
+
                                 <div class="form-group">
                                     <label for="exampleFormControlTextarea1">个性签名</label>
                                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
@@ -163,7 +167,7 @@
                                 </div>
                             </form>
                         </div>
-                        <!--浏览历史-->
+                        <!--我的数据相关-->
                         <div class="tab-pane fade" id="other" role="tabpanel" aria-labelledby="other-tab">
                             <div class="card">
                                 <div class="card-header" id="headingThree">

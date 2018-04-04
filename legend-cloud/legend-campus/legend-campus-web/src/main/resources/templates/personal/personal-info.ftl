@@ -22,7 +22,8 @@
             <li class="list-group-item" v-text="user.id"></li>
         </ul>
         <div class="card-body">
-            <a href="myProfile" class="card-link">详细信息</a>
+            <a href="/direct/myProfile" class="card-link">详细信息</a>
+            <a href="/direct/verify" class="card-link">成为老师</a>
         </div>
     </div>
 </div>
