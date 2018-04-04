@@ -138,7 +138,7 @@
             </div>
             <div class="col col-md-2" id="external">
                 <div>
-                    <a href="course">
+                    <a href="/direct/course">
                         <button type="button" class="btn btn-success"
                                 style="width: 100%;height:50px;font-size:20px;">发布课程
                         </button>
