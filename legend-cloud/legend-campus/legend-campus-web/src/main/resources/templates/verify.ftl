@@ -18,15 +18,17 @@
 
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">认证系别</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
-                                <option v-for="item in departments" value="item.id"
+                            <select class="form-control" id="department" @change="changeDepartment">
+                                <option selected="selected" id="departmentOption">-- 请选择系别 --</option>
+                                <option v-for="item in departments" :value="item.id"
                                         v-text="item.name"></option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">认证专业</label>
                             <select class="form-control" id="exampleFormControlSelect1">
-                                <option v-for="item in majors" value="item.id"
+                                <option selected="selected" id="majorOption">-- 请选择专业 --</option>
+                                <option v-for="item in majors" :value="item.id"
                                         v-text="item.name"></option>
                             </select>
                         </div>
@@ -91,11 +93,12 @@
         el: "#vm",
         data: {
             departments: [],
-            majors: []
+            majors: [],
         },
         beforeCreate: function () {
             $.ajax({
                 url: "/campus/major/list",
+                type: "get",
                 data: {
                     typeMajor: 1
                 },
@@ -106,18 +109,19 @@
 
                 }
             });
-            $.ajax({
-                url: "/campus/major/list",
-                data: {
-                    typeMajor: 2
-                },
-                success: function (data) {
-                    if (data.result) {
-                        vm.majors = data.data;
-                    }
+            /* $.ajax({
+                 url: "/campus/major/list",
+                 type:"get",
+                 data: {
+                     typeMajor: 2
+                 },
+                 success: function (data) {
+                     if (data.result) {
+                         vm.majors = data.data;
+                     }
 
-                }
-            });
+                 }
+             });*/
         },
         created: function () {
         },
@@ -140,7 +144,23 @@
                         }
                     }
                 })
-            }
+            },
+            changeDepartment: function (e) {
+                $.ajax({
+                    url: "/campus/major/list",
+                    type: "get",
+                    data: {
+                        deptId: e.target.value
+                    },
+                    success: function (data) {
+                        if (data.result) {
+                            vm.majors = data.data;
+                            $("#majorOption").prop("selected", "selected");
+                        }
+                    }
+                })
+            },
+
         }
     })
     /*submit点击后不可选取*/
