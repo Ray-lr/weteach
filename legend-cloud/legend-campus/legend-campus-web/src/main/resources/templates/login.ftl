@@ -3,9 +3,9 @@
     <div class="jumbotron jumbotron-fluid align-items-center">
         <div class="container-fluid ">
             <div class="container ">
-                <h1 class="display-4">Hello, world!</h1>
-                <p class="lead ">
-                    You can sign in from here, register or modify your user information
+                <h1 class="display-4">欢迎来到校园学生互助系统!</h1>
+                <p class="lead " align="center">
+                    请先登录
                 </p>
             </div>
             <hr class="my-4">
@@ -14,9 +14,13 @@
                     <div class="col-4 ">
                         <form @submit.prevent="login($event)">
                             <div class="form-group">
-                                <label for="username">Username</label>
+                                <label for="username">用户名</label>
                                 <input type="text" class="form-control" id="username"
                                        v-model="username" name="username"
+                                <#--正则表达式禁止输入汉字和特殊符号，粘贴也不行-->
+                                       onkeyup="value=value.replace(/[\W]/g,'') "
+                                       onbeforepaste="clipboardData.setData
+                                       ('text',clipboardData.getData('text').replace(/[^\d]/g,''))"
                                        data-toggle="tooltip"
                                        data-placement="left" title="请输入有效的用户名"
                                        aria-describedby="usernameHelp" placeholder="Enter Username">
@@ -25,7 +29,7 @@
                                 </small>
                             </div>
                             <div class="form-group">
-                                <label for="password">Password</label>
+                                <label for="password">密码</label>
                                 <input type="password" class="form-control" id="password"
                                        v-model="password" name="password"
                                        data-toggle="tooltip"
@@ -37,9 +41,10 @@
                             </div>
                             <div class="form-group">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="gridCheck" name="rememberMe">
+                                    <input class="form-check-input" type="checkbox" id="gridCheck" checked="checked"
+                                           name="rememberMe">
                                     <label class="form-check-label" for="gridCheck">
-                                        Remember me
+                                        记住我
                                     </label>
                                 </div>
                             </div>
@@ -61,7 +66,7 @@
 
                             <div class="btn-group">
                                 <button class="btn btn-primary" type="submit">
-                                    Submit
+                                    登录
                                 </button>
                                 <button type="button"
                                         class="btn btn-primary dropdown-toggle dropdown-toggle-split"
@@ -69,8 +74,8 @@
                                     <span class="sr-only">Toggle Dropdown</span>
                                 </button>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#" @click="changeHost('base')">member</a>
-                                    <a class="dropdown-item" href="#" @click="changeHost('system')">administrator</a>
+                                    <a class="dropdown-item" href="#" @click="changeHost('base')">普通用户</a>
+                                    <a class="dropdown-item" href="#" @click="changeHost('system')">管理员</a>
                                 </div>
                             </div>
                         </form>
