@@ -11,7 +11,9 @@
         <result column="nickname" property="nickname" jdbcType="VARCHAR"/>
         <result column="sex" property="sex" jdbcType="VARCHAR"/>
         <result column="birthday" property="birthday" jdbcType="TIMESTAMP"/>
-        <result column="native_place" property="nativePlace" jdbcType="VARCHAR"/>
+        <result column="provinces" property="provinces" jdbcType="VARCHAR"/>
+        <result column="cities" property="cities" jdbcType="VARCHAR"/>
+        <result column="countries" property="countries" jdbcType="VARCHAR"/>
         <result column="enrollment_year" property="enrollmentYear" jdbcType="VARCHAR"/>
         <result column="dept" property="dept" jdbcType="VARCHAR"/>
         <result column="major" property="major" jdbcType="VARCHAR"/>
@@ -73,7 +75,9 @@
         nickname,
         sex,
         birthday,
-        nativePlace,
+        provinces,
+        cities,
+        countries,
         enrollmentYear,
         dept,
         major,

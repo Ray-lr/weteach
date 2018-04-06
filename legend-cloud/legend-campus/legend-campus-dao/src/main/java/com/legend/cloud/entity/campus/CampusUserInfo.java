@@ -16,7 +16,7 @@ import java.util.Date;
  * 个人信息表
  *
  * @author Jim
- * @date 2018-04-03 16:42:07
+ * @date 2018-04-06 20:49:07
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
@@ -27,100 +27,108 @@ public class CampusUserInfo extends AbstractEntity<CampusUserInfo> {
 	/**
      * 用户id
      */
-    @Id
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+	private Integer id;
 	/**
      * 用户基础id
      */
-    private Integer baseUserId;
+	private Integer baseUserId;
 	/**
      * 用户实名
      */
-    private String name;
+	private String name;
 	/**
      * 用户昵称
      */
-    private String nickname;
+	private String nickname;
 	/**
      * 性别
      */
-    private String sex;
+	private String sex;
 	/**
      * 出生年月
      */
-    private Date birthday;
-    /**
-     * 籍贯
+	private Date birthday;
+	/**
+	 * 省/直辖市/自治区/特别行政区
+	 */
+	private String provinces;
+	/**
+	 * 市/自治州
      */
-    private String nativePlace;
+	private String cities;
+	/**
+	 * 县/区
+	 */
+	private String countries;
 	/**
      * 入学年份
      */
-    private String enrollmentYear;
-    /**
+	private String enrollmentYear;
+	/**
      * 系别
      */
-    private String dept;
+	private String dept;
 	/**
      * 专业
      */
-    private String major;
+	private String major;
 	/**
      * 方向
      */
-    private String direction;
+	private String direction;
 	/**
      * 电话
      */
-    private String phone;
+	private String phone;
 	/**
      * QQ号码
      */
-    private String qicq;
+	private String qicq;
 	/**
      * 邮箱地址
      */
-    private String email;
+	private String email;
 	/**
      * 个性签名
      */
-    private String signature;
-    /**
+	private String signature;
+	/**
      * 积分量
      */
-    private Integer credits;
+	private Integer credits;
 	/**
      * 积分信誉等级
      */
-    private String creditsLevel;
+	private String creditsLevel;
 	/**
      * 参与课程数
      */
-    private Integer orderJoin;
+	private Integer orderJoin;
 	/**
      * 课程发布数
      */
-    private Integer orderPublish;
+	private Integer orderPublish;
 	/**
      * 课程完成数
      */
-    private Integer orderFinish;
+	private Integer orderFinish;
 	/**
      * 课程完成率
      */
-    private Double percentageComplete;
+	private Double percentageComplete;
 	/**
      * 创建时间
      */
-    private Date createTime;
+	private Date createTime;
 	/**
      * 修改时间
      */
-    private Date updateTime;
+	private Date updateTime;
 	/**
      * 是否删除
      */
-    private Boolean isDeleted;
+	private Boolean isDeleted;
 
 }

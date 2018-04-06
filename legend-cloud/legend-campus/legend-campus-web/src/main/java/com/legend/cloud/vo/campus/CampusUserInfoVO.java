@@ -12,7 +12,7 @@ import java.util.Date;
  * 个人信息表
  *
  * @author Jim
- * @date 2018-04-03 16:42:07
+ * @date 2018-04-06 20:49:07
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
@@ -44,9 +44,17 @@ public class CampusUserInfoVO extends AbstractVO<CampusUserInfo> {
      */
     private Date birthday;
     /**
-     * 籍贯
+     * 省/直辖市/自治区/特别行政区
      */
-    private String nativePlace;
+    private String provinces;
+    /**
+     * 市/自治州
+     */
+    private String cities;
+    /**
+     * 县/区
+     */
+    private String countries;
     /**
      * 入学年份
      */
@@ -135,7 +143,9 @@ public class CampusUserInfoVO extends AbstractVO<CampusUserInfo> {
                 ", nickname=" + getNickname() +
                 ", sex=" + getSex() +
                 ", birthday=" + getBirthday() +
-                ", nativePlace=" + getNativePlace() +
+                ", provinces=" + getProvinces() +
+                ", cities=" + getCities() +
+                ", countries=" + getCountries() +
                 ", enrollmentYear=" + getEnrollmentYear() +
                 ", dept=" + getDept() +
                 ", major=" + getMajor() +
@@ -149,8 +159,8 @@ public class CampusUserInfoVO extends AbstractVO<CampusUserInfo> {
                 ", orderJoin=" + getOrderJoin() +
                 ", orderPublish=" + getOrderPublish() +
                 ", orderFinish=" + getOrderFinish() +
-                ", percentageComplete=" + getPercentageComplete() +
-                ", createTime=" + getCreateTime() +
+                                ", percentageComplete=" + getPercentageComplete() +
+                                ", createTime=" + getCreateTime() +
                                 ", updateTime=" + getUpdateTime() +
                                 ", isDeleted=" + getIsDeleted() +
                             '}';

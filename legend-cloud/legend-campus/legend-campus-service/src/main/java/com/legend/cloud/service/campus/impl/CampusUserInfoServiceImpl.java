@@ -60,8 +60,14 @@ public class CampusUserInfoServiceImpl extends AbstractLegendService<CampusUserI
         if (campusUserInfo.getBirthday() != null) {
             criteria.andBirthdayEqualTo(campusUserInfo.getBirthday());
         }
-        if (campusUserInfo.getNativePlace() != null) {
-            criteria.andNativePlaceEqualTo(campusUserInfo.getNativePlace());
+        if (campusUserInfo.getProvinces() != null) {
+            criteria.andProvincesEqualTo(campusUserInfo.getProvinces());
+        }
+        if (campusUserInfo.getCities() != null) {
+            criteria.andCitiesEqualTo(campusUserInfo.getCities());
+        }
+        if (campusUserInfo.getCountries() != null) {
+            criteria.andCountriesEqualTo(campusUserInfo.getCountries());
         }
         if (campusUserInfo.getEnrollmentYear() != null) {
             criteria.andEnrollmentYearEqualTo(campusUserInfo.getEnrollmentYear());
