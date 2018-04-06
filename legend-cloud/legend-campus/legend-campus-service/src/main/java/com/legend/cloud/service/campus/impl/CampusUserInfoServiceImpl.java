@@ -13,7 +13,7 @@ import tk.mybatis.mapper.common.Mapper;
 import javax.annotation.Resource;
 
 /**
- * @author Administrator
+ * @author Jim
  * @date 2018/3/9
  */
 @Service

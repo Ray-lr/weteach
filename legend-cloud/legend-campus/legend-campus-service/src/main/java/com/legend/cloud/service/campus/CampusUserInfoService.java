@@ -5,7 +5,7 @@ import com.legend.module.core.service.core.LegendService;
 
 /**
  *
- * @author Administrator
+ * @author Jim
  * @date 2018/3/8
  */
 public interface CampusUserInfoService extends LegendService<CampusUserInfo> {
