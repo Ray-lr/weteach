@@ -45,7 +45,7 @@
                         发布课程
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
-                        <a class="dropdown-item" href="/direct/course">求学贴</a>
+                        <a class="dropdown-item" href="/direct/publish">求学贴</a>
                         <a class="dropdown-item" href="/direct/course?name=教学贴">教学贴</a>
 
                     </div>
