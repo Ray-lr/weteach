@@ -78,8 +78,9 @@
                                 <!--生日-->
                                 <label for="dateTime">出生日期</label>
                                 <div class="input-group date form_datetime">
-                                    <input type="text" class="form-control" id="dateTime"
-                                           name="dateTime"
+                                    <input type="datetime-local" class="form-control" id="dateTime"
+                                           :value="userInfo.birthday"
+                                           name="birthday"
                                            data-toggle="tooltip"
                                            data-placement="left" title="请输入日期"
                                            aria-describedby="dateTimeHelp" placeholder="Date Time"
@@ -92,11 +93,12 @@
                                 <!--入学年份-->
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">入学年份</label>
-                                    <select class="form-control" id="exampleFormControlSelect1">
-                                        <option>2014</option>
-                                        <option>2015</option>
-                                        <option>2016</option>
-                                        <option>2017</option>
+                                    <select class="form-control" id="exampleFormControlSelect1" name="enrollmentYear">
+                                        <option>{{userInfo.enrollmentYear}}</option>
+                                        <option :value="2014">2014</option>
+                                        <option :value="2015">2015</option>
+                                        <option :value="2016">2016</option>
+                                        <option :value="2017">2017</option>
                                     </select>
                                 </div>
                                 <!--电话号码-->
@@ -145,8 +147,10 @@
                                     <div class="row">
                                         <!-- 省、直辖市-->
                                         <div class="col-md-4">
-                                            <select class="form-control" id="province" @change="changeProvince">
-                                                <option>-- 省/直辖市/自治区 --</option>
+                                            <select class="form-control" id="province" name="provinces"
+                                                    @change="changeProvince">
+                                                <option selected="selected" id="provinceOption" v-text="province"
+                                                        :value="userInfo.provinces"></option>
                                                 <option v-for="item in provinces.list" :value="item.id"
                                                         v-text="item.name"></option>
 
@@ -154,8 +158,9 @@
                                         </div>
                                         <!-- 市/州 -->
                                         <div class="col-md-4">
-                                            <select class="form-control" id="city" @change="changeCity">
-                                                <option selected="selected" id="cityOption">-- 市/自治州 --</option>
+                                            <select class="form-control" id="city" name="cities" @change="changeCity">
+                                                <option selected="selected" id="cityOption" v-text="city"
+                                                        :value="userInfo.cities"></option>
                                                 <option v-for="item in cities" :value="item.id"
                                                         v-text="item.name"></option>
 
@@ -163,10 +168,12 @@
                                         </div>
                                         <!-- 区/县 -->
                                         <div class="col col-md-4">
-                                            <select class="form-control" id="county" name="native_place">
-                                                <option selected="selected">-- 区/县 --</option>
-                                                <option v-for="item in counties" value="item.id"
+                                            <select class="form-control" id="country" name="countries">
+                                                <option id="countryOption" selected="selected" v-text="country"
+                                                        :value="userInfo.countries"></option>
+                                                <option v-for="item in countries" :value="item.id"
                                                         v-text="item.name"></option>
+
                                             </select>
                                         </div>
 
@@ -220,6 +227,9 @@
         data: {
             user: ${currentUser},
             userInfo: "",
+            province: "--省/直辖市/自治区--",
+            city: "--市/自治州--",
+            country: "--区/县--",
             study: {
                 list: []
             },
@@ -233,7 +243,7 @@
                 list: []
             },
             cities: [],
-            counties: []
+            countries: []
         },
         beforeCreate: function () {
             /*查省*/
@@ -249,12 +259,51 @@
                     }
                 }
             });
+
         },
         created: function () {
             let _this = this;
             $.get("/campus/userInfo/detail/" + _this.user.id, function (data) {
                 if (data.result) {
                     vm.userInfo = data.data;
+                    if (data.data.provinces != "" && data.data.cities != "" && data.data.countries != "") {
+                        $.ajax({
+                            url: "/base/areas/getAreaName",
+                            type: "get",
+                            data: {
+                                provinceId: data.data.provinces,
+                                cityId: data.data.cities,
+                                countryId: data.data.countries
+                            },
+                            success: function (e) {
+                                vm.province = e.data[0];
+                                vm.city = e.data[1];
+                                vm.country = e.data[2];
+                                $.ajax({
+                                    url: "/base/areas/list",
+                                    data: {
+                                        parentId: data.data.provinces
+                                    },
+                                    success: function (data) {
+                                        if (data.result) {
+                                            vm.cities = data.data;
+                                        }
+                                    }
+                                });
+                                $.ajax({
+                                    url: "/base/areas/list",
+                                    data: {
+                                        parentId: data.data.cities
+                                    },
+                                    success: function (data) {
+                                        if (data.result) {
+                                            vm.countries = data.data;
+                                        }
+                                    }
+                                });
+                            }
+                        })
+                    }
                 }
             });
         },
@@ -269,6 +318,7 @@
                 $(e.currentTarget).ajaxSubmit({
                     url: "/campus/userInfo/update",
                     type: "PUT",
+
                     success: function (data) {
                         if (data.result) {
                             alert(data.msg);
@@ -287,8 +337,11 @@
                         if (data.result) {
                             vm.cities = data.data;
                             /*当省改变的时候，将市的选择框改为未选择的默认值*/
-                            $("#cityOption").prop("selected", "selected");
-                            vm.counties = null;
+                            $("#cityOption").html("--市/自治州--");
+                            $("#countryOption").html("--区/县--");
+                            $("#cityOption").val(0);
+                            $("#countryOption").val(0);
+                            vm.countries = null;
                         }
                     }
                 });
@@ -301,11 +354,12 @@
                     },
                     success: function (data) {
                         if (data.result) {
-                            vm.counties = data.data;
+                            vm.countries = data.data;
                         }
                     }
                 });
             },
+
         }
     })
 </script>

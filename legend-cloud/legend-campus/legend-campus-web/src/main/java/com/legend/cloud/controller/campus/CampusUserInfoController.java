@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSON;
 import com.legend.cloud.controller.CampusController;
 import com.legend.cloud.entity.base.BaseUser;
 import com.legend.cloud.entity.campus.CampusUserInfo;
+import com.legend.cloud.service.base.BaseAreasService;
 import com.legend.cloud.service.base.BaseUserService;
 import com.legend.cloud.service.campus.CampusUserInfoService;
 import com.legend.cloud.vo.base.BaseUserVO;
@@ -40,7 +41,8 @@ public class CampusUserInfoController extends CampusController {
     private CampusUserInfoService campusUserInfoService;
     @Resource
     private BaseUserService baseUserService;
-
+    @Resource
+    private BaseAreasService baseAreasService;
     @GetMapping("/list")
     // @RequiresPermissions("campus:userInfo:list")
     public Ajax list(CampusUserInfoVO campusUserInfoVO, Query query) {
