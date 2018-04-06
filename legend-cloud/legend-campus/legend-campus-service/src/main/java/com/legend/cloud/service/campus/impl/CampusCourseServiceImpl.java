@@ -5,18 +5,16 @@ import com.legend.cloud.entity.campus.CampusCourse;
 import com.legend.cloud.entity.campus.CampusCourseExample;
 import com.legend.cloud.service.campus.CampusCourseService;
 import com.legend.module.core.service.core.impl.AbstractLegendService;
-import com.legend.module.core.utils.Query;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.common.Mapper;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 /**
- * @author Administrator
- * @date 2018/3/9
+ * @author Jim
+ * @date 2018/4/6
  */
 @Service
 @Transactional(rollbackFor = Exception.class)
@@ -68,17 +66,14 @@ public class CampusCourseServiceImpl extends AbstractLegendService<CampusCourse>
         if (campusCourse.getCourse() != null) {
             criteria.andCourseEqualTo(campusCourse.getCourse());
         }
+        if (campusCourse.getLessonNum() != null) {
+            criteria.andLessonNumEqualTo(campusCourse.getLessonNum());
+        }
         if (campusCourse.getPublishTime() != null) {
             criteria.andPublishTimeEqualTo(campusCourse.getPublishTime());
         }
         if (campusCourse.getFinishTime() != null) {
             criteria.andFinishTimeEqualTo(campusCourse.getFinishTime());
-        }
-        if (campusCourse.getPersonUpper() != null) {
-            criteria.andPersonUpperEqualTo(campusCourse.getPersonUpper());
-        }
-        if (campusCourse.getPersonLower() != null) {
-            criteria.andPersonLowerEqualTo(campusCourse.getPersonLower());
         }
         if (campusCourse.getPersonNum() != null) {
             criteria.andPersonNumEqualTo(campusCourse.getPersonNum());
@@ -101,10 +96,4 @@ public class CampusCourseServiceImpl extends AbstractLegendService<CampusCourse>
         return example;
     }
 
-    @Override
-    public List<CampusCourse> getListByStatuses(CampusCourse campusCourse,List<Integer> status, Query query) {
-        CampusCourseExample example = (CampusCourseExample) getExample(campusCourse, "publish_time", "desc");
-        example.createCriteria().andStatusIn(status);
-        return getListByExample(example, query.getCurrentPage(), query.getPageSize());
-    }
 }

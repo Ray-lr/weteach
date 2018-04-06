@@ -15,8 +15,8 @@ import java.util.Date;
 /**
  * 课程限制
  *
- * @author hupeiD
- * @date 2018-03-28 10:33:30
+ * @author Jim
+ * @date 2018-04-06 11:13:08
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
@@ -25,42 +25,50 @@ public class CampusCourseLimit extends AbstractEntity<CampusCourseLimit> {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 *
-	 */
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
-	/**
-	 * 课程id
+     *
      */
-	private Integer courseId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 	/**
-	 * 系别限制
+     * 课程id
      */
-	private Integer dept;
+    private Integer courseId;
 	/**
-	 * 专业限制
+     * 系别限制
      */
-	private Integer major;
+    private Integer dept;
 	/**
-	 * 性别限制
+     * 专业限制
      */
-	private Integer sex;
+    private Integer major;
 	/**
-	 * 年级限制
+     * 性别限制
      */
-	private Integer grade;
+    private Integer sex;
 	/**
-	 * 创建时间
+     * 年级限制
      */
-	private Date createTime;
+    private Integer grade;
 	/**
-	 * 更新时间
+     * 人数上限
      */
-	private Date updateTime;
+    private Integer personUpper;
+    /**
+     * 人数下限
+     */
+    private Integer personLower;
+    /**
+     * 创建时间
+     */
+    private Date createTime;
 	/**
-	 * 是否删除
+     * 更新时间
      */
-	private Boolean isDeleted;
+    private Date updateTime;
+	/**
+     * 是否删除
+     */
+    private Boolean isDeleted;
 
 }

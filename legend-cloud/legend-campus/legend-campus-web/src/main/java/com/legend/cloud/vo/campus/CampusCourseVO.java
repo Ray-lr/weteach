@@ -11,8 +11,8 @@ import java.util.Date;
 /**
  * 课程
  *
- * @author hupeiD
- * @date 2018-03-27 16:48:28
+ * @author Jim
+ * @date 2018-04-06 11:00:05
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
@@ -52,6 +52,10 @@ public class CampusCourseVO extends AbstractVO<CampusCourse> {
      */
     private Integer course;
     /**
+     * 课时节数
+     */
+    private Integer lessonNum;
+    /**
      * 发布时间
      */
     private Date publishTime;
@@ -59,14 +63,6 @@ public class CampusCourseVO extends AbstractVO<CampusCourse> {
      * 完成时间
      */
     private Date finishTime;
-    /**
-     * 人数上限
-     */
-    private Integer personUpper;
-    /**
-     * 人数下限
-     */
-    private Integer personLower;
     /**
      * 参与课程人数
      */
@@ -91,7 +87,7 @@ public class CampusCourseVO extends AbstractVO<CampusCourse> {
      * 是否删除
      */
     private Boolean isDeleted;
-
+    
     @Override
     public CampusCourse parseTo(String... ignoreProperties) {
         return super.parseTo(ignoreProperties);
@@ -113,16 +109,15 @@ public class CampusCourseVO extends AbstractVO<CampusCourse> {
                 ", dept=" + getDept() +
                 ", major=" + getMajor() +
                 ", course=" + getCourse() +
+                ", lessonNum=" + getLessonNum() +
                 ", publishTime=" + getPublishTime() +
                 ", finishTime=" + getFinishTime() +
-                ", personUpper=" + getPersonUpper() +
-                ", personLower=" + getPersonLower() +
                 ", personNum=" + getPersonNum() +
                 ", typeCourse=" + getTypeCourse() +
                 ", status=" + getStatus() +
                 ", createTime=" + getCreateTime() +
                 ", updateTime=" + getUpdateTime() +
-                ", isDeleted=" + getIsDeleted() +
-                '}';
+                                ", isDeleted=" + getIsDeleted() +
+                            '}';
     }
 }

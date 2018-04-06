@@ -4,8 +4,9 @@ import com.legend.cloud.entity.campus.CampusCourseLimit;
 import com.legend.module.core.service.core.LegendService;
 
 /**
- * @author Administrator
- * @date 2018/3/8
+ *
+ * @author Jim
+ * @date 2018/4/6
  */
 public interface CampusCourseLimitService extends LegendService<CampusCourseLimit> {
 

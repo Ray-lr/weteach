@@ -9,8 +9,8 @@ import org.springframework.stereotype.Component;
 /**
  * CampusCourse的mapper接口
  *
- * @author hupeiD
- * @date 2018-03-27 16:48:28
+ * @author Jim
+ * @date 2018-04-06 11:00:05
  */
 @Mapper
 @Component

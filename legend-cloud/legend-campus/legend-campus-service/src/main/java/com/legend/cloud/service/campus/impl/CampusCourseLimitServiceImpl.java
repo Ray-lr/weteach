@@ -13,8 +13,8 @@ import tk.mybatis.mapper.common.Mapper;
 import javax.annotation.Resource;
 
 /**
- * @author Administrator
- * @date 2018/3/9
+ * @author Jim
+ * @date 2018/4/6
  */
 @Service
 @Transactional(rollbackFor = Exception.class)
@@ -59,6 +59,12 @@ public class CampusCourseLimitServiceImpl extends AbstractLegendService<CampusCo
         }
         if (campusCourseLimit.getGrade() != null) {
             criteria.andGradeEqualTo(campusCourseLimit.getGrade());
+        }
+        if (campusCourseLimit.getPersonUpper() != null) {
+            criteria.andPersonUpperEqualTo(campusCourseLimit.getPersonUpper());
+        }
+        if (campusCourseLimit.getPersonLower() != null) {
+            criteria.andPersonLowerEqualTo(campusCourseLimit.getPersonLower());
         }
         if (campusCourseLimit.getCreateTime() != null) {
             criteria.andCreateTimeEqualTo(campusCourseLimit.getCreateTime());

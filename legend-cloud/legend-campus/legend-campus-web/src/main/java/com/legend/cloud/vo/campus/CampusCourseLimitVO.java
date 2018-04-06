@@ -11,8 +11,8 @@ import java.util.Date;
 /**
  * 课程限制
  *
- * @author hupeiD
- * @date 2018-03-26 22:25:06
+ * @author Jim
+ * @date 2018-04-06 11:13:08
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
@@ -44,6 +44,14 @@ public class CampusCourseLimitVO extends AbstractVO<CampusCourseLimit> {
      */
     private Integer grade;
     /**
+     * 人数上限
+     */
+    private Integer personUpper;
+    /**
+     * 人数下限
+     */
+    private Integer personLower;
+    /**
      * 创建时间
      */
     private Date createTime;
@@ -55,7 +63,7 @@ public class CampusCourseLimitVO extends AbstractVO<CampusCourseLimit> {
      * 是否删除
      */
     private Boolean isDeleted;
-
+    
     @Override
     public CampusCourseLimit parseTo(String... ignoreProperties) {
         return super.parseTo(ignoreProperties);
@@ -75,9 +83,11 @@ public class CampusCourseLimitVO extends AbstractVO<CampusCourseLimit> {
                 ", major=" + getMajor() +
                 ", sex=" + getSex() +
                 ", grade=" + getGrade() +
+                ", personUpper=" + getPersonUpper() +
+                ", personLower=" + getPersonLower() +
                 ", createTime=" + getCreateTime() +
                 ", updateTime=" + getUpdateTime() +
                 ", isDeleted=" + getIsDeleted() +
-                '}';
+                            '}';
     }
 }

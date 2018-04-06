@@ -24,8 +24,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * @author Administrator
- * @date 2018/3/17
+ * @author Jim
+ * @date 2018/4/6
  */
 @RestController
 @RequestMapping("/campus/course")

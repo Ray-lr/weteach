@@ -15,8 +15,8 @@ import java.util.Date;
 /**
  * 课程
  *
- * @author hupeiD
- * @date 2018-03-28 10:33:30
+ * @author Jim
+ * @date 2018-04-06 11:00:05
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
@@ -25,78 +25,74 @@ public class CampusCourse extends AbstractEntity<CampusCourse> {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * 课程id
+     * 课程id
      */
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 	/**
-	 * 用户id
+     * 用户id
      */
-	private Integer userId;
+    private Integer userId;
 	/**
-	 * 标题
+     * 标题
      */
-	private String title;
+    private String title;
 	/**
-	 * 描述
+     * 描述
      */
-	private String description;
+    private String description;
 	/**
-	 * 备注
+     * 备注
      */
-	private String remark;
+    private String remark;
 	/**
-	 * 系别
+     * 系别
      */
-	private Integer dept;
+    private Integer dept;
 	/**
-	 * 专业
+     * 专业
      */
-	private Integer major;
+    private Integer major;
 	/**
-	 * 课程
+     * 课程
      */
-	private Integer course;
+    private Integer course;
 	/**
-	 * 发布时间
+     * 课时节数
      */
-	private Date publishTime;
+    private Integer lessonNum;
+    /**
+     * 发布时间
+     */
+    private Date publishTime;
 	/**
-	 * 完成时间
+     * 完成时间
      */
-	private Date finishTime;
+    private Date finishTime;
 	/**
-	 * 人数上限
+     * 参与课程人数
      */
-	private Integer personUpper;
+    private Integer personNum;
 	/**
-	 * 人数下限
+     * 课程类型（求学或教学）
      */
-	private Integer personLower;
+    private String typeCourse;
 	/**
-	 * 参与课程人数
+     * 状态（0、未审核 1、审核驳回 2、审核通过 3、报名中 4、等待开课  5、开课中 6、结课 7、已完成 8、已取消）
      */
-	private Integer personNum;
+    private Integer status;
 	/**
-	 * 课程类型（求学或教学）
+     * 创建时间
      */
-	private String typeCourse;
+    private Date createTime;
 	/**
-	 * 状态（0、未审核 1、审核驳回 2、审核通过 3、报名中 4、等待开课  5、开课中 6、结课 7、已完成 8、已取消）
+     * 更新时间
      */
-	private Integer status;
+    private Date updateTime;
 	/**
-	 * 创建时间
+     * 是否删除
      */
-	private Date createTime;
-	/**
-	 * 更新时间
-     */
-	private Date updateTime;
-	/**
-	 * 是否删除
-     */
-	private Boolean isDeleted;
+    private Boolean isDeleted;
 
 }

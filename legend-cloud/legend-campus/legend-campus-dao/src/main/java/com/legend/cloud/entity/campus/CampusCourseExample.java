@@ -7,8 +7,8 @@ import java.util.List;
 /**
  * CampusCourse的example类
  *
- * @author hupeiD
- * @date 2018-03-28 10:33:30
+ * @author Jim
+ * @date 2018-04-06 11:00:05
  */
 public class CampusCourseExample {
     protected String orderByClause;
@@ -591,6 +591,66 @@ public class CampusCourseExample {
             return (Criteria) this;
         }
 
+        public Criteria andLessonNumIsNull() {
+            addCriterion("lesson_num is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLessonNumIsNotNull() {
+            addCriterion("lesson_num is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLessonNumEqualTo(Integer value) {
+            addCriterion("lesson_num =", value, "lesson_num");
+            return (Criteria) this;
+        }
+
+        public Criteria andLessonNumNotEqualTo(Integer value) {
+            addCriterion("'lesson_num <>", value, "lesson_num");
+            return (Criteria) this;
+        }
+
+        public Criteria andLessonNumGreaterThan(Integer value) {
+            addCriterion("lesson_num >", value, "lesson_num");
+            return (Criteria) this;
+        }
+
+        public Criteria andLessonNumGreaterThanOrEqualTo(Integer value) {
+            addCriterion("lesson_num >=", value, "lesson_num");
+            return (Criteria) this;
+        }
+
+        public Criteria andLessonNumLessThan(Integer value) {
+            addCriterion("lesson_num <", value, "lesson_num");
+            return (Criteria) this;
+        }
+
+        public Criteria andLessonNumLessThanOrEqualTo(Integer value) {
+            addCriterion("lesson_num <=", value, "lesson_num");
+            return (Criteria) this;
+        }
+
+        public Criteria andLessonNumIn(List<Integer> values) {
+            addCriterion("lesson_num in", values, "lesson_num");
+            return (Criteria) this;
+        }
+
+        public Criteria andLessonNumNotIn(List<Integer> values) {
+            addCriterion("lesson_num not in", values, "lesson_num");
+            return (Criteria) this;
+        }
+
+        public Criteria andLessonNumBetween(Integer value1, Integer value2) {
+            addCriterion("lesson_num between", value1, value2, "lesson_num");
+            return (Criteria) this;
+        }
+
+        public Criteria andLessonNumNotBetween(Integer value1, Integer value2) {
+            addCriterion("lesson_num not between", value1, value2, "lesson_num");
+            return (Criteria) this;
+        }
+
         public Criteria andPublishTimeIsNull() {
             addCriterion("publish_time is null");
             return (Criteria) this;
@@ -708,126 +768,6 @@ public class CampusCourseExample {
 
         public Criteria andFinishTimeNotBetween(Date value1, Date value2) {
             addCriterion("finish_time not between", value1, value2, "finish_time");
-            return (Criteria) this;
-        }
-
-        public Criteria andPersonUpperIsNull() {
-            addCriterion("person_upper is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andPersonUpperIsNotNull() {
-            addCriterion("person_upper is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andPersonUpperEqualTo(Integer value) {
-            addCriterion("person_upper =", value, "person_upper");
-            return (Criteria) this;
-        }
-
-        public Criteria andPersonUpperNotEqualTo(Integer value) {
-            addCriterion("'person_upper <>", value, "person_upper");
-            return (Criteria) this;
-        }
-
-        public Criteria andPersonUpperGreaterThan(Integer value) {
-            addCriterion("person_upper >", value, "person_upper");
-            return (Criteria) this;
-        }
-
-        public Criteria andPersonUpperGreaterThanOrEqualTo(Integer value) {
-            addCriterion("person_upper >=", value, "person_upper");
-            return (Criteria) this;
-        }
-
-        public Criteria andPersonUpperLessThan(Integer value) {
-            addCriterion("person_upper <", value, "person_upper");
-            return (Criteria) this;
-        }
-
-        public Criteria andPersonUpperLessThanOrEqualTo(Integer value) {
-            addCriterion("person_upper <=", value, "person_upper");
-            return (Criteria) this;
-        }
-
-        public Criteria andPersonUpperIn(List<Integer> values) {
-            addCriterion("person_upper in", values, "person_upper");
-            return (Criteria) this;
-        }
-
-        public Criteria andPersonUpperNotIn(List<Integer> values) {
-            addCriterion("person_upper not in", values, "person_upper");
-            return (Criteria) this;
-        }
-
-        public Criteria andPersonUpperBetween(Integer value1, Integer value2) {
-            addCriterion("person_upper between", value1, value2, "person_upper");
-            return (Criteria) this;
-        }
-
-        public Criteria andPersonUpperNotBetween(Integer value1, Integer value2) {
-            addCriterion("person_upper not between", value1, value2, "person_upper");
-            return (Criteria) this;
-        }
-
-        public Criteria andPersonLowerIsNull() {
-            addCriterion("person_lower is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andPersonLowerIsNotNull() {
-            addCriterion("person_lower is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andPersonLowerEqualTo(Integer value) {
-            addCriterion("person_lower =", value, "person_lower");
-            return (Criteria) this;
-        }
-
-        public Criteria andPersonLowerNotEqualTo(Integer value) {
-            addCriterion("'person_lower <>", value, "person_lower");
-            return (Criteria) this;
-        }
-
-        public Criteria andPersonLowerGreaterThan(Integer value) {
-            addCriterion("person_lower >", value, "person_lower");
-            return (Criteria) this;
-        }
-
-        public Criteria andPersonLowerGreaterThanOrEqualTo(Integer value) {
-            addCriterion("person_lower >=", value, "person_lower");
-            return (Criteria) this;
-        }
-
-        public Criteria andPersonLowerLessThan(Integer value) {
-            addCriterion("person_lower <", value, "person_lower");
-            return (Criteria) this;
-        }
-
-        public Criteria andPersonLowerLessThanOrEqualTo(Integer value) {
-            addCriterion("person_lower <=", value, "person_lower");
-            return (Criteria) this;
-        }
-
-        public Criteria andPersonLowerIn(List<Integer> values) {
-            addCriterion("person_lower in", values, "person_lower");
-            return (Criteria) this;
-        }
-
-        public Criteria andPersonLowerNotIn(List<Integer> values) {
-            addCriterion("person_lower not in", values, "person_lower");
-            return (Criteria) this;
-        }
-
-        public Criteria andPersonLowerBetween(Integer value1, Integer value2) {
-            addCriterion("person_lower between", value1, value2, "person_lower");
-            return (Criteria) this;
-        }
-
-        public Criteria andPersonLowerNotBetween(Integer value1, Integer value2) {
-            addCriterion("person_lower not between", value1, value2, "person_lower");
             return (Criteria) this;
         }
 
