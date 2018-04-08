@@ -1,11 +1,13 @@
 package com.legend.cloud.controller;
 
+import com.legend.module.core.model.contant.arribute.Key;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * @author Administrator
@@ -24,13 +26,16 @@ public class DirectController extends CampusController {
      * @return url
      */
     @RequestMapping(value = "direct/{url}", method = RequestMethod.GET)
-    public String redirect(@PathVariable String url) {
+    public ModelAndView redirect(@PathVariable String url, ModelAndView modelAndView) {
         try {
             LOGGER.info("url:" + url);
-            return url;
+            modelAndView.setViewName(url);
+            return modelAndView;
         } catch (Exception e) {
             e.printStackTrace();
-            return "error";
+            modelAndView.setViewName("error");
+            modelAndView.addObject(Key.MSG, "404");
+            return modelAndView;
         }
     }
 

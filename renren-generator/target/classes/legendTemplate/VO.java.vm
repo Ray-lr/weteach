@@ -1,15 +1,19 @@
-package ${package}.${moduleName}.vo;
+package ${package}.model.pojo.vo.${moduleName};
 
-        import ${package}.entity.${moduleName}.${className};
-        import com.legend.module.core.vo.AbstractVO;
-        import lombok.Data;
-        import lombok.EqualsAndHashCode;
+import ${package}.model.pojo.entity.${moduleName}.${className};
+import com.legend.module.model.pojo.vo.AbstractVO;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+#if(${hasDate})
+import org.springframework.format.annotation.DateTimeFormat;
+#end
 
 #if(${hasDate})
-        import java.util.Date;
+import java.util.Date;
 #end
 #if(${hasBigDecimal})
-        import java.math.BigDecimal;
+import java.math.BigDecimal;
 #end
 
 
@@ -21,6 +25,7 @@ package ${package}.${moduleName}.vo;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
+@ToString
 public class ${className}VO extends AbstractVO<${className}> {
     private static final long serialVersionUID = 1L;
 
@@ -28,6 +33,9 @@ public class ${className}VO extends AbstractVO<${className}> {
         /**
          * $column.comments
          */
+        #if($column.attrType == "Date")
+        @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+        #end
         private $column.attrType $column.attrname;
     #end
 
@@ -41,12 +49,4 @@ public class ${className}VO extends AbstractVO<${className}> {
         return (${className}VO) super.parseFrom(${classname}, ignoreProperties);
     }
 
-    @Override
-    public String toString() {
-        return "${className}VO{" +
-            #foreach ($column in $columns)
-                    ", ${column.attrname}=" + get${column.attrName}() +
-            #end
-                '}';
-    }
 }

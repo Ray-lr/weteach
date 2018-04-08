@@ -68,28 +68,47 @@ ul.messenger.messenger-fixed .message .messenger-actions {
 }
 
 /* line 48, ../../src/sass/messenger.sass */
-ul.messenger.messenger-fixed.messenger-on-top {
+ul.messenger.messenger-fixed.messenger-on-top, ul.messenger.messenger-fixed.messenger-on-top-sm {
     top: 20px;
 }
 
 /* line 51, ../../src/sass/messenger.sass */
-ul.messenger.messenger-fixed.messenger-on-bottom {
+ul.messenger.messenger-fixed.messenger-on-bottom, ul.messenger.messenger-fixed.messenger-on-bottom-sm {
     bottom: 20px;
 }
 
+ul.messenger.messenger-fixed.messenger-on-center, ul.messenger.messenger-fixed.messenger-on-center-sm {
+    top: 50%;
+}
+
 /* line 54, ../../src/sass/messenger.sass */
-ul.messenger.messenger-fixed.messenger-on-top, ul.messenger.messenger-fixed.messenger-on-bottom {
+ul.messenger.messenger-fixed.messenger-on-top, ul.messenger.messenger-fixed.messenger-on-bottom, ul.messenger.messenger-fixed.messenger-on-center {
     left: 50%;
     width: 800px;
     margin-left: -400px;
 }
 
+ul.messenger.messenger-fixed.messenger-on-top-sm, ul.messenger.messenger-fixed.messenger-on-bottom-sm, ul.messenger.messenger-fixed.messenger-on-center-sm {
+    left: 50%;
+    width: 400px;
+    margin-left: -200px;
+}
+
 @media (max-width: 960px) {
     /* line 54, ../../src/sass/messenger.sass */
-    ul.messenger.messenger-fixed.messenger-on-top, ul.messenger.messenger-fixed.messenger-on-bottom {
+    ul.messenger.messenger-fixed.messenger-on-top, ul.messenger.messenger-fixed.messenger-on-bottom, ul.messenger.messenger-fixed.messenger-on-center {
         left: 10%;
         width: 80%;
-        margin-left: 0px;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    /* line 54, ../../src/sass/messenger.sass */
+    ul.messenger.messenger-fixed.messenger-on-top-sm, ul.messenger.messenger-fixed.messenger-on-bottom-sm, ul.messenger.messenger-fixed.messenger-on-center-sm {
+        left: 10%;
+        width: 40%;
+        margin-left: 0;
     }
 }
 
@@ -102,7 +121,7 @@ ul.messenger.messenger-fixed.messenger-on-top.messenger-on-right, ul.messenger.m
 /* line 68, ../../src/sass/messenger.sass */
 ul.messenger.messenger-fixed.messenger-on-top.messenger-on-left, ul.messenger.messenger-fixed.messenger-on-bottom.messenger-on-left {
     left: 20px;
-    margin-left: 0px;
+    margin-left: 0;
 }
 
 /* line 72, ../../src/sass/messenger.sass */

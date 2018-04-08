@@ -32,7 +32,7 @@ spring:
         prefer-file-system-access: true
         template-loader-path: classpath:/templates/
         settings:
-            template_update_delay: 1
+            template_update_delay: 0
             whitespace_stripping: true
             locale: zh_CN
             date_format: yyyy-MM-dd

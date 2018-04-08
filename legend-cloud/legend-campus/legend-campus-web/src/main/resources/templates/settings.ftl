@@ -1,7 +1,7 @@
 <#include "./common/head.ftl">
 <div id="vm">
     <!--顶部功能栏-->
-    <#include "./common/top.ftl">
+    <#include "common/component/navbar.ftl">
 
     <div class="container margin-top10" id="principal">
         <div class="row">

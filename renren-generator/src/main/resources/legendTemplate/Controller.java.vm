@@ -1,17 +1,20 @@
-package
+package ${package}.web.controller.${moduleName};
 
-import com.legend.cloud.vo.*;
-import com.legend.module.core.model.contant.arribute.Column;
-import com.legend.module.core.model.contant.arribute.Key;
-import com.legend.module.core.model.contant.code.result.AjaxCode;
-import com.legend.module.core.model.contant.message.result.AjaxMessage;
-import com.legend.module.core.model.group.option.AddGroup;
-import com.legend.module.core.model.group.option.UpdateGroup;
-import com.legend.module.core.model.json.result.Ajax;
-import com.legend.module.core.model.json.result.AjaxValidate;
-import com.legend.module.core.utils.PageUtils;
-import com.legend.module.core.utils.Query;
-import com.legend.module.core.web.controller.LegendController;
+
+import ${package}.model.pojo.entity.${moduleName}.${className};
+import ${package}.model.pojo.vo.${moduleName}.${className}VO;
+import ${package}.service.${moduleName}.${className}Service;
+import ${package}.web.controller.CampusController;
+import com.legend.module.model.contant.arribute.Column;
+import com.legend.module.model.contant.arribute.Key;
+import com.legend.module.model.contant.code.result.AjaxCode;
+import com.legend.module.model.contant.message.result.AjaxMessage;
+import com.legend.module.model.group.option.AddGroup;
+import com.legend.module.model.group.option.UpdateGroup;
+import com.legend.module.model.json.result.Ajax;
+import com.legend.module.model.json.result.AjaxValidate;
+import com.legend.module.model.utils.PageUtils;
+import com.legend.module.model.utils.QueryUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -19,11 +22,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import java.util.List;
 import java.util.stream.Collectors;
-
-${package}.${moduleName}.web.controller.manager;
-    ${package}.entity.${moduleName}.${className};
-    ${package}.service.${moduleName}.${className}Service;
-    ${moduleName}.${className}VO;
 
 /**
  * @author Administrator
@@ -39,19 +37,19 @@ public class ${className}Controller extends CampusController {
     /**
      * 根据${classname}VO中不为空的字段以及query中的分页条件进行条件查询
      *
-     * @param ${classname}VO
-     * @param query
+     * @param ${classname}VO 查询条件
+     * @param queryUtils 分页查询工具
      * @return Ajax.success() or Ajax.error()
      */
     @GetMapping("/list")
     // @RequiresPermissions("${moduleName}:${module}:list")
-    public Ajax list(${className}VO ${classname}VO, Query query) {
+    public Ajax list(${className}VO ${classname}VO, QueryUtils queryUtils) {
         try {
             List<${className}> ${classname}List = ${classname}Service.getList(${classname}VO.parseTo(),
-                    query);
+                    queryUtils);
             List<${className}VO> ${classname}VOList = ${classname}List.stream().map((entity) ->
                     new ${className}VO().parseFrom(entity)).collect(Collectors.toList());
-            PageUtils pageUtils = new PageUtils(${classname}VOList.size(), query.getCurrentPage(), query.getPageSize());
+            PageUtils pageUtils = new PageUtils(${classname}VOList.size(), queryUtils.getCurrentPage(), queryUtils.getPageSize());
             return Ajax.success(${classname}VOList,AjaxMessage.QUERY_SUCCESS).put(Key.PAGINATION, pageUtils);
         } catch (Exception e) {
             e.printStackTrace();
@@ -79,9 +77,9 @@ public class ${className}Controller extends CampusController {
     }
 
     /**
-     * 需要通过后台验证，并个根据id保存
+     * 需要通过后台验证，并个根据id添加
      *
-     * @param ${classname}VO
+     * @param ${classname}VO 添加的${classname}VO
      * @param bindingResult 后台验证结果
      * @return Ajax.success() or Ajax.error()
      */
@@ -104,7 +102,7 @@ public class ${className}Controller extends CampusController {
     /**
      * 需要通过后台验证，并个根据id更新相应不为空的字段
      *
-     * @param ${classname}VO
+     * @param ${classname}VO 更新${classname}VO的字段信息
      * @param bindingResult 后台验证结果
      * @return Ajax.success() or Ajax.error()
      */

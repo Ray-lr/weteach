@@ -1,13 +1,13 @@
-package ${package}.entity.${moduleName};
+package ${package}.model.pojo.entity.${moduleName};
 
-        import java.util.ArrayList;
-        import java.util.List;
+import java.util.ArrayList;
+import java.util.List;
 #if(${hasDate})
-        import java.util.Date;
+import java.util.Date;
 #end
 
 #if(${hasBigDecimal})
-        import java.math.BigDecimal;
+import java.math.BigDecimal;
 #end
 /**
  * ${className}的example类

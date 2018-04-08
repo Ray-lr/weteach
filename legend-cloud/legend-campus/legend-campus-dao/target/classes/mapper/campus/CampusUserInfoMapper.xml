@@ -10,13 +10,18 @@
         <result column="name" property="name" jdbcType="VARCHAR"/>
         <result column="nickname" property="nickname" jdbcType="VARCHAR"/>
         <result column="sex" property="sex" jdbcType="VARCHAR"/>
-        <result column="native_place" property="nativePlace" jdbcType="VARCHAR"/>
+        <result column="birthday" property="birthday" jdbcType="TIMESTAMP"/>
+        <result column="provinces" property="provinces" jdbcType="VARCHAR"/>
+        <result column="cities" property="cities" jdbcType="VARCHAR"/>
+        <result column="countries" property="countries" jdbcType="VARCHAR"/>
+        <result column="enrollment_year" property="enrollmentYear" jdbcType="VARCHAR"/>
         <result column="dept" property="dept" jdbcType="VARCHAR"/>
         <result column="major" property="major" jdbcType="VARCHAR"/>
         <result column="direction" property="direction" jdbcType="VARCHAR"/>
         <result column="phone" property="phone" jdbcType="VARCHAR"/>
         <result column="qicq" property="qicq" jdbcType="VARCHAR"/>
         <result column="email" property="email" jdbcType="VARCHAR"/>
+        <result column="signature" property="signature" jdbcType="VARCHAR"/>
         <result column="credits" property="credits" jdbcType="INTEGER"/>
         <result column="credits_level" property="creditsLevel" jdbcType="VARCHAR"/>
         <result column="order_join" property="orderJoin" jdbcType="INTEGER"/>
@@ -69,13 +74,18 @@
         name,
         nickname,
         sex,
-        nativePlace,
+        birthday,
+        provinces,
+        cities,
+        countries,
+        enrollmentYear,
         dept,
         major,
         direction,
         phone,
         qicq,
         email,
+        signature,
         credits,
         creditsLevel,
         orderJoin,

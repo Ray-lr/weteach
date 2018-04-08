@@ -1,10 +1,10 @@
-package ${package}.${moduleName}.dao.mapper;
+package ${package}.dao.mapper.${moduleName};
 
-        import ${package}.entity.${moduleName}.${className};
-        import ${package}.entity.${moduleName}.${className}Example;
-        import com.legend.module.core.dao.mapper.LegendMapper;
-        import org.apache.ibatis.annotations.Mapper;
-        import org.springframework.stereotype.Component;
+import ${package}.model.pojo.entity.${moduleName}.${className};
+import ${package}.model.pojo.entity.${moduleName}.${className}Example;
+import com.legend.module.dao.mapper.LegendMapper;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Component;
 
 /**
  * ${className}的mapper接口

@@ -1,7 +1,6 @@
 package io.renren.entity;
 
 import io.renren.utils.Constant;
-import org.apache.tomcat.util.bcel.Const;
 
 /**
  * 列的属性

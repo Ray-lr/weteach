@@ -42,7 +42,7 @@ public class ShiroConfig {
         filterChainDefinitionMap.put("/static/**", "anon");
         filterChainDefinitionMap.put("/**/login", "anon");
         // 登出的url，具体方法，shiro已经实现
-        filterChainDefinitionMap.put("/logout", "logout");
+        filterChainDefinitionMap.put("/**/logout", "logout");
         // 剩下的所有url都需要经过验证才可以访问
         filterChainDefinitionMap.put("/**", "authc");
         // 将配置好的拦截url赋给ShiroFilterFactoryBean

@@ -73,7 +73,7 @@ public class GenUtils {
         tableEntity.setClassname(StringUtils.uncapitalize(className));
 
         //列信息
-        List<ColumnEntity> columsList = new ArrayList<>();
+        List<ColumnEntity> columnList = new ArrayList<>();
         for (Map<String, String> column : columns) {
             ColumnEntity columnEntity = new ColumnEntity();
             columnEntity.setColumnName(column.get("columnName"));
@@ -102,10 +102,13 @@ public class GenUtils {
             if ("PRI".equalsIgnoreCase(column.get("columnKey")) && tableEntity.getPk() == null) {
                 tableEntity.setPk(columnEntity);
             }
-            columsList.add(columnEntity);
+
+            if (columns.size() - 1 == columnList.size()) {
+                columnEntity.setLast(true);
+            }
+            columnList.add(columnEntity);
         }
-        columsList.get(columsList.size() - 1).setLast(true);
-        tableEntity.setColumns(columsList);
+        tableEntity.setColumns(columnList);
 
         //没主键，则第一个字段为主键
         if (tableEntity.getPk() == null) {
@@ -195,31 +198,38 @@ public class GenUtils {
     private static String getLegendFileName(String template, String className, String packageName, String moduleName) {
         String packagePath = "main" + File.separator + "java" + File.separator;
         if (StringUtils.isNotBlank(packageName)) {
-            packagePath += packageName.replace(".", File.separator) + File.separator + moduleName + File.separator;
+            packagePath += packageName.replace(".", File.separator) + File.separator;
         }
         if ("legendTemplate/Controller.java.vm".equals(template)) {
-            return packagePath + "controller" + File.separator + className + "Controller.java";
+            return packagePath + "web" + File.separator + "controller" + File.separator + moduleName + File.separator +
+                    className + "Controller.java";
         }
         if ("legendTemplate/Entity.java.vm".equals(template)) {
-            return packagePath + "entity" + File.separator + className + ".java";
+            return packagePath + "model" + File.separator + "pojo" + File.separator + "entity" + File.separator
+                    + moduleName + File.separator + className + ".java";
         }
         if ("legendTemplate/Example.java.vm".equals(template)) {
-            return packagePath + "entity" + File.separator + className + "Example.java";
+            return packagePath + "model" + File.separator + "pojo" + File.separator + "entity" + File.separator
+                    + moduleName + File.separator + className + "Example.java";
         }
         if ("legendTemplate/Mapper.java.vm".equals(template)) {
-            return packagePath + "mapper" + File.separator + className + "Mapper.java";
+            return packagePath + "dao" + File.separator + "mapper" + File.separator + moduleName + File.separator +
+                    className + "Mapper.java";
         }
         if ("legendTemplate/Mapper.xml.vm".equals(template)) {
-            return packagePath + "xml" + File.separator + className + "Mapper.xml";
+            return packagePath + "dao" + File.separator + "xml" + File.separator + moduleName + File.separator + className +
+                    "Mapper.xml";
         }
         if ("legendTemplate/Service.java.vm".equals(template)) {
-            return packagePath + "service" + File.separator + className + "Service.java";
+            return packagePath + "service" + File.separator + moduleName + File.separator + className + "Service.java";
         }
         if ("legendTemplate/ServiceImpl.java.vm".equals(template)) {
-            return packagePath + "service" + File.separator + "impl" + File.separator + className + "ServiceImpl.java";
+            return packagePath + "service" + File.separator + moduleName + File.separator + "impl" + File.separator + className +
+                    "ServiceImpl.java";
         }
         if ("legendTemplate/VO.java.vm".equals(template)) {
-            return packagePath + "vo" + File.separator + className + "VO.java";
+            return packagePath + "model" + File.separator + "pojo" + File.separator + "vo" + File.separator +
+                    moduleName + File.separator + className + "VO.java";
         }
         return null;
     }

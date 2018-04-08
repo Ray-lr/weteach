@@ -1,7 +1,8 @@
-package ${package}.${moduleName}.service;
+package ${package}.service.${moduleName};
 
-import ${package}.entity.${moduleName}.${className};
-import com.legend.module.core.service.core.LegendService;
+
+import ${package}.model.pojo.entity.${moduleName}.${className};
+import com.legend.module.service.core.LegendService;
 
 /**
 *

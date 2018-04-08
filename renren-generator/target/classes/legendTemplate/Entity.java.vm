@@ -1,8 +1,12 @@
-package ${package}.${moduleName}.entity;
+package ${package}.model.pojo.entity.${moduleName};
 
-import com.legend.module.core.entity.AbstractEntity;
+import com.legend.module.model.pojo.entity.AbstractEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
+#if(${hasDate})
+import org.springframework.format.annotation.DateTimeFormat;
+#end
 
 import javax.persistence.*;
 #if(${hasDate})
@@ -23,6 +27,7 @@ import java.math.BigDecimal;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @Table(name = "${tableName}")
+@ToString
 public class ${className} extends AbstractEntity<${className}> {
 	private static final long serialVersionUID = 1L;
 
@@ -34,8 +39,11 @@ public class ${className} extends AbstractEntity<${className}> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     #end
-    #if($column.isSynthesis)
+    #if($column.isSynthesis())
     @Column(name = "$column.columnName")
+    #end
+    #if("Date" == $column.attrType)
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     #end
 	private $column.attrType $column.attrname;
 #end

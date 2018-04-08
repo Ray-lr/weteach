@@ -22,6 +22,6 @@
     <script src="/static/external/HubSpot-messenger/build/js/messenger.js"></script>
     <script src="/static/external/pace-master/pace.js"></script>
     <script src="/static/external/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.js"></script>
-    <script src="/static/js/main-campus.js"></script>
+    <script src="/static/js/common/campus-settings.js"></script>
 </head>
 <body>

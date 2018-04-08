@@ -48,21 +48,6 @@
                                     </label>
                                 </div>
                             </div>
-                            <!--<div class="form-group  ">
-                                <label for="dateTime">日期</label>
-                                <div class="input-group date form_datetime">
-                                    <input type="text" class="form-control" id="dateTime"
-                                           name="dateTime"
-                                           data-toggle="tooltip"
-                                           data-placement="left" title="请输入日期"
-                                           aria-describedby="dateTimeHelp" placeholder="Date Time"
-                                           readonly>
-                                    <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
-                                </div>
-                                <small id="dateTimeHelp" class="form-text text-muted">
-
-                                </small>
-                            </div>-->
 
                             <div class="btn-group">
                                 <button class="btn btn-primary" type="submit">

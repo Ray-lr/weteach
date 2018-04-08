@@ -9,7 +9,7 @@
         <!-- 搜索框 -->
         <form class="form-inline my-1 my-lg-0 input-group-sm">
             <input class="form-control mr-sm-1 rounded " type="search" placeholder="Search"
-                   aria-label="Search"
+                   aria-label="Search" onkeyup="search()"
                    @keyup.enter="search($event)">
         </form>
 

@@ -4,13 +4,13 @@ $(document).ready(function () {
     });
 
     $._messengerDefaults = {
-        extraClasses: 'messenger-fixed messenger-theme-air messenger-on-top '
+        extraClasses: 'messenger-fixed messenger-theme-air messenger-on-center-sm'
     };
 
     Pace.options = {
         ajax: true, // disabled
         document: false, // disabled
-        eventLag: false, // disabled
+        eventLag: false // disabled
     };
 
     $('.form_datetime').datetimepicker({
@@ -21,7 +21,7 @@ $(document).ready(function () {
         todayHighlight: 1,
         startView: 2,
         clearBtn: 1,
-        forceParse: 0,
+        forceParse: 0
     });
 
     $('.form_date').datetimepicker({

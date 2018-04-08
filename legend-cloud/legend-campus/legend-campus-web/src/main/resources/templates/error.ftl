@@ -1,20 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>error</title>
-    <script src="/js/jquery-3.2.1.js"></script>
-    <script src="/js/jquery.form.js"></script>
-    <script src="/js/vue.js"></script>
-</head>
-<body>
+<#include "./common/head.ftl">
 <div id="vm">
-    <div>error</div>
+
 </div>
 <script>
-    $.get("/campus/campusCourse/list", function (data) {
-        alert(data.msg);
-    })
+    let vm = new Vue({
+        el: "#vm",
+        contentType: "application/json;charset=utf-8",
+        beforeCreate: function () {
+            Messenger().post({
+                id: "loginMessenger",
+                message: ${msg},//提示信息
+                type: 'error',//消息类型。error、info、success
+                hideAfter: 0,//多长时间消失
+                showCloseButton: false,//是否显示关闭按钮
+                hideOnNavigate: false//是否隐藏导航
+            });
+        }
+    });
 </script>
-</body>
-</html>
+<#include "./common/foot.ftl">

@@ -1,12 +1,13 @@
 <#include "./common/head.ftl">
 
 <div id="vm">
-    <!--顶部功能栏-->
-<#include "./common/top.ftl">
+    <!-- 导航栏 -->
+<#include "common/component/navbar.ftl">
 
     <div class="container margin-top10" id="principal">
         <div class="row">
-        <#include "./personal/personal-info.ftl">
+            <!-- 个人信息左侧边栏 -->
+        <#include "common/component/personal-leftSide.ftl">
             <div class="col-12 col-md-6" id="principal">
                 <!-- 轮播图 -->
                 <div class="carousel slide" id="carouselExampleIndicators" data-ride="carousel">

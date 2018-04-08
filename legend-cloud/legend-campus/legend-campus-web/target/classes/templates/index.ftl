@@ -1,12 +1,13 @@
 <#include "./common/head.ftl">
 
 <div id="vm">
-    <!--顶部功能栏-->
-<#include "./common/top.ftl">
+    <!-- 导航栏 -->
+<#include "common/component/navbar.ftl">
 
     <div class="container margin-top10" id="principal">
         <div class="row">
-        <#include "./personal/personal-info.ftl">
+            <!-- 个人信息左侧边栏 -->
+        <#include "common/component/personal-leftSide.ftl">
             <div class="col-12 col-md-6" id="principal">
                 <!-- 轮播图 -->
                 <div class="carousel slide" id="carouselExampleIndicators" data-ride="carousel">
@@ -138,7 +139,7 @@
             </div>
             <div class="col col-md-2" id="external">
                 <div>
-                    <a href="course">
+                    <a href="/direct/publish">
                         <button type="button" class="btn btn-success"
                                 style="width: 100%;height:50px;font-size:20px;">发布课程
                         </button>
