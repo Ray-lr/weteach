@@ -103,7 +103,7 @@
                                 <!--专业限制-->
                                 <h5>专业限制
                                     <input type="checkbox" aria-label="Checkbox for following text input"
-                                           id="major_limit">
+                                           id="major_limit" name="a">
                                 </h5>
                                 <div class="form-group cancel_all" id="major" style="display: none">
                                     <label for="courseTime">系别</label>
@@ -123,7 +123,7 @@
                                 <!--性别限制-->
                                 <h5>性别限制
                                     <input type="checkbox" aria-label="Checkbox for following text input"
-                                           id="sex_limit">
+                                           id="sex_limit" name="a">
                                 </h5>
                                 <div class="form-group cancel_all" align="center" id="sex" style="display: none;">
                                     <label for="male">男</label>
@@ -136,7 +136,7 @@
                                 <!--年级限制-->
                                 <h5>年级限制
                                     <input type="checkbox" aria-label="Checkbox for following text input"
-                                           id="grade_limit">
+                                           id="grade_limit" name="a">
                                 </h5>
                                 <div class="form-group cancel_all" id="grade" style="display: none;">
                                     <select class="form-control" id="exampleFormControlSelect1" name="enrollmentYear">
@@ -150,7 +150,7 @@
                                 <!--人数限制-->
                                 <h5>人数限制
                                     <input type="checkbox" aria-label="Checkbox for following text input"
-                                           id="person_num_limit">
+                                           id="person_num_limit" name="a">
                                 </h5>
                                 <div id="person_num" class="form-group cancel_all" style="display: none;">
                                     <div class="form-group">
@@ -171,7 +171,6 @@
                     </div>
                     <!--分割线-->
                     <div class="dropdown-divider"></div>
-                ${param.id}
                     <div align="center" class="col-md-10" style="height:150px;">
                         <button id="dd" type="button" class="btn btn-primary btn-lg btn-block"
                                 data-toggle="modal" data-target="#myModal" onclick="textChange()">发布课程
@@ -188,7 +187,7 @@
                                         </h4>
                                     </div>
                                     <div class="modal-body">
-                                        您的申请已提交，请耐心等待一到两个工作日，我们会在第一时间给您消息，谢谢。
+                                        您发布的课程正在审核，请耐心等待。
                                     </div>
                                     <div class="modal-footer">
                                         <button id="qd" type="button" class="btn btn-light" data-dismiss="modal">确定
@@ -271,15 +270,14 @@
     })
     /*根据不同链接的传值选取课程类型*/
     var typeCourse = window.location.search;
+
     $(document).ready(function () {
-        $("#seek").ready(function () {
-            if (typeCourse == "?1") {
-                $("#seek").prop("checked", true);
-            }
-            if (typeCourse == "?2") {
-                $("#teach").prop("checked", true);
-            }
-        })
+        if (typeCourse == "?seek") {
+            $("#seek").prop("checked", true);
+        }
+        if (typeCourse == "?teach") {
+            $("#teach").prop("checked", true);
+        }
     });
     /*submit点击后不可选取*/
     $(document).ready(function () {
@@ -290,14 +288,6 @@
     });
     /*点击展开限制条件*/
     $(document).ready(function () {
-        $("#seek").ready(function () {
-            if (typeCourse == "?1") {
-                $("#seek").prop("checked", true);
-            }
-            if (typeCourse == "?2") {
-                $("#teach").prop("checked", true);
-            }
-        })
         $("#major_limit").click(function () {
             $("#major").toggle();
         });
@@ -314,6 +304,7 @@
             $(".cancel_all").hide();
             $("input").prop("checked", false);
         });
+
     });
     /*submit点击后文字改变*/
     function textChange() {

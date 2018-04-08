@@ -364,5 +364,21 @@
 
         }
     })
+    /*指定进入页面显示的分页*/
+    var navTab = window.location.search;
+    $(document).ready(function () {
+        if (navTab == "?person") {
+            $("#courseInfo-tab").removeClass("active");
+            $("#courseInfo").removeClass("active").removeClass("show");
+            $("#personInfo-tab").addClass("active");
+            $("#personInfo").addClass("active").addClass("show");
+        }
+        if (navTab == "?data") {
+            $("#courseInfo-tab").removeClass("active");
+            $("#courseInfo").removeClass("active").removeClass("show");
+            $("#dataInfo-tab").addClass("active");
+            $("#dataInfo").addClass("active").addClass("show");
+        }
+    });
 </script>
 <#include "./common/foot.ftl">
