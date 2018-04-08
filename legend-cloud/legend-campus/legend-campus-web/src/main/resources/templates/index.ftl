@@ -52,15 +52,15 @@
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" id="study-tab" data-toggle="tab" href="#study" role="tab"
-                               aria-controls="study" aria-selected="true">Study</a>
+                               aria-controls="study" aria-selected="true">求学课程</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="teaching-tab" data-toggle="tab" href="#teaching" role="tab"
-                               aria-controls="teaching" aria-selected="false">Teaching</a>
+                               aria-controls="teaching" aria-selected="false">教学课程</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="other-tab" data-toggle="tab" href="#other" role="tab"
-                               aria-controls="other" aria-selected="false">Other</a>
+                               aria-controls="other" aria-selected="false">我的课程</a>
                         </li>
                     </ul>
 
