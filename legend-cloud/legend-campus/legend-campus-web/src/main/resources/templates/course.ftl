@@ -10,7 +10,7 @@
             <hr width=100% size=1 color=#bbbcbc style="border:1 dashed #bbbcbc">
 
             <div class="col col-md-2" id="personal">
-            ${vm.name}
+
             </div>
             <div class="col-12 col-md-8" id="principal">
 

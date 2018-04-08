@@ -11,23 +11,25 @@
                 <div class="row-fluid" id="courseList">
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link" id="teaching-tab" data-toggle="tab" href="#teaching" role="tab"
-                               aria-controls="teaching" aria-selected="true">个人信息中心</a>
+                            <a class="nav-link active" id="courseInfo-tab" data-toggle="tab" href="#courseInfo"
+                               role="tab"
+                               aria-controls="courseInfo" aria-selected="false">我的课程相关</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" id="study-tab" data-toggle="tab" href="#study" role="tab"
-                               aria-controls="study" aria-selected="false">我的课程相关</a>
+                            <a class="nav-link" id="personInfo-tab" data-toggle="tab" href="#personInfo" role="tab"
+                               aria-controls="personInfo" aria-selected="true">个人信息中心</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="other-tab" data-toggle="tab" href="#other" role="tab"
-                               aria-controls="other" aria-selected="false">浏览历史</a>
+                            <a class="nav-link" id="dataInfo-tab" data-toggle="tab" href="#dataInfo" role="tab"
+                               aria-controls="dataInfo" aria-selected="false">我的数据统计</a>
                         </li>
                     </ul>
 
                     <div class="tab-content" id="courseContent">
                         <!-- first list -->
                         <!--我的课程相关-->
-                        <div class="tab-pane fade show active" id="study" role="tabpanel" aria-labelledby="study-tab">
+                        <div class="tab-pane fade show active" id="courseInfo" role="tabpanel"
+                             aria-labelledby="courseInfo-tab">
                             <div class="card">
                                 <div class="card-header bg-whitesmoke-tp25" id="headingOne">
                                     <h5 class="mb-0">
@@ -50,7 +52,7 @@
                         </div>
                         <!-- second list -->
                         <!-- 个人信息完善 -->
-                        <div class="tab-pane fade" id="teaching" role="tabpanel" aria-labelledby="teaching-tab">
+                        <div class="tab-pane fade" id="personInfo" role="tabpanel" aria-labelledby="personInfo-tab">
                             <form @submit.prevent="update($event)">
                                 <!--隐藏的id-->
                                 <input type="hidden" name="id" :value="userInfo.id">
@@ -193,7 +195,7 @@
                             </form>
                         </div>
                         <!--浏览历史-->
-                        <div class="tab-pane fade" id="other" role="tabpanel" aria-labelledby="other-tab">
+                        <div class="tab-pane fade" id="dataInfo" role="tabpanel" aria-labelledby="data-tab">
                             <div class="card">
                                 <div class="card-header" id="headingThree">
                                     <h5 class="mb-0">
@@ -230,13 +232,13 @@
             province: "--省/直辖市/自治区--",
             city: "--市/自治州--",
             country: "--区/县--",
-            study: {
+            courseInfo: {
                 list: []
             },
-            teaching: {
+            personInfo: {
                 list: []
             },
-            other: {
+            myCourseInfo: {
                 list: []
             },
             provinces: {
