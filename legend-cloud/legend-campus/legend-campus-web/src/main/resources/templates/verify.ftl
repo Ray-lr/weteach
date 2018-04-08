@@ -5,7 +5,7 @@
 
     <div class="container margin-top10" id="principal">
         <div class="row">
-            <h1 class="alert-heading">Teacher Verify</h1>
+            <h1 class="alert-heading">教师资格认证</h1>
 
             <hr width=100% size=1 color=#bbbcbc style="border:1 dashed #bbbcbc">
 
@@ -59,7 +59,6 @@
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-
                                             <h4 class="modal-title" id="myModalLabel">
                                                 提示
                                             </h4>
@@ -76,10 +75,7 @@
                                 </div><!-- /.modal -->
                             </div>
                         </div>
-
-
                     </form>
-
                 </div>
             </div>
             <div class="col col-md-2" id="external">

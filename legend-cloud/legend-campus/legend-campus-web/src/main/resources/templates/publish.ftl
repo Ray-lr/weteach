@@ -17,10 +17,10 @@
                     <div class="form-group" align="center">
                         <h3>课程类型</h3>
                         <label for="male">求学贴</label>
-                        <input type="radio" name="sex" id="male" checked="checked"/>
+                        <input type="radio" name="courseType" id="seek"/>
 
                         <label for="female">教学贴</label>
-                        <input type="radio" name="sex" id="female"/>
+                        <input type="radio" name="courseType" id="teach"/>
                     </div>
                     <div class="row">
                         <div class="col-md-7">
@@ -171,7 +171,7 @@
                     </div>
                     <!--分割线-->
                     <div class="dropdown-divider"></div>
-
+                ${param.id}
                     <div align="center" class="col-md-10" style="height:150px;">
                         <button id="dd" type="button" class="btn btn-primary btn-lg btn-block"
                                 data-toggle="modal" data-target="#myModal" onclick="textChange()">发布课程
@@ -269,6 +269,18 @@
             },
         }
     })
+    /*根据不同链接的传值选取课程类型*/
+    var typeCourse = window.location.search;
+    $(document).ready(function () {
+        $("#seek").ready(function () {
+            if (typeCourse == "?1") {
+                $("#seek").prop("checked", true);
+            }
+            if (typeCourse == "?2") {
+                $("#teach").prop("checked", true);
+            }
+        })
+    });
     /*submit点击后不可选取*/
     $(document).ready(function () {
         $("#qd").click(function () {
@@ -278,6 +290,14 @@
     });
     /*点击展开限制条件*/
     $(document).ready(function () {
+        $("#seek").ready(function () {
+            if (typeCourse == "?1") {
+                $("#seek").prop("checked", true);
+            }
+            if (typeCourse == "?2") {
+                $("#teach").prop("checked", true);
+            }
+        })
         $("#major_limit").click(function () {
             $("#major").toggle();
         });
