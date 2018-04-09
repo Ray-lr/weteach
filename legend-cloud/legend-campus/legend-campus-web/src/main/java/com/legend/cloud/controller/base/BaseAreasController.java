@@ -128,9 +128,11 @@ public class BaseAreasController extends CampusController {
             map.put("city",baseAreasService.getById(Integer.parseInt(cityId)).getName());
             map.put("country",baseAreasService.getById(Integer.parseInt(countryId)).getName());*/
             String[] s = new String[3];
-            s[0] = baseAreasService.getById(Integer.parseInt(provinceId)).getName();
-            s[1] = baseAreasService.getById(Integer.parseInt(cityId)).getName();
-            s[2] = baseAreasService.getById(Integer.parseInt(countryId)).getName();
+            if (!(provinceId.isEmpty() || cityId.isEmpty() || countryId.isEmpty())) {
+                s[0] = baseAreasService.getById(Integer.parseInt(provinceId)).getName();
+                s[1] = baseAreasService.getById(Integer.parseInt(cityId)).getName();
+                s[2] = baseAreasService.getById(Integer.parseInt(countryId)).getName();
+            }
             return Ajax.success(s, AjaxMessage.QUERY_SUCCESS);
         } catch (NumberFormatException e) {
             e.printStackTrace();
