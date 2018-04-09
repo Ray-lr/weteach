@@ -15,8 +15,8 @@ import java.util.Date;
 /**
  * 课程订单
  *
- * @author hupeiD
- * @date 2018-03-28 10:33:30
+ * @author Jim
+ * @date 2018-04-09 22:11:52
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
@@ -25,46 +25,50 @@ public class CampusOrder extends AbstractEntity<CampusOrder> {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * 课程订单id
+     * 课程订单id
      */
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 	/**
-	 * 基础订单id
+     * 基础订单id
      */
-	private Integer baseOrderId;
+    private Integer baseOrderId;
 	/**
-	 * 用户id
+     * 用户id
      */
-	private Integer userId;
+    private Integer userId;
 	/**
-	 * 课程id
+     * 课程id
      */
-	private Integer courseId;
+    private Integer courseId;
 	/**
-	 * 积分
+     * 积分
      */
-	private Integer credits;
+    private Integer credits;
 	/**
-	 * 订单类型(求学或教学)
-	 */
-	private String typeCourse;
-	/**
-	 * 状态{0、已创建 1、已完成 2、已取消）
+     * 订单类型(求学或教学)
      */
-	private Integer status;
+    private String typeCourse;
 	/**
-	 * 创建时间
+     * 是否该课程发起人
      */
-	private Date createTime;
+    private Boolean isHost;
+    /**
+     * 状态{0、已创建 1、已完成 2、已取消）
+     */
+    private Integer status;
 	/**
-	 * 更新时间
+     * 创建时间
      */
-	private Date updateTime;
+    private Date createTime;
 	/**
-	 * 是否删除
+     * 更新时间
      */
-	private Boolean isDeleted;
+    private Date updateTime;
+	/**
+     * 是否删除
+     */
+    private Boolean isDeleted;
 
 }
