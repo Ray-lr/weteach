@@ -20,6 +20,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -66,11 +67,14 @@ public class CampusVerifyController extends CampusController {
 
     @PostMapping("/add")
     // @RequiresPermissions("campus:campusverify:add")
-    public Ajax add(@Validated(AddGroup.class) CampusVerifyVO campusVerifyVO, BindingResult bindingResult) {
+    public Ajax add(@Validated(AddGroup.class) CampusVerifyVO campusVerifyVO, BindingResult bindingResult, String userId) {
         try {
             if (bindingResult.hasErrors()) {
                 return AjaxValidate.processBindingResult(bindingResult);
             }
+            campusVerifyVO.setUserId(Integer.parseInt(userId));
+            campusVerifyVO.setCreateTime(new Date());
+            campusVerifyVO.setUpdateTime(new Date());
             int saveResult = campusVerifyService.save(campusVerifyVO.parseTo(Column.ID));
             return saveResult == 1 ? Ajax.success(AjaxMessage.SAVE_SUCCESS) : Ajax.error(AjaxMessage.SAVE_FAILURE, AjaxCode
                     .SAVE_FAILURE);
@@ -108,5 +112,6 @@ public class CampusVerifyController extends CampusController {
             return Ajax.error(AjaxMessage.SERVER_ERROR, AjaxCode.SERVER_ERROR);
         }
     }
+
 
 }

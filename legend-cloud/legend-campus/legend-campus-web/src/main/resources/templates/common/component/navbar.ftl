@@ -33,8 +33,8 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1">
                         <a class="dropdown-item" href="/direct/myProfile">我的课程相关</a>
-                        <a class="dropdown-item" href="/direct/myProfile">个人信息中心</a>
-                        <a class="dropdown-item" href="/direct/myProfile">我的数据统计</a>
+                        <a class="dropdown-item" href="/direct/myProfile?person">个人信息中心</a>
+                        <a class="dropdown-item" href="/direct/myProfile?data">我的数据统计</a>
                     </div>
                 </li>
                 <!--发布publish-->
@@ -45,8 +45,8 @@
                         发布课程
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
-                        <a class="dropdown-item" href="/direct/publish?1">求学贴</a>
-                        <a class="dropdown-item" href="/direct/publish?2">教学贴</a>
+                        <a class="dropdown-item" href="/direct/publish?seek">求学贴</a>
+                        <a class="dropdown-item" href="/direct/publish?teach">教学贴</a>
 
                     </div>
                 </li>

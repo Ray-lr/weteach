@@ -14,11 +14,11 @@
             </div>
             <div class="col-12 col-md-8" id="principal">
                 <div>
-                    <form>
+                    <form @submit.prevent="verify($event)">
 
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">认证系别</label>
-                            <select class="form-control" id="department" @change="changeDepartment">
+                            <select class="form-control" id="department" @change="changeDepartment" name="dept">
                                 <option selected="selected" id="departmentOption">-- 请选择系别 --</option>
                                 <option v-for="item in departments" :value="item.id"
                                         v-text="item.name"></option>
@@ -26,7 +26,7 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">认证专业</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
+                            <select class="form-control" id="exampleFormControlSelect1" name="major">
                                 <option selected="selected" id="majorOption">-- 请选择专业 --</option>
                                 <option v-for="item in majors" :value="item.id"
                                         v-text="item.name"></option>
@@ -34,23 +34,24 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1">认证理由</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <textarea name="reason" class="form-control" id="exampleFormControlTextarea1"
+                                      rows="3"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1">认证文件证明</label>
                             <div class="input-group mb-3">
 
                                 <div class="input-group-prepend">
-                                    <button class="btn btn-outline-secondary" type="button">Upload</button>
+                                    <button class="btn btn-outline-secondary" type="button" @click="upload">上传</button>
                                 </div>
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="inputGroupFile03">
-                                    <label class="custom-file-label" for="inputGroupFile03">Choose file</label>
+                                    <input name="evidence" type="file" class="custom-file-input" id="inputGroupFile03">
+                                    <label class="custom-file-label" for="inputGroupFile03">选择文件</label>
                                 </div>
                             </div>
                         </div>
                         <div align="center" style="height:150px;">
-                            <button id="dd" type="button" class="btn btn-success btn-lg btn-block"
+                            <button id="dd" type="submit" class="btn btn-success btn-lg btn-block"
                                     data-toggle="modal" data-target="#myModal" onclick="textChange()">提交申请
                             </button>
                             <!-- 模态框（Modal） -->
@@ -90,6 +91,7 @@
         data: {
             departments: [],
             majors: [],
+            user:${currentUser},
         },
         beforeCreate: function () {
             $.ajax({
@@ -105,19 +107,6 @@
 
                 }
             });
-            /* $.ajax({
-                 url: "/campus/major/list",
-                 type:"get",
-                 data: {
-                     typeMajor: 2
-                 },
-                 success: function (data) {
-                     if (data.result) {
-                         vm.majors = data.data;
-                     }
-
-                 }
-             });*/
         },
         created: function () {
         },
@@ -156,6 +145,25 @@
                     }
                 })
             },
+            verify: function (e) {
+                $(e.currentTarget).ajaxSubmit({
+                    url: "/campus/verify/add",
+                    type: "post",
+                    data: {
+                        userId: vm.user.id
+                    },
+                    success: function (data) {
+                        if (data.result) {
+                            alert(data.msg);
+
+                        }
+
+                    }
+                })
+            },
+            upload: function (e) {
+
+            }
 
         }
     })
