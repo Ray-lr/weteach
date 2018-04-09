@@ -30,22 +30,24 @@
                         <!--我的课程相关-->
                         <div class="tab-pane fade show active" id="courseInfo" role="tabpanel"
                              aria-labelledby="courseInfo-tab">
-                            <div class="card">
-                                <div class="card-header bg-whitesmoke-tp25" id="headingOne">
+                            <div class="card" v-for="(item,index) of myCourseInfo.list">
+                                <div class="card-header bg-whitesmoke-tp25" :id="'heading-myCourse-'+index">
                                     <h5 class="mb-0">
-                                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
-                                                aria-expanded="true" aria-controls="collapseOne">
-                                            First Item
+                                        <button class="btn btn-link" data-toggle="collapse"
+                                                :data-target="'#collapse-myCourse-'+index"
+                                                aria-expanded="true" :aria-controls="'collapse-myCourse-'+index">
+                                            <span v-text="item.title"></span>
                                         </button>
                                     </h5>
                                 </div>
 
-                                <div id="collapseOne" class="collapse " aria-labelledby="headingOne"
+                                <div :id="'collapse-myCourse-'+index" class="collapse "
+                                     :aria-labelledby="'heading-myCourse-'+index"
                                      data-parent="#accordion">
                                     <div class="card-body">
                                         <img class="rounded-left cover" src="/static/image/avatar/Avatar.png"
                                              alt="Cover">
-                                        aaa
+                                        <p v-text="item.description"></p>
                                     </div>
                                 </div>
                             </div>
@@ -277,6 +279,20 @@
         },
         created: function () {
             let _this = this;
+            //获取我的课程相关
+            $.ajax({
+                url: "/campus/course/list",
+                type: "get",
+                data: {
+                    userId: _this.user.id
+                },
+                success: function (data) {
+                    if (data.result) {
+                        vm.myCourseInfo.list = data.data;
+                    }
+
+                }
+            });
             $.get("/campus/userInfo/detail/" + _this.user.id, function (data) {
                 if (data.result) {
                     vm.userInfo = data.data;
@@ -321,7 +337,9 @@
                 }
             });
         },
+        updated: function () {
 
+        },
         methods: {
             search: function (e) {
                 alert($(e.currentTarget).val());

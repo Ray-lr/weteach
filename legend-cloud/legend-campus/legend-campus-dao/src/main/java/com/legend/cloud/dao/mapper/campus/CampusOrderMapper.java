@@ -9,8 +9,8 @@ import org.springframework.stereotype.Component;
 /**
  * CampusOrder的mapper接口
  *
- * @author hupeiD
- * @date 2018-03-26 22:03:52
+ * @author Jim
+ * @date 2018-04-09 22:11:52
  */
 @Mapper
 @Component

@@ -11,6 +11,7 @@
         <result column="course_id" property="courseId" jdbcType="INTEGER"/>
         <result column="credits" property="credits" jdbcType="INTEGER"/>
         <result column="type_course" property="typeCourse" jdbcType="VARCHAR"/>
+        <result column="is_host" property="isHost" jdbcType="BIT"/>
         <result column="status" property="status" jdbcType="INTEGER"/>
         <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
         <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
@@ -59,6 +60,7 @@
         courseId,
         credits,
         typeCourse,
+        isHost,
         status,
         createTime,
         updateTime,

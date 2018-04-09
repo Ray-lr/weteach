@@ -47,7 +47,6 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
                         <a class="dropdown-item" href="/direct/publish?seek">求学贴</a>
                         <a class="dropdown-item" href="/direct/publish?teach">教学贴</a>
-
                     </div>
                 </li>
                 <li class="nav-item">

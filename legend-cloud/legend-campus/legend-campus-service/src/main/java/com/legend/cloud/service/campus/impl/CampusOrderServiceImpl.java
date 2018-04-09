@@ -60,6 +60,9 @@ public class CampusOrderServiceImpl extends AbstractLegendService<CampusOrder> i
         if (campusOrder.getTypeCourse() != null) {
             criteria.andTypeCourseEqualTo(campusOrder.getTypeCourse());
         }
+        if (campusOrder.getIsHost() != null) {
+            criteria.andIsHostEqualTo(campusOrder.getIsHost());
+        }
         if (campusOrder.getStatus() != null) {
             criteria.andStatusEqualTo(campusOrder.getStatus());
         }

@@ -7,8 +7,8 @@ import java.util.List;
 /**
  * CampusOrder的example类
  *
- * @author hupeiD
- * @date 2018-03-28 10:33:30
+ * @author Jim
+ * @date 2018-04-09 22:11:52
  */
 public class CampusOrderExample {
     protected String orderByClause;
@@ -468,6 +468,66 @@ public class CampusOrderExample {
 
         public Criteria andTypeCourseNotBetween(String value1, String value2) {
             addCriterion("type_course not between", value1, value2, "type_course");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsHostIsNull() {
+            addCriterion("is_host is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsHostIsNotNull() {
+            addCriterion("is_host is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsHostEqualTo(Boolean value) {
+            addCriterion("is_host =", value, "is_host");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsHostNotEqualTo(Boolean value) {
+            addCriterion("'is_host <>", value, "is_host");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsHostGreaterThan(Boolean value) {
+            addCriterion("is_host >", value, "is_host");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsHostGreaterThanOrEqualTo(Boolean value) {
+            addCriterion("is_host >=", value, "is_host");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsHostLessThan(Boolean value) {
+            addCriterion("is_host <", value, "is_host");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsHostLessThanOrEqualTo(Integer value) {
+            addCriterion("is_host <=", value, "is_host");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsHostIn(List<Boolean> values) {
+            addCriterion("is_host in", values, "is_host");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsHostNotIn(List<Boolean> values) {
+            addCriterion("is_host not in", values, "is_host");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsHostBetween(Boolean value1, Boolean value2) {
+            addCriterion("is_host between", value1, value2, "is_host");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsHostNotBetween(Boolean value1, Boolean value2) {
+            addCriterion("is_host not between", value1, value2, "is_host");
             return (Criteria) this;
         }
 
