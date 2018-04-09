@@ -1,11 +1,11 @@
 <#include "./common/head.ftl">
 <div id="vm">
     <!--顶部功能栏-->
-<#include "./common/top.ftl">
+<#include "./common/component/navbar.ftl">
 
     <div class="container margin-top10" id="principal">
         <div class="row">
-        <#include "./personal/personal-info.ftl">
+        <#include "./common/component/personal-leftSide.ftl">
             <div class="col-12 col-md-8" id="principal">
                 <!-- 课程列表 -->
                 <div class="row-fluid" id="courseList">
@@ -78,29 +78,35 @@
                                            placeholder="18" name="nickname" :value="userInfo.nickname">
                                 </div>
                                 <!--生日-->
-                                <label for="dateTime">出生日期</label>
-                                <div class="input-group date form_datetime">
-                                    <input type="datetime-local" class="form-control" id="dateTime"
-                                           :value="userInfo.birthday"
-                                           name="birthday"
-                                           data-toggle="tooltip"
-                                           data-placement="left" title="请输入日期"
-                                           aria-describedby="dateTimeHelp" placeholder="Date Time"
-                                           readonly>
-                                    <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
-                                </div>
-                                <small id="dateTimeHelp" class="form-text text-muted">
+                                <div class="form-group">
+                                    <label for="birthday" class="col-md-2 control-label">出生日期</label>
+                                    <input type="hidden" :value="userInfo.birthday" name="birthday"
+                                           id="birthday">
+                                    <div class="input-group date form_date"
+                                         data-link-field="birthday">
+                                        <input class="form-control" size="16" type="text"
+                                               :value="userInfo.birthday | date"
+                                               data-toggle="tooltip"
+                                               data-placement="left" title="请输入日期"
+                                               aria-describedby="dateHelp" placeholder="Date"
+                                               readonly>
+                                        <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                                        <span class="input-group-addon"><span
+                                                class="glyphicon glyphicon-th"></span></span>
+                                    </div>
+                                    <small id="dateHelp" class="form-text text-muted">
 
-                                </small>
+                                    </small>
+                                </div>
                                 <!--入学年份-->
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">入学年份</label>
                                     <select class="form-control" id="exampleFormControlSelect1" name="enrollmentYear">
-                                        <option>{{userInfo.enrollmentYear}}</option>
-                                        <option :value="2014">2014</option>
-                                        <option :value="2015">2015</option>
-                                        <option :value="2016">2016</option>
-                                        <option :value="2017">2017</option>
+                                        <option disabled>{{userInfo.enrollmentYear}}</option>
+                                        <option value="2014">2014</option>
+                                        <option value="2015">2015</option>
+                                        <option value="2016">2016</option>
+                                        <option value="2017">2017</option>
                                     </select>
                                 </div>
                                 <!--电话号码-->
@@ -150,7 +156,9 @@
                                         <!-- 省、直辖市-->
                                         <div class="col-md-4">
                                             <select class="form-control" id="province" name="provinces"
-                                                    @change="changeProvince">
+                                                    @change="changeProvince"
+                                                    data-toggle="tooltip"
+                                                    data-placement="left" title="请选择">
                                                 <option selected="selected" id="provinceOption" v-text="province"
                                                         :value="userInfo.provinces"></option>
                                                 <option v-for="item in provinces.list" :value="item.id"
@@ -160,7 +168,9 @@
                                         </div>
                                         <!-- 市/州 -->
                                         <div class="col-md-4">
-                                            <select class="form-control" id="city" name="cities" @change="changeCity">
+                                            <select class="form-control" id="city" name="cities" @change="changeCity"
+                                                    data-toggle="tooltip"
+                                                    data-placement="left" title="请选择">
                                                 <option selected="selected" id="cityOption" v-text="city"
                                                         :value="userInfo.cities"></option>
                                                 <option v-for="item in cities" :value="item.id"
@@ -170,7 +180,9 @@
                                         </div>
                                         <!-- 区/县 -->
                                         <div class="col col-md-4">
-                                            <select class="form-control" id="country" name="countries">
+                                            <select class="form-control" id="country" name="countries"
+                                                    data-toggle="tooltip"
+                                                    data-placement="left" title="请选择">
                                                 <option id="countryOption" selected="selected" v-text="country"
                                                         :value="userInfo.countries"></option>
                                                 <option v-for="item in countries" :value="item.id"
@@ -309,9 +321,7 @@
                 }
             });
         },
-        updated: function () {
 
-        },
         methods: {
             search: function (e) {
                 alert($(e.currentTarget).val());
@@ -319,8 +329,10 @@
             update: function (e) {
                 $(e.currentTarget).ajaxSubmit({
                     url: "/campus/userInfo/update",
-                    type: "PUT",
-
+                    type: "POST",
+                    data: {
+                        _method: "PUT"
+                    },
                     success: function (data) {
                         if (data.result) {
                             alert(data.msg);
@@ -360,10 +372,9 @@
                         }
                     }
                 });
-            },
-
+            }
         }
-    })
+    });
     /*指定进入页面显示的分页*/
     var navTab = window.location.search;
     $(document).ready(function () {

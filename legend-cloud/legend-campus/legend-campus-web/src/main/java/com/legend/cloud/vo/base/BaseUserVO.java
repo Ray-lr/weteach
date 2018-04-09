@@ -1,7 +1,6 @@
 package com.legend.cloud.vo.base;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.alibaba.fastjson.annotation.JSONField;
 import com.legend.cloud.entity.base.BaseUser;
 import com.legend.module.core.vo.core.UserVO;
 import lombok.Data;
@@ -20,9 +19,7 @@ import java.util.Date;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @ToString
-@JsonAutoDetect
 public class BaseUserVO extends UserVO<BaseUser> {
-    @JsonIgnore
     private static final long serialVersionUID = 1L;
 
     /**
@@ -36,38 +33,38 @@ public class BaseUserVO extends UserVO<BaseUser> {
     /**
      * 记住我
      */
-    @JsonIgnore
+    @JSONField(serialize = false)
     private boolean rememberMe;
     /**
      * 最后登录时间
      */
-    @JsonIgnore
+    @JSONField(serialize = false)
     private Date lastLoginTime;
 
     /**
      * 状态（0、离线 1、在线）
      */
-    @JsonIgnore
+    @JSONField(serialize = false)
     private Integer status;
     /**
      * 是否启用
      */
-    @JsonIgnore
+    @JSONField(serialize = false)
     private Boolean isEnabled;
     /**
      * 创建时间
      */
-    @JsonIgnore
+    @JSONField(serialize = false)
     private Date createTime;
     /**
      * 更新时间
      */
-    @JsonIgnore
+    @JSONField(serialize = false)
     private Date updateTime;
     /**
      * 是否删除
      */
-    @JsonIgnore
+    @JSONField(serialize = false)
     private Boolean isDeleted;
 
     @Override

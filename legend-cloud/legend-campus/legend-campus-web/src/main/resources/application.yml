@@ -21,7 +21,7 @@ spring:
     freemarker:
         allow-request-override: false
         allow-session-override: false
-        cache: true
+        cache: false
         charset: utf-8
         check-template-location: true
         content-type: text/html

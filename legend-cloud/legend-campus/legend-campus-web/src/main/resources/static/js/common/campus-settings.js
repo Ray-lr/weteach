@@ -14,6 +14,7 @@ $(document).ready(function () {
     };
 
     $('.form_datetime').datetimepicker({
+        orientation: "bottom auto",
         format: "yyyy-mm-dd hh:ii",
         weekStart: 1,
         todayBtn: 1,
@@ -25,6 +26,7 @@ $(document).ready(function () {
     });
 
     $('.form_date').datetimepicker({
+        orientation: "bottom auto",
         format: "yyyy-mm-dd",
         weekStart: 1,
         todayBtn: 1,
@@ -37,6 +39,7 @@ $(document).ready(function () {
     });
 
     $('.form_time').datetimepicker({
+        orientation: "bottom auto",
         format: "hh:ii",
         weekStart: 1,
         todayBtn: 1,

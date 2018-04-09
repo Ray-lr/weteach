@@ -43,6 +43,7 @@ public class CampusUserInfoController extends CampusController {
     private BaseUserService baseUserService;
     @Resource
     private BaseAreasService baseAreasService;
+
     @GetMapping("/list")
     // @RequiresPermissions("campus:userInfo:list")
     public Ajax list(CampusUserInfoVO campusUserInfoVO, Query query) {
@@ -128,8 +129,8 @@ public class CampusUserInfoController extends CampusController {
         try {
             CampusUserInfo campusUserInfo = new CampusUserInfo();
             campusUserInfo.setBaseUserId(userId);
-            CampusUserInfo cui = campusUserInfoService.get(campusUserInfo);
-            return Ajax.success(cui);
+            campusUserInfo = campusUserInfoService.get(campusUserInfo);
+            return Ajax.success(new CampusUserInfoVO().parseFrom(campusUserInfo));
         } catch (Exception e) {
             e.printStackTrace();
             return Ajax.error(AjaxMessage.SERVER_ERROR, AjaxCode.SERVER_ERROR);
