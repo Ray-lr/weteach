@@ -10,8 +10,6 @@
     <link rel="stylesheet" href="/static/external/HubSpot-messenger/build/css/messenger.css" media="screen">
     <link rel="stylesheet" href="/static/external/HubSpot-messenger/build/css/messenger-theme-air.css" media="screen">
     <link rel="stylesheet" href="/static/external/pace-master/themes/black/pace-theme-material.css" media="screen">
-    <link rel="stylesheet/less" href="/static/external/bootstrap-datetimepicker-master/less/datetimepicker.less"
-          type="text/css">
     <link rel="stylesheet" href="/static/external/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.css"
           media="screen">
     <link rel="stylesheet" href="/static/css/main-campus.css" media="screen">
@@ -28,5 +26,8 @@
 <script src="/static/external/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.js"></script>
 <script src="/static/js/jquery-validate.min.js"></script>
 <script src="/static/js/date.js"></script>
-<script src="/static/js/common/vue-method.js"></script>
+<script src="/static/js/common/vue/vue-global.js"></script>
 <script src="/static/js/common/campus-settings.js"></script>
+<script>
+    userInfo = <#if currentUser??>${currentUser}<#else>null</#if>;
+</script>
