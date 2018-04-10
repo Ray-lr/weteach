@@ -9,7 +9,7 @@
 
             <hr width=100% size=1 color=#bbbcbc style="border:1 dashed #bbbcbc">
 
-            <#include "./personal/personal-info.ftl">
+            <#include "./personal/other-info.ftl">
             <!--课程详细信息部分-->
             <div class="col-12 col-md-6" id="principal">
                 <!--标题-->
@@ -90,7 +90,6 @@
                              alt="Cover">
                         <div class="col" style="text-overflow:ellipsis;">
                             <a style="font-weight: bold" href="/direct/course">英语四级作文写作技巧教学</a>
-                            <!--单行隐藏内容加省略号<p style="text-overflow:ellipsis;white-space:nowrap;width:30em;overflow:hidden;">-->
                             <a id="hhh" style="width:100%;word-break:break-all;display:-webkit-box;-webkit-line-clamp:2;
                                             -webkit-box-orient:vertical;overflow:hidden;" href="/direct/course">
                                 同学，你是否苦恼于自己的英语作文每次考试都拉分？是否对于英语作文怎么写而感到迷茫？那么你可以参加我的技巧教学，只需两天，保证让你英语写作上升一个档次</a>
@@ -104,7 +103,6 @@
                              alt="Cover">
                         <div class="col" style="text-overflow:ellipsis;">
                             <a style="font-weight: bold" href="/direct/course">英语四级作文写作技巧教学</a>
-                            <!--单行隐藏内容加省略号<p style="text-overflow:ellipsis;white-space:nowrap;width:30em;overflow:hidden;">-->
                             <a id="hhh" style="width:100%;word-break:break-all;display:-webkit-box;-webkit-line-clamp:2;
                                             -webkit-box-orient:vertical;overflow:hidden;" href="/direct/course">
                                 同学，你是否苦恼于自己的英语作文每次考试都拉分？是否对于英语作文怎么写而感到迷茫？那么你可以参加我的技巧教学，只需两天，保证让你英语写作上升一个档次</a>

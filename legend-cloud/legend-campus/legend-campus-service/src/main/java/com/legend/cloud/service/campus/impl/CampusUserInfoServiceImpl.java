@@ -14,7 +14,7 @@ import javax.annotation.Resource;
 
 /**
  * @author Jim
- * @date 2018/3/9
+ * @date 2018/4/10
  */
 @Service
 @Transactional(rollbackFor = Exception.class)
@@ -60,14 +60,14 @@ public class CampusUserInfoServiceImpl extends AbstractLegendService<CampusUserI
         if (campusUserInfo.getBirthday() != null) {
             criteria.andBirthdayEqualTo(campusUserInfo.getBirthday());
         }
-        if (campusUserInfo.getProvinces() != null) {
-            criteria.andProvincesEqualTo(campusUserInfo.getProvinces());
+        if (campusUserInfo.getProvince() != null) {
+            criteria.andProvinceEqualTo(campusUserInfo.getProvince());
         }
-        if (campusUserInfo.getCities() != null) {
-            criteria.andCitiesEqualTo(campusUserInfo.getCities());
+        if (campusUserInfo.getCity() != null) {
+            criteria.andCityEqualTo(campusUserInfo.getCity());
         }
-        if (campusUserInfo.getCountries() != null) {
-            criteria.andCountriesEqualTo(campusUserInfo.getCountries());
+        if (campusUserInfo.getCounty() != null) {
+            criteria.andCountyEqualTo(campusUserInfo.getCounty());
         }
         if (campusUserInfo.getEnrollmentYear() != null) {
             criteria.andEnrollmentYearEqualTo(campusUserInfo.getEnrollmentYear());
@@ -84,11 +84,8 @@ public class CampusUserInfoServiceImpl extends AbstractLegendService<CampusUserI
         if (campusUserInfo.getPhone() != null) {
             criteria.andPhoneEqualTo(campusUserInfo.getPhone());
         }
-        if (campusUserInfo.getQicq() != null) {
-            criteria.andQicqEqualTo(campusUserInfo.getQicq());
-        }
-        if (campusUserInfo.getEmail() != null) {
-            criteria.andEmailEqualTo(campusUserInfo.getEmail());
+        if (campusUserInfo.getContact() != null) {
+            criteria.andContactEqualTo(campusUserInfo.getContact());
         }
         if (campusUserInfo.getSignature() != null) {
             criteria.andSignatureEqualTo(campusUserInfo.getSignature());

@@ -19,11 +19,8 @@
             <p class="card-text font-weight-light" v-text="userInfo.major"></p>
         </div>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item" v-text="user.id"></li>
+            <li class="list-group-item" v-text="userInfo.creditsLevel"></li>
         </ul>
-        <div class="card-body">
-            <a href="/direct/myProfile?person" class="card-link">详细信息</a>
-            <a href="/direct/verify" class="card-link">教师认证</a>
-        </div>
+
     </div>
 </div>

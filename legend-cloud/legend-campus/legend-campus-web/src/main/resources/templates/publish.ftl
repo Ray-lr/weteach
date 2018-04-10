@@ -338,6 +338,13 @@
             $("#teach").prop("checked", true);
         }
     });
+    /*submit点击后不可选取*/
+    $().ready(function () {
+        $("#qd").click(function () {
+            $("#dd").addClass('diabled');
+            $("#dd").prop('disabled', true);
+        });
+    });
     /*点击展开限制条件*/
     $(document).ready(function () {
         $("#seek").ready(function () {

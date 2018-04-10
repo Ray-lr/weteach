@@ -71,12 +71,18 @@
                             <!--first demonstration-->
                             <div class="card">
                                 <div class="card-header" id="headingOne">
-                                    <h5 class="mb-0">
-                                        <button class="btn btn-link collapsed" data-toggle="collapse"
+                                    <h5 class="mb-0 row">
+                                        <button class="btn btn-link collapsed courseTitle" data-toggle="collapse"
                                                 data-target="#collapseOne" aria-expanded="false"
-                                                aria-controls="collapseOne" style="font-weight: bold;">
-                                            急求学霸一名来教教我线性代数，十万火急！
+                                                aria-controls="collapseOne"
+                                        >
+                                            急求学霸一名来教教我线性代数，十万火急！aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
                                         </button>
+                                        <div style="width: 10%" align="center" data-toggle="tooltip"
+                                             data-placement="right" title="10积分">
+                                            <img src="/static/external/star-rating/image/star-on.png" title="10积分">
+                                        </div>
+
                                     </h5>
                                 </div>
                                 <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
@@ -166,7 +172,6 @@
                                              alt="Cover">
                                         <div class="col" style="text-overflow:ellipsis;">
                                             <a style="font-weight: bold" href="/direct/course">英语四级作文写作技巧教学</a>
-                                            <!--单行隐藏内容加省略号<p style="text-overflow:ellipsis;white-space:nowrap;width:30em;overflow:hidden;">-->
                                             <a id="hhh" style="width:100%;word-break:break-all;display:-webkit-box;-webkit-line-clamp:2;
                                             -webkit-box-orient:vertical;overflow:hidden;" href="/direct/course">
                                                 同学，你是否苦恼于自己的英语作文每次考试都拉分？是否对于英语作文怎么写而感到迷茫？那么你可以参加我的技巧教学，只需两天，保证让你英语写作上升一个档次</a>
@@ -194,7 +199,6 @@
                                              alt="Cover">
                                         <div class="col" style="text-overflow:ellipsis;">
                                             <a style="font-weight: bold" href="/direct/course">英语四级作文写作技巧教学</a>
-                                            <!--单行隐藏内容加省略号<p style="text-overflow:ellipsis;white-space:nowrap;width:30em;overflow:hidden;">-->
                                             <a id="hhh" style="width:100%;word-break:break-all;display:-webkit-box;-webkit-line-clamp:2;
                                             -webkit-box-orient:vertical;overflow:hidden;" href="/direct/course">
                                                 同学，你是否苦恼于自己的英语作文每次考试都拉分？是否对于英语作文怎么写而感到迷茫？那么你可以参加我的技巧教学，只需两天，保证让你英语写作上升一个档次</a>
@@ -207,16 +211,16 @@
                         <!-- third list -->
                         <div class="tab-pane fade" id="other" role="tabpanel" aria-labelledby="other-tab">
                             <div class="card">
-                                <div class="card-header" id="headingThree">
+                                <div class="card-header" id="headingFive">
                                     <h5 class="mb-0">
                                         <button class="btn btn-link collapsed" data-toggle="collapse"
-                                                data-target="#collapseThree" aria-expanded="false"
-                                                aria-controls="collapseThree">
+                                                data-target="#collapseFive" aria-expanded="false"
+                                                aria-controls="collapseFive">
                                             Third Item
                                         </button>
                                     </h5>
                                 </div>
-                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                                <div id="collapseFive" class="collapse" aria-labelledby="headingFive"
                                      data-parent="#other">
                                     <div class="card-body">
                                         <img class="rounded-left cover" src="/static/image/avatar/Avatar.png"
@@ -247,6 +251,7 @@
                     <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and
                         tidy.
                     </p>
+                    <div id="star" data-num="3.5"></div>
                 </div>
             </div>
         </div>
@@ -296,6 +301,20 @@
                 alert($(e.currentTarget).val());
             }
         }
-    })
+    });
+    $(function () {
+        $("#star").raty({
+            score: function () {
+                return $(this).attr("data-num");
+            },
+            starOn: '/static/external/star-rating/image/star-on.png',
+            starOff: '/static/external/star-rating/image/star-off.png',
+            starHalf: '/static/external/star-rating/image/star-half.png',
+            readOnly: false,
+            halfShow: true,
+            size: 34
+        })
+    });
+
 </script>
 <#include "./common/foot.ftl">

@@ -12,7 +12,7 @@ import java.util.Date;
  * 课程
  *
  * @author Jim
- * @date 2018-04-06 11:00:05
+ * @date 2018-04-10 13:47:00
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
@@ -55,6 +55,14 @@ public class CampusCourseVO extends AbstractVO<CampusCourse> {
      * 课时节数
      */
     private Integer lessonNum;
+    /**
+     * 支付积分（求学悬赏）
+     */
+    private Integer payCredits;
+    /**
+     * 得到积分（教学收取）
+     */
+    private Integer getCredits;
     /**
      * 发布时间
      */
@@ -110,13 +118,15 @@ public class CampusCourseVO extends AbstractVO<CampusCourse> {
                 ", major=" + getMajor() +
                 ", course=" + getCourse() +
                 ", lessonNum=" + getLessonNum() +
+                ", payCredits=" + getPayCredits() +
+                ", getCredits=" + getGetCredits() +
                 ", publishTime=" + getPublishTime() +
                 ", finishTime=" + getFinishTime() +
                 ", personNum=" + getPersonNum() +
                 ", typeCourse=" + getTypeCourse() +
                 ", status=" + getStatus() +
-                ", createTime=" + getCreateTime() +
-                ", updateTime=" + getUpdateTime() +
+                                ", createTime=" + getCreateTime() +
+                                ", updateTime=" + getUpdateTime() +
                                 ", isDeleted=" + getIsDeleted() +
                             '}';
     }

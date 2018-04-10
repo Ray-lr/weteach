@@ -16,7 +16,7 @@ import java.util.Date;
  * 个人信息表
  *
  * @author Jim
- * @date 2018-04-06 20:49:07
+ * @date 2018-04-10 13:45:37
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
@@ -54,15 +54,15 @@ public class CampusUserInfo extends AbstractEntity<CampusUserInfo> {
     /**
      * 省/直辖市/自治区/特别行政区
      */
-    private String provinces;
+    private Integer province;
     /**
      * 市/自治州
      */
-    private String cities;
+    private Integer city;
     /**
      * 县/区
      */
-    private String countries;
+    private Integer county;
     /**
      * 入学年份
      */
@@ -84,13 +84,9 @@ public class CampusUserInfo extends AbstractEntity<CampusUserInfo> {
      */
     private String phone;
     /**
-     * QQ号码
+     * 联系方式（QQ,微信,邮箱）
      */
-    private String qicq;
-    /**
-     * 邮箱地址
-     */
-    private String email;
+    private String contact;
     /**
      * 个性签名
      */
