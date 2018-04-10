@@ -3,24 +3,24 @@ package com.legend.cloud.entity.campus;
 import com.legend.module.core.entity.AbstractEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
+
 
 
 /**
  * 个人信息表
  *
  * @author Jim
- * @date 2018-04-10 13:45:37
+ * @date 2018-04-10 16:04:29
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
 @Table(name = "campus_user_info")
+@ToString
 public class CampusUserInfo extends AbstractEntity<CampusUserInfo> {
     private static final long serialVersionUID = 1L;
 
@@ -33,6 +33,7 @@ public class CampusUserInfo extends AbstractEntity<CampusUserInfo> {
     /**
      * 用户基础id
      */
+    @Column(name = "base_user_id")
     private Integer baseUserId;
     /**
      * 用户实名
@@ -49,7 +50,7 @@ public class CampusUserInfo extends AbstractEntity<CampusUserInfo> {
     /**
      * 出生年月
      */
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date birthday;
     /**
      * 省/直辖市/自治区/特别行政区
@@ -66,6 +67,7 @@ public class CampusUserInfo extends AbstractEntity<CampusUserInfo> {
     /**
      * 入学年份
      */
+    @Column(name = "enrollment_year")
     private String enrollmentYear;
     /**
      * 系别
@@ -84,7 +86,11 @@ public class CampusUserInfo extends AbstractEntity<CampusUserInfo> {
      */
     private String phone;
     /**
-     * 联系方式（QQ,微信,邮箱）
+     * 邮箱
+     */
+    private String email;
+    /**
+     * 联系方式（QQ,微信,等等）
      */
     private String contact;
     /**
@@ -98,36 +104,44 @@ public class CampusUserInfo extends AbstractEntity<CampusUserInfo> {
     /**
      * 积分信誉等级
      */
+    @Column(name = "credits_level")
     private String creditsLevel;
     /**
      * 参与课程数
      */
+    @Column(name = "order_join")
     private Integer orderJoin;
     /**
      * 课程发布数
      */
+    @Column(name = "order_publish")
     private Integer orderPublish;
     /**
      * 课程完成数
      */
+    @Column(name = "order_finish")
     private Integer orderFinish;
     /**
      * 课程完成率
      */
+    @Column(name = "percentage_complete")
     private Double percentageComplete;
     /**
      * 创建时间
      */
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Column(name = "create_time")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createTime;
     /**
      * 修改时间
      */
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Column(name = "update_time")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date updateTime;
     /**
      * 是否删除
      */
+    @Column(name = "is_deleted")
     private Boolean isDeleted;
 
 }

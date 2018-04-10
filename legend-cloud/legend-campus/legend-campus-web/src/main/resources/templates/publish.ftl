@@ -92,6 +92,13 @@
                                                        data-toggle="tooltip"
                                                        data-placement="left" title="请输入课时节数">
                                             </div>
+                                            <!--悬赏积分-->
+                                            <div class="form-group">
+                                                <label for="payCredits">悬赏积分</label>
+                                                <input type="number" class="form-control" id="payCredits"
+                                                       data-toggle="tooltip"
+                                                       data-placement="left" title="请输入悬赏积分">
+                                            </div>
                                             <!--相关限制条件-->
                                             <div class="form-group">
                                                 <!--预计发布时间-->

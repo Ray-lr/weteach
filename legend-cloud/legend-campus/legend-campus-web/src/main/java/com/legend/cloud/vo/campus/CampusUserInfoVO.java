@@ -4,6 +4,8 @@ import com.legend.cloud.entity.campus.CampusUserInfo;
 import com.legend.module.core.vo.AbstractVO;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -12,10 +14,11 @@ import java.util.Date;
  * 个人信息表
  *
  * @author Jim
- * @date 2018-04-10 13:45:37
+ * @date 2018-04-10 16:04:29
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
+@ToString
 public class CampusUserInfoVO extends AbstractVO<CampusUserInfo> {
     private static final long serialVersionUID = 1L;
 
@@ -42,6 +45,7 @@ public class CampusUserInfoVO extends AbstractVO<CampusUserInfo> {
     /**
      * 出生年月
      */
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date birthday;
     /**
      * 省/直辖市/自治区/特别行政区
@@ -76,7 +80,11 @@ public class CampusUserInfoVO extends AbstractVO<CampusUserInfo> {
      */
     private String phone;
     /**
-     * 联系方式（QQ,微信,邮箱）
+     * 邮箱
+     */
+    private String email;
+    /**
+     * 联系方式（QQ,微信,等等）
      */
     private String contact;
     /**
@@ -110,10 +118,12 @@ public class CampusUserInfoVO extends AbstractVO<CampusUserInfo> {
     /**
      * 创建时间
      */
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createTime;
     /**
      * 修改时间
      */
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date updateTime;
     /**
      * 是否删除
@@ -130,34 +140,4 @@ public class CampusUserInfoVO extends AbstractVO<CampusUserInfo> {
         return (CampusUserInfoVO) super.parseFrom(campusUserInfo, ignoreProperties);
     }
 
-    @Override
-    public String toString() {
-        return "CampusUserInfoVO{" +
-                ", id=" + getId() +
-                ", baseUserId=" + getBaseUserId() +
-                ", name=" + getName() +
-                ", nickname=" + getNickname() +
-                ", sex=" + getSex() +
-                ", birthday=" + getBirthday() +
-                ", province=" + getProvince() +
-                ", city=" + getCity() +
-                ", county=" + getCounty() +
-                ", enrollmentYear=" + getEnrollmentYear() +
-                ", dept=" + getDept() +
-                ", major=" + getMajor() +
-                ", direction=" + getDirection() +
-                ", phone=" + getPhone() +
-                ", contact=" + getContact() +
-                ", signature=" + getSignature() +
-                ", credits=" + getCredits() +
-                ", creditsLevel=" + getCreditsLevel() +
-                ", orderJoin=" + getOrderJoin() +
-                ", orderPublish=" + getOrderPublish() +
-                ", orderFinish=" + getOrderFinish() +
-                ", percentageComplete=" + getPercentageComplete() +
-                ", createTime=" + getCreateTime() +
-                ", updateTime=" + getUpdateTime() +
-                ", isDeleted=" + getIsDeleted() +
-                '}';
-    }
 }

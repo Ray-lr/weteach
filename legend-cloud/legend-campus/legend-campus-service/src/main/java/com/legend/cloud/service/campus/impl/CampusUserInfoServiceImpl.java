@@ -84,6 +84,9 @@ public class CampusUserInfoServiceImpl extends AbstractLegendService<CampusUserI
         if (campusUserInfo.getPhone() != null) {
             criteria.andPhoneEqualTo(campusUserInfo.getPhone());
         }
+        if (campusUserInfo.getEmail() != null) {
+            criteria.andEmailEqualTo(campusUserInfo.getEmail());
+        }
         if (campusUserInfo.getContact() != null) {
             criteria.andContactEqualTo(campusUserInfo.getContact());
         }
