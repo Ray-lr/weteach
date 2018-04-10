@@ -1,14 +1,12 @@
 <#include "./common/head.ftl">
-
 <div id="vm">
-    <!-- 导航栏 -->
-<#include "common/component/navbar.ftl">
+    <!--顶部功能栏-->
+<#include "./common/component/navbar.ftl">
 
     <div class="container margin-top10" id="principal">
         <div class="row">
-            <!-- 个人信息左侧边栏 -->
-        <#include "common/component/personal-leftSide.ftl">
-            <div class="col-12 col-md-6" id="principal">
+        <#include "./common/component/personal-leftSide.ftl">
+            <div class="col-12 col-md-6">
                 <!-- 轮播图 -->
                 <div class="carousel slide" id="carouselExampleIndicators" data-ride="carousel">
                     <ol class="carousel-indicators">
@@ -257,8 +255,6 @@
     let vm = new Vue({
         el: "#vm",
         data: {
-            user: ${currentUser},
-            userInfo: "",
             study: {
                 list: []
             },
@@ -281,21 +277,6 @@
                 }
             });
         },
-        created: function () {
-            let _this = this;
-            $.get("/campus/userInfo/detail/" + _this.user.id, function (data) {
-                if (data.result) {
-                    vm.userInfo = data.data;
-                }
-            });
-        },
-        updated: function () {
-        },
-        methods: {
-            search: function (e) {
-                alert($(e.currentTarget).val());
-            }
-        }
     })
 </script>
 <#include "./common/foot.ftl">
