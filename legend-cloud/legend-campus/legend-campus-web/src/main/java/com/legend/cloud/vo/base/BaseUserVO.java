@@ -29,12 +29,13 @@ public class BaseUserVO extends UserVO<BaseUser> {
     /**
      * 昵称
      */
+    @JSONField(serialize = false)
     private String nickName;
     /**
      * 记住我
      */
     @JSONField(serialize = false)
-    private boolean rememberMe;
+    private Boolean rememberMe;
     /**
      * 最后登录时间
      */
