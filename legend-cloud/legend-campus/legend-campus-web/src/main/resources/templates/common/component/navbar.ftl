@@ -32,9 +32,9 @@
                         个人中心
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1">
-                        <a class="dropdown-item" href="/direct/myProfile">我的课程相关</a>
-                        <a class="dropdown-item" href="/direct/myProfile?person">个人信息中心</a>
-                        <a class="dropdown-item" href="/direct/myProfile?data">我的数据统计</a>
+                        <a class="dropdown-item" href="/direct/myProfile?type=course">我的课程相关</a>
+                        <a class="dropdown-item" href="/direct/myProfile?type=person">个人信息中心</a>
+                        <a class="dropdown-item" href="/direct/myProfile?type=data">我的数据统计</a>
                     </div>
                 </li>
                 <!--发布publish-->
@@ -45,8 +45,8 @@
                         发布课程
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
-                        <a class="dropdown-item" href="/direct/publish?seek">求学贴</a>
-                        <a class="dropdown-item" href="/direct/publish?teach">教学贴</a>
+                        <a class="dropdown-item" href="/direct/publish?type=seek">求学贴</a>
+                        <a class="dropdown-item" href="/direct/publish?type=teach">教学贴</a>
                     </div>
                 </li>
                 <li class="nav-item">
@@ -67,7 +67,7 @@
                              alt="Avatar">
                     </a>
                     <div class="dropdown-menu" aria-labelledby="personalMenu">
-                        <a class="dropdown-item" href="/direct/myProfile">个人主页</a>
+                        <a class="dropdown-item" href="/direct/myProfile?type=course">个人主页</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="/direct/messages">消息中心</a>
                         <a class="dropdown-item" href="/direct/settings">设置</a>
