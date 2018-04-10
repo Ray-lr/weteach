@@ -1,7 +1,7 @@
 /**
  * 全局变量
  */
-Vue.prototype.userInfo = null;
+
 
 /**
  * 全局函数
