@@ -9,7 +9,7 @@
 
             <hr width=100% size=1 color=#bbbcbc style="border:1 dashed #bbbcbc">
 
-            <#include "./personal/personal-info.ftl">
+        <#include "./common/component/personal-leftSide.ftl">
             <!--课程详细信息部分-->
             <div class="col-12 col-md-6" id="principal">
                 <!--标题-->
@@ -120,22 +120,7 @@
 <script>
     let vm = new Vue({
         el: "#vm",
-        data: {
-            user: ${currentUser},
-            userInfo: ""
-        },
-        beforeCreate: function () {
-        },
-        created: function () {
-            let _this = this;
-            $.get("/campus/userInfo/detail/" + _this.user.id, function (data) {
-                if (data.result) {
-                    vm.userInfo = data.data;
-                }
-            });
-        },
-        updated: function () {
-        },
+
         methods: {
             search: function (e) {
                 alert($(e.currentTarget).val());
