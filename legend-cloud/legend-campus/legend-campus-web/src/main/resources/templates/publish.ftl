@@ -58,7 +58,7 @@
                                                         </select>
                                                     </div>
                                                     <div class=" col col-md-8" v-show="">
-                                                        <select class="form-control" id="exampleFormControlSelect1"
+                                                        <select class="form-control" id="major"
                                                                 data-toggle="tooltip"
                                                                 data-placement="left" title="请选择专业">
                                                             <option selected="selected" value="0" id="majorOption"
@@ -101,13 +101,13 @@
                                             </div>
                                             <!--相关限制条件-->
                                             <div class="form-group">
-                                                <!--预计发布时间-->
-                                                <label for="dateTime">预计发布时间</label>
+                                                <!--预计开课时间-->
+                                                <label for="dateTime">预计开课时间</label>
                                                 <div class="input-group date form_datetime">
                                                     <input type="text" class="form-control" id="dateTime"
                                                            name="publishTime"
                                                            data-toggle="tooltip"
-                                                           data-placement="left" title="请输入预计发布时间"
+                                                           data-placement="left" title="请输入预计开课时间"
                                                            aria-describedby="expectedPublishTimeHelp"
                                                            placeholder="Date Time"
                                                            readonly>
@@ -201,13 +201,33 @@
                                                            data-placement="left" title="年级限制">
                                                 </h5>
                                                 <div class="form-group cancel_all" id="grade" style="display: none;">
-                                                    <select class="form-control" id="exampleFormControlSelect1"
+                                                    <!--<select class="form-control" id="exampleFormControlSelect1"
                                                             name="enrollmentYear">
                                                         <option>大学一年级</option>
                                                         <option>大学二年级</option>
                                                         <option>大学三年级</option>
                                                         <option>大学四年级</option>
-                                                    </select>
+                                                    </select>-->
+                                                    <div class="row" align="center">
+                                                        <div class="col">
+                                                            <p>大一
+                                                                <input type="checkbox" name="grade" id="gradeOne"/>
+                                                            </p>
+                                                            <p>大二
+                                                                <input type="checkbox" name="grade" id="gradeTwo"/>
+                                                            </p>
+                                                        </div>
+                                                        <div class="col">
+                                                            <p>大三
+                                                                <input type="checkbox" name="grade" id="gradeThree"/>
+                                                            </p>
+                                                            <p>大四
+                                                                <input type="checkbox" name="grade" id="gradeFour"/>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+
+
                                                 </div>
                                                 <div class="dropdown-divider"></div>
                                                 <!--人数限制-->

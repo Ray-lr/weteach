@@ -8,8 +8,22 @@
             <h1 class="alert-heading">课程详细信息</h1>
 
             <hr width=100% size=1 color=#bbbcbc style="border:1 dashed #bbbcbc">
+            <!--左侧信息栏-->
+            <div class="col col-md-3" id="others">
+                <#include "./common/component/other-info.ftl">
+                <div style="height:150px;">
+                    <h6 style="font-weight: bold">当前课程进度:75%</h6>
+                    <div align="left">
+                        <p>已完成课时:3</p>
+                        <p>剩余课时：1</p>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                             aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+                    </div>
+                </div>
 
-        <#include "./common/component/personal-leftSide.ftl">
+            </div>
             <!--课程详细信息部分-->
             <div class="col-12 col-md-6" id="principal">
                 <!--标题-->
@@ -127,5 +141,20 @@
             }
         }
     })
+    /*星级评分插件*/
+    $(function () {
+        $("#star").raty({
+            score: function () {
+                return $(this).attr("data-num");
+            },
+            starOn: '/static/external/star-rating/image/star-on.png',
+            starOff: '/static/external/star-rating/image/star-off.png',
+            starHalf: '/static/external/star-rating/image/star-half.png',
+            readOnly: true,
+            halfShow: true,
+            size: 34,
+
+        })
+    });
 </script>
 <#include "./common/foot.ftl">

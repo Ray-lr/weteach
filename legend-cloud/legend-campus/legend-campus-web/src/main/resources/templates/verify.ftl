@@ -52,17 +52,18 @@
                         </div>
                         <div align="center" style="height:150px;">
                             <button id="dd" type="submit" class="btn btn-success btn-lg btn-block"
-                                    data-toggle="modal" data-target="#myModal" onclick="textChange()">提交申请
+                                    data-toggle="modal" data-target="#examineMessage" onclick="textChange()">提交申请
                             </button>
                             <!-- 模态框（Modal） -->
-                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-                                 aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="examineMessage" tabindex="-1" role="dialog"
+                                 aria-labelledby="examineMessageLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h4 class="modal-title" id="myModalLabel">
-                                                提示
-                                            </h4>
+                                            <h4 class="modal-title" id="examineMessageLabel">提示</h4>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
                                         </div>
                                         <div class="modal-body">
                                             您的申请已提交，请耐心等待一到两个工作日，我们会在第一时间给您消息，谢谢。

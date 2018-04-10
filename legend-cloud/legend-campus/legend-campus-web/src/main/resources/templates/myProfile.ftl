@@ -119,9 +119,10 @@
                                 </div>
                                 <!--QQ号码-->
                                 <div class="form-group">
-                                    <label for="qicq">QQ号</label>
-                                    <input type="text" class="form-control" id="qicq"
-                                           name="qicq" :value="userInfo.info.qicq">
+                                    <label for="contact">联系方式</label>
+                                    <input type="text" class="form-control" id="contact"
+                                           name="contact" :value="userInfo.info.contact"
+                                           placeholder="QQ，微信或其他">
                                 </div>
                                 <!--邮箱-->
                                 <div class="form-group">

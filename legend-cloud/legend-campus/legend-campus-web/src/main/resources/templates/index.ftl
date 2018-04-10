@@ -251,7 +251,7 @@
                     <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and
                         tidy.
                     </p>
-                    <div id="star" data-num="3.5"></div>
+
                 </div>
             </div>
         </div>
