@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/static/external/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.css"
           media="screen">
     <link rel="stylesheet" href="/static/css/main-campus.css" media="screen">
+    <link rel="stylesheet" href="/static/external/star-rating/jquery.raty.css" media="screen">
 
 </head>
 <body>
@@ -24,6 +25,7 @@
 <script src="/static/external/HubSpot-messenger/build/js/messenger.js"></script>
 <script src="/static/external/pace-master/pace.js"></script>
 <script src="/static/external/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.js"></script>
+<script src="/static/external/star-rating/jquery.raty.js"></script>
 <script src="/static/js/jquery-validate.min.js"></script>
 <script src="/static/js/date.js"></script>
 <script src="/static/js/common/vue/vue-global.js"></script>

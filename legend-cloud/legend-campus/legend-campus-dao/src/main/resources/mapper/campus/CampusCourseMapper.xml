@@ -14,6 +14,8 @@
         <result column="major" property="major" jdbcType="INTEGER"/>
         <result column="course" property="course" jdbcType="INTEGER"/>
         <result column="lesson_num" property="lessonNum" jdbcType="INTEGER"/>
+        <result column="pay_credits" property="payCredits" jdbcType="INTEGER"/>
+        <result column="get_credits" property="getCredits" jdbcType="INTEGER"/>
         <result column="publish_time" property="publishTime" jdbcType="TIMESTAMP"/>
         <result column="finish_time" property="finishTime" jdbcType="TIMESTAMP"/>
         <result column="person_num" property="personNum" jdbcType="INTEGER"/>
@@ -69,6 +71,8 @@
         major,
         course,
         lessonNum,
+        payCredits,
+        getCredits,
         publishTime,
         finishTime,
         personNum,

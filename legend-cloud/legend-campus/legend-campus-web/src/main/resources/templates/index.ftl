@@ -69,12 +69,18 @@
                             <!--first demonstration-->
                             <div class="card">
                                 <div class="card-header" id="headingOne">
-                                    <h5 class="mb-0">
-                                        <button class="btn btn-link collapsed" data-toggle="collapse"
+                                    <h5 class="mb-0 row">
+                                        <button class="btn btn-link collapsed courseTitle" data-toggle="collapse"
                                                 data-target="#collapseOne" aria-expanded="false"
-                                                aria-controls="collapseOne" style="font-weight: bold;">
-                                            急求学霸一名来教教我线性代数，十万火急！
+                                                aria-controls="collapseOne"
+                                        >
+                                            急求学霸一名来教教我线性代数，十万火急！aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
                                         </button>
+                                        <div style="width: 10%" align="center" data-toggle="tooltip"
+                                             data-placement="right" title="10积分">
+                                            <img src="/static/external/star-rating/image/star-on.png" title="10积分">
+                                        </div>
+
                                     </h5>
                                 </div>
                                 <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
@@ -205,16 +211,16 @@
                         <!-- third list -->
                         <div class="tab-pane fade" id="other" role="tabpanel" aria-labelledby="other-tab">
                             <div class="card">
-                                <div class="card-header" id="headingThree">
+                                <div class="card-header" id="headingFive">
                                     <h5 class="mb-0">
                                         <button class="btn btn-link collapsed" data-toggle="collapse"
-                                                data-target="#collapseThree" aria-expanded="false"
-                                                aria-controls="collapseThree">
+                                                data-target="#collapseFive" aria-expanded="false"
+                                                aria-controls="collapseFive">
                                             Third Item
                                         </button>
                                     </h5>
                                 </div>
-                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                                <div id="collapseFive" class="collapse" aria-labelledby="headingFive"
                                      data-parent="#other">
                                     <div class="card-body">
                                         <img class="rounded-left cover" src="/static/image/avatar/Avatar.png"
@@ -245,6 +251,7 @@
                     <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and
                         tidy.
                     </p>
+                    <div id="star" data-num="3.5"></div>
                 </div>
             </div>
         </div>

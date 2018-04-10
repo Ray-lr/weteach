@@ -8,7 +8,7 @@ import java.util.List;
  * CampusCourse的example类
  *
  * @author Jim
- * @date 2018-04-06 11:00:05
+ * @date 2018-04-10 13:47:00
  */
 public class CampusCourseExample {
     protected String orderByClause;
@@ -648,6 +648,126 @@ public class CampusCourseExample {
 
         public Criteria andLessonNumNotBetween(Integer value1, Integer value2) {
             addCriterion("lesson_num not between", value1, value2, "lesson_num");
+            return (Criteria) this;
+        }
+
+        public Criteria andPayCreditsIsNull() {
+            addCriterion("pay_credits is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPayCreditsIsNotNull() {
+            addCriterion("pay_credits is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPayCreditsEqualTo(Integer value) {
+            addCriterion("pay_credits =", value, "pay_credits");
+            return (Criteria) this;
+        }
+
+        public Criteria andPayCreditsNotEqualTo(Integer value) {
+            addCriterion("'pay_credits <>", value, "pay_credits");
+            return (Criteria) this;
+        }
+
+        public Criteria andPayCreditsGreaterThan(Integer value) {
+            addCriterion("pay_credits >", value, "pay_credits");
+            return (Criteria) this;
+        }
+
+        public Criteria andPayCreditsGreaterThanOrEqualTo(Integer value) {
+            addCriterion("pay_credits >=", value, "pay_credits");
+            return (Criteria) this;
+        }
+
+        public Criteria andPayCreditsLessThan(Integer value) {
+            addCriterion("pay_credits <", value, "pay_credits");
+            return (Criteria) this;
+        }
+
+        public Criteria andPayCreditsLessThanOrEqualTo(Integer value) {
+            addCriterion("pay_credits <=", value, "pay_credits");
+            return (Criteria) this;
+        }
+
+        public Criteria andPayCreditsIn(List<Integer> values) {
+            addCriterion("pay_credits in", values, "pay_credits");
+            return (Criteria) this;
+        }
+
+        public Criteria andPayCreditsNotIn(List<Integer> values) {
+            addCriterion("pay_credits not in", values, "pay_credits");
+            return (Criteria) this;
+        }
+
+        public Criteria andPayCreditsBetween(Integer value1, Integer value2) {
+            addCriterion("pay_credits between", value1, value2, "pay_credits");
+            return (Criteria) this;
+        }
+
+        public Criteria andPayCreditsNotBetween(Integer value1, Integer value2) {
+            addCriterion("pay_credits not between", value1, value2, "pay_credits");
+            return (Criteria) this;
+        }
+
+        public Criteria andGetCreditsIsNull() {
+            addCriterion("get_credits is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGetCreditsIsNotNull() {
+            addCriterion("get_credits is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGetCreditsEqualTo(Integer value) {
+            addCriterion("get_credits =", value, "get_credits");
+            return (Criteria) this;
+        }
+
+        public Criteria andGetCreditsNotEqualTo(Integer value) {
+            addCriterion("'get_credits <>", value, "get_credits");
+            return (Criteria) this;
+        }
+
+        public Criteria andGetCreditsGreaterThan(Integer value) {
+            addCriterion("get_credits >", value, "get_credits");
+            return (Criteria) this;
+        }
+
+        public Criteria andGetCreditsGreaterThanOrEqualTo(Integer value) {
+            addCriterion("get_credits >=", value, "get_credits");
+            return (Criteria) this;
+        }
+
+        public Criteria andGetCreditsLessThan(Integer value) {
+            addCriterion("get_credits <", value, "get_credits");
+            return (Criteria) this;
+        }
+
+        public Criteria andGetCreditsLessThanOrEqualTo(Integer value) {
+            addCriterion("get_credits <=", value, "get_credits");
+            return (Criteria) this;
+        }
+
+        public Criteria andGetCreditsIn(List<Integer> values) {
+            addCriterion("get_credits in", values, "get_credits");
+            return (Criteria) this;
+        }
+
+        public Criteria andGetCreditsNotIn(List<Integer> values) {
+            addCriterion("get_credits not in", values, "get_credits");
+            return (Criteria) this;
+        }
+
+        public Criteria andGetCreditsBetween(Integer value1, Integer value2) {
+            addCriterion("get_credits between", value1, value2, "get_credits");
+            return (Criteria) this;
+        }
+
+        public Criteria andGetCreditsNotBetween(Integer value1, Integer value2) {
+            addCriterion("get_credits not between", value1, value2, "get_credits");
             return (Criteria) this;
         }
 

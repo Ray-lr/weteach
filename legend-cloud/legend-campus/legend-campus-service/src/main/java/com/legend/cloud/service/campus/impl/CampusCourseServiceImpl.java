@@ -14,7 +14,7 @@ import javax.annotation.Resource;
 
 /**
  * @author Jim
- * @date 2018/4/6
+ * @date 2018/4/10
  */
 @Service
 @Transactional(rollbackFor = Exception.class)
@@ -68,6 +68,12 @@ public class CampusCourseServiceImpl extends AbstractLegendService<CampusCourse>
         }
         if (campusCourse.getLessonNum() != null) {
             criteria.andLessonNumEqualTo(campusCourse.getLessonNum());
+        }
+        if (campusCourse.getPayCredits() != null) {
+            criteria.andPayCreditsEqualTo(campusCourse.getPayCredits());
+        }
+        if (campusCourse.getGetCredits() != null) {
+            criteria.andGetCreditsEqualTo(campusCourse.getGetCredits());
         }
         if (campusCourse.getPublishTime() != null) {
             criteria.andPublishTimeEqualTo(campusCourse.getPublishTime());
