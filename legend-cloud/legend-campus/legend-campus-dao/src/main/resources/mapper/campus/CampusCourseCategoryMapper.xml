@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.legend.cloud.campus.major.dao.mapper.CampusMajorMapper">
-    <resultMap id="BaseResultMap" type="com.legend.cloud.entity.campus.CampusMajor">
+<mapper namespace="com.legend.cloud.dao.mapper.campus.CampusCourseCategoryMapper">
+    <resultMap id="BaseResultMap" type="com.legend.cloud.model.pojo.entity.campus.CampusCourseCategory">
         <!--
                 WARNING-@mbg.generated
             -->
         <id column="id" property="id" jdbcType="INTEGER"/>
         <result column="name" property="name" jdbcType="VARCHAR"/>
-        <result column="dept_id" property="deptId" jdbcType="INTEGER"/>
+        <result column="parent_id" property="parentId" jdbcType="INTEGER"/>
         <result column="abbreviation" property="abbreviation" jdbcType="VARCHAR"/>
-        <result column="type_major" property="typeMajor" jdbcType="INTEGER"/>
+        <result column="description" property="description" jdbcType="VARCHAR"/>
+        <result column="type_course_category" property="typeCourseCategory" jdbcType="INTEGER"/>
         <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
         <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
         <result column="is_deleted" property="isDeleted" jdbcType="BIT"/>
@@ -53,14 +54,15 @@
                 -->
         id,
         name,
-        deptId,
+        parentId,
         abbreviation,
-        typeMajor,
+        description,
+        typeCourseCategory,
         createTime,
         updateTime,
-        isDeleted,
+        isDeleted
     </sql>
-    <select id="countByExample" parameterType="com.legend.cloud.entity.campus.CampusMajorExample"
+    <select id="countByExample" parameterType="com.legend.cloud.model.pojo.entity.campus.CampusCourseCategoryExample"
             resultType="java.lang
 .Long">
         <!--

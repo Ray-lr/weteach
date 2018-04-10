@@ -5,19 +5,19 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * CampusMajor的example类
+ * CampusCourseCategory的example类
  *
- * @author hupeiD
- * @date 2018-03-29 20:08:43
+ * @author Jim
+ * @date 2018-04-10 22:28:00
  */
-public class CampusMajorExample {
+public class CampusCourseCategoryExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public CampusMajorExample() {
+    public CampusCourseCategoryExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -231,63 +231,63 @@ public class CampusMajorExample {
             return (Criteria) this;
         }
 
-        public Criteria andDeptIdIsNull() {
-            addCriterion("dept_id is null");
+        public Criteria andParentIdIsNull() {
+            addCriterion("parent_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andDeptIdIsNotNull() {
-            addCriterion("dept_id is not null");
+        public Criteria andParentIdIsNotNull() {
+            addCriterion("parent_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andDeptIdEqualTo(Integer value) {
-            addCriterion("dept_id =", value, "dept_id");
+        public Criteria andParentIdEqualTo(Integer value) {
+            addCriterion("parent_id =", value, "parent_id");
             return (Criteria) this;
         }
 
-        public Criteria andDeptIdNotEqualTo(Integer value) {
-            addCriterion("'dept_id <>", value, "dept_id");
+        public Criteria andParentIdNotEqualTo(Integer value) {
+            addCriterion("'parent_id <>", value, "parent_id");
             return (Criteria) this;
         }
 
-        public Criteria andDeptIdGreaterThan(Integer value) {
-            addCriterion("dept_id >", value, "dept_id");
+        public Criteria andParentIdGreaterThan(Integer value) {
+            addCriterion("parent_id >", value, "parent_id");
             return (Criteria) this;
         }
 
-        public Criteria andDeptIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("dept_id >=", value, "dept_id");
+        public Criteria andParentIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("parent_id >=", value, "parent_id");
             return (Criteria) this;
         }
 
-        public Criteria andDeptIdLessThan(Integer value) {
-            addCriterion("dept_id <", value, "dept_id");
+        public Criteria andParentIdLessThan(Integer value) {
+            addCriterion("parent_id <", value, "parent_id");
             return (Criteria) this;
         }
 
-        public Criteria andDeptIdLessThanOrEqualTo(Integer value) {
-            addCriterion("dept_id <=", value, "dept_id");
+        public Criteria andParentIdLessThanOrEqualTo(Integer value) {
+            addCriterion("parent_id <=", value, "parent_id");
             return (Criteria) this;
         }
 
-        public Criteria andDeptIdIn(List<Integer> values) {
-            addCriterion("dept_id in", values, "dept_id");
+        public Criteria andParentIdIn(List<Integer> values) {
+            addCriterion("parent_id in", values, "parent_id");
             return (Criteria) this;
         }
 
-        public Criteria andDeptIdNotIn(List<Integer> values) {
-            addCriterion("dept_id not in", values, "dept_id");
+        public Criteria andParentIdNotIn(List<Integer> values) {
+            addCriterion("parent_id not in", values, "parent_id");
             return (Criteria) this;
         }
 
-        public Criteria andDeptIdBetween(Integer value1, Integer value2) {
-            addCriterion("dept_id between", value1, value2, "dept_id");
+        public Criteria andParentIdBetween(Integer value1, Integer value2) {
+            addCriterion("parent_id between", value1, value2, "parent_id");
             return (Criteria) this;
         }
 
-        public Criteria andDeptIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("dept_id not between", value1, value2, "dept_id");
+        public Criteria andParentIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("parent_id not between", value1, value2, "parent_id");
             return (Criteria) this;
         }
 
@@ -351,63 +351,123 @@ public class CampusMajorExample {
             return (Criteria) this;
         }
 
-        public Criteria andTypeMajorIsNull() {
-            addCriterion("type_major is null");
+        public Criteria andDescriptionIsNull() {
+            addCriterion("description is null");
             return (Criteria) this;
         }
 
-        public Criteria andTypeMajorIsNotNull() {
-            addCriterion("type_major is not null");
+        public Criteria andDescriptionIsNotNull() {
+            addCriterion("description is not null");
             return (Criteria) this;
         }
 
-        public Criteria andTypeMajorEqualTo(Integer value) {
-            addCriterion("type_major =", value, "type_major");
+        public Criteria andDescriptionEqualTo(String value) {
+            addCriterion("description =", value, "description");
             return (Criteria) this;
         }
 
-        public Criteria andTypeMajorNotEqualTo(Integer value) {
-            addCriterion("'type_major <>", value, "type_major");
+        public Criteria andDescriptionNotEqualTo(String value) {
+            addCriterion("'description <>", value, "description");
             return (Criteria) this;
         }
 
-        public Criteria andTypeMajorGreaterThan(Integer value) {
-            addCriterion("type_major >", value, "type_major");
+        public Criteria andDescriptionGreaterThan(String value) {
+            addCriterion("description >", value, "description");
             return (Criteria) this;
         }
 
-        public Criteria andTypeMajorGreaterThanOrEqualTo(Integer value) {
-            addCriterion("type_major >=", value, "type_major");
+        public Criteria andDescriptionGreaterThanOrEqualTo(String value) {
+            addCriterion("description >=", value, "description");
             return (Criteria) this;
         }
 
-        public Criteria andTypeMajorLessThan(Integer value) {
-            addCriterion("type_major <", value, "type_major");
+        public Criteria andDescriptionLessThan(String value) {
+            addCriterion("description <", value, "description");
             return (Criteria) this;
         }
 
-        public Criteria andTypeMajorLessThanOrEqualTo(Integer value) {
-            addCriterion("type_major <=", value, "type_major");
+        public Criteria andDescriptionLessThanOrEqualTo(Integer value) {
+            addCriterion("description <=", value, "description");
             return (Criteria) this;
         }
 
-        public Criteria andTypeMajorIn(List<Integer> values) {
-            addCriterion("type_major in", values, "type_major");
+        public Criteria andDescriptionIn(List<String> values) {
+            addCriterion("description in", values, "description");
             return (Criteria) this;
         }
 
-        public Criteria andTypeMajorNotIn(List<Integer> values) {
-            addCriterion("type_major not in", values, "type_major");
+        public Criteria andDescriptionNotIn(List<String> values) {
+            addCriterion("description not in", values, "description");
             return (Criteria) this;
         }
 
-        public Criteria andTypeMajorBetween(Integer value1, Integer value2) {
-            addCriterion("type_major between", value1, value2, "type_major");
+        public Criteria andDescriptionBetween(String value1, String value2) {
+            addCriterion("description between", value1, value2, "description");
             return (Criteria) this;
         }
 
-        public Criteria andTypeMajorNotBetween(Integer value1, Integer value2) {
-            addCriterion("type_major not between", value1, value2, "type_major");
+        public Criteria andDescriptionNotBetween(String value1, String value2) {
+            addCriterion("description not between", value1, value2, "description");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeCourseCategoryIsNull() {
+            addCriterion("type_course_category is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeCourseCategoryIsNotNull() {
+            addCriterion("type_course_category is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeCourseCategoryEqualTo(Integer value) {
+            addCriterion("type_course_category =", value, "type_course_category");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeCourseCategoryNotEqualTo(Integer value) {
+            addCriterion("'type_course_category <>", value, "type_course_category");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeCourseCategoryGreaterThan(Integer value) {
+            addCriterion("type_course_category >", value, "type_course_category");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeCourseCategoryGreaterThanOrEqualTo(Integer value) {
+            addCriterion("type_course_category >=", value, "type_course_category");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeCourseCategoryLessThan(Integer value) {
+            addCriterion("type_course_category <", value, "type_course_category");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeCourseCategoryLessThanOrEqualTo(Integer value) {
+            addCriterion("type_course_category <=", value, "type_course_category");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeCourseCategoryIn(List<Integer> values) {
+            addCriterion("type_course_category in", values, "type_course_category");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeCourseCategoryNotIn(List<Integer> values) {
+            addCriterion("type_course_category not in", values, "type_course_category");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeCourseCategoryBetween(Integer value1, Integer value2) {
+            addCriterion("type_course_category between", value1, value2, "type_course_category");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeCourseCategoryNotBetween(Integer value1, Integer value2) {
+            addCriterion("type_course_category not between", value1, value2, "type_course_category");
             return (Criteria) this;
         }
 
