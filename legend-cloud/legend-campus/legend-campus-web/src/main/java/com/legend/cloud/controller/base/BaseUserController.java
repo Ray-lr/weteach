@@ -3,8 +3,12 @@ package com.legend.cloud.controller.base;
 
 import com.alibaba.fastjson.JSON;
 import com.legend.cloud.entity.base.BaseUser;
+import com.legend.cloud.entity.campus.CampusUserInfo;
 import com.legend.cloud.service.base.BaseUserService;
+import com.legend.cloud.service.campus.CampusUserInfoService;
 import com.legend.cloud.vo.base.BaseUserVO;
+import com.legend.cloud.vo.campus.CampusUserInfoVO;
+import com.legend.cloud.vo.campus.complex.CampusUserVO;
 import com.legend.module.core.model.contant.arribute.Key;
 import com.legend.module.core.model.contant.message.result.user.UserResultMessage;
 import com.legend.module.core.model.json.result.Ajax;
@@ -38,8 +42,10 @@ public class BaseUserController extends AbstractUserController<BaseUserVO> {
     private BaseUserService baseUserService;
 
     @Resource
-    private SecurityManager securityManager;
+    private CampusUserInfoService campusUserInfoService;
 
+    @Resource
+    private SecurityManager securityManager;
 
     @Override
     public UserService getUserService() {
@@ -54,7 +60,7 @@ public class BaseUserController extends AbstractUserController<BaseUserVO> {
     @Override
     protected Ajax loginProcess(BaseUserVO baseUserVO) {
         UsernamePasswordToken token = new UsernamePasswordToken(baseUserVO.getUsername(), baseUserVO.getPassword
-                (), baseUserVO.isRememberMe(), "base");
+                (), baseUserVO.getRememberMe(), "base");
         SecurityUtils.setSecurityManager(securityManager);
         Subject subject = SecurityUtils.getSubject();
         try {
@@ -62,15 +68,20 @@ public class BaseUserController extends AbstractUserController<BaseUserVO> {
             if (!subject.isAuthenticated()) {
                 return Ajax.error();
             }
-            BaseUser currentUser = (BaseUser) subject.getPrincipal();
+            BaseUser baseUser = (BaseUser) subject.getPrincipal();
             // 更新最后登录时间
-            currentUser.setLastLoginTime(new Date());
-            baseUserService.updateById(currentUser);
+            baseUser.setLastLoginTime(new Date());
+            baseUserService.updateById(baseUser);
             // 设置用户到session
-            LOGGER.info(JSON.toJSONString(new BaseUserVO().parseFrom(currentUser, "password", "is_enabled", "status", "create_time",
-                    "update_time", "is_deleted")));
-            setCurrentUser(JSON.toJSONString(new BaseUserVO().parseFrom(currentUser, "password", "is_enabled", "status", "create_time",
-                    "update_time", "is_deleted")));
+            CampusUserVO currentUser = new CampusUserVO();
+            currentUser.setUser(new BaseUserVO().parseFrom(baseUser, "password"));
+            CampusUserInfo campusUserInfo = new CampusUserInfo();
+            campusUserInfo.setBaseUserId(baseUser.getId());
+            currentUser.setInfo(new CampusUserInfoVO().parseFrom(campusUserInfoService.get(campusUserInfo),
+                    "baseUserId"));
+            String jsonString = JSON.toJSONString(currentUser);
+            setCurrentUser(jsonString);
+            LOGGER.info(String.valueOf(getCurrentUser()));
             return Ajax.success(UserResultMessage.LOGIN_SUCCESS).put(Key.URL, "/direct/index");
         } catch (IncorrectCredentialsException e) {
             System.err.println(e.getLocalizedMessage());
