@@ -6,7 +6,7 @@
     <div class="container margin-top10" id="principal">
         <div class="row">
         <#include "./common/component/personal-leftSide.ftl">
-            <div class="col-12 col-md-8" id="principal">
+            <div class="col-12 col-md-8">
                 <!-- 课程列表 -->
                 <div class="row-fluid" id="courseList">
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -57,18 +57,18 @@
                         <div class="tab-pane fade" id="personInfo" role="tabpanel" aria-labelledby="personInfo-tab">
                             <form @submit.prevent="update($event)">
                                 <!--隐藏的id-->
-                                <input type="hidden" name="id" :value="userInfo.id">
+                                <input type="hidden" name="id" :value="userInfo.info.id">
                                 <!--真实姓名-->
                                 <div class="form-group">
                                     <label for="exampleFormControlInput1">真实姓名</label>
                                     <input type="text" class="form-control" id="exampleFormControlInput1"
-                                           name="name" :value="userInfo.name">
+                                           name="name" :value="userInfo.info.name">
                                 </div>
                                 <!-- 真实性别 -->
                                 <div class="form-group">
 
                                     <label for="male">男</label>
-                                    <input type="radio" name="sex" id="male" :value="userInfo.sex" checked/>
+                                    <input type="radio" name="sex" id="male" :value="userInfo.info.sex" checked/>
 
                                     <label for="female">女</label>
                                     <input type="radio" name="sex" id="female"/>
@@ -77,17 +77,17 @@
                                 <div class="form-group">
                                     <label for="exampleFormControlInput2">昵称</label>
                                     <input type="text" class="form-control" id="exampleFormControlInput2"
-                                           placeholder="18" name="nickname" :value="userInfo.nickname">
+                                           placeholder="18" name="nickname" :value="userInfo.info.nickname">
                                 </div>
                                 <!--生日-->
                                 <div class="form-group">
                                     <label for="birthday" class="col-md-2 control-label">出生日期</label>
-                                    <input type="hidden" :value="userInfo.birthday" name="birthday"
+                                    <input type="hidden" :value="userInfo.info.birthday" name="birthday"
                                            id="birthday">
                                     <div class="input-group date form_date"
                                          data-link-field="birthday">
                                         <input class="form-control" size="16" type="text"
-                                               :value="userInfo.birthday | date"
+                                               :value="userInfo.info.birthday | date"
                                                data-toggle="tooltip"
                                                data-placement="left" title="请输入日期"
                                                aria-describedby="dateHelp" placeholder="Date"
@@ -102,9 +102,9 @@
                                 </div>
                                 <!--入学年份-->
                                 <div class="form-group">
-                                    <label for="exampleFormControlSelect1">入学年份</label>
-                                    <select class="form-control" id="exampleFormControlSelect1" name="enrollmentYear">
-                                        <option disabled>{{userInfo.enrollmentYear}}</option>
+                                    <label for="enrollmentYear">入学年份</label>
+                                    <select class="form-control" id="enrollmentYear" name="enrollmentYear"
+                                            v-model="userInfo.info.enrollmentYear">
                                         <option value="2014">2014</option>
                                         <option value="2015">2015</option>
                                         <option value="2016">2016</option>
@@ -113,21 +113,21 @@
                                 </div>
                                 <!--电话号码-->
                                 <div class="form-group">
-                                    <label for="exampleFormControlInput3">手机号</label>
-                                    <input type="text" class="form-control" id="exampleFormControlInput3"
-                                           placeholder="1XX-XXXX-XXXX" name="phone" :value="userInfo.phone">
+                                    <label for="phone">手机号</label>
+                                    <input type="text" class="form-control" id="phone"
+                                           placeholder="1XX-XXXX-XXXX" name="phone" :value="userInfo.info.phone">
                                 </div>
                                 <!--QQ号码-->
                                 <div class="form-group">
-                                    <label for="exampleFormControlInput4">QQ号</label>
-                                    <input type="text" class="form-control" id="exampleFormControlInput4"
-                                           name="qicq" :value="userInfo.qicq">
+                                    <label for="qicq">QQ号</label>
+                                    <input type="text" class="form-control" id="qicq"
+                                           name="qicq" :value="userInfo.info.qicq">
                                 </div>
                                 <!--邮箱-->
                                 <div class="form-group">
-                                    <label for="exampleFormControlInput5">邮箱</label>
-                                    <input type="text" class="form-control" id="exampleFormControlInput5"
-                                           placeholder="name@example.com" name="email" :value="userInfo.email">
+                                    <label for="email">邮箱</label>
+                                    <input type="text" class="form-control" id="email"
+                                           placeholder="name@example.com" name="email" :value="userInfo.info.email">
                                 </div>
                             <#--
                             <div class="input-group">
@@ -153,43 +153,36 @@
                             </div>-->
                                 <!-- 籍贯 -->
                                 <div class="form-group">
-                                    <label for="exampleFormControlSelect1">籍贯</label>
+                                    <label for="province">籍贯</label>
                                     <div class="row">
                                         <!-- 省、直辖市-->
                                         <div class="col-md-4">
-                                            <select class="form-control" id="province" name="provinces"
-                                                    @change="changeProvince"
+                                            <select class="form-control" name="province"
+                                                    v-model="userInfo.info.province"
                                                     data-toggle="tooltip"
                                                     data-placement="left" title="请选择">
-                                                <option selected="selected" id="provinceOption" v-text="province"
-                                                        :value="userInfo.provinces"></option>
-                                                <option v-for="item in provinces.list" :value="item.id"
+                                                <option v-for="item in provinces" :value="item.id"
                                                         v-text="item.name"></option>
-
                                             </select>
                                         </div>
                                         <!-- 市/州 -->
                                         <div class="col-md-4">
-                                            <select class="form-control" id="city" name="cities" @change="changeCity"
+                                            <select class="form-control" name="city"
+                                                    v-model="userInfo.info.city"
                                                     data-toggle="tooltip"
                                                     data-placement="left" title="请选择">
-                                                <option selected="selected" id="cityOption" v-text="city"
-                                                        :value="userInfo.cities"></option>
                                                 <option v-for="item in cities" :value="item.id"
                                                         v-text="item.name"></option>
-
                                             </select>
                                         </div>
                                         <!-- 区/县 -->
                                         <div class="col col-md-4">
-                                            <select class="form-control" id="country" name="countries"
+                                            <select class="form-control" name="country"
+                                                    v-model="userInfo.info.country"
                                                     data-toggle="tooltip"
                                                     data-placement="left" title="请选择">
-                                                <option id="countryOption" selected="selected" v-text="country"
-                                                        :value="userInfo.countries"></option>
-                                                <option v-for="item in countries" :value="item.id"
+                                                <option v-for="item in counties" :value="item.id"
                                                         v-text="item.name"></option>
-
                                             </select>
                                         </div>
 
@@ -198,7 +191,7 @@
                                 <div class="form-group">
                                     <label for="exampleFormControlTextarea1">个性签名</label>
                                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-                                              name="signature" :value="userInfo.signature"></textarea>
+                                              name="signature" :value="userInfo.info.signature"></textarea>
                                 </div>
                                 <div align="center" style="height:150px;">
                                     <button type="submit" class="btn btn-outline-primary btn-lg btn-block" value="提交">
@@ -233,7 +226,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
@@ -241,11 +233,6 @@
     let vm = new Vue({
         el: "#vm",
         data: {
-            user: ${currentUser},
-            userInfo: "",
-            province: "--省/直辖市/自治区--",
-            city: "--市/自治州--",
-            country: "--区/县--",
             courseInfo: {
                 list: []
             },
@@ -255,95 +242,31 @@
             myCourseInfo: {
                 list: []
             },
-            provinces: {
-                list: []
-            },
-            cities: [],
-            countries: []
+            provinces: [{}],
+            cities: [{}],
+            counties: [{}]
         },
         beforeCreate: function () {
-            /*查省*/
-            $.ajax({
-                url: "/base/areas/list",
-                type: "get",
-                data: {
-                    typeAreas: 1
-                },
-                success: function (data) {
-                    if (data.result) {
-                        vm.provinces.list = data.data;
-                    }
-                }
-            });
 
         },
         created: function () {
+            vm.provinces = vm.getAreas(0);
             let _this = this;
             //获取我的课程相关
             $.ajax({
                 url: "/campus/course/list",
                 type: "get",
                 data: {
-                    userId: _this.user.id
+                    userId: _this.userInfo.id
                 },
                 success: function (data) {
                     if (data.result) {
                         vm.myCourseInfo.list = data.data;
                     }
-
                 }
             });
-            $.get("/campus/userInfo/detail/" + _this.user.id, function (data) {
-                if (data.result) {
-                    vm.userInfo = data.data;
-                    if (data.data.provinces != "" && data.data.cities != "" && data.data.countries != "") {
-                        $.ajax({
-                            url: "/base/areas/getAreaName",
-                            type: "get",
-                            data: {
-                                provinceId: data.data.provinces,
-                                cityId: data.data.cities,
-                                countryId: data.data.countries
-                            },
-                            success: function (e) {
-                                vm.province = e.data[0];
-                                vm.city = e.data[1];
-                                vm.country = e.data[2];
-                                $.ajax({
-                                    url: "/base/areas/list",
-                                    data: {
-                                        parentId: data.data.provinces
-                                    },
-                                    success: function (data) {
-                                        if (data.result) {
-                                            vm.cities = data.data;
-                                        }
-                                    }
-                                });
-                                $.ajax({
-                                    url: "/base/areas/list",
-                                    data: {
-                                        parentId: data.data.cities
-                                    },
-                                    success: function (data) {
-                                        if (data.result) {
-                                            vm.countries = data.data;
-                                        }
-                                    }
-                                });
-                            }
-                        })
-                    }
-                }
-            });
-        },
-        updated: function () {
-
         },
         methods: {
-            search: function (e) {
-                alert($(e.currentTarget).val());
-            },
             update: function (e) {
                 $(e.currentTarget).ajaxSubmit({
                     url: "/campus/userInfo/update",
@@ -359,55 +282,44 @@
                     }
                 });
             },
-            changeProvince: function (e) {
+            getAreas: function (val) {
+                let areas = [];
                 $.ajax({
                     url: "/base/areas/list",
+                    type: "get",
                     data: {
-                        parentId: e.target.value
+                        parentId: val
                     },
                     success: function (data) {
                         if (data.result) {
-                            vm.cities = data.data;
-                            /*当省改变的时候，将市的选择框改为未选择的默认值*/
-                            $("#cityOption").html("--市/自治州--");
-                            $("#countryOption").html("--区/县--");
-                            $("#cityOption").val(0);
-                            $("#countryOption").val(0);
-                            vm.countries = null;
+                            areas = data.data;
+                        } else {
+                            Messenger().post({
+                                id: "error",
+                                message: data.msg,//提示信息
+                                type: 'error',//消息类型。error、info、success
+                                hideAfter: 3,//多长时间消失
+                                showCloseButton: true,//是否显示关闭按钮
+                                hideOnNavigate: false//是否隐藏导航
+                            });
                         }
                     }
                 });
-            },
-            changeCity: function (e) {
-                $.ajax({
-                    url: "/base/areas/list",
-                    data: {
-                        parentId: e.target.value
-                    },
-                    success: function (data) {
-                        if (data.result) {
-                            vm.countries = data.data;
-                        }
-                    }
-                });
+                return areas;
+            }
+
+        },
+        watch: {
+            userInfo: {
+                province: function () {
+                    vm.cities = vm.getAreas(this.userInfo.province);
+                },
+                city: function () {
+                    vm.counties = vm.getAreas(this.userInfo.city);
+                }
             }
         }
     });
-    /*指定进入页面显示的分页*/
-    var navTab = window.location.search;
-    $(document).ready(function () {
-        if (navTab == "?person") {
-            $("#courseInfo-tab").removeClass("active");
-            $("#courseInfo").removeClass("active").removeClass("show");
-            $("#personInfo-tab").addClass("active");
-            $("#personInfo").addClass("active").addClass("show");
-        }
-        if (navTab == "?data") {
-            $("#courseInfo-tab").removeClass("active");
-            $("#courseInfo").removeClass("active").removeClass("show");
-            $("#dataInfo-tab").addClass("active");
-            $("#dataInfo").addClass("active").addClass("show");
-        }
-    });
+
 </script>
 <#include "./common/foot.ftl">
