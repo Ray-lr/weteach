@@ -34,5 +34,5 @@
 <script src="/static/js/common/vue/vue-global.js"></script>
 <script src="/static/js/common/campus-settings.js"></script>
 <script>
-    Vue.prototype.userInfo = <#if currentUser??>${currentUser}<#else>null</#if>;
+    Vue.prototype.user = <#if currentUser??>${currentUser}<#else>null</#if>;
 </script>
