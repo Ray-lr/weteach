@@ -72,15 +72,9 @@
                                     <h5 class="mb-0 row">
                                         <button class="btn btn-link collapsed courseTitle" data-toggle="collapse"
                                                 data-target="#collapseOne" aria-expanded="false"
-                                                aria-controls="collapseOne"
-                                        >
-                                            急求学霸一名来教教我线性代数，十万火急！aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                                                aria-controls="collapseOne">
+                                            急求学霸一名来教教我线性代数，十万火急！
                                         </button>
-                                        <div style="width: 10%" align="center" data-toggle="tooltip"
-                                             data-placement="right" title="10积分">
-                                            <img src="/static/external/star-rating/image/star-on.png" title="10积分">
-                                        </div>
-
                                     </h5>
                                 </div>
                                 <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
@@ -95,7 +89,6 @@
                                             -webkit-box-orient:vertical;overflow:hidden;" href="/direct/course">
                                                 如题，这学期我们在学线性代数，原本还能跟得上，后来家里有事请了一周假，回来后上课就听不懂了，现在急求一位学长或学姐能够帮帮我，不然下星期的课还是听不懂的话就越来越麻烦了，十万火急，希望能有学霸帮忙！</a>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
@@ -257,7 +250,7 @@
         </div>
     </div>
 </div>
-<#include "./common/style.ftl">
+
 <script>
     let vm = new Vue({
         el: "#vm",
