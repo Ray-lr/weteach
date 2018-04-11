@@ -84,12 +84,10 @@
                                 <!--生日-->
                                 <div class="form-group">
                                     <label for="birthday" class="col-md-2 control-label">出生日期</label>
-                                    <input type="hidden" name="birthday" :value="userInfo.birthday | date"
-                                           id="birthday">
-                                    <div class="input-group date form_date"
-                                         data-link-field="birthday" data-link-format="yyyy-mm-dd">
+                                    <div class="input-group date form_date">
                                         <input class="form-control" size="16" type="text"
                                                :value="userInfo.birthday | date"
+                                               name="birthday"
                                                data-toggle="tooltip"
                                                data-placement="left" title="请输入日期"
                                                aria-describedby="dateHelp" placeholder="Date"
