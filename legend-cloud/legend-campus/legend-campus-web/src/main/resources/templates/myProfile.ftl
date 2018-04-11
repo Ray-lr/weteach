@@ -11,26 +11,30 @@
                 <div class="row-fluid" id="courseList">
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" id="courseInfo-tab" data-toggle="tab" href="#courseInfo"
+                            <a class="nav-link <#if !type?? || type=="course">active</#if>" id="courseInfo-tab"
+                               data-toggle="tab"
+                               href="#courseInfo"
                                role="tab"
                                aria-controls="courseInfo" aria-selected="false">我的课程相关</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="personInfo-tab" data-toggle="tab" href="#personInfo" role="tab"
+                            <a class="nav-link <#if type?? && type=="personal">active</#if>" id="personInfo-tab"
+                               data-toggle="tab" href="#personInfo" role="tab"
                                aria-controls="personInfo" aria-selected="true">个人信息中心</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="dataInfo-tab" data-toggle="tab" href="#dataInfo" role="tab"
+                            <a class="nav-link <#if type?? && type=="data">active</#if>" id="dataInfo-tab"
+                               data-toggle="tab" href="#dataInfo" role="tab"
                                aria-controls="dataInfo" aria-selected="false">我的数据统计</a>
                         </li>
                     </ul>
 
                     <div class="tab-content" id="courseContent">
-                        <!-- first list -->
                         <!--我的课程相关-->
-                        <div class="tab-pane fade show active" id="courseInfo" role="tabpanel"
+                        <div class="tab-pane fade <#if !type?? || type=="course">show active</#if>" id="courseInfo"
+                             role="tabpanel"
                              aria-labelledby="courseInfo-tab">
-                            <div class="card" v-for="(item,index) of myCourseInfo.list">
+                            <div class="card" v-for="(item,index) of myCourseInfos">
                                 <div class="card-header bg-whitesmoke-tp25" :id="'heading-myCourse-'+index">
                                     <h5 class="mb-0">
                                         <button class="btn btn-link" data-toggle="collapse"
@@ -52,9 +56,9 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- second list -->
                         <!-- 个人信息完善 -->
-                        <div class="tab-pane fade" id="personInfo" role="tabpanel" aria-labelledby="personInfo-tab">
+                        <div class="tab-pane fade <#if type?? && type=="personal">show active</#if>" id="personInfo"
+                             role="tabpanel" aria-labelledby="personInfo-tab">
                             <form @submit.prevent="update($event)">
                                 <!--隐藏的id-->
                                 <input type="hidden" name="id" :value="userInfo.info.id">
@@ -82,19 +86,19 @@
                                 <!--生日-->
                                 <div class="form-group">
                                     <label for="birthday" class="col-md-2 control-label">出生日期</label>
-                                    <input type="hidden" :value="userInfo.info.birthday" name="birthday"
+                                    <input type="hidden" name="birthday" :value="userInfo.info.birthday | date"
                                            id="birthday">
                                     <div class="input-group date form_date"
-                                         data-link-field="birthday">
+                                         data-link-field="birthday" data-link-format="yyyy-mm-dd">
                                         <input class="form-control" size="16" type="text"
                                                :value="userInfo.info.birthday | date"
                                                data-toggle="tooltip"
                                                data-placement="left" title="请输入日期"
                                                aria-describedby="dateHelp" placeholder="Date"
                                                readonly>
-                                        <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
-                                        <span class="input-group-addon"><span
-                                                class="glyphicon glyphicon-th"></span></span>
+                                        <span class="input-group-addon"><i class="glyphicon
+                                        glyphicon-remove"></i></span>
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
                                     </div>
                                     <small id="dateHelp" class="form-text text-muted">
 
@@ -159,7 +163,7 @@
                                         <!-- 省、直辖市-->
                                         <div class="col-md-4">
                                             <select class="form-control" name="province"
-                                                    v-model="userInfo.info.province"
+                                                    v-model="province"
                                                     data-toggle="tooltip"
                                                     data-placement="left" title="请选择">
                                                 <option v-for="item in provinces" :value="item.id"
@@ -169,7 +173,7 @@
                                         <!-- 市/州 -->
                                         <div class="col-md-4">
                                             <select class="form-control" name="city"
-                                                    v-model="userInfo.info.city"
+                                                    v-model="city"
                                                     data-toggle="tooltip"
                                                     data-placement="left" title="请选择">
                                                 <option v-for="item in cities" :value="item.id"
@@ -178,8 +182,8 @@
                                         </div>
                                         <!-- 区/县 -->
                                         <div class="col col-md-4">
-                                            <select class="form-control" name="country"
-                                                    v-model="userInfo.info.country"
+                                            <select class="form-control" name="county"
+                                                    v-model="county"
                                                     data-toggle="tooltip"
                                                     data-placement="left" title="请选择">
                                                 <option v-for="item in counties" :value="item.id"
@@ -203,7 +207,9 @@
                             </form>
                         </div>
                         <!--浏览历史-->
-                        <div class="tab-pane fade" id="dataInfo" role="tabpanel" aria-labelledby="data-tab">
+                        <div class="tab-pane fade <#if type?? && type=="data">show active</#if>" id="dataInfo"
+                             role="tabpanel"
+                             aria-labelledby="data-tab">
                             <div class="card">
                                 <div class="card-header" id="headingThree">
                                     <h5 class="mb-0">
@@ -234,24 +240,18 @@
     let vm = new Vue({
         el: "#vm",
         data: {
-            courseInfo: {
-                list: []
-            },
-            personInfo: {
-                list: []
-            },
-            myCourseInfo: {
-                list: []
-            },
-            provinces: [{}],
-            cities: [{}],
-            counties: [{}]
-        },
-        beforeCreate: function () {
-
+            myCourseInfos: [],
+            provinces: [],
+            province: null,
+            cities: [],
+            city: null,
+            counties: [],
+            county: null
         },
         created: function () {
-            vm.provinces = vm.getAreas(0);
+            this.province = this.userInfo.info.province;
+            this.city = this.userInfo.info.city;
+            this.county = this.userInfo.info.county;
             let _this = this;
             //获取我的课程相关
             $.ajax({
@@ -262,38 +262,70 @@
                 },
                 success: function (data) {
                     if (data.result) {
-                        vm.myCourseInfo.list = data.data;
+                        _this.myCourseInfos = data.data;
                     }
                 }
             });
+            $.ajax({
+                url: "/base/areas/list",
+                type: "get",
+                data: {
+                    parentId: 0
+                },
+                success: function (data) {
+                    if (data.result) {
+                        _this.provinces = data.data;
+                    } else {
+                        Messenger().post({
+                            id: "error",
+                            message: data.msg,//提示信息
+                            type: 'error',//消息类型。error、info、success
+                            hideAfter: 3,//多长时间消失
+                            showCloseButton: true,//是否显示关闭按钮
+                            hideOnNavigate: false//是否隐藏导航
+                        });
+                    }
+                }
+            });
+
         },
         methods: {
             update: function (e) {
                 $(e.currentTarget).ajaxSubmit({
                     url: "/campus/userInfo/update",
-                    type: "POST",
+                    type: "POSt",
                     data: {
                         _method: "PUT"
                     },
                     success: function (data) {
-                        if (data.result) {
-                            alert(data.msg);
+                        Messenger().post({
+                            id: "error",
+                            message: data.msg,//提示信息
+                            type: data.result ? 'success' : 'error',//消息类型。error、info、success
+                            hideAfter: 3,//多长时间消失
+                            showCloseButton: true,//是否显示关闭按钮
+                            hideOnNavigate: false//是否隐藏导航
+                        });
+                        setTimeout(function () {
                             window.location.reload();
-                        }
+                        }, 3000);
                     }
                 });
-            },
-            getAreas: function (val) {
-                let areas = [];
+            }
+        },
+        watch: {
+            province: function () {
+                let _this = this;
                 $.ajax({
                     url: "/base/areas/list",
                     type: "get",
                     data: {
-                        parentId: val
+                        parentId: _this.province
                     },
                     success: function (data) {
                         if (data.result) {
-                            areas = data.data;
+                            _this.cities = data.data;
+                            _this.city = _this.cities[0].id;
                         } else {
                             Messenger().post({
                                 id: "error",
@@ -306,21 +338,36 @@
                         }
                     }
                 });
-                return areas;
-            }
-
-        },
-        watch: {
-            userInfo: {
-                province: function () {
-                    vm.cities = vm.getAreas(this.userInfo.province);
-                },
-                city: function () {
-                    vm.counties = vm.getAreas(this.userInfo.city);
-                }
-            }
+            },
+            city: function () {
+                let _this = this;
+                $.ajax({
+                    url: "/base/areas/list",
+                    type: "get",
+                    data: {
+                        parentId: _this.city
+                    },
+                    success: function (data) {
+                        if (data.result) {
+                            _this.counties = data.data;
+                            _this.county = _this.counties[0].id;
+                        } else {
+                            Messenger().post({
+                                id: "error",
+                                message: data.msg,//提示信息
+                                type: 'error',//消息类型。error、info、success
+                                hideAfter: 3,//多长时间消失
+                                showCloseButton: true,//是否显示关闭按钮
+                                hideOnNavigate: false//是否隐藏导航
+                            });
+                        }
+                    }
+                });
+            },
+            deep: true
         }
-    });
+    })
+
 
 </script>
 <#include "./common/foot.ftl">

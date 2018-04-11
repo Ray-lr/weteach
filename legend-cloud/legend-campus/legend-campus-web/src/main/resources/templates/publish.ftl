@@ -41,31 +41,32 @@
                                             </div>
                                             <!--系别专业-->
                                             <div class="form-group">
-                                                <label for="exampleFormControlSelect1">系/专业</label>
+                                                <label for="course">课程</label>
                                                 <div class="row">
                                                     <div class="col col-md-8">
-                                                        <select class="form-control" id="department"
-                                                                @change="changeDepartment"
+                                                        <select class="form-control" id="dept"
+                                                                v-model="dept"
                                                                 data-toggle="tooltip"
                                                                 data-placement="left" title="请选择系别">
-                                                            <option selected="selected" value="0"
-                                                                    id="departmentOption" disabled>--
-                                                                请选择系别
-                                                                --
-                                                            </option>
-                                                            <option v-for="item in departments" :value="item.id"
+                                                            <option v-for="item in dept" :value="item.id"
                                                                     v-text="item.name"></option>
                                                         </select>
                                                     </div>
-                                                    <div class=" col col-md-8" v-show="">
+                                                    <div class=" col col-md-8">
                                                         <select class="form-control" id="major"
+                                                                v-model="major"
                                                                 data-toggle="tooltip"
                                                                 data-placement="left" title="请选择专业">
-                                                            <option selected="selected" value="0" id="majorOption"
-                                                                    disabled>--
-                                                                请选择专业 --
-                                                            </option>
                                                             <option v-for="item in majors" :value="item.id"
+                                                                    v-text="item.name"></option>
+                                                        </select>
+                                                    </div>
+                                                    <div class=" col col-md-8">
+                                                        <select class="form-control" id="course"
+                                                                v-model="course"
+                                                                data-toggle="tooltip"
+                                                                data-placement="left" title="请选择课程">
+                                                            <option v-for="item in courses" :value="item.id"
                                                                     v-text="item.name"></option>
                                                         </select>
                                                     </div>
@@ -99,9 +100,8 @@
                                                        data-toggle="tooltip"
                                                        data-placement="left" title="请输入悬赏积分">
                                             </div>
-                                            <!--相关限制条件-->
+                                            <!--预计开课时间-->
                                             <div class="form-group">
-                                                <!--预计开课时间-->
                                                 <label for="dateTime">预计开课时间</label>
                                                 <div class="input-group date form_datetime">
                                                     <input type="text" class="form-control" id="dateTime"
@@ -226,8 +226,6 @@
                                                             </p>
                                                         </div>
                                                     </div>
-
-
                                                 </div>
                                                 <div class="dropdown-divider"></div>
                                                 <!--人数限制-->
@@ -278,11 +276,16 @@
     let vm = new Vue({
         el: "#vm",
         data: {
-            departments: [],
+            depts: [],
+            dept: null,
             majors: [],
+            major: null,
+            courses: [],
+            course: null,
             submitText: "发布课程"
         },
-        beforeCreate: function () {
+        created: function () {
+            let _this = this;
             $.ajax({
                 url: "/campus/major/list",
                 type: "get",
@@ -291,97 +294,94 @@
                 },
                 success: function (data) {
                     if (data.result) {
-                        vm.departments = data.data;
+                        _this.depts = data.data;
+                    } else {
+                        Messenger().post({
+                            id: "error",
+                            message: data.msg,//提示信息
+                            type: 'error',//消息类型。error、info、success
+                            hideAfter: 3,//多长时间消失
+                            showCloseButton: true,//是否显示关闭按钮
+                            hideOnNavigate: false//是否隐藏导航
+                        });
                     }
 
                 }
             });
         },
         methods: {
-            search: function (e) {
-                alert($(e.currentTarget).val());
-            },
-            SignOut: function () {
-                $.ajax({
-                    url: "/base/user/logout",
-                    type: "POST",
-                    data: {
-                        _method: "PUT"
-                    },
-                    success: function (data) {
-                        if (data.result) {
-                            window.location.href = data.url;
-                        }
-                    }
-                })
-            },
-            changeDepartment: function (e) {
-                $.ajax({
-                    url: "/campus/major/list",
-                    type: "get",
-                    data: {
-                        deptId: e.target.value
-                    },
-                    success: function (data) {
-                        if (data.result) {
-                            vm.majors = data.data;
-                            $("#majorOption").prop("selected", "selected");
-                        }
-                    }
-                })
-            },
             publish: function (e) {
                 $(e.currentTarget).find("input[type='submit']").attr("disabled", "disabled");
                 Messenger().post({
                     id: "messenger",
                     message: "您的申请已提交，请耐心等待一到两个工作日。",//提示信息
                     type: "info",//消息类型。error、info、success
-                    hideAfter: 5,//多长时间消失
+                    hideAfter: 3,//多长时间消失
                     showCloseButton: true,//是否显示关闭按钮
                     hideOnNavigate: false//是否隐藏导航
                 });
                 vm.submitText = "请耐心等待";
+                setTimeout(function () {
+                    window.location.reload();
+                }, 3000);
             }
-
+        },
+        watch: {
+            dept: function () {
+                let _this = this;
+                $.ajax({
+                    url: "/campus/major/list",
+                    type: "get",
+                    data: {
+                        typeCourseCategory: _this.dept
+                    },
+                    success: function (data) {
+                        if (data.result) {
+                            _this.majors = data.data;
+                            _this.major = _this.majors[0].id;
+                        } else {
+                            Messenger().post({
+                                id: "error",
+                                message: data.msg,//提示信息
+                                type: 'error',//消息类型。error、info、success
+                                hideAfter: 3,//多长时间消失
+                                showCloseButton: true,//是否显示关闭按钮
+                                hideOnNavigate: false//是否隐藏导航
+                            });
+                        }
+                    }
+                });
+            },
+            major: function () {
+                let _this = this;
+                $.ajax({
+                    url: "/campus/major/list",
+                    type: "get",
+                    data: {
+                        typeCourseCategory: _this.major
+                    },
+                    success: function (data) {
+                        if (data.result) {
+                            _this.courses = data.data;
+                            _this.course = _this.courses[0].id;
+                        } else {
+                            Messenger().post({
+                                id: "error",
+                                message: data.msg,//提示信息
+                                type: 'error',//消息类型。error、info、success
+                                hideAfter: 3,//多长时间消失
+                                showCloseButton: true,//是否显示关闭按钮
+                                hideOnNavigate: false//是否隐藏导航
+                            });
+                        }
+                    }
+                });
+            }
         }
     });
 
-
-    $("").validate({
-        submitHandler: function () {
-
-        }
-    });
-
-
-
-    /*根据不同链接的传值选取课程类型*/
-    var typeCourse = window.location.search;
-    $(document).ready(function () {
-        if (typeCourse == "?seek") {
-            $("#seek").prop("checked", true);
-        }
-        if (typeCourse == "?teach") {
-            $("#teach").prop("checked", true);
-        }
-    });
-    /*submit点击后不可选取*/
-    $().ready(function () {
-        $("#qd").click(function () {
-            $("#dd").addClass('diabled');
-            $("#dd").prop('disabled', true);
-        });
-    });
     /*点击展开限制条件*/
     $(document).ready(function () {
-        $("#seek").ready(function () {
-            if (typeCourse == "?1") {
-                $("#seek").prop("checked", true);
-            }
-            if (typeCourse == "?2") {
-                $("#teach").prop("checked", true);
-            }
-        });
         $("#major_limit").click(function () {
             $("#major").toggle();
         });
@@ -399,11 +399,5 @@
             $("input").prop("checked", false);
         });
     });
-
-    /*submit点击后文字改变*/
-    function textChange() {
-        document.getElementById("dd").innerHTML = "请耐心等待";
-    }
-
 </script>
 <#include "./common/foot.ftl">

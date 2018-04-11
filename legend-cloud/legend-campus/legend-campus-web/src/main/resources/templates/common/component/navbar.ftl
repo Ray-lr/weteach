@@ -9,8 +9,8 @@
         <!-- 搜索框 -->
         <form class="form-inline my-1 my-lg-0 input-group-sm">
             <input class="form-control mr-sm-1 rounded " type="search" placeholder="Search"
-                   aria-label="Search" onkeyup="search()"
-                   @keyup.enter="search($event)">
+                   aria-label="Search"
+                   @keyup.enter="this.search($event)">
         </form>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler-left"
@@ -33,7 +33,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1">
                         <a class="dropdown-item" href="/direct/myProfile?type=course">我的课程相关</a>
-                        <a class="dropdown-item" href="/direct/myProfile?type=person">个人信息中心</a>
+                        <a class="dropdown-item" href="/direct/myProfile?type=personal">个人信息中心</a>
                         <a class="dropdown-item" href="/direct/myProfile?type=data">我的数据统计</a>
                     </div>
                 </li>

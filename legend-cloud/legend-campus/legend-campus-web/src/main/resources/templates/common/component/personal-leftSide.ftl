@@ -22,7 +22,7 @@
             <li class="list-group-item" v-text="userInfo.user.id"></li>
         </ul>
         <div class="card-body">
-            <a href="/direct/myProfile?page=course" class="card-link">详细信息</a>
+            <a href="/direct/myProfile?type=course" class="card-link">详细信息</a>
             <a href="/direct/verify" class="card-link">教师认证</a>
         </div>
     </div>
