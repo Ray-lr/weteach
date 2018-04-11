@@ -1,10 +1,13 @@
 package com.legend.cloud.controller.campus;
 
 
+import com.legend.cloud.campus.facade.CoursePublishFacade;
 import com.legend.cloud.controller.CampusController;
 import com.legend.cloud.entity.campus.CampusCourse;
 import com.legend.cloud.service.campus.CampusCourseService;
+import com.legend.cloud.vo.base.BaseUserVO;
 import com.legend.cloud.vo.campus.CampusCourseVO;
+import com.legend.cloud.vo.complex.CoursePublishVO;
 import com.legend.module.core.model.contant.arribute.Column;
 import com.legend.module.core.model.contant.arribute.Key;
 import com.legend.module.core.model.contant.code.result.AjaxCode;
@@ -13,6 +16,7 @@ import com.legend.module.core.model.json.result.Ajax;
 import com.legend.module.core.model.json.result.AjaxValidate;
 import com.legend.module.core.utils.PageUtils;
 import com.legend.module.core.utils.Query;
+import net.sf.jsqlparser.expression.DateTimeLiteralExpression;
 import org.apache.shiro.authz.AuthorizationException;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.validation.BindingResult;
@@ -33,6 +37,8 @@ public class CampusCourseController extends CampusController {
 
     @Resource
     private CampusCourseService campusCourseService;
+    @Resource
+    private CoursePublishFacade coursePublishFacade;
 
     @GetMapping("/list")
     @RequiresPermissions("campus:course:list")
@@ -69,13 +75,19 @@ public class CampusCourseController extends CampusController {
 
     @PostMapping("/add")
     // @RequiresPermissions("campus:course:add")
-    public Ajax add(@Validated CampusCourseVO campusCourseVO, BindingResult bindingResult) {
+    public Ajax add(@Validated CoursePublishVO coursePublishVO, BindingResult bindingResult, String limitGrade) {
         try {
             if (bindingResult.hasErrors()) {
                 return AjaxValidate.processBindingResult(bindingResult);
             }
-            int saveResult = campusCourseService.save(campusCourseVO.parseTo(Column.ID));
-            return saveResult == 1 ? Ajax.success(AjaxMessage.SAVE_SUCCESS) : Ajax.error(AjaxMessage.SAVE_FAILURE, AjaxCode
+            coursePublishVO.getLimit().setGrade(Integer.parseInt(limitGrade));
+            BaseUserVO baseUserVO = (BaseUserVO) getCurrentUser();
+            String orderNumber = DateTimeLiteralExpression.DateTime.TIME.toString() + baseUserVO.getId();
+            coursePublishVO.getBase().setOrderNumber(orderNumber);
+            int saveResult = coursePublishFacade.publish(coursePublishVO.getBase().parseTo(Column.ID), coursePublishVO.getOrder().parseTo(Column.ID),
+                    coursePublishVO.getCourse().parseTo(Column.ID), coursePublishVO.getLimit().parseTo(Column.ID));
+
+            return saveResult == 4 ? Ajax.success(AjaxMessage.SAVE_SUCCESS) : Ajax.error(AjaxMessage.SAVE_FAILURE, AjaxCode
                     .SAVE_FAILURE);
         } catch (Exception e) {
             e.printStackTrace();

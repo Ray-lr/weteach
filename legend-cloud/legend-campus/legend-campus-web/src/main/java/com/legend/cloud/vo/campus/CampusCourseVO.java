@@ -4,6 +4,7 @@ import com.legend.cloud.entity.campus.CampusCourse;
 import com.legend.module.core.vo.AbstractVO;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -66,6 +67,7 @@ public class CampusCourseVO extends AbstractVO<CampusCourse> {
     /**
      * 发布时间
      */
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date publishTime;
     /**
      * 完成时间
