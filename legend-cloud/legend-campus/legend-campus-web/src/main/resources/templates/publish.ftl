@@ -190,22 +190,34 @@
                                                     <div class="row" align="center">
                                                         <div class="col">
                                                             <p>大一
-                                                                <input type="checkbox" v-model="limitGrade" value="1"
-                                                                       id="gradeOne"/>
+                                                                <input type="checkbox" value="1"
+                                                                       name="limit.grade"
+                                                                       id="gradeOne"
+                                                                       data-toggle="tooltip"
+                                                                       data-placement="left" title="大一">
                                                             </p>
                                                             <p>大二
-                                                                <input type="checkbox" v-model="limitGrade" value="2"
-                                                                       id="gradeTwo"/>
+                                                                <input type="checkbox" value="2"
+                                                                       name="limit.grade"
+                                                                       id="gradeTwo"
+                                                                       data-toggle="tooltip"
+                                                                       data-placement="left" title="大二">
                                                             </p>
                                                         </div>
                                                         <div class="col">
                                                             <p>大三
-                                                                <input type="checkbox" v-model="limitGrade" value="3"
-                                                                       id="gradeThree"/>
+                                                                <input type="checkbox" value="3"
+                                                                       name="limit.grade"
+                                                                       id="gradeThree"
+                                                                       data-toggle="tooltip"
+                                                                       data-placement="left" title="大三">
                                                             </p>
                                                             <p>大四
-                                                                <input type="checkbox" v-model="limitGrade" value="4"
-                                                                       id="gradeFour"/>
+                                                                <input type="checkbox" value="4"
+                                                                       name="limit.grade"
+                                                                       id="gradeFour"
+                                                                       data-toggle="tooltip"
+                                                                       data-placement="left" title="大四">
                                                             </p>
                                                         </div>
                                                     </div>
@@ -399,22 +411,34 @@
                                                     <div class="row" align="center">
                                                         <div class="col">
                                                             <p>大一
-                                                                <input type="checkbox" v-model="limitGrade" :value="1"
-                                                                       id="gradeOne"/>
+                                                                <input type="checkbox" value="1"
+                                                                       name="limit.grade"
+                                                                       id="gradeOne"
+                                                                       data-toggle="tooltip"
+                                                                       data-placement="left" title="大一">
                                                             </p>
                                                             <p>大二
-                                                                <input type="checkbox" v-model="limitGrade" :value="2"
-                                                                       id="gradeTwo"/>
+                                                                <input type="checkbox" value="2"
+                                                                       name="limit.grade"
+                                                                       id="gradeTwo"
+                                                                       data-toggle="tooltip"
+                                                                       data-placement="left" title="大二">
                                                             </p>
                                                         </div>
                                                         <div class="col">
                                                             <p>大三
-                                                                <input type="checkbox" v-model="limitGrade" :value="3"
-                                                                       id="gradeThree"/>
+                                                                <input type="checkbox" value="3"
+                                                                       name="limit.grade"
+                                                                       id="gradeThree"
+                                                                       data-toggle="tooltip"
+                                                                       data-placement="left" title="大三">
                                                             </p>
                                                             <p>大四
-                                                                <input type="checkbox" v-model="limitGrade" :value="4"
-                                                                       id="gradeFour"/>
+                                                                <input type="checkbox" value="4"
+                                                                       name="limit.grade"
+                                                                       id="gradeFour"
+                                                                       data-toggle="tooltip"
+                                                                       data-placement="left" title="大四">
                                                             </p>
                                                         </div>
                                                     </div>
@@ -463,7 +487,6 @@
     let vm = new Vue({
         el: "#vm",
         data: {
-            limitGrade: [],
             depts: [],
             dept: null,
             majors: [],
@@ -501,12 +524,10 @@
             publish: function (e) {
                 $(e.currentTarget).find("input[type='submit']").attr("disabled", "disabled");
                 vm.submitText = "请耐心等待";
+                let _this = this;
                 $(e.currentTarget).ajaxSubmit({
                     url: "/campus/course/add",
-                    type: "post",
-                    data: {
-                        limitGrade: vm.limitGrade
-                    },
+                    type: "POST",
                     success: function (data) {
                         Messenger().post({
                             id: "messenger",
