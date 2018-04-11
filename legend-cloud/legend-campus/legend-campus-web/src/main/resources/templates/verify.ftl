@@ -33,6 +33,14 @@
                             </select>
                         </div>
                         <div class="form-group">
+                            <label for="exampleFormControlSelect1">认证课程</label>
+                            <select class="form-control" id="exampleFormControlSelect1" name="major">
+                                <option selected="selected" id="courseOption">-- 请选择课程 --</option>
+                                <option v-for="item in course" :value="item.id"
+                                        v-text="item.name"></option>
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label for="exampleFormControlTextarea1">认证理由</label>
                             <textarea name="reason" class="form-control" id="exampleFormControlTextarea1"
                                       rows="3"></textarea>
