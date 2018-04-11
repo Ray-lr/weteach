@@ -67,7 +67,7 @@ public class CampusCourseVO extends AbstractVO<CampusCourse> {
     /**
      * 发布时间
      */
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
     private Date publishTime;
     /**
      * 完成时间
