@@ -8,7 +8,6 @@ import com.legend.cloud.service.base.BaseUserService;
 import com.legend.cloud.service.campus.CampusUserInfoService;
 import com.legend.cloud.vo.base.BaseUserVO;
 import com.legend.cloud.vo.campus.CampusUserInfoVO;
-import com.legend.cloud.vo.campus.complex.CampusUserVO;
 import com.legend.module.core.model.contant.arribute.Key;
 import com.legend.module.core.model.contant.message.result.user.UserResultMessage;
 import com.legend.module.core.model.json.result.Ajax;
@@ -73,14 +72,11 @@ public class BaseUserController extends AbstractUserController<BaseUserVO> {
             baseUser.setLastLoginTime(new Date());
             baseUserService.updateById(baseUser);
             // 设置用户到session
-            CampusUserVO currentUser = new CampusUserVO();
-            currentUser.setUser(new BaseUserVO().parseFrom(baseUser, "password"));
             CampusUserInfo campusUserInfo = new CampusUserInfo();
             campusUserInfo.setBaseUserId(baseUser.getId());
-            currentUser.setInfo(new CampusUserInfoVO().parseFrom(campusUserInfoService.get(campusUserInfo),
-                    "baseUserId"));
-            String jsonString = JSON.toJSONString(currentUser);
-            setCurrentUser(jsonString);
+            CampusUserInfoVO currentUser = new CampusUserInfoVO().parseFrom(campusUserInfoService.get(campusUserInfo));
+            currentUser.setUsername(baseUser.getUsername());
+            setCurrentUser(JSON.toJSONString(currentUser));
             LOGGER.info(String.valueOf(getCurrentUser()));
             return Ajax.success(UserResultMessage.LOGIN_SUCCESS).put(Key.URL, "/direct/index");
         } catch (IncorrectCredentialsException e) {
