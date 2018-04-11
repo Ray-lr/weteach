@@ -118,7 +118,6 @@ public class CampusUserInfoVO extends AbstractVO<CampusUserInfo> {
     /**
      * 积分信誉等级
      */
-    @JSONField(serialize = false)
     private String creditsLevel;
     /**
      * 参与课程数
