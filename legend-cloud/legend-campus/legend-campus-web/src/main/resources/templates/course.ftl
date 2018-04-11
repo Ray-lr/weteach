@@ -134,27 +134,6 @@
 <script>
     let vm = new Vue({
         el: "#vm",
-
-        methods: {
-            search: function (e) {
-                alert($(e.currentTarget).val());
-            }
-        }
-    })
-    /*星级评分插件*/
-    $(function () {
-        $("#star").raty({
-            score: function () {
-                return $(this).attr("data-num");
-            },
-            starOn: '/static/external/star-rating/image/star-on.png',
-            starOff: '/static/external/star-rating/image/star-off.png',
-            starHalf: '/static/external/star-rating/image/star-half.png',
-            readOnly: true,
-            halfShow: true,
-            size: 34,
-
-        })
     });
 </script>
 <#include "./common/foot.ftl">

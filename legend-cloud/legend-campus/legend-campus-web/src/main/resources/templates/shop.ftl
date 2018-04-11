@@ -23,6 +23,7 @@
     </div>
 </div>
 <script>
+    alert("尚未开放，敬请期待！")
     let vm = new Vue({
         el: "#vm",
         data: {},
