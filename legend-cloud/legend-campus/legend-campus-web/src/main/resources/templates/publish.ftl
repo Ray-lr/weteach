@@ -36,6 +36,9 @@
                                         <div class="col col-md-8">
                                         <#--隐藏的课程类型-->
                                             <input type="hidden" name="course.typeCourse" value="求学">
+                                            <input type="hidden" name="base.userId" :value="user.baseUserId">
+                                            <input type="hidden" name="course.userId" :value="user.baseUserId">
+                                            <input type="hidden" name="order.userId" :value="user.baseUserId">
                                             <!--标题-->
                                             <div class="form-group">
                                                 <label for="courseTitle">课程标题</label>
@@ -50,7 +53,7 @@
                                                 <div class="row">
                                                     <div class="col col-md-8">
                                                         <select class="form-control" id="dept"
-                                                                v-model="dept"
+                                                                v-model="dept" name="course.dept"
                                                                 data-toggle="tooltip"
                                                                 data-placement="left" title="请选择系别">
                                                             <option v-for="item in depts" :value="item.id"
@@ -59,7 +62,7 @@
                                                     </div>
                                                     <div class=" col col-md-8">
                                                         <select class="form-control" id="major" v-model="major"
-                                                                data-toggle="tooltip"
+                                                                data-toggle="tooltip" name="course.major"
                                                                 data-placement="left" title="请选择专业">
                                                             <option v-for="item in majors" :value="item.id"
                                                                     v-text="item.name"></option>
@@ -67,7 +70,7 @@
                                                     </div>
                                                     <div class=" col col-md-8">
                                                         <select class="form-control" id="course"
-                                                                v-model="course"
+                                                                v-model="course" name="course.course"
                                                                 data-toggle="tooltip"
                                                                 data-placement="left" title="请选择课程">
                                                             <option v-for="item in courses" :value="item.id"
@@ -501,11 +504,17 @@
             publish: function (e) {
                 $(e.currentTarget).find("input[type='submit']").attr("disabled", "disabled");
                 vm.submitText = "请耐心等待";
+                var grade = "";
+                for (var i = 0; i < vm.limitGrade.length; i++) {
+                    grade += vm.limitGrade[i];
+                }
+                ;
+                alert(grade);
                 $(e.currentTarget).ajaxSubmit({
                     url: "/campus/course/add",
                     type: "post",
                     data: {
-                        limitGrade: vm.limitGrade
+                        limitGrade: grade
                     },
                     success: function (data) {
                         Messenger().post({
