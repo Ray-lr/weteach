@@ -27,7 +27,7 @@
                     </ul>
 
                     <div class="tab-content">
-                        <!-- first list -->
+                        <!-- 求学贴 -->
                         <div class="tab-pane fade show active form-group" id="study" role="tabpanel"
                              aria-labelledby="study-tab">
                             <form @submit.prevent="publish($event)">
@@ -138,11 +138,12 @@
                                                 <h5>专业限制
                                                     <input type="checkbox"
                                                            aria-label="Checkbox for following text input"
-                                                           class="major_limit" name="a"
+                                                           id="seek_major_limit" name="a"
                                                            data-toggle="tooltip"
                                                            data-placement="left" title="专业限制">
                                                 </h5>
-                                                <div class="form-group cancel_all major" style="display: none">
+                                                <div class="form-group cancel_all" id="seek_major"
+                                                     style="display: none">
                                                     <label for="courseTime">系别</label>
                                                     <select class="form-control" id="department"
                                                             name="limit.dept"
@@ -164,11 +165,11 @@
                                                 <h5>性别限制
                                                     <input type="checkbox"
                                                            aria-label="Checkbox for following text input"
-                                                           class="sex_limit" name="a"
+                                                           id="seek_sex_limit" name="a"
                                                            data-toggle="tooltip"
                                                            data-placement="left" title="性别限制">
                                                 </h5>
-                                                <div class="form-group cancel_all sex" align="center" id="sex"
+                                                <div class="form-group cancel_all" align="center" id="seek_sex"
                                                      style="display: none;">
                                                     <label for="male">男</label>
                                                     <input type="radio" name="limit.sex" value="1" id="male" checked/>
@@ -181,11 +182,11 @@
                                                 <h5>年级限制
                                                     <input type="checkbox"
                                                            aria-label="Checkbox for following text input"
-                                                           class="grade_limit" name="a"
+                                                           id="seek_grade_limit" name="a"
                                                            data-toggle="tooltip"
                                                            data-placement="left" title="年级限制">
                                                 </h5>
-                                                <div class="form-group cancel_all grade" id="grade"
+                                                <div class="form-group cancel_all" id="seek_grade"
                                                      style="display: none;">
                                                     <div class="row" align="center">
                                                         <div class="col">
@@ -220,7 +221,7 @@
                                 </div>
                             </form>
                         </div>
-                        <!-- second list -->
+                        <!-- 教学贴 -->
                         <div class="tab-pane fade form-group" id="teaching" role="tabpanel"
                              aria-labelledby="teaching-tab">
                             <form @submit.prevent="publish($event)">
@@ -343,11 +344,12 @@
                                                 <h5>专业限制
                                                     <input type="checkbox"
                                                            aria-label="Checkbox for following text input"
-                                                           class="major_limit" name="a"
+                                                           id="teach_major_limit" name="a"
                                                            data-toggle="tooltip"
                                                            data-placement="left" title="专业限制">
                                                 </h5>
-                                                <div class="form-group cancel_all major" style="display: none">
+                                                <div class="form-group cancel_all" id="teach_major"
+                                                     style="display: none">
                                                     <label for="courseTime">系别</label>
                                                     <select class="form-control" id="department"
                                                             name="limit.dept"
@@ -373,11 +375,11 @@
                                                 <h5>性别限制
                                                     <input type="checkbox"
                                                            aria-label="Checkbox for following text input"
-                                                           class="sex_limit" name="a"
+                                                           id="teach_sex_limit" name="a"
                                                            data-toggle="tooltip"
                                                            data-placement="left" title="性别限制">
                                                 </h5>
-                                                <div class="form-group cancel_all sex" align="center" id="sex"
+                                                <div class="form-group cancel_all" align="center" id="teach_sex"
                                                      style="display: none;">
                                                     <label for="male">男</label>
                                                     <input type="radio" name="sex" id="male" checked/>
@@ -390,11 +392,11 @@
                                                 <h5>年级限制
                                                     <input type="checkbox"
                                                            aria-label="Checkbox for following text input"
-                                                           class="grade_limit" name="a"
+                                                           id="teach_grade_limit" name="a"
                                                            data-toggle="tooltip"
                                                            data-placement="left" title="年级限制">
                                                 </h5>
-                                                <div class="form-group cancel_all grade" id="grade"
+                                                <div class="form-group cancel_all" id="teach_grade"
                                                      style="display: none;">
                                                     <div class="row" align="center">
                                                         <div class="col">
@@ -424,11 +426,11 @@
                                                 <h5>人数限制
                                                     <input type="checkbox"
                                                            aria-label="Checkbox for following text input"
-                                                           class="person_num_limit" name="a"
+                                                           id="person_num_limit" name="a"
                                                            data-toggle="tooltip"
                                                            data-placement="left" title="人数限制">
                                                 </h5>
-                                                <div id="person_num" class="form-group cancel_all person_num"
+                                                <div id="person_num" class="form-group cancel_all"
                                                      style="display: none;">
                                                     <div class="form-group">
                                                         <label for="courseTime"></label>
@@ -580,22 +582,57 @@
 
     /*点击展开限制条件*/
     $(document).ready(function () {
-        $(".major_limit").click(function () {
-            $(".major").toggle();
+        $("#seek_major_limit").click(function () {
+            $("#seek_major").toggle();
         });
-        $(".sex_limit").click(function () {
-            $(".sex").toggle();
+        $("#seek_sex_limit").click(function () {
+            $("#seek_sex").toggle();
         });
-        $(".grade_limit").click(function () {
-            $(".grade").toggle();
+        $("#seek_grade_limit").click(function () {
+            $("#seek_grade").toggle();
         });
-        $(".person_num_limit").click(function () {
-            $(".person_num").toggle();
+        $("#teach_major_limit").click(function () {
+            $("#teach_major").toggle();
+        });
+        $("#teach_sex_limit").click(function () {
+            $("#teach_sex").toggle();
+        });
+        $("#teach_grade_limit").click(function () {
+            $("#teach_grade").toggle();
+        });
+        $("#person_num_limit").click(function () {
+            $("#person_num").toggle();
         });
         $(".hide").click(function () {
             $(".cancel_all").hide();
             $("input").prop("checked", false);
         });
+
     });
+    /*$().ready(function(){
+        $('input').iCheck({
+            checkboxClass: 'icheckbox_minimal-red',
+            radioClass: 'iradio_minimal-red',
+            increaseArea: '20%' // optional
+        });
+    });
+    $(".sex_limit").on('ifChanged', function(event){
+        $(".sex").toggle();
+    });
+    $(".grade_limit").on('ifChanged', function(event){
+        $(".grade").toggle();
+    });
+    $(".person_num_limit").on('ifChanged', function(event){
+        $(".person_num").toggle();
+    });
+    $(".hide").on('ifChecked', function(event){ //ifCreated 事件应该在插件初始化之前绑定
+        $(".cancel_all").hide();
+        $('input').iCheck("checked", false);
+    });*/
+    /*submit点击后文字改变*/
+    function textChange() {
+        document.getElementById("dd").innerHTML = "请耐心等待";
+    }
+
 </script>
 <#include "./common/foot.ftl">
