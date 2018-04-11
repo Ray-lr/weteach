@@ -15,7 +15,9 @@
                                data-toggle="tab"
                                href="#courseInfo"
                                role="tab"
-                               aria-controls="courseInfo" aria-selected="false">我的课程相关</a>
+                               aria-controls="courseInfo" aria-selected="false">我的课程相关
+                            </a>
+
                         </li>
                         <li class="nav-item">
                             <a class="nav-link <#if type?? && type=="personal">active</#if>" id="personInfo-tab"
@@ -34,6 +36,40 @@
                         <div class="tab-pane fade <#if !type?? || type=="course">show active</#if>" id="courseInfo"
                              role="tabpanel"
                              aria-labelledby="courseInfo-tab">
+
+
+                            <!--<div class="btn-group">
+                                <button class="btn btn-secondary btn-lg" type="button">
+                                    课程类型
+                                </button>
+                                <button type="button" class="btn btn-lg btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="sr-only">Toggle Dropdown</span>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">求学贴</a>
+                                    <a class="dropdown-item" href="#">教学贴</a>
+                                </div>
+                            </div>
+
+                            <div class="btn-group">
+                                <button class="btn btn-secondary btn-lg" type="button">
+                                    课程状态
+                                </button>
+                                <button type="button" class="btn btn-lg btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="sr-only">Toggle Dropdown</span>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">未审核</a>
+                                    <a class="dropdown-item" href="#">审核已驳回</a>
+                                    <a class="dropdown-item" href="#">审核已通过</a>
+                                    <a class="dropdown-item" href="#">报名中</a>
+                                    <a class="dropdown-item" href="#">等待开课</a>
+                                    <a class="dropdown-item" href="#">开课中</a>
+                                    <a class="dropdown-item" href="#">已结课</a>
+                                    <a class="dropdown-item" href="#">已经取消</a>
+                                </div>
+                            </div>-->
+
                             <div class="card" v-for="(item,index) of myCourseInfos">
                                 <div class="card-header bg-whitesmoke-tp25" :id="'heading-myCourse-'+index">
                                     <h5 class="mb-0">
@@ -374,8 +410,13 @@
             },
             deep: true
         }
-    })
-
-
+    });
+    $().ready(function () {
+        $('input').iCheck({
+            checkboxClass: 'icheckbox_minimal-blue',
+            radioClass: 'iradio_minimal-blue',
+            increaseArea: '20%' // optional
+        });
+    });
 </script>
 <#include "./common/foot.ftl">
