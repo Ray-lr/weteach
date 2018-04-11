@@ -70,11 +70,18 @@
                             <div class="card">
                                 <div class="card-header" id="headingOne">
                                     <h5 class="mb-0 row">
-                                        <button class="btn btn-link collapsed courseTitle" data-toggle="collapse"
-                                                data-target="#collapseOne" aria-expanded="false"
-                                                aria-controls="collapseOne">
-                                            急求学霸一名来教教我线性代数，十万火急！
-                                        </button>
+                                        <div style="width: 90%" align="left">
+                                            <button class="btn btn-link collapsed courseTitle" data-toggle="collapse"
+                                                    data-target="#collapseOne" aria-expanded="false"
+                                                    aria-controls="collapseOne">
+                                                急求学霸一名来教教我线性代数，十万火急！
+                                            </button>
+                                        </div>
+
+                                        <div style="width: 10%" align="left" data-toggle="tooltip"
+                                             data-placement="right" title="10积分">
+                                            <img src="/static/external/star-rating/image/star-on.png" title="10积分">
+                                        </div>
                                     </h5>
                                 </div>
                                 <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
