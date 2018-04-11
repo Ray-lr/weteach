@@ -28,5 +28,6 @@ public class CoursePublishVO {
     /**
      * 订单表存订单详细信息
      */
+    @Valid
     private CampusOrderVO order;
 }
