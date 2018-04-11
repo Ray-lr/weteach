@@ -9,23 +9,18 @@
                 alt="Cover">-->
     </a>
     <div class="card-body">
-        <h5 class="card-title font-weight-bold" v-text="userInfo.info.nickname">
+        <h5 class="card-title font-weight-bold" v-text="user.nickname">
         </h5>
-        <h6 class="card-title font-weight-normal" v-text="userInfo.user.username"></h6>
-        <p class="card-text font-weight-light" v-text="userInfo.info.phone"></p>
+        <h6 class="card-title font-weight-normal" v-text="user.username"></h6>
+        <p class="card-text font-weight-light" v-text="user.phone"></p>
+        <div class="dropdown-divider"></div>
+        <p class="card-text font-weight-light" v-text="user.dept"></p>
+        <p class="card-text font-weight-light" v-text="user.major"></p>
+        <div class="dropdown-divider"></div>
+        <div data-toggle="tooltip"
+             data-placement="left" title="当前信誉星级">
+            <div class="star" :data-num="user.creditsLevel"></div>
+        </div>
     </div>
-    <div class="dropdown-divider"></div>
-    <div class="card-body">
-        <p class="card-text font-weight-light" v-text="userInfo.info.dept"></p>
-        <p class="card-text font-weight-light" v-text="userInfo.info.major"></p>
-    </div>
-    <div class="dropdown-divider"></div>
-    <div class="card-body" data-toggle="tooltip"
-         data-placement="left" title="当前信誉星级">
-        <div id="star" data-num="3.5"></div>
-    </div>
-    <ul class="list-group list-group-flush">
-        <li class="list-group-item" v-text="userInfo.info.creditsLevel"></li>
-    </ul>
 </div>
 
