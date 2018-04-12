@@ -32,7 +32,7 @@ import java.util.Date;
  * @date 2018/3/17
  */
 @RestController
-@RequestMapping("/base/user")
+@RequestMapping("/user/user")
 public class BaseUserController extends AbstractUserController<BaseUserVO> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(BaseUserController.class);
