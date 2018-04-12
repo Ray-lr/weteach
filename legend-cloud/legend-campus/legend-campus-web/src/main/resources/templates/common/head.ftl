@@ -34,11 +34,11 @@
 <script src="/static/external/star-rating/jquery.raty.js"></script>
 <script src="/static/external/icheck-1.x/icheck.min.js"></script>
 <script src="/static/js/bootstrap.min.js"></script>
-<script src="/static/js/jquery-validate.min.js"></script>
 <script src="/static/js/date.js"></script>
 <script src="/static/js/common/vue/vue-global.js"></script>
 <script src="/static/js/common/campus-settings.js"></script>
 <script src="/static/js/echarts.common.min.js"></script>
 <script>
     Vue.prototype.user = <#if currentUser??>${currentUser}<#else>null</#if>;
+    Vue.prototype.pagenation = <#if pagenation??>${pagenation}<#else>null</#if>;
 </script>
