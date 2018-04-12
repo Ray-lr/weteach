@@ -8,7 +8,7 @@ import java.util.List;
  * CampusCourse的example类
  *
  * @author hupeiD
- * @date 2018-04-12 10:38:07
+ * @date 2018-04-12 14:41:00
  */
 public class CampusCourseExample {
     protected String orderByClause;
@@ -21,20 +21,20 @@ public class CampusCourseExample {
         oredCriteria = new ArrayList<Criteria>();
     }
 
-    public String getOrderByClause() {
-        return orderByClause;
-    }
-
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
     }
 
-    public boolean isDistinct() {
-        return distinct;
+    public String getOrderByClause() {
+        return orderByClause;
     }
 
     public void setDistinct(boolean distinct) {
         this.distinct = distinct;
+    }
+
+    public boolean isDistinct() {
+        return distinct;
     }
 
     public List<Criteria> getOredCriteria() {
@@ -831,6 +831,186 @@ public class CampusCourseExample {
             return (Criteria) this;
         }
 
+        public Criteria andApplyEndTimeIsNull() {
+            addCriterion("apply_end_time is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyEndTimeIsNotNull() {
+            addCriterion("apply_end_time is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyEndTimeEqualTo(Date value) {
+            addCriterion("apply_end_time =", value, "apply_end_time");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyEndTimeNotEqualTo(Date value) {
+            addCriterion("'apply_end_time <>", value, "apply_end_time");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyEndTimeGreaterThan(Date value) {
+            addCriterion("apply_end_time >", value, "apply_end_time");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyEndTimeGreaterThanOrEqualTo(Date value) {
+            addCriterion("apply_end_time >=", value, "apply_end_time");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyEndTimeLessThan(Date value) {
+            addCriterion("apply_end_time <", value, "apply_end_time");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyEndTimeLessThanOrEqualTo(Integer value) {
+            addCriterion("apply_end_time <=", value, "apply_end_time");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyEndTimeIn(List<Date> values) {
+            addCriterion("apply_end_time in", values, "apply_end_time");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyEndTimeNotIn(List<Date> values) {
+            addCriterion("apply_end_time not in", values, "apply_end_time");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyEndTimeBetween(Date value1, Date value2) {
+            addCriterion("apply_end_time between", value1, value2, "apply_end_time");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplyEndTimeNotBetween(Date value1, Date value2) {
+            addCriterion("apply_end_time not between", value1, value2, "apply_end_time");
+            return (Criteria) this;
+        }
+
+        public Criteria andBeginTimeIsNull() {
+            addCriterion("begin_time is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBeginTimeIsNotNull() {
+            addCriterion("begin_time is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBeginTimeEqualTo(Date value) {
+            addCriterion("begin_time =", value, "begin_time");
+            return (Criteria) this;
+        }
+
+        public Criteria andBeginTimeNotEqualTo(Date value) {
+            addCriterion("'begin_time <>", value, "begin_time");
+            return (Criteria) this;
+        }
+
+        public Criteria andBeginTimeGreaterThan(Date value) {
+            addCriterion("begin_time >", value, "begin_time");
+            return (Criteria) this;
+        }
+
+        public Criteria andBeginTimeGreaterThanOrEqualTo(Date value) {
+            addCriterion("begin_time >=", value, "begin_time");
+            return (Criteria) this;
+        }
+
+        public Criteria andBeginTimeLessThan(Date value) {
+            addCriterion("begin_time <", value, "begin_time");
+            return (Criteria) this;
+        }
+
+        public Criteria andBeginTimeLessThanOrEqualTo(Integer value) {
+            addCriterion("begin_time <=", value, "begin_time");
+            return (Criteria) this;
+        }
+
+        public Criteria andBeginTimeIn(List<Date> values) {
+            addCriterion("begin_time in", values, "begin_time");
+            return (Criteria) this;
+        }
+
+        public Criteria andBeginTimeNotIn(List<Date> values) {
+            addCriterion("begin_time not in", values, "begin_time");
+            return (Criteria) this;
+        }
+
+        public Criteria andBeginTimeBetween(Date value1, Date value2) {
+            addCriterion("begin_time between", value1, value2, "begin_time");
+            return (Criteria) this;
+        }
+
+        public Criteria andBeginTimeNotBetween(Date value1, Date value2) {
+            addCriterion("begin_time not between", value1, value2, "begin_time");
+            return (Criteria) this;
+        }
+
+        public Criteria andEndTimeIsNull() {
+            addCriterion("end_time is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEndTimeIsNotNull() {
+            addCriterion("end_time is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEndTimeEqualTo(Date value) {
+            addCriterion("end_time =", value, "end_time");
+            return (Criteria) this;
+        }
+
+        public Criteria andEndTimeNotEqualTo(Date value) {
+            addCriterion("'end_time <>", value, "end_time");
+            return (Criteria) this;
+        }
+
+        public Criteria andEndTimeGreaterThan(Date value) {
+            addCriterion("end_time >", value, "end_time");
+            return (Criteria) this;
+        }
+
+        public Criteria andEndTimeGreaterThanOrEqualTo(Date value) {
+            addCriterion("end_time >=", value, "end_time");
+            return (Criteria) this;
+        }
+
+        public Criteria andEndTimeLessThan(Date value) {
+            addCriterion("end_time <", value, "end_time");
+            return (Criteria) this;
+        }
+
+        public Criteria andEndTimeLessThanOrEqualTo(Integer value) {
+            addCriterion("end_time <=", value, "end_time");
+            return (Criteria) this;
+        }
+
+        public Criteria andEndTimeIn(List<Date> values) {
+            addCriterion("end_time in", values, "end_time");
+            return (Criteria) this;
+        }
+
+        public Criteria andEndTimeNotIn(List<Date> values) {
+            addCriterion("end_time not in", values, "end_time");
+            return (Criteria) this;
+        }
+
+        public Criteria andEndTimeBetween(Date value1, Date value2) {
+            addCriterion("end_time between", value1, value2, "end_time");
+            return (Criteria) this;
+        }
+
+        public Criteria andEndTimeNotBetween(Date value1, Date value2) {
+            addCriterion("end_time not between", value1, value2, "end_time");
+            return (Criteria) this;
+        }
+
         public Criteria andFinishTimeIsNull() {
             addCriterion("finish_time is null");
             return (Criteria) this;
@@ -1276,6 +1456,38 @@ public class CampusCourseExample {
 
         private String typeHandler;
 
+        public String getCondition() {
+            return condition;
+        }
+
+        public Object getValue() {
+            return value;
+        }
+
+        public Object getSecondValue() {
+            return secondValue;
+        }
+
+        public boolean isNoValue() {
+            return noValue;
+        }
+
+        public boolean isSingleValue() {
+            return singleValue;
+        }
+
+        public boolean isBetweenValue() {
+            return betweenValue;
+        }
+
+        public boolean isListValue() {
+            return listValue;
+        }
+
+        public String getTypeHandler() {
+            return typeHandler;
+        }
+
         protected Criterion(String condition) {
             super();
             this.condition = condition;
@@ -1310,38 +1522,6 @@ public class CampusCourseExample {
 
         protected Criterion(String condition, Object value, Object secondValue) {
             this(condition, value, secondValue, null);
-        }
-
-        public String getCondition() {
-            return condition;
-        }
-
-        public Object getValue() {
-            return value;
-        }
-
-        public Object getSecondValue() {
-            return secondValue;
-        }
-
-        public boolean isNoValue() {
-            return noValue;
-        }
-
-        public boolean isSingleValue() {
-            return singleValue;
-        }
-
-        public boolean isBetweenValue() {
-            return betweenValue;
-        }
-
-        public boolean isListValue() {
-            return listValue;
-        }
-
-        public String getTypeHandler() {
-            return typeHandler;
         }
     }
 }

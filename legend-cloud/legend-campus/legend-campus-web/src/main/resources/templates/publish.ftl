@@ -109,8 +109,8 @@
                                                 <label for="deadline">截止时间</label>
                                                 <div class="input-group date form_datetime">
                                                     <input type="text" class="form-control" id="deadline"
-                                                           data-toggle="tooltip"
                                                            name="course.publishTime"
+                                                           data-toggle="tooltip"
                                                            data-placement="left" title="请输入截止时间"
                                                            aria-describedby="expectedPublishTimeHelp"
                                                            placeholder="Date Time"
@@ -118,10 +118,22 @@
                                                     <span class="input-group-addon"><span
                                                             class="glyphicon glyphicon-th"></span></span>
                                                 </div>
+                                                <div class="input-daterange date input-group form_datetime">
+                                                    <input type="text" class="input-sm form-control" name="start"
+                                                           data-toggle="tooltip"
+                                                           data-placement="bottom" title="请输入开始时间"
+                                                           readonly/>
+                                                    <span class="input-group-addon">to</span>
+                                                    <input type="text" class="input-sm form-control" name="end"
+                                                           data-toggle="tooltip"
+                                                           data-placement="bottom" title="请输入截止时间"
+                                                           readonly/>
+                                                </div>
                                                 <small id="expectedPublishTimeHelp" class="form-text text-muted">
 
                                                 </small>
                                             </div>
+
 
                                             <!--分割线-->
                                             <div class="dropdown-divider"></div>

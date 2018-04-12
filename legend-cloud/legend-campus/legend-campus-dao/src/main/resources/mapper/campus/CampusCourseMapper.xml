@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.legend.cloud.campus.course.dao.mapper.CampusCourseMapper">
+<mapper namespace="com.legend.cloud.dao.mapper.campus.CampusCourseMapper">
     <resultMap id="BaseResultMap" type="com.legend.cloud.entity.campus.CampusCourse">
         <!--
                 WARNING-@mbg.generated
@@ -17,6 +17,9 @@
         <result column="pay_credits" property="payCredits" jdbcType="INTEGER"/>
         <result column="get_credits" property="getCredits" jdbcType="INTEGER"/>
         <result column="publish_time" property="publishTime" jdbcType="TIMESTAMP"/>
+        <result column="apply_end_time" property="applyEndTime" jdbcType="TIMESTAMP"/>
+        <result column="begin_time" property="beginTime" jdbcType="TIMESTAMP"/>
+        <result column="end_time" property="endTime" jdbcType="TIMESTAMP"/>
         <result column="finish_time" property="finishTime" jdbcType="TIMESTAMP"/>
         <result column="person_num" property="personNum" jdbcType="INTEGER"/>
         <result column="type_course" property="typeCourse" jdbcType="VARCHAR"/>
@@ -74,13 +77,16 @@
         payCredits,
         getCredits,
         publishTime,
+        applyEndTime,
+        beginTime,
+        endTime,
         finishTime,
         personNum,
         typeCourse,
         status,
         createTime,
         updateTime,
-        isDeleted,
+        isDeleted
     </sql>
     <select id="countByExample" parameterType="com.legend.cloud.entity.campus.CampusCourseExample"
             resultType="java.lang

@@ -7,16 +7,13 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Null;
 import java.util.Date;
-
 
 /**
  * 课程
  *
- * @author Jim
- * @date 2018-04-10 13:47:00
+ * @author hupeiD
+ * @date 2018-04-12 14:41:00
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
@@ -35,12 +32,10 @@ public class CampusCourseVO extends AbstractVO<CampusCourse> {
     /**
      * 标题
      */
-    @NotNull
     private String title;
     /**
      * 描述
      */
-    @NotNull
     private String description;
     /**
      * 备注
@@ -49,17 +44,14 @@ public class CampusCourseVO extends AbstractVO<CampusCourse> {
     /**
      * 系别
      */
-    @NotNull
     private Integer dept;
     /**
      * 专业
      */
-    @NotNull
     private Integer major;
     /**
      * 课程
      */
-    @NotNull
     private Integer course;
     /**
      * 课时节数
@@ -76,28 +68,35 @@ public class CampusCourseVO extends AbstractVO<CampusCourse> {
     /**
      * 发布时间
      */
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
-    @NotNull
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date publishTime;
+    /**
+     * 报名截止日期
+     */
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date applyEndTime;
+    /**
+     * 开课时间
+     */
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date beginTime;
+    /**
+     * 结课时间
+     */
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date endTime;
     /**
      * 完成时间
      */
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
-    @NotNull
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date finishTime;
     /**
      * 参与课程人数
      */
     private Integer personNum;
     /**
-     * 该课程是否有课程限制
-     */
-    @Null
-    private Boolean hasLimit;
-    /**
      * 课程类型（求学或教学）
      */
-    @NotNull
     private String typeCourse;
     /**
      * 状态（0、未审核 1、审核驳回 2、审核通过 3、报名中 4、等待开课  5、开课中 6、结课 7、已完成 8、已取消）
@@ -106,10 +105,12 @@ public class CampusCourseVO extends AbstractVO<CampusCourse> {
     /**
      * 创建时间
      */
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createTime;
     /**
      * 更新时间
      */
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date updateTime;
     /**
      * 是否删除

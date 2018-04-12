@@ -79,6 +79,15 @@ public class CampusCourseServiceImpl extends AbstractLegendService<CampusCourse>
         if (campusCourse.getPublishTime() != null) {
             criteria.andPublishTimeEqualTo(campusCourse.getPublishTime());
         }
+        if (campusCourse.getApplyEndTime() != null) {
+            criteria.andApplyEndTimeEqualTo(campusCourse.getApplyEndTime());
+        }
+        if (campusCourse.getBeginTime() != null) {
+            criteria.andBeginTimeEqualTo(campusCourse.getBeginTime());
+        }
+        if (campusCourse.getEndTime() != null) {
+            criteria.andEndTimeEqualTo(campusCourse.getEndTime());
+        }
         if (campusCourse.getFinishTime() != null) {
             criteria.andFinishTimeEqualTo(campusCourse.getFinishTime());
         }
@@ -110,7 +119,6 @@ public class CampusCourseServiceImpl extends AbstractLegendService<CampusCourse>
             campusCourse.setCreateTime(now);
             campusCourse.setUpdateTime(now);
         }
-
         return super.save(campusCourse);
     }
 }
