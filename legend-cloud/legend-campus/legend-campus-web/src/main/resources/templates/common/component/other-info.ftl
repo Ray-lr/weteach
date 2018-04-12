@@ -21,6 +21,8 @@
              data-placement="left" title="当前信誉星级">
             <div class="star" :data-num="user.creditsLevel"></div>
         </div>
+        <div class="dropdown-divider"></div>
+        <p class="card-text font-weight-light">课程完成率:80%</p>
     </div>
 </div>
 
