@@ -71,7 +71,9 @@
             departments: [],
             majors: [],
             courses: [],
-            submit: "提交申请"
+            submit: "提交申请",
+            dept:null,
+            major:null,
         },
         beforeCreate: function () {
             $.ajax({
@@ -118,6 +120,58 @@
                         }, 3000);
                     }
                 })
+            }
+        },
+        watch: {
+            dept: function () {
+                let _this = this;
+                $.ajax({
+                    url: "/campus/courseCategory/list",
+                    type: "get",
+                    data: {
+                        parentId: _this.dept,
+                    },
+                    success: function (data) {
+                        if (data.result) {
+                            _this.majors = data.data;
+                            _this.major = _this.majors[0].id;
+                        } else {
+                            Messenger().post({
+                                id: "error",
+                                message: data.msg,//提示信息
+                                type: 'error',//消息类型。error、info、success
+                                hideAfter: 3,//多长时间消失
+                                showCloseButton: true,//是否显示关闭按钮
+                                hideOnNavigate: false//是否隐藏导航
+                            });
+                        }
+                    }
+                });
+            },
+            major: function () {
+                let _this = this;
+                $.ajax({
+                    url: "/campus/courseCategory/list",
+                    type: "get",
+                    data: {
+                        parentId: _this.major
+                    },
+                    success: function (data) {
+                        if (data.result) {
+                            _this.courses = data.data;
+                            _this.course = _this.courses[0].id;
+                        } else {
+                            Messenger().post({
+                                id: "error",
+                                message: data.msg,//提示信息
+                                type: 'error',//消息类型。error、info、success
+                                hideAfter: 3,//多长时间消失
+                                showCloseButton: true,//是否显示关闭按钮
+                                hideOnNavigate: false//是否隐藏导航
+                            });
+                        }
+                    }
+                });
             }
         }
     });
