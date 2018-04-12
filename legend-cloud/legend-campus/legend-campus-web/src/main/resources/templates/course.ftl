@@ -29,36 +29,21 @@
                 <!--标题-->
                 <h3 align="center">This is the title of the course</h3>
                 <div class="dropdown-divider"></div>
-                <!-- 系别，专业，课程信息展示（不可选） -->
+                <!-- 系别，专业，课程信息展示 -->
                 <div class="form-group">
                     <label for="province">课程信息</label>
                     <div class="row">
                         <!-- 系别-->
-                        <div class="col-md-4">
-                            <select class="form-control" name="province"
-                                    disabled="disabled"
-                                    data-toggle="tooltip"
-                                    data-placement="left" title="请选择">
-
-                            </select>
+                        <div class="col-md-4 alert alert-secondary">
+                            XXXX系
                         </div>
                         <!-- 专业 -->
-                        <div class="col-md-4">
-                            <select class="form-control" name="city"
-                                    disabled="disabled"
-                                    data-toggle="tooltip"
-                                    data-placement="left" title="请选择">
-
-                            </select>
+                        <div class="col-md-4 alert alert-secondary">
+                            XXX专业
                         </div>
                         <!-- 课程 -->
-                        <div class="col col-md-4">
-                            <select class="form-control" name="county"
-                                    disabled="disabled"
-                                    data-toggle="tooltip"
-                                    data-placement="left" title="请选择">
-
-                            </select>
+                        <div class="col col-md-4 alert alert-secondary">
+                            XXX课程
                         </div>
 
                     </div>
@@ -79,19 +64,15 @@
                 <div class="row">
 
                 </div>
-                <div class="row">
-                    <!--当前报名人数-->
-                    <label for="personNum">当前报名人数</label>
-                    <div>
-                        <input type="text" class="form-control" id="exampleFormControlInput1"
-                               name="personNum" disabled="disabled">
-                    </div>
-                    <!--积分-->
-                    <label for=" credits">参与积分</label>
-                    <div>
-                        <input type="text" class="form-control" id="exampleFormControlInput1"
-                               name="credits" disabled="disabled">
-                    </div>
+                <!--当前报名人数-->
+                <label for="personNum">当前报名人数</label>
+                <div class="alert alert-info">
+                    XXX
+                </div>
+                <!--积分-->
+                <label for=" credits">参与所需积分</label>
+                <div class="alert alert-danger">
+                    XXX
                 </div>
 
                 <!--相关图片证明展示-->
@@ -103,7 +84,9 @@
                              alt="Cover" style="width: 100%;height: 100%">
                     </div>
                 </div>
+                <div style="height: 150px">
 
+                </div>
 
             </div>
             <div class="col col-md-3" id="external">
