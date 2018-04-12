@@ -135,7 +135,7 @@
                                             <select class="form-control" name="province"
                                                     v-model="userInfo.province"
                                                     data-toggle="tooltip"
-                                                    data-placement="left" title="请选择">
+                                                    data-placement="left" title="请选择省或直辖市">
                                                 <option v-for="item in provinces" :value="item.id"
                                                         v-text="item.name"></option>
                                             </select>
@@ -145,7 +145,7 @@
                                             <select class="form-control" name="city"
                                                     v-model="userInfo.city"
                                                     data-toggle="tooltip"
-                                                    data-placement="left" title="请选择">
+                                                    data-placement="left" title="请选择市或自治区">
                                                 <option v-for="item in cities" :value="item.id"
                                                         v-text="item.name"></option>
                                             </select>
@@ -155,7 +155,7 @@
                                             <select class="form-control" name="county"
                                                     v-model="userInfo.county"
                                                     data-toggle="tooltip"
-                                                    data-placement="left" title="请选择">
+                                                    data-placement="left" title="请选择县或区">
                                                 <option v-for="item in counties" :value="item.id"
                                                         v-text="item.name"></option>
                                             </select>
@@ -290,7 +290,7 @@
                         });
                         setTimeout(function () {
                             window.location.reload();
-                        }, 3000);
+                        }, 2000);
                     }
                 });
             }
@@ -310,7 +310,7 @@
                     success: function (data) {
                         if (data.result) {
                             _this.cities = data.data;
-                            _this.userInfo.city = _this.cities[0].id;
+                            /*_this.userInfo.city = _this.cities[0].id;*/
                         } else {
                             Messenger().post({
                                 id: "error",

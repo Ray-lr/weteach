@@ -20,6 +20,8 @@ import com.legend.module.core.utils.PageUtils;
 import com.legend.module.core.utils.Query;
 import org.apache.shiro.authz.AuthorizationException;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -36,6 +38,8 @@ import java.util.stream.Collectors;
 @RequestMapping("/campus/course")
 public class CampusCourseController extends CampusController {
 
+    public static final Logger LOGGER = LoggerFactory.getLogger(CampusCourseController.class);
+
     @Resource
     private CampusCourseService campusCourseService;
     @Resource
@@ -45,7 +49,7 @@ public class CampusCourseController extends CampusController {
     @RequiresPermissions("campus:course:list")
     public Ajax list(CampusCourseVO campusCourseVO, Query query) {
         try {
-            campusCourseVO.setTypeCourse("求学");
+            LOGGER.info(campusCourseVO.getTypeCourse());
             List<CampusCourse> campusCourseList = campusCourseService.getList(campusCourseVO.parseTo(),
                     query);
             List<CampusCourseVO> campusCourseVOList = campusCourseList.stream().map((entity) ->

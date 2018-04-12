@@ -18,7 +18,7 @@
                                     v-model="dept" name="course.dept"
                                     data-toggle="tooltip"
                                     data-placement="left" title="请选择系别">
-                                <option v-for="item in depts" :value="item.id"
+                                <option v-for="item in departments" :value="item.id"
                                         v-text="item.name"></option>
                             </select>
                             <select class="form-control" id="major" v-model="major"
@@ -56,7 +56,7 @@
                     </div>
                     <div align="center" style="height:150px;">
                         <button id="dd" type="submit" class="btn btn-success btn-lg btn-block"
-                                data-toggle="modal" data-target="#examineMessage" v-text="submit">提交申请
+                                data-toggle="modal" data-target="#examineMessage" v-text="submit">
                         </button>
                     </div>
                 </form>
@@ -74,6 +74,7 @@
             submit: "提交申请",
             dept:null,
             major:null,
+            course: null,
         },
         beforeCreate: function () {
             $.ajax({

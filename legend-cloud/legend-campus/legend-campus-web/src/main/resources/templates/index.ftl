@@ -58,31 +58,33 @@
                                aria-controls="teaching" aria-selected="false">教学课程</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="other-tab" data-toggle="tab" href="#other" role="tab"
-                               aria-controls="other" aria-selected="false">我的课程</a>
+                            <a class="nav-link" id="myCourses-tab" data-toggle="tab" href="#myCourses" role="tab"
+                               aria-controls="myCourses" aria-selected="false">我的课程</a>
                         </li>
                     </ul>
 
                     <div class="tab-content" id="courseContent">
-                        <!-- first list -->
+                        <!-- 求学帖 -->
                         <div class="tab-pane fade show active" id="study" role="tabpanel" aria-labelledby="study-tab">
                             <!--first demonstration-->
-                            <div class="card">
-                                <div class="card-header bg-whitesmoke-tp25 align-middle" id="headingOne">
+                            <div class="card" v-for="(item,index) of study.list">
+                                <div class="card-header bg-whitesmoke-tp25"
+                                     :id="'heading-'+(study.pagination.pageSize*(study.pagination.currentPage-1)+index)">
                                     <h5 class="mb-0 d-flex justify-content-between">
                                         <button class="btn btn-link text-truncate w-75 non-text-dec font-weight-bold"
-                                                data-toggle="collapse"
-                                                data-target="#collapseOne"
+                                                data-toggle="collapse" v-text="item.title"
+                                                :data-target="'#study-'+(study.pagination.pageSize*(study.pagination.currentPage-1)+index)"
                                                 aria-expanded="true" aria-controls="collapseOne">
-                                            急求学霸一名来教教我线性代数，十万火急!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                                         </button>
                                         <img class="myIcon"
                                              src="/static/external/star-rating/image/star-on.png"
                                              data-toggle="tooltip"
-                                             data-placement="right" title="10积分">
+                                             data-placement="right" :title="item.payCredits+'积分'">
                                     </h5>
                                 </div>
-                                <div id="collapseOne" class="collapse " aria-labelledby="headingOne"
+                                <div :id="'study-'+(study.pagination.pageSize*(study.pagination.currentPage-1)+index)"
+                                     class="collapse "
+                                     :aria-labelledby="'heading-'+(study.pagination.pageSize*(study.pagination.currentPage-1)+index)"
                                      data-parent="#study">
                                     <div class="card-body row">
                                         <div class="col col-md-2 margin-right10">
@@ -91,140 +93,105 @@
                                         </div>
                                         <div class="col" style="text-overflow:ellipsis;">
                                             <a class="non-text-dec" href="/direct/course">
-                                                <h6 class="card-title font-weight-bold">急求学霸一名来教教我线性代数，十万火急！</h6>
+                                                <h6 class="card-title font-weight-bold" v-text="item.title"></h6>
                                             </a>
                                             <div class="dropdown-divider"></div>
                                             <p class="card-text font-weight-light courseDescription cursor-default"
-                                               data-toggle="tooltip"
-                                               data-placement="right"
-                                               title="如题，这学期我们在学线性代数，原本还能跟得上，后来家里有事请了一周假，回来后上课就听不懂了，现在急求一位学长或学姐能够帮帮我，不然下星期的课还是听不懂的话就越来越麻烦了，十万火急，希望能有学霸帮忙！">
-                                                如题，这学期我们在学线性代数，原本还能跟得上，后来家里有事请了一周假，回来后上课就听不懂了，现在急求一位学长或学姐能够帮帮我，不然下星期的课还是听不懂的话就越来越麻烦了，十万火急，希望能有学霸帮忙！
+                                               v-text="item.description">
                                             </p>
+                                            <div class="dropdown-divider"></div>
+                                            <span v-text="'报名截止时间：'+item.applyEndTime"></span>
+                                            <span v-text="'开课时间：'+item.beginTime"></span>
+                                            <span v-text="'参与人数：'+item.lessonNum"></span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- second list -->
+                        <!-- 教学贴 &ndash;&gt;-->
                         <div class="tab-pane fade" id="teaching" role="tabpanel" aria-labelledby="teaching-tab">
                             <!--first demonstration-->
-                            <div class="card">
-                                <div class="card-header" id="headingTwo">
-                                    <h5 class="mb-0 row">
-                                        <div style="width: 90%">
-                                            <button class="btn btn-link collapsed courseTitle" data-toggle="collapse"
-                                                    data-target="#collapseTwo" aria-expanded="false"
-                                                    aria-controls="collapseTwo">
-                                                英语四级作文写作技巧教学aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-                                            </button>
-                                        </div>
-                                        <div style="width: 10%" align="left" data-toggle="tooltip"
-                                             data-placement="right" title="10积分">
-                                            <img src="/static/external/star-rating/image/star-on.png">
-                                        </div>
+                            <div class="card" v-for="(item,index) of teaching.list">
+                                <div class="card-header bg-whitesmoke-tp25"
+                                     :id="'heading-'+(teaching.pagination.pageSize*(teaching.pagination.currentPage-1)+index)">
+                                    <h5 class="mb-0 d-flex justify-content-between">
+                                        <button class="btn btn-link text-truncate w-75 non-text-dec font-weight-bold"
+                                                data-toggle="collapse" v-text="item.title"
+                                                :data-target="'#teaching-'+(teaching.pagination.pageSize*(teaching.pagination.currentPage-1)+index)"
+                                                aria-expanded="true" aria-controls="collapseOne">
+                                        </button>
+                                        <img class="myIcon"
+                                             src="/static/external/star-rating/image/star-on.png"
+                                             data-toggle="tooltip"
+                                             data-placement="right" :title="item.payCredits+'积分'">
                                     </h5>
                                 </div>
-                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                                <div :id="'teaching-'+(teaching.pagination.pageSize*(teaching.pagination.currentPage-1)+index)"
+                                     class="collapse "
+                                     :aria-labelledby="'heading-'+(teaching.pagination.pageSize*(teaching.pagination.currentPage-1)+index)"
                                      data-parent="#teaching">
                                     <div class="card-body row">
-                                        <img class="rounded-0 cover"
-                                             src="/static/image/avatar/Avatar.png"
-                                             alt="Cover">
+                                        <div class="col col-md-2 margin-right10">
+                                            <img class="cover" src="/static/image/avatar/Avatar.png"
+                                                 alt="Cover">
+                                        </div>
                                         <div class="col" style="text-overflow:ellipsis;">
-                                            <a style="font-weight: bold" href="/direct/course">英语四级作文写作技巧教学</a>
-                                            <!--单行隐藏内容加省略号<p style="text-overflow:ellipsis;white-space:nowrap;width:30em;overflow:hidden;">-->
-                                            <a class="courseDescription" href="/direct/course">
-                                                同学，你是否苦恼于自己的英语作文每次考试都拉分？是否对于英语作文怎么写而感到迷茫？那么你可以参加我的技巧教学，只需两天，保证让你英语写作上升一个档次</a>
+                                            <a class="non-text-dec" href="/direct/course">
+                                                <h6 class="card-title font-weight-bold" v-text="item.title"></h6>
+                                            </a>
+                                            <div class="dropdown-divider"></div>
+                                            <p class="card-text font-weight-light courseDescription cursor-default"
+                                               v-text="item.description">
+                                            </p>
+                                            <div class="dropdown-divider"></div>
+                                            <span v-text="'报名截止时间：'+item.applyEndTime"></span>
+                                            <span v-text="'开课时间：'+item.beginTime"></span>
+                                            <span v-text="'参与人数：'+item.lessonNum"></span>
                                         </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <!--second demonstration-->
-                            <div class="card">
-                                <div class="card-header" id="headingThree">
-                                    <h5 class="mb-0 row">
-                                        <div style="width: 90%">
-                                            <button class="btn btn-link collapsed courseTitle" data-toggle="collapse"
-                                                    data-target="#collapseThree" aria-expanded="false"
-                                                    aria-controls="collapseThree">
-                                                英语四级作文写作技巧教学
-                                            </button>
-                                        </div>
-                                        <div style="width: 10%" align="left" data-toggle="tooltip"
-                                             data-placement="right" title="15积分">
-                                            <img src="/static/external/star-rating/image/star-on.png">
-                                        </div>
-                                    </h5>
-                                </div>
-                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
-                                     data-parent="#teaching">
-                                    <div class="card-body row">
-                                        <img class="rounded-0 cover"
-                                             src="/static/image/avatar/Avatar.png"
-                                             alt="Cover">
-                                        <div class="col" style="text-overflow:ellipsis;">
-                                            <a style="font-weight: bold" href="/direct/course">英语四级作文写作技巧教学</a>
-                                            <!--单行隐藏内容加省略号<p style="text-overflow:ellipsis;white-space:nowrap;width:30em;overflow:hidden;">-->
-                                            <a class="courseDescription" href="/direct/course">
-                                                同学，你是否苦恼于自己的英语作文每次考试都拉分？是否对于英语作文怎么写而感到迷茫？那么你可以参加我的技巧教学，只需两天，保证让你英语写作上升一个档次</a>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <!--third demonstration-->
-                            <div class="card">
-                                <div class="card-header" id="headingFour">
-                                    <h5 class="mb-0 row">
-                                        <div style="width: 90%">
-                                            <button class="btn btn-link collapsed courseTitle" data-toggle="collapse"
-                                                    data-target="#collapseFour" aria-expanded="false"
-                                                    aria-controls="collapseFour">
-                                                英语四级作文写作技巧教学
-                                            </button>
-                                        </div>
-                                        <div style="width: 10%" align="left" data-toggle="tooltip"
-                                             data-placement="right" title="20积分">
-                                            <img src="/static/external/star-rating/image/star-on.png">
-                                        </div>
-                                    </h5>
-                                </div>
-                                <div id="collapseFour" class="collapse" aria-labelledby="headingFour"
-                                     data-parent="#teaching">
-                                    <div class="card-body row">
-                                        <img class="rounded-0 cover"
-                                             src="/static/image/avatar/Avatar.png"
-                                             alt="Cover">
-                                        <div class="col" style="text-overflow:ellipsis;">
-                                            <a style="font-weight: bold" href="/direct/course">英语四级作文写作技巧教学</a>
-                                            <!--单行隐藏内容加省略号<p style="text-overflow:ellipsis;white-space:nowrap;width:30em;overflow:hidden;">-->
-                                            <a class="courseDescription" href="/direct/course">
-                                                同学，你是否苦恼于自己的英语作文每次考试都拉分？是否对于英语作文怎么写而感到迷茫？那么你可以参加我的技巧教学，只需两天，保证让你英语写作上升一个档次</a>
-                                        </div>
-
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- third list -->
-                        <div class="tab-pane fade" id="other" role="tabpanel" aria-labelledby="other-tab">
-                            <div class="card">
-                                <div class="card-header" id="headingFive">
-                                    <h5 class="mb-0">
-                                        <button class="btn btn-link collapsed" data-toggle="collapse"
-                                                data-target="#collapseFive" aria-expanded="false"
-                                                aria-controls="collapseFive">
-                                            Third Item
+                        <!-- 我的课程 -->
+                        <div class="tab-pane fade" id="myCourses" role="tabpanel" aria-labelledby="myCourses-tab">
+                            <!--first demonstration-->
+                            <div class="card" v-for="(item,index) of myCourses.list">
+                                <div class="card-header bg-whitesmoke-tp25"
+                                     :id="'heading-'+(teaching.pagination.pageSize*teaching.pagination.currentPage+index)">
+                                    <h5 class="mb-0 d-flex justify-content-between">
+                                        <button class="btn btn-link text-truncate w-75 non-text-dec font-weight-bold"
+                                                data-toggle="collapse" v-text="item.title"
+                                                :data-target="'#myCourses-'+(teaching.pagination.pageSize*teaching.pagination.currentPage+index)"
+                                                aria-expanded="true" aria-controls="collapseOne">
                                         </button>
+                                        <img class="myIcon"
+                                             src="/static/external/star-rating/image/star-on.png"
+                                             data-toggle="tooltip"
+                                             data-placement="right" :title="item.payCredits+'积分'">
                                     </h5>
                                 </div>
-                                <div id="collapseFive" class="collapse" aria-labelledby="headingFive"
-                                     data-parent="#other">
-                                    <div class="card-body">
-                                        <img class="rounded-left cover" src="/static/image/avatar/Avatar.png"
-                                             alt="Cover">
-                                        three
+                                <div :id="'myCourses-'+(teaching.pagination.pageSize*teaching.pagination.currentPage+index)"
+                                     class="collapse "
+                                     :aria-labelledby="'heading-'+(teaching.pagination.pageSize*teaching.pagination.currentPage+index)"
+                                     data-parent="#myCourses">
+                                    <div class="card-body row">
+                                        <div class="col col-md-2 margin-right10">
+                                            <img class="cover" src="/static/image/avatar/Avatar.png"
+                                                 alt="Cover">
+                                        </div>
+                                        <div class="col" style="text-overflow:ellipsis;">
+                                            <a class="non-text-dec" href="/direct/course">
+                                                <h6 class="card-title font-weight-bold" v-text="item.title"></h6>
+                                            </a>
+                                            <div class="dropdown-divider"></div>
+                                            <p class="card-text font-weight-light courseDescription cursor-default"
+                                               v-text="item.description">
+                                            </p>
+                                            <div class="dropdown-divider"></div>
+                                            <span v-text="'报名截止时间：'+item.applyEndTime"></span>
+                                            <span v-text="'开课时间：'+item.beginTime"></span>
+                                            <span v-text="'参与人数：'+item.lessonNum"></span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -248,32 +215,65 @@
         </div>
     </div>
 </div>
-<script>
-    let vm = new Vue({
-        el: "#vm",
-        data: {
-            study: {
-                list: []
-            },
-            teaching: {
-                list: []
-            },
-            other: {
-                list: []
-            }
-
-        },
-        beforeCreate: function () {
-            $.ajax({
-                url: "/campus/course/list",
-                type: "GET",
-                success: function (data) {
-                    if (data.result) {
-                        vm.study.list = data.data;
-                    }
+    <script>
+        let vm = new Vue({
+            el: "#vm",
+            data: {
+                study: {
+                    pagination: null,
+                    list: []
+                },
+                teaching: {
+                    pagination: null,
+                    list: []
+                },
+                myCourses: {
+                    pagination: null,
+                    list: []
                 }
-            });
-        },
-    })
-</script>
+            },
+            created: function () {
+                let _this = this;
+                $.ajax({
+                    url: "/campus/course/list",
+                    type: "GET",
+                    data: {
+                        typeCourse: "求学"
+                    },
+                    success: function (data) {
+                        if (data.result) {
+                            _this.study.list = data.data;
+                            _this.study.pagination = data.pagination;
+                        }
+                    }
+                });
+                $.ajax({
+                    url: "/campus/course/list",
+                    type: "GET",
+                    data: {
+                        typeCourse: "教学"
+                    },
+                    success: function (data) {
+                        if (data.result) {
+                            _this.teaching.list = data.data;
+                            _this.teaching.pagination = data.pagination;
+                        }
+                    }
+                });
+                $.ajax({
+                    url: "/campus/course/list",
+                    type: "GET",
+                    data: {
+                        userId: _this.user.baseUserId
+                    },
+                    success: function (data) {
+                        if (data.result) {
+                            _this.myCourses.list = data.data;
+                            _this.myCourses.pagination = data.pagination;
+                        }
+                    }
+                })
+            }
+        });
+    </script>
 <#include "./common/foot.ftl">
