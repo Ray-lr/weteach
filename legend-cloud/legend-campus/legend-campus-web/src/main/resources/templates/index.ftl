@@ -4,7 +4,7 @@
 <#include "./common/component/navbar.ftl">
 
     <div class="container margin-top10" id="principal">
-        <div class="row">
+        <div class="row justify-content-md-center">
         <#include "./common/component/personal-leftSide.ftl">
             <div class="col-12 col-md-6">
                 <!-- 轮播图 -->
@@ -233,14 +233,6 @@
                 </div>
             </div>
             <div class="col col-md-2" id="external">
-                <div>
-                    <a href="/direct/publish">
-                        <button type="button" class="btn btn-success"
-                                style="width: 100%;height:50px;font-size:20px;">发布课程
-                        </button>
-                    </a>
-                </div>
-                <div class="dropdown-divider"></div>
                 <div class="alert alert-success" role="alert">
                     <h4 class="alert-heading">Well done!</h4>
                     <p>Aww yeah, you successfully read this important alert message. This example text is going to
