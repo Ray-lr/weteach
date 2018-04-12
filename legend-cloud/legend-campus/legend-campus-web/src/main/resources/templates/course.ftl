@@ -7,7 +7,7 @@
         <div class="row">
             <h1 class="alert-heading">课程详细信息</h1>
 
-            <hr width=100% size=1 color=#bbbcbc style="border:1 dashed #bbbcbc">
+            <hr class="line">
             <!--左侧信息栏-->
             <div class="col col-md-3" id="others">
                 <#include "./common/component/other-info.ftl">
