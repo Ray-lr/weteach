@@ -6,139 +6,361 @@
     <div class="container margin-top10" id="principal">
         <h1 class="alert-heading">发布课程</h1>
         <hr width=100% size=1 color=#bbbcbc style="border:1dppx dashed #bbbcbc">
-        <div class="row justify-content-md-center">
-            <div class="col-12 col-md-10" id="course">
-                <!-- 课程列表 -->
-                <ul class="nav nav-tabs" id="myTab" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link <#if !type?? || type=="seek">active</#if>" id="study-tab"
-                           data-toggle="tab" href="#study" role="tab"
-                           aria-controls="study" aria-selected="true">求学贴</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link <#if type?? && type=="teach">active</#if>" id="teaching-tab"
-                           data-toggle="tab" href="#teaching" role="tab"
-                           aria-controls="teaching" aria-selected="false">教学贴</a>
-                    </li>
-                </ul>
-                <div class="tab-content">
-                    <!-- 求学贴 -->
-                    <div class="tab-pane fade <#if !type?? || type=="seek">show active</#if> form-group" id="study"
-                         role="tabpanel"
-                         aria-labelledby="study-tab">
-                        <form @submit.prevent="publish($event)">
-                            <div class="col col-md-10">
-                            <#--隐藏的课程类型-->
-                                <input type="hidden" name="course.typeCourse" value="求学">
-                                <!--标题-->
-                                <div class="form-group">
-                                    <label for="courseTitle">课程标题</label>
-                                    <input type="text" class="form-control" id="courseTitle"
-                                           name="course.title"
-                                           placeholder="标题">
-                                </div>
-                                <!--系别/专业/课程-->
-                                <div class="form-group">
-                                    <label for="course">系别/专业/课程</label>
-                                    <div class="input-group">
-                                        <select class="form-control" id="dept"
-                                                v-model="dept" name="course.dept"
-                                                data-toggle="tooltip"
-                                                data-placement="left" title="请选择系别">
-                                            <option v-for="item in depts" :value="item.id"
-                                                    v-text="item.name"></option>
-                                        </select>
-                                        <select class="form-control" id="major" v-model="major"
-                                                data-toggle="tooltip" name="course.major"
-                                                data-placement="left" title="请选择专业">
-                                            <option v-for="item in majors" :value="item.id"
-                                                    v-text="item.name"></option>
-                                        </select>
-                                        <select class="form-control" id="course"
-                                                v-model="course" name="course.course"
-                                                data-toggle="tooltip"
-                                                data-placement="left" title="请选择课程">
-                                            <option v-for="item in courses" :value="item.id"
-                                                    v-text="item.name"></option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <!--课程描述-->
-                                <div class="form-group">
-                                    <label for="description">课程描述</label>
-                                    <textarea class="form-control" id="description" rows="3"
-                                              name="course.description" placeholder="不超过100个字"></textarea>
-                                </div>
-                                <!--相关备注-->
-                                <div class="form-group">
-                                    <label for="remark">相关备注</label>
-                                    <textarea class="form-control" id="remark" rows="4"
-                                              name="course.remark" placeholder="选填"></textarea>
-                                </div>
-                                <!--悬赏积分-->
-                                <div class="form-group">
-                                    <label for="payCredits">悬赏积分</label>
-                                    <input type="number" class="form-control" id="payCredits"
-                                           name="course.payCredits"
-                                           :value="1"
-                                           min="1"
-                                           placeholder="最低悬赏1积分">
-                                </div>
-                                <!--报名截止时间-->
-                                <div class="form-group">
-                                    <label for="applyEndTime">截止时间</label>
-                                    <div class="input-group date form_datetime"
-                                         data-picker-position="top-right">
-                                        <input type="text" class="form-control cursor-pointer"
-                                               id="applyEndTime"
-                                               name="course.applyEndTime"
-                                               aria-describedby="expectedApplyEndTimeHelp"
-                                               placeholder="报名截止日期"
-                                               readonly>
-                                        <span class="input-group-addon"><span
-                                                class="glyphicon glyphicon-th"></span></span>
-                                    </div>
-                                    <small id="expectedApplyEndTimeHelp" class="form-text text-muted">
 
-                                    </small>
-                                </div>
-                                <!--报名截止时间-->
-                                <div class="form-group">
-                                    <label for="beginTime">开课时间</label>
-                                    <div class="input-group date form_datetime"
-                                         data-picker-position="top-right">
-                                        <input type="text" class="form-control cursor-pointer"
-                                               id="beginTime"
-                                               name="course.beginTime"
-                                               aria-describedby="expectedBeginTimeHelp"
-                                               placeholder="开课时间"
-                                               readonly>
-                                        <span class="input-group-addon"><span
-                                                class="glyphicon glyphicon-th"></span></span>
-                                    </div>
-                                    <small id="expectedBeginTimeHelp" class="form-text text-muted">
+        <div class="row-fluid">
+            <ul class="nav nav-pills justify-content-center" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link <#if !type?? || type=="seek">active</#if>" id="study-tab" data-toggle="tab"
+                       href="#study" role="tab"
+                       aria-controls="study" aria-selected="true">求学贴</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link <#if type?? && type=="teach">active</#if>" id="teaching-tab" data-toggle="tab"
+                       href="#teaching" role="tab"
+                       aria-controls="teaching" aria-selected="false">教学贴</a>
+                </li>
 
-                                    </small>
-                                </div>
-                                <!--分割线-->
-                                <div class="dropdown-divider"></div>
-                                <div align="center" class="col-md-10" style="height:150px;">
-                                    <input type="submit" class="btn btn-primary btn-lg btn-block"
-                                           v-model="submitText">
-                                </div>
+            </ul>
+
+            <div class="tab-content row justify-content-center" id="courseContent">
+                <!-- first list -->
+                <div class="col col-md-10 tab-pane fade <#if !type?? || type=="seek">show active</#if>" id="study"
+                     role="tabpanel"
+                     aria-labelledby="study-tab">
+                    <form @submit.prevent="publish($event)">
+                    <#--隐藏的课程类型-->
+                        <input type="hidden" name="course.typeCourse" value="求学">
+                        <!--标题-->
+                        <div class="form-group">
+                            <label for="courseTitle">课程标题</label>
+                            <input type="text" class="form-control" id="courseTitle"
+                                   name="course.title"
+                                   placeholder="标题">
+                        </div>
+                        <!--系别/专业/课程-->
+                        <div class="form-group">
+                            <label for="course">系别/专业/课程</label>
+                            <div class="input-group">
+                                <select class="form-control" id="dept"
+                                        v-model="dept" name="course.dept"
+                                        data-toggle="tooltip"
+                                        data-placement="left" title="请选择系别">
+                                    <option v-for="item in depts" :value="item.id"
+                                            v-text="item.name"></option>
+                                </select>
+                                <select class="form-control" id="major" v-model="major"
+                                        data-toggle="tooltip" name="course.major"
+                                        data-placement="left" title="请选择专业">
+                                    <option v-for="item in majors" :value="item.id"
+                                            v-text="item.name"></option>
+                                </select>
+                                <select class="form-control" id="course"
+                                        v-model="course" name="course.course"
+                                        data-toggle="tooltip"
+                                        data-placement="left" title="请选择课程">
+                                    <option v-for="item in courses" :value="item.id"
+                                            v-text="item.name"></option>
+                                </select>
                             </div>
-                        </form>
-                    </div>
+                        </div>
+                        <!--课程描述-->
+                        <div class="form-group">
+                            <label for="description">课程描述</label>
+                            <textarea class="form-control" id="description" rows="3"
+                                      name="course.description" placeholder="不超过100个字"></textarea>
+                        </div>
+                        <!--相关备注-->
+                        <div class="form-group">
+                            <label for="remark">相关备注</label>
+                            <textarea class="form-control" id="remark" rows="4"
+                                      name="course.remark" placeholder="选填"></textarea>
+                        </div>
+                        <!--悬赏积分-->
+                        <div class="form-group">
+                            <label for="payCredits">悬赏积分</label>
+                            <input type="number" class="form-control" id="payCredits"
+                                   name="course.payCredits"
+                                   :value="1"
+                                   min="1"
+                                   placeholder="最低悬赏1积分">
+                        </div>
+                        <!--报名截止时间-->
+                        <div class="form-group">
+                            <label for="applyEndTime">截止时间</label>
+                            <div class="input-group date form_datetime"
+                                 data-picker-position="top-right">
+                                <input type="text" class="form-control cursor-pointer"
+                                       id="applyEndTime"
+                                       name="course.applyEndTime"
+                                       aria-describedby="expectedApplyEndTimeHelp"
+                                       placeholder="报名截止日期"
+                                       readonly>
+                                <span class="input-group-addon"><span
+                                        class="glyphicon glyphicon-th"></span></span>
+                            </div>
+                            <small id="expectedApplyEndTimeHelp" class="form-text text-muted">
+
+                            </small>
+                        </div>
+                        <!--报名截止时间-->
+                        <div class="form-group">
+                            <label for="beginTime">开课时间</label>
+                            <div class="input-group date form_datetime"
+                                 data-picker-position="top-right">
+                                <input type="text" class="form-control cursor-pointer"
+                                       id="beginTime"
+                                       name="course.beginTime"
+                                       aria-describedby="expectedBeginTimeHelp"
+                                       placeholder="开课时间"
+                                       readonly>
+                                <span class="input-group-addon"><span
+                                        class="glyphicon glyphicon-th"></span></span>
+                            </div>
+                            <small id="expectedBeginTimeHelp" class="form-text text-muted">
+
+                            </small>
+                        </div>
+                        <!--分割线-->
+                        <div class="dropdown-divider"></div>
+                        <input type="submit" class="btn btn-primary btn-lg btn-block"
+                               v-model="submitText">
+                    </form>
                 </div>
-            </div>
-            <!-- 教学贴 -->
-            <div class="tab-pane fade <#if type?? && type=="teach">show active</#if> form-group"
-                 id="teaching" role="tabpanel"
-                 aria-labelledby="teaching-tab">
+                <!-- second list -->
+                <div class="col col-md-10 tab-pane fade <#if type?? && type=="teach">show active</#if>" id="teaching"
+                     role="tabpanel"
+                     aria-labelledby="teaching-tab">
+                    <form @submit.prevent="publish($event)">
+                        <!--标题-->
+                        <div class="form-group">
+                            <label for="courseTitle">课程标题</label>
+                            <input type="email" class="form-control" id="courseTitle"
+                                   data-toggle="tooltip"
+                                   data-placement="left" title="必填">
+                        </div>
+                        <!--系别/专业/课程-->
+                        <div class="form-group">
+                            <label for="course">系别/专业/课程</label>
+                            <div class="input-group">
+                                <select class="form-control" id="dept"
+                                        v-model="dept" name="course.dept"
+                                        data-toggle="tooltip"
+                                        data-placement="left" title="请选择系别">
+                                    <option v-for="item in depts" :value="item.id"
+                                            v-text="item.name"></option>
+                                </select>
+                                <select class="form-control" id="major" v-model="major"
+                                        data-toggle="tooltip" name="course.major"
+                                        data-placement="left" title="请选择专业">
+                                    <option v-for="item in majors" :value="item.id"
+                                            v-text="item.name"></option>
+                                </select>
+                                <select class="form-control" id="course"
+                                        v-model="course" name="course.course"
+                                        data-toggle="tooltip"
+                                        data-placement="left" title="请选择课程">
+                                    <option v-for="item in courses" :value="item.id"
+                                            v-text="item.name"></option>
+                                </select>
+                            </div>
+                        </div>
+                        <!--课程描述-->
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">课程描述</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                                      data-toggle="tooltip"
+                                      data-placement="left" title="课程描述"></textarea>
+                        </div>
+                        <!--相关备注-->
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">相关备注</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"
+                                      data-toggle="tooltip"
+                                      data-placement="left" title="选填"></textarea>
+                        </div>
+                        <!--课时节数-->
+                        <div class="form-group">
+                            <label for="courseTime">预计课时节数</label>
+                            <input type="number" class="form-control" id="courseTime"
+                                   data-toggle="tooltip"
+                                   data-placement="left" title="请输入课时节数">
+                        </div>
+                        <!--参与所需积分-->
+                        <div class="form-group">
+                            <label for="payCredits">参与所需积分</label>
+                            <input type="number" class="form-control" id="payCredits"
+                                   data-toggle="tooltip"
+                                   data-placement="left" title="请输入参与课程所需积分">
+                        </div>
+                        <!--开课时间-->
+                        <div class="form-group">
+                            <label for="dateTime">开课时间</label>
+                            <div class="input-group date form_datetime">
+                                <input type="text" class="form-control" id="dateTime"
+                                       name="publishTime"
+                                       data-toggle="tooltip"
+                                       data-placement="left" title="请输入开课时间"
+                                       aria-describedby="expectedPublishTimeHelp"
+                                       placeholder="Date Time"
+                                       readonly>
+                                <span class="input-group-addon"><span
+                                        class="glyphicon glyphicon-th"></span></span>
+                            </div>
+                            <small id="expectedPublishTimeHelp" class="form-text text-muted">
+
+                            </small>
+                        </div>
+                        <!--结课时间-->
+                        <div class="form-group">
+                            <label for="dateTime">结课时间</label>
+                            <div class="input-group date form_datetime">
+                                <input type="text" class="form-control" id="dateTime"
+                                       name="course.finishTime"
+                                       data-toggle="tooltip"
+                                       data-placement="left" title="请输入结课时间"
+                                       aria-describedby="finishTimeHelp" placeholder="Date Time"
+                                       readonly>
+                                <span class="input-group-addon"><span
+                                        class="glyphicon glyphicon-th"></span></span>
+                            </div>
+                            <small id="finishTimeHelp" class="form-text text-muted">
+
+                            </small>
+                        </div>
+                        <!--分割线-->
+                        <div class="dropdown-divider"></div>
+                        <input type="submit" class="btn btn-primary btn-lg btn-block"
+                               v-model="submitText">
+                        <!--相关限制条件-->
+                        <div id="courseLimit">
+                            <div class="alert alert-danger" role="alert">
+                                <h4 class="alert-heading">报名人员限制</h4>
+                                <!--专业限制-->
+                                <h5>专业限制
+                                    <input type="checkbox"
+                                           aria-label="Checkbox for following text input"
+                                           id="teach_major_limit" name="a"
+                                           data-toggle="tooltip"
+                                           data-placement="left" title="专业限制">
+                                </h5>
+                                <div class="form-group cancel_all" id="teach_major"
+                                     style="display: none">
+                                    <label for="courseTime">系别</label>
+                                    <select class="form-control" id="department"
+                                            name="limit.dept"
+                                            data-toggle="tooltip"
+                                            data-placement="left" title="请选择系别">
+                                        <option selected="selected" id="departmentOption">-- 请选择系别 --
+                                        </option>
+                                        <option v-for="item in depts" :value="item.id"
+                                                v-text="item.name"></option>
+                                    </select>
+                                    <label for="courseTime">专业</label>
+                                    <select class="form-control" id="exampleFormControlSelect1"
+                                            data-toggle="tooltip" name="limit.major"
+                                            data-placement="left" title="请选择专业">
+                                        <option selected="selected" id="majorOption">-- 请选择专业 --
+                                        </option>
+                                        <option v-for="item in majors" :value="item.id"
+                                                v-text="item.name"></option>
+                                    </select>
+                                </div>
+                                <div class="dropdown-divider"></div>
+                                <!--性别限制-->
+                                <h5>性别限制
+                                    <input type="checkbox"
+                                           aria-label="Checkbox for following text input"
+                                           id="teach_sex_limit" name="a"
+                                           data-toggle="tooltip"
+                                           data-placement="left" title="性别限制">
+                                </h5>
+                                <div class="form-group cancel_all" align="center" id="teach_sex"
+                                     style="display: none;">
+                                    <label for="male">男</label>
+                                    <input type="radio" name="sex" id="male" checked/>
+
+                                    <label for="female">女</label>
+                                    <input type="radio" name="sex" id="female"/>
+                                </div>
+                                <div class="dropdown-divider"></div>
+                                <!--年级限制-->
+                                <h5>年级限制
+                                    <input type="checkbox"
+                                           aria-label="Checkbox for following text input"
+                                           id="teach_grade_limit" name="a"
+                                           data-toggle="tooltip"
+                                           data-placement="left" title="年级限制">
+                                </h5>
+                                <div class="form-group cancel_all" id="teach_grade"
+                                     style="display: none;">
+                                    <div class="row" align="center">
+                                        <div class="col">
+                                            <p>大一
+                                                <input type="checkbox" value="1"
+                                                       name="limit.grade"
+                                                       id="gradeOne"
+                                                       data-toggle="tooltip"
+                                                       data-placement="left" title="大一">
+                                            </p>
+                                            <p>大二
+                                                <input type="checkbox" value="2"
+                                                       name="limit.grade"
+                                                       id="gradeTwo"
+                                                       data-toggle="tooltip"
+                                                       data-placement="left" title="大二">
+                                            </p>
+                                        </div>
+                                        <div class="col">
+                                            <p>大三
+                                                <input type="checkbox" value="3"
+                                                       name="limit.grade"
+                                                       id="gradeThree"
+                                                       data-toggle="tooltip"
+                                                       data-placement="left" title="大三">
+                                            </p>
+                                            <p>大四
+                                                <input type="checkbox" value="4"
+                                                       name="limit.grade"
+                                                       id="gradeFour"
+                                                       data-toggle="tooltip"
+                                                       data-placement="left" title="大四">
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dropdown-divider"></div>
+                                <!--人数限制-->
+                                <h5>人数限制
+                                    <input type="checkbox"
+                                           aria-label="Checkbox for following text input"
+                                           id="person_num_limit" name="a"
+                                           data-toggle="tooltip"
+                                           data-placement="left" title="人数限制">
+                                </h5>
+                                <div id="person_num" class="form-group cancel_all"
+                                     style="display: none;">
+                                    <div class="form-group">
+                                        <label for="courseTime"></label>
+                                        <input type="number" min="0" class="form-control"
+                                               data-toggle="tooltip" name="limit.upper"
+                                               data-placement="left" title="请输入人数上限">
+                                        <label for="courseTime"></label>~
+                                        <input type="number" min="0" class="form-control"
+                                               data-toggle="tooltip" name="limit.lower"
+                                               data-placement="left" title="请输入人数下限">
+                                    </div>
+                                </div>
+                                <div class="dropdown-divider"></div>
+                                <button type="button" class="btn btn-danger hide"
+                                        style="width: 100%;height:35px;font-size:15px;">全部取消
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-
 </div>
 <script>
     let vm = new Vue({
