@@ -1,7 +1,7 @@
-package ${package}.model.pojo.vo.${moduleName};
+package ${package}.vo.${moduleName};
 
-import ${package}.model.pojo.entity.${moduleName}.${className};
-import com.legend.module.model.pojo.vo.AbstractVO;
+import ${package}.entity.${moduleName}.${className};
+import com.legend.module.core.vo.AbstractVO;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -16,7 +16,6 @@ import java.util.Date;
 import java.math.BigDecimal;
 #end
 
-
 /**
  * ${comments}
  *
@@ -30,13 +29,13 @@ public class ${className}VO extends AbstractVO<${className}> {
     private static final long serialVersionUID = 1L;
 
     #foreach ($column in $columns)
-        /**
-         * $column.comments
-         */
-        #if($column.attrType == "Date")
-        @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    /**
+     * $column.comments
+     */
+    #if($column.attrType == "Date")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
         #end
-        private $column.attrType $column.attrname;
+    private $column.attrType $column.attrname;
     #end
 
     @Override

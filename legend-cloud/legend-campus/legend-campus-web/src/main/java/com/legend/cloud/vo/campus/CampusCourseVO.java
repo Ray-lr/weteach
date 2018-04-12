@@ -4,8 +4,11 @@ import com.legend.cloud.entity.campus.CampusCourse;
 import com.legend.module.core.vo.AbstractVO;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 import java.util.Date;
 
 
@@ -17,6 +20,7 @@ import java.util.Date;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
+@ToString
 public class CampusCourseVO extends AbstractVO<CampusCourse> {
     private static final long serialVersionUID = 1L;
 
@@ -31,10 +35,12 @@ public class CampusCourseVO extends AbstractVO<CampusCourse> {
     /**
      * 标题
      */
+    @NotNull
     private String title;
     /**
      * 描述
      */
+    @NotNull
     private String description;
     /**
      * 备注
@@ -43,14 +49,17 @@ public class CampusCourseVO extends AbstractVO<CampusCourse> {
     /**
      * 系别
      */
+    @NotNull
     private Integer dept;
     /**
      * 专业
      */
+    @NotNull
     private Integer major;
     /**
      * 课程
      */
+    @NotNull
     private Integer course;
     /**
      * 课时节数
@@ -68,18 +77,27 @@ public class CampusCourseVO extends AbstractVO<CampusCourse> {
      * 发布时间
      */
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
+    @NotNull
     private Date publishTime;
     /**
      * 完成时间
      */
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
+    @NotNull
     private Date finishTime;
     /**
      * 参与课程人数
      */
     private Integer personNum;
     /**
+     * 该课程是否有课程限制
+     */
+    @Null
+    private Boolean hasLimit;
+    /**
      * 课程类型（求学或教学）
      */
+    @NotNull
     private String typeCourse;
     /**
      * 状态（0、未审核 1、审核驳回 2、审核通过 3、报名中 4、等待开课  5、开课中 6、结课 7、已完成 8、已取消）
@@ -97,7 +115,7 @@ public class CampusCourseVO extends AbstractVO<CampusCourse> {
      * 是否删除
      */
     private Boolean isDeleted;
-    
+
     @Override
     public CampusCourse parseTo(String... ignoreProperties) {
         return super.parseTo(ignoreProperties);
@@ -108,28 +126,4 @@ public class CampusCourseVO extends AbstractVO<CampusCourse> {
         return (CampusCourseVO) super.parseFrom(campusCourse, ignoreProperties);
     }
 
-    @Override
-    public String toString() {
-        return "CampusCourseVO{" +
-                ", id=" + getId() +
-                ", userId=" + getUserId() +
-                ", title=" + getTitle() +
-                ", description=" + getDescription() +
-                ", remark=" + getRemark() +
-                ", dept=" + getDept() +
-                ", major=" + getMajor() +
-                ", course=" + getCourse() +
-                ", lessonNum=" + getLessonNum() +
-                ", payCredits=" + getPayCredits() +
-                ", getCredits=" + getGetCredits() +
-                ", publishTime=" + getPublishTime() +
-                ", finishTime=" + getFinishTime() +
-                ", personNum=" + getPersonNum() +
-                ", typeCourse=" + getTypeCourse() +
-                ", status=" + getStatus() +
-                                ", createTime=" + getCreateTime() +
-                                ", updateTime=" + getUpdateTime() +
-                                ", isDeleted=" + getIsDeleted() +
-                            '}';
-    }
 }

@@ -5,7 +5,7 @@
 
     <div class="container margin-top10" id="principal">
         <div class="row">
-            <h1 class="alert-heading">Teacher Verify</h1>
+            <h1 class="alert-heading">教师资格认证</h1>
 
             <hr width=100% size=1 color=#bbbcbc style="border:1 dashed #bbbcbc">
 
@@ -14,11 +14,11 @@
             </div>
             <div class="col-12 col-md-8" id="principal">
                 <div>
-                    <form>
+                    <form @submit.prevent="verify($event)">
 
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">认证系别</label>
-                            <select class="form-control" id="department" @change="changeDepartment">
+                            <select class="form-control" id="department" @change="changeDepartment" name="dept">
                                 <option selected="selected" id="departmentOption">-- 请选择系别 --</option>
                                 <option v-for="item in departments" :value="item.id"
                                         v-text="item.name"></option>
@@ -26,43 +26,52 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">认证专业</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
+                            <select class="form-control" id="exampleFormControlSelect1" name="major">
                                 <option selected="selected" id="majorOption">-- 请选择专业 --</option>
                                 <option v-for="item in majors" :value="item.id"
                                         v-text="item.name"></option>
                             </select>
                         </div>
                         <div class="form-group">
+                            <label for="exampleFormControlSelect1">认证课程</label>
+                            <select class="form-control" id="exampleFormControlSelect1" name="major">
+                                <option selected="selected" id="courseOption">-- 请选择课程 --</option>
+                                <option v-for="item in course" :value="item.id"
+                                        v-text="item.name"></option>
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label for="exampleFormControlTextarea1">认证理由</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <textarea name="reason" class="form-control" id="exampleFormControlTextarea1"
+                                      rows="3"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1">认证文件证明</label>
                             <div class="input-group mb-3">
 
                                 <div class="input-group-prepend">
-                                    <button class="btn btn-outline-secondary" type="button">Upload</button>
+                                    <button class="btn btn-outline-secondary" type="button" @click="upload">上传</button>
                                 </div>
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="inputGroupFile03">
-                                    <label class="custom-file-label" for="inputGroupFile03">Choose file</label>
+                                    <input name="evidence" type="file" class="custom-file-input" id="inputGroupFile03">
+                                    <label class="custom-file-label" for="inputGroupFile03">选择文件</label>
                                 </div>
                             </div>
                         </div>
                         <div align="center" style="height:150px;">
-                            <button id="dd" type="button" class="btn btn-success btn-lg btn-block"
-                                    data-toggle="modal" data-target="#myModal" onclick="textChange()">提交申请
+                            <button id="dd" type="submit" class="btn btn-success btn-lg btn-block"
+                                    data-toggle="modal" data-target="#examineMessage" onclick="textChange()">提交申请
                             </button>
                             <!-- 模态框（Modal） -->
-                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-                                 aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="examineMessage" tabindex="-1" role="dialog"
+                                 aria-labelledby="examineMessageLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-
-                                            <h4 class="modal-title" id="myModalLabel">
-                                                提示
-                                            </h4>
+                                            <h4 class="modal-title" id="examineMessageLabel">提示</h4>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
                                         </div>
                                         <div class="modal-body">
                                             您的申请已提交，请耐心等待一到两个工作日，我们会在第一时间给您消息，谢谢。
@@ -76,10 +85,7 @@
                                 </div><!-- /.modal -->
                             </div>
                         </div>
-
-
                     </form>
-
                 </div>
             </div>
             <div class="col col-md-2" id="external">
@@ -97,10 +103,10 @@
         },
         beforeCreate: function () {
             $.ajax({
-                url: "/campus/major/list",
+                url: "/campus/course/category/list",
                 type: "get",
                 data: {
-                    typeMajor: 1
+                    typeCourseCategory: 1
                 },
                 success: function (data) {
                     if (data.result) {
@@ -109,42 +115,8 @@
 
                 }
             });
-            /* $.ajax({
-                 url: "/campus/major/list",
-                 type:"get",
-                 data: {
-                     typeMajor: 2
-                 },
-                 success: function (data) {
-                     if (data.result) {
-                         vm.majors = data.data;
-                     }
-
-                 }
-             });*/
-        },
-        created: function () {
-        },
-        updated: function () {
         },
         methods: {
-            search: function (e) {
-                alert($(e.currentTarget).val());
-            },
-            SignOut: function () {
-                $.ajax({
-                    url: "/base/user/logout",
-                    type: "POST",
-                    data: {
-                        _method: "PUT"
-                    },
-                    success: function (data) {
-                        if (data.result) {
-                            window.location.href = data.url;
-                        }
-                    }
-                })
-            },
             changeDepartment: function (e) {
                 $.ajax({
                     url: "/campus/major/list",
@@ -160,9 +132,28 @@
                     }
                 })
             },
+            verify: function (e) {
+                $(e.currentTarget).ajaxSubmit({
+                    url: "/campus/verify/add",
+                    type: "post",
+                    data: {
+                        userId: vm.user.id
+                    },
+                    success: function (data) {
+                        if (data.result) {
+                            alert(data.msg);
+
+                        }
+
+                    }
+                })
+            },
+            upload: function (e) {
+
+            }
 
         }
-    })
+    });
     /*submit点击后不可选取*/
     $(document).ready(function () {
         $("#qd").click(function () {

@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.common.Mapper;
 
 import javax.annotation.Resource;
+import java.util.Date;
 
 /**
  * @author Jim
@@ -102,4 +103,14 @@ public class CampusCourseServiceImpl extends AbstractLegendService<CampusCourse>
         return example;
     }
 
+    @Override
+    public int save(CampusCourse campusCourse) {
+        if (campusCourse.getCourse() == null) {
+            Date now = new Date();
+            campusCourse.setCreateTime(now);
+            campusCourse.setUpdateTime(now);
+        }
+
+        return super.save(campusCourse);
+    }
 }

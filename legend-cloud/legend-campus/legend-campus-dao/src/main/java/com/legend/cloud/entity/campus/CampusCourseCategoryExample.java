@@ -7,8 +7,8 @@ import java.util.List;
 /**
  * CampusCourseCategory的example类
  *
- * @author Jim
- * @date 2018-04-10 22:28:00
+ * @author hupeiD
+ * @date 2018-04-12 10:38:04
  */
 public class CampusCourseCategoryExample {
     protected String orderByClause;

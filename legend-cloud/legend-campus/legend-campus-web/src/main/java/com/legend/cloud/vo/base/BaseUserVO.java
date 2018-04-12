@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
+import javax.validation.constraints.Null;
 import java.util.Date;
 
 
@@ -30,6 +31,7 @@ public class BaseUserVO extends UserVO<BaseUser> {
      * 昵称
      */
     @JSONField(serialize = false)
+    @Null
     private String nickName;
     /**
      * 记住我

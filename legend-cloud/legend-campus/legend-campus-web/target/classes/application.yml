@@ -15,13 +15,12 @@ spring:
             driver-class-name: com.mysql.jdbc.Driver
     jackson:
         time-zone: GMT+8
-        date-format: yyyy-MM-dd HH:mm:ss
     resources:
         static-locations: classpath:/
     freemarker:
         allow-request-override: false
         allow-session-override: false
-        cache: true
+        cache: false
         charset: utf-8
         check-template-location: true
         content-type: text/html
@@ -47,7 +46,6 @@ spring:
       view:
           prefix: /templates/
           suffix: .ftl
-      date-format: yyyy-MM-dd HH:mm:ss
 # Mybatis配置
 mybatis:
     mapperLocations: classpath:mapper/**/*.xml

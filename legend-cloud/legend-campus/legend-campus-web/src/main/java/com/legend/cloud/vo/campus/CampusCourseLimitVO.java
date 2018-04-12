@@ -4,7 +4,9 @@ import com.legend.cloud.entity.campus.CampusCourseLimit;
 import com.legend.module.core.vo.AbstractVO;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
+import java.util.Arrays;
 import java.util.Date;
 
 
@@ -16,6 +18,7 @@ import java.util.Date;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
+@ToString
 public class CampusCourseLimitVO extends AbstractVO<CampusCourseLimit> {
     private static final long serialVersionUID = 1L;
 
@@ -42,7 +45,7 @@ public class CampusCourseLimitVO extends AbstractVO<CampusCourseLimit> {
     /**
      * 年级限制
      */
-    private Integer grade;
+    private char[] grade;
     /**
      * 人数上限
      */
@@ -63,31 +66,20 @@ public class CampusCourseLimitVO extends AbstractVO<CampusCourseLimit> {
      * 是否删除
      */
     private Boolean isDeleted;
-    
+
     @Override
     public CampusCourseLimit parseTo(String... ignoreProperties) {
-        return super.parseTo(ignoreProperties);
+        CampusCourseLimit campusCourseLimit = super.parseTo(ignoreProperties);
+        campusCourseLimit.setGrade(Integer.valueOf(Arrays.toString(this.grade)));
+        return campusCourseLimit;
     }
 
     @Override
     public CampusCourseLimitVO parseFrom(CampusCourseLimit campusCourseLimit, String... ignoreProperties) {
-        return (CampusCourseLimitVO) super.parseFrom(campusCourseLimit, ignoreProperties);
+        CampusCourseLimitVO campusCourseLimitVO = (CampusCourseLimitVO) super.parseFrom(campusCourseLimit,
+                ignoreProperties);
+        campusCourseLimitVO.setGrade(String.valueOf(campusCourseLimit.getGrade()).toCharArray());
+        return campusCourseLimitVO;
     }
 
-    @Override
-    public String toString() {
-        return "CampusCourseLimitVO{" +
-                ", id=" + getId() +
-                ", courseId=" + getCourseId() +
-                ", dept=" + getDept() +
-                ", major=" + getMajor() +
-                ", sex=" + getSex() +
-                ", grade=" + getGrade() +
-                ", personUpper=" + getPersonUpper() +
-                ", personLower=" + getPersonLower() +
-                ", createTime=" + getCreateTime() +
-                ", updateTime=" + getUpdateTime() +
-                ", isDeleted=" + getIsDeleted() +
-                            '}';
-    }
 }

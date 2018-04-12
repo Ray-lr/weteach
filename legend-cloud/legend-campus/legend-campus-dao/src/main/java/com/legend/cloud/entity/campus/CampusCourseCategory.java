@@ -13,13 +13,13 @@ import java.util.Date;
 /**
  * 院系-专业-课程分类
  *
- * @author Jim
- * @date 2018-04-10 22:28:00
+ * @author hupeiD
+ * @date 2018-04-12 10:38:04
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-@Table(name = "campus_course_category")
 @ToString
+@Table(name = "campus_course_category")
 public class CampusCourseCategory extends AbstractEntity<CampusCourseCategory> {
     private static final long serialVersionUID = 1L;
 

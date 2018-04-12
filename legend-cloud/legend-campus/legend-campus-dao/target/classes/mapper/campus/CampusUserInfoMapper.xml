@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.legend.cloud.campus.userInfo.dao.mapper.CampusUserInfoMapper">
-    <resultMap id="BaseResultMap" type="com.legend.cloud.entity.campus.CampusUserInfo">
+<mapper namespace="com.legend.cloud.dao.mapper.campus.CampusUserInfoMapper">
+    <resultMap id="BaseResultMap" type="com.legend.cloud.model.pojo.entity.campus.CampusUserInfo">
         <!--
                 WARNING-@mbg.generated
             -->
@@ -19,6 +19,7 @@
         <result column="major" property="major" jdbcType="VARCHAR"/>
         <result column="direction" property="direction" jdbcType="VARCHAR"/>
         <result column="phone" property="phone" jdbcType="VARCHAR"/>
+        <result column="email" property="email" jdbcType="VARCHAR"/>
         <result column="contact" property="contact" jdbcType="VARCHAR"/>
         <result column="signature" property="signature" jdbcType="VARCHAR"/>
         <result column="credits" property="credits" jdbcType="INTEGER"/>
@@ -82,6 +83,7 @@
         major,
         direction,
         phone,
+        email,
         contact,
         signature,
         credits,
@@ -92,9 +94,9 @@
         percentageComplete,
         createTime,
         updateTime,
-        isDeleted,
+        isDeleted
     </sql>
-    <select id="countByExample" parameterType="com.legend.cloud.entity.campus.CampusUserInfoExample"
+    <select id="countByExample" parameterType="com.legend.cloud.model.pojo.entity.campus.CampusUserInfoExample"
             resultType="java.lang
 .Long">
         <!--

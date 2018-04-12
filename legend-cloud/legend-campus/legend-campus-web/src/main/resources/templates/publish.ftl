@@ -36,9 +36,6 @@
                                         <div class="col col-md-8">
                                         <#--隐藏的课程类型-->
                                             <input type="hidden" name="course.typeCourse" value="求学">
-                                            <input type="hidden" name="base.userId" :value="user.baseUserId">
-                                            <input type="hidden" name="course.userId" :value="user.baseUserId">
-                                            <input type="hidden" name="order.userId" :value="user.baseUserId">
                                             <!--标题-->
                                             <div class="form-group">
                                                 <label for="courseTitle">课程标题</label>
@@ -492,7 +489,6 @@
     let vm = new Vue({
         el: "#vm",
         data: {
-            limitGrade: [],
             depts: [],
             dept: null,
             majors: [],
@@ -531,19 +527,9 @@
                 $(e.currentTarget).find("input[type='submit']").attr("disabled", "disabled");
                 vm.submitText = "请耐心等待";
                 let _this = this;
-                var grade = "";
-                for (var i = 0; i < vm.limitGrade.length; i++) {
-                    grade += vm.limitGrade[i];
-                }
-                ;
-                alert(grade);
                 $(e.currentTarget).ajaxSubmit({
                     url: "/campus/course/add",
                     type: "POST",
-                    type: "post",
-                    data: {
-                        limitGrade: grade
-                    },
                     success: function (data) {
                         Messenger().post({
                             id: "messenger",

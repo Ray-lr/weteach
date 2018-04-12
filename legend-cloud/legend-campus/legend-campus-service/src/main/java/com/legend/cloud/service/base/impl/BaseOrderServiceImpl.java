@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.common.Mapper;
 
 import javax.annotation.Resource;
+import java.util.Date;
 
 /**
  * @author Administrator
@@ -96,4 +97,14 @@ public class BaseOrderServiceImpl extends AbstractLegendService<BaseOrder> imple
         return example;
     }
 
+
+    @Override
+    public int save(BaseOrder baseOrder) {
+        if (baseOrder.getCreateTime() == null) {
+            Date now = new Date();
+            baseOrder.setCreateTime(now);
+            baseOrder.setUpdateTime(now);
+        }
+        return super.save(baseOrder);
+    }
 }

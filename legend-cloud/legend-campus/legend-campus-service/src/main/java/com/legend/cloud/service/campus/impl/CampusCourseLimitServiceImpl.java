@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.common.Mapper;
 
 import javax.annotation.Resource;
+import java.util.Date;
 
 /**
  * @author Jim
@@ -78,4 +79,18 @@ public class CampusCourseLimitServiceImpl extends AbstractLegendService<CampusCo
         return example;
     }
 
+    @Override
+    public int save(CampusCourseLimit campusCourseLimit) {
+        if (campusCourseLimit.getDept() != null || campusCourseLimit.getMajor() != null || campusCourseLimit.getGrade
+                () != null || campusCourseLimit.getSex() != null || campusCourseLimit.getPersonUpper() != null ||
+                campusCourseLimit.getPersonLower() != null) {
+            if (campusCourseLimit.getCourseId() == null) {
+                Date now = new Date();
+                campusCourseLimit.setCreateTime(now);
+                campusCourseLimit.setUpdateTime(now);
+                return super.save(campusCourseLimit);
+            }
+        }
+        return -1;
+    }
 }

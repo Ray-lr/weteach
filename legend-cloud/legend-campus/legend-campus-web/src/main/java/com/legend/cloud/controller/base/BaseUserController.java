@@ -76,6 +76,7 @@ public class BaseUserController extends AbstractUserController<BaseUserVO> {
             campusUserInfo.setBaseUserId(baseUser.getId());
             CampusUserInfoVO currentUser = new CampusUserInfoVO().parseFrom(campusUserInfoService.get(campusUserInfo));
             currentUser.setUsername(baseUser.getUsername());
+            currentUser.setHost("base");
             setCurrentUser(JSON.toJSONString(currentUser));
             LOGGER.info(String.valueOf(getCurrentUser()));
             return Ajax.success(UserResultMessage.LOGIN_SUCCESS).put(Key.URL, "/direct/index");

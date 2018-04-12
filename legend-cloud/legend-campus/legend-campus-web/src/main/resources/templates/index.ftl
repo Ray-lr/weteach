@@ -68,87 +68,42 @@
                         <div class="tab-pane fade show active" id="study" role="tabpanel" aria-labelledby="study-tab">
                             <!--first demonstration-->
                             <div class="card">
-                                <div class="card-header" id="headingOne">
-                                    <h5 class="mb-0 row">
-                                        <div style="width: 90%;">
-                                            <button class="btn btn-link collapsed courseTitle" data-toggle="collapse"
-                                                    data-target="#collapseOne" aria-expanded="false"
-                                                    aria-controls="collapseOne">
-                                                <a class="courseTitle">急求学霸一名来教教我线性代数，十万火急!</a>
-                                            </button>
-                                        </div>
-                                        <div style="width: 10%" align="left" data-toggle="tooltip"
+                                <div class="card-header bg-whitesmoke-tp25 align-middle" id="headingOne">
+                                    <h5 class="mb-0 d-flex justify-content-between">
+                                        <button class="btn btn-link text-truncate w-75 non-text-dec font-weight-bold"
+                                                data-toggle="collapse"
+                                                data-target="#collapseOne"
+                                                aria-expanded="true" aria-controls="collapseOne">
+                                            急求学霸一名来教教我线性代数，十万火急!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                                        </button>
+                                        <img class="myIcon"
+                                             src="/static/external/star-rating/image/star-on.png"
+                                             data-toggle="tooltip"
                                              data-placement="right" title="10积分">
-                                            <img src="/static/external/star-rating/image/star-on.png" title="10积分">
-                                        </div>
                                     </h5>
                                 </div>
-                                <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+                                <div id="collapseOne" class="collapse " aria-labelledby="headingOne"
                                      data-parent="#study">
                                     <div class="card-body row">
-                                        <img class="rounded-0 cover"
-                                             src="/static/image/avatar/Avatar.png"
-                                             alt="Cover">
+                                        <div class="col col-md-2 margin-right10">
+                                            <img class="cover" src="/static/image/avatar/Avatar.png"
+                                                 alt="Cover">
+                                        </div>
                                         <div class="col" style="text-overflow:ellipsis;">
-                                            <a style="font-weight: bold" href="/direct/course">急求学霸一名来教教我线性代数，十万火急！</a>
-                                            <a id="hhh" style="width:100%;word-break:break-all;display:-webkit-box;-webkit-line-clamp:2;
-                                            -webkit-box-orient:vertical;overflow:hidden;" href="/direct/course">
-                                                如题，这学期我们在学线性代数，原本还能跟得上，后来家里有事请了一周假，回来后上课就听不懂了，现在急求一位学长或学姐能够帮帮我，不然下星期的课还是听不懂的话就越来越麻烦了，十万火急，希望能有学霸帮忙！</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-header" id="headingO">
-                                    <h5 class="mb-0 row">
-                                        <div style="width: 90%;">
-                                            <button class="btn btn-link collapsed courseTitle" data-toggle="collapse"
-                                                    data-target="#collapseO" aria-expanded="false"
-                                                    aria-controls="collapseO">
-                                                急求学霸一名来教教我线性代数，十万火急!aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-                                            </button>
-                                        </div>
-
-                                        <div style="width: 10%" align="left" data-toggle="tooltip"
-                                             data-placement="right" title="10积分">
-                                            <img src="/static/external/star-rating/image/star-on.png" title="10积分">
-                                        </div>
-                                    </h5>
-                                </div>
-                                <div id="collapseO" class="collapse" aria-labelledby="headingO"
-                                     data-parent="#study">
-                                    <div class="card-body row">
-                                        <img class="rounded-0 cover"
-                                             src="/static/image/avatar/Avatar.png"
-                                             alt="Cover">
-                                        <div class="col" style="text-overflow:ellipsis;">
-                                            <a style="font-weight: bold" href="/direct/course">急求学霸一名来教教我线性代数，十万火急！</a>
-                                            <a id="hhh" style="width:100%;word-break:break-all;display:-webkit-box;-webkit-line-clamp:2;
-                                            -webkit-box-orient:vertical;overflow:hidden;" href="/direct/course">
-                                                如题，这学期我们在学线性代数，原本还能跟得上，后来家里有事请了一周假，回来后上课就听不懂了，现在急求一位学长或学姐能够帮帮我，不然下星期的课还是听不懂的话就越来越麻烦了，十万火急，希望能有学霸帮忙！</a>
+                                            <a class="non-text-dec" href="/direct/course">
+                                                <h6 class="card-title font-weight-bold">急求学霸一名来教教我线性代数，十万火急！</h6>
+                                            </a>
+                                            <div class="dropdown-divider"></div>
+                                            <p class="card-text font-weight-light courseDescription cursor-default"
+                                               data-toggle="tooltip"
+                                               data-placement="right"
+                                               title="如题，这学期我们在学线性代数，原本还能跟得上，后来家里有事请了一周假，回来后上课就听不懂了，现在急求一位学长或学姐能够帮帮我，不然下星期的课还是听不懂的话就越来越麻烦了，十万火急，希望能有学霸帮忙！">
+                                                如题，这学期我们在学线性代数，原本还能跟得上，后来家里有事请了一周假，回来后上课就听不懂了，现在急求一位学长或学姐能够帮帮我，不然下星期的课还是听不懂的话就越来越麻烦了，十万火急，希望能有学霸帮忙！
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <!--<div class="card" v-for="(item,index) of study.list">
-                                <div class="card-header bg-whitesmoke-tp25" :id="'heading-study-'+index">
-                                    <h5 class="mb-0">
-                                        <button class="btn btn-link" data-toggle="collapse"
-                                                :data-target="'#collapse-study-'+index"
-                                                aria-expanded="true" :aria-controls="'collapse-study-'+index">
-                                            <span v-text="item.title"></span>
-                                        </button>
-                                    </h5>
-                                </div>
-
-                                <div :id="'collapse-study-'+index" class="collapse "
-                                     :aria-labelledby="'heading-study-'+index"
-                                     data-parent="#study">
-                                    <div class="card-body">
-                                        <img class="rounded-left cover" src="/static/image/avatar/Avatar.png"
-                                             alt="Cover">
-                                        <p v-text="item.description"></p>
-                                    </div>
-                                </div>
-                            </div>-->
                         </div>
                         <!-- second list -->
                         <div class="tab-pane fade" id="teaching" role="tabpanel" aria-labelledby="teaching-tab">
@@ -301,7 +256,6 @@
         </div>
     </div>
 </div>
-<#include "./common/style.ftl">
 <script>
     let vm = new Vue({
         el: "#vm",

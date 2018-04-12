@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.common.Mapper;
 
 import javax.annotation.Resource;
+import java.util.Date;
 
 /**
  * @author Administrator
@@ -78,4 +79,13 @@ public class CampusOrderServiceImpl extends AbstractLegendService<CampusOrder> i
         return example;
     }
 
+    @Override
+    public int save(CampusOrder campusOrder) {
+        if (campusOrder.getCreateTime() == null) {
+            Date now = new Date();
+            campusOrder.setCreateTime(now);
+            campusOrder.setUpdateTime(now);
+        }
+        return super.save(campusOrder);
+    }
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="${package}.dao.mapper.${moduleName}.${className}Mapper">
-    <resultMap id="BaseResultMap" type="${package}.model.pojo.entity.${moduleName}.${className}">
+    <resultMap id="BaseResultMap" type="${package}.entity.${moduleName}.${className}">
         <!--
                 WARNING-@mbg.generated
             -->
@@ -57,7 +57,7 @@
             #end
         #end
     </sql>
-    <select id="countByExample" parameterType="${package}.model.pojo.entity.${moduleName}.${className}Example"
+    <select id="countByExample" parameterType="${package}.entity.${moduleName}.${className}Example"
             resultType="java.lang
 .Long">
         <!--

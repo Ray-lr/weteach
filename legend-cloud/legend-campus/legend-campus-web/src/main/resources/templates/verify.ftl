@@ -100,14 +100,13 @@
         data: {
             departments: [],
             majors: [],
-            user:${currentUser},
         },
         beforeCreate: function () {
             $.ajax({
-                url: "/campus/major/list",
+                url: "/campus/course/category/list",
                 type: "get",
                 data: {
-                    typeMajor: 1
+                    typeCourseCategory: 1
                 },
                 success: function (data) {
                     if (data.result) {
@@ -117,28 +116,7 @@
                 }
             });
         },
-        created: function () {
-        },
-        updated: function () {
-        },
         methods: {
-            search: function (e) {
-                alert($(e.currentTarget).val());
-            },
-            SignOut: function () {
-                $.ajax({
-                    url: "/base/user/logout",
-                    type: "POST",
-                    data: {
-                        _method: "PUT"
-                    },
-                    success: function (data) {
-                        if (data.result) {
-                            window.location.href = data.url;
-                        }
-                    }
-                })
-            },
             changeDepartment: function (e) {
                 $.ajax({
                     url: "/campus/major/list",
@@ -175,7 +153,7 @@
             }
 
         }
-    })
+    });
     /*submit点击后不可选取*/
     $(document).ready(function () {
         $("#qd").click(function () {

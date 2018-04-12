@@ -130,7 +130,6 @@
         </div>
     </div>
 </div>
-<#include "./common/style.ftl">
 <script>
     let vm = new Vue({
         el: "#vm",

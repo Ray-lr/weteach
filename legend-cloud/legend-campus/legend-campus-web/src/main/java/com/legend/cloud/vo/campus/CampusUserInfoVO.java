@@ -40,6 +40,10 @@ public class CampusUserInfoVO extends AbstractVO<CampusUserInfo> {
     @Null
     private String username;
     /**
+     * 用户类型
+     */
+    private String host;
+    /**
      * 用户实名
      */
     private String name;

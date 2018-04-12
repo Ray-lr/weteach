@@ -1,168 +1,218 @@
 <#include "./common/head.ftl">
 <div id="vm">
     <!--顶部功能栏-->
-<#include "common/component/navbar.ftl">
+<#include "./common/component/navbar.ftl">
+
     <div class="container margin-top10" id="principal">
         <div class="row">
-        <#include "common/component/personal-leftSide.ftl">
-            <div class="col-12 col-md-8" id="principal">
+        <#include "./common/component/personal-leftSide.ftl">
+            <div class="col-12 col-md-8">
                 <!-- 课程列表 -->
                 <div class="row-fluid" id="courseList">
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link" id="teaching-tab" data-toggle="tab" href="#teaching" role="tab"
-                               aria-controls="teaching" aria-selected="true">个人信息中心</a>
+                            <a class="nav-link <#if !type?? || type=="course">active</#if>" id="courseInfo-tab"
+                               data-toggle="tab"
+                               href="#courseInfo"
+                               role="tab"
+                               aria-controls="courseInfo" aria-selected="false">我的课程相关
+                            </a>
+
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" id="study-tab" data-toggle="tab" href="#study" role="tab"
-                               aria-controls="study" aria-selected="false">我的课程相关</a>
+                            <a class="nav-link <#if type?? && type=="personal">active</#if>" id="personInfo-tab"
+                               data-toggle="tab" href="#personInfo" role="tab"
+                               aria-controls="personInfo" aria-selected="true">个人信息中心</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="other-tab" data-toggle="tab" href="#other" role="tab"
-                               aria-controls="other" aria-selected="false">浏览历史</a>
+                            <a class="nav-link <#if type?? && type=="data">active</#if>" id="dataInfo-tab"
+                               data-toggle="tab" href="#dataInfo" role="tab"
+                               aria-controls="dataInfo" aria-selected="false">我的数据统计</a>
                         </li>
                     </ul>
 
                     <div class="tab-content" id="courseContent">
-                        <!-- first list -->
                         <!--我的课程相关-->
-                        <div class="tab-pane fade show active" id="study" role="tabpanel" aria-labelledby="study-tab">
-                            <div class="card">
-                                <div class="card-header bg-whitesmoke-tp25" id="headingOne">
+                        <div class="tab-pane fade <#if !type?? || type=="course">show active</#if>" id="courseInfo"
+                             role="tabpanel"
+                             aria-labelledby="courseInfo-tab">
+
+
+                            <!--<div class="btn-group">
+                                <button class="btn btn-secondary btn-lg" type="button">
+                                    课程类型
+                                </button>
+                                <button type="button" class="btn btn-lg btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="sr-only">Toggle Dropdown</span>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">求学贴</a>
+                                    <a class="dropdown-item" href="#">教学贴</a>
+                                </div>
+                            </div>
+
+                            <div class="btn-group">
+                                <button class="btn btn-secondary btn-lg" type="button">
+                                    课程状态
+                                </button>
+                                <button type="button" class="btn btn-lg btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="sr-only">Toggle Dropdown</span>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">未审核</a>
+                                    <a class="dropdown-item" href="#">审核已驳回</a>
+                                    <a class="dropdown-item" href="#">审核已通过</a>
+                                    <a class="dropdown-item" href="#">报名中</a>
+                                    <a class="dropdown-item" href="#">等待开课</a>
+                                    <a class="dropdown-item" href="#">开课中</a>
+                                    <a class="dropdown-item" href="#">已结课</a>
+                                    <a class="dropdown-item" href="#">已经取消</a>
+                                </div>
+                            </div>-->
+
+                            <div class="card" v-for="(item,index) of myCourseInfos">
+                                <div class="card-header bg-whitesmoke-tp25" :id="'heading-myCourse-'+index">
                                     <h5 class="mb-0">
-                                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
-                                                aria-expanded="true" aria-controls="collapseOne">
-                                            First Item
+                                        <button class="btn btn-link" data-toggle="collapse"
+                                                :data-target="'#collapse-myCourse-'+index"
+                                                aria-expanded="true" :aria-controls="'collapse-myCourse-'+index">
+                                            <span v-text="item.title"></span>
                                         </button>
                                     </h5>
                                 </div>
 
-                                <div id="collapseOne" class="collapse " aria-labelledby="headingOne"
+                                <div :id="'collapse-myCourse-'+index" class="collapse "
+                                     :aria-labelledby="'heading-myCourse-'+index"
                                      data-parent="#accordion">
                                     <div class="card-body">
                                         <img class="rounded-left cover" src="/static/image/avatar/Avatar.png"
                                              alt="Cover">
-                                        aaa
+                                        <p v-text="item.description"></p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- second list -->
                         <!-- 个人信息完善 -->
-                        <div class="tab-pane fade" id="teaching" role="tabpanel" aria-labelledby="teaching-tab">
+                        <div class="tab-pane fade <#if type?? && type=="personal">show active</#if>" id="personInfo"
+                             role="tabpanel" aria-labelledby="personInfo-tab">
                             <form @submit.prevent="update($event)">
-                                <!--隐藏的id-->
-                                <input type="hidden" name="id" :value="userInfo.id">
                                 <!--真实姓名-->
                                 <div class="form-group">
                                     <label for="exampleFormControlInput1">真实姓名</label>
                                     <input type="text" class="form-control" id="exampleFormControlInput1"
-                                           name="name" :value="userInfo.name"
-                                           data-toggle="tooltip"
-                                           data-placement="left" title="请输入真实姓名">
+                                           name="name" :value="userInfo.name">
                                 </div>
                                 <!-- 真实性别 -->
                                 <div class="form-group">
+
                                     <label for="male">男</label>
-                                    <input type="radio" name="sex" id="male" :value="userInfo.sex" checked
-                                           data-toggle="tooltip"
-                                           data-placement="left" title="请选择性别">
+                                    <input type="radio" name="sex" id="male" :value="userInfo.sex" checked/>
+
                                     <label for="female">女</label>
-                                    <input type="radio" name="sex" id="female"
-                                           data-toggle="tooltip"
-                                           data-placement="right" title="请选择性别">
+                                    <input type="radio" name="sex" id="female"/>
                                 </div>
                                 <!--昵称-->
                                 <div class="form-group">
                                     <label for="exampleFormControlInput2">昵称</label>
                                     <input type="text" class="form-control" id="exampleFormControlInput2"
-                                           placeholder="18" name="nickname" :value="userInfo.nickname"
-                                           data-toggle="tooltip"
-                                           data-placement="left" title="请输入昵称">
+                                           placeholder="18" name="nickname" :value="userInfo.nickname">
                                 </div>
                                 <!--生日-->
-                                <label for="dateTime">出生日期</label>
-                                <div class="input-group date form_datetime">
-                                    <input type="text" class="form-control" id="dateTime"
-                                           name="dateTime"
-                                           data-toggle="tooltip"
-                                           data-placement="left" title="请输入日期"
-                                           aria-describedby="dateTimeHelp" placeholder="Date Time"
-                                           readonly>
-                                    <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
-                                </div>
-                                <small id="dateTimeHelp" class="form-text text-muted">
+                                <div class="form-group">
+                                    <label for="birthday" class="col-md-2 control-label">出生日期</label>
+                                    <div class="input-group date form_date">
+                                        <input class="form-control" size="16" type="text"
+                                               :value="userInfo.birthday | date"
+                                               name="birthday"
+                                               data-toggle="tooltip"
+                                               data-placement="left" title="请输入日期"
+                                               aria-describedby="dateHelp" placeholder="Date"
+                                               readonly>
+                                        <span class="input-group-addon"><i class="glyphicon
+                                        glyphicon-remove"></i></span>
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                                    </div>
+                                    <small id="dateHelp" class="form-text text-muted">
 
-                                </small>
+                                    </small>
+                                </div>
                                 <!--入学年份-->
                                 <div class="form-group">
-                                    <label for="exampleFormControlSelect1">入学年份</label>
-                                    <select class="form-control" id="exampleFormControlSelect1"
-                                            data-toggle="tooltip"
-                                            data-placement="left" title="请选择入学年份">
-                                        <option>2014</option>
-                                        <option>2015</option>
-                                        <option>2016</option>
-                                        <option>2017</option>
+                                    <label for="enrollmentYear">入学年份</label>
+                                    <select class="form-control" id="enrollmentYear" name="enrollmentYear"
+                                            v-model="userInfo.enrollmentYear">
+                                        <option value="2014">2014</option>
+                                        <option value="2015">2015</option>
+                                        <option value="2016">2016</option>
+                                        <option value="2017">2017</option>
                                     </select>
                                 </div>
-                                <!--电话号码-->
+                                <!--联系方式-->
                                 <div class="form-group">
-                                    <label for="exampleFormControlInput3">手机号</label>
-                                    <input type="text" class="form-control" id="exampleFormControlInput3"
-                                           placeholder="1XX-XXXX-XXXX" name="phone" :value="userInfo.phone"
-                                           data-toggle="tooltip"
-                                           data-placement="left" title="请输入手机号">
-                                </div>
-                                <!--QQ号码-->
-                                <div class="form-group">
-                                    <label for="exampleFormControlInput4">QQ号</label>
-                                    <input type="text" class="form-control" id="exampleFormControlInput4"
-                                           name="qicq" :value="userInfo.qicq"
-                                           data-toggle="tooltip"
-                                           data-placement="left" title="请输入QQ号码">
+                                    <label for="contact">联系方式</label>
+                                    <input type="text" class="form-control" id="contact"
+                                           name="contact" :value="userInfo.contact"
+                                           placeholder="QQ，微信或其他">
                                 </div>
                                 <!--邮箱-->
                                 <div class="form-group">
-                                    <label for="exampleFormControlInput5">邮箱</label>
-                                    <input type="email" class="form-control" id="exampleFormControlInput5"
-                                           placeholder="name@example.com" name="email" :value="userInfo.email"
-                                           data-toggle="tooltip"
-                                           data-placement="left" title="请输入邮箱">
+                                    <label for="email">邮箱</label>
+                                    <input type="text" class="form-control" id="email"
+                                           placeholder="name@example.com" name="email" :value="userInfo.email">
                                 </div>
+                            <#--
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Recipient's username"
+                                       aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                    <span class="input-group-text" id="basic-addon2">@example.com</span>
+                                </div>
+                                <div class="input-group-append">
+                                    <button type="button"
+                                            class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">@163.com</a>
+                                        <a class="dropdown-item" href="#">@126.com</a>
+                                        <a class="dropdown-item" href="#">@qq.com</a>
+                                        <div role="separator" class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">other emails</a>
+                                    </div>
+                                </div>
+                            </div>-->
                                 <!-- 籍贯 -->
                                 <div class="form-group">
-                                    <label for="exampleFormControlSelect1">籍贯</label>
+                                    <label for="province">籍贯</label>
                                     <div class="row">
                                         <!-- 省、直辖市-->
                                         <div class="col-md-4">
-                                            <select class="form-control" id="province" @change="changeProvince"
+                                            <select class="form-control" name="province"
+                                                    v-model="userInfo.province"
                                                     data-toggle="tooltip"
-                                                    data-placement="left" title="请选择省/直辖市/自治区">
-                                                <option>-- 省/直辖市/自治区 --</option>
-                                                <option v-for="item in provinces.list" :value="item.id"
+                                                    data-placement="left" title="请选择">
+                                                <option v-for="item in provinces" :value="item.id"
                                                         v-text="item.name"></option>
-
                                             </select>
                                         </div>
                                         <!-- 市/州 -->
                                         <div class="col-md-4">
-                                            <select class="form-control" id="city" @change="changeCity"
+                                            <select class="form-control" name="city"
+                                                    v-model="userInfo.city"
                                                     data-toggle="tooltip"
-                                                    data-placement="left" title="请选择市/自治州">
-                                                <option selected="selected" id="cityOption">-- 市/自治州 --</option>
+                                                    data-placement="left" title="请选择">
                                                 <option v-for="item in cities" :value="item.id"
                                                         v-text="item.name"></option>
-
                                             </select>
                                         </div>
                                         <!-- 区/县 -->
                                         <div class="col col-md-4">
-                                            <select class="form-control" id="county" name="native_place"
+                                            <select class="form-control" name="county"
+                                                    v-model="userInfo.county"
                                                     data-toggle="tooltip"
-                                                    data-placement="left" title="请选择区/县">
-                                                <option selected="selected">-- 区/县 --</option>
-                                                <option v-for="item in counties" value="item.id"
+                                                    data-placement="left" title="请选择">
+                                                <option v-for="item in counties" :value="item.id"
                                                         v-text="item.name"></option>
                                             </select>
                                         </div>
@@ -183,7 +233,9 @@
                             </form>
                         </div>
                         <!--浏览历史-->
-                        <div class="tab-pane fade" id="other" role="tabpanel" aria-labelledby="other-tab">
+                        <div class="tab-pane fade <#if type?? && type=="data">show active</#if>" id="dataInfo"
+                             role="tabpanel"
+                             aria-labelledby="data-tab">
                             <div class="card">
                                 <div class="card-header" id="headingThree">
                                     <h5 class="mb-0">
@@ -207,7 +259,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
@@ -215,83 +266,157 @@
     let vm = new Vue({
         el: "#vm",
         data: {
-            user: ${currentUser},
             userInfo: "",
-            provinces: {
-                list: []
-            },
+            myCourseInfos: [],
+            provinces: [],
             cities: [],
-            counties: []
+            counties: [],
         },
-        beforeCreate: function () {
-            // 查省
+        created: function () {
+            let _this = this;
             $.ajax({
                 url: "/base/areas/list",
                 type: "get",
                 data: {
-                    typeAreas: 1
+                    parentId: 0
                 },
                 success: function (data) {
                     if (data.result) {
-                        vm.provinces.list = data.data;
+                        _this.provinces = data.data;
+                    } else {
+                        Messenger().post({
+                            id: "error",
+                            message: data.msg,//提示信息
+                            type: 'error',//消息类型。error、info、success
+                            hideAfter: 3,//多长时间消失
+                            showCloseButton: true,//是否显示关闭按钮
+                            hideOnNavigate: false//是否隐藏导航
+                        });
                     }
                 }
             });
-        },
-        created: function () {
-            let _this = this;
-            $.get("/campus/userInfo/detail/" + _this.user.id, function (data) {
-                if (data.result) {
-                    vm.userInfo = data.data;
+            $.ajax({
+                url: "/campus/userInfo/details/" + this.user.id,
+                type: "GET",
+                success: function (data) {
+                    if (data.result) {
+                        _this.userInfo = data.data;
+                    } else {
+                        Messenger().post({
+                            id: "error",
+                            message: data.msg,//提示信息
+                            type: 'error',//消息类型。error、info、success
+                            hideAfter: 3,//多长时间消失
+                            showCloseButton: true,//是否显示关闭按钮
+                            hideOnNavigate: false//是否隐藏导航
+                        });
+                    }
                 }
             });
+            //获取我的课程相关
+            $.ajax({
+                url: "/campus/course/list",
+                type: "get",
+                data: {
+                    userId: this.user.baseUserId
+                },
+                success: function (data) {
+                    if (data.result) {
+                        _this.myCourseInfos = data.data;
+                    }
+                }
+            });
+
         },
         methods: {
-            search: function (e) {
-                alert($(e.currentTarget).val());
-            },
             update: function (e) {
                 $(e.currentTarget).ajaxSubmit({
                     url: "/campus/userInfo/update",
-                    type: "PUT",
+                    type: "POSt",
+                    data: {
+                        _method: "PUT"
+                    },
                     success: function (data) {
-                        if (data.result) {
-                            alert(data.msg);
+                        Messenger().post({
+                            id: "error",
+                            message: data.msg,//提示信息
+                            type: data.result ? 'success' : 'error',//消息类型。error、info、success
+                            hideAfter: 3,//多长时间消失
+                            showCloseButton: true,//是否显示关闭按钮
+                            hideOnNavigate: false//是否隐藏导航
+                        });
+                        setTimeout(function () {
                             window.location.reload();
-                        }
-                    }
-                });
-            },
-            changeProvince: function (e) {
-                $.ajax({
-                    url: "/base/areas/list",
-                    data: {
-                        parentId: e.target.value
-                    },
-                    success: function (data) {
-                        if (data.result) {
-                            vm.cities = data.data;
-                            /*当省改变的时候，将市的选择框改为未选择的默认值*/
-                            $("#cityOption").prop("selected", "selected");
-                            vm.counties = null;
-                        }
-                    }
-                });
-            },
-            changeCity: function (e) {
-                $.ajax({
-                    url: "/base/areas/list",
-                    data: {
-                        parentId: e.target.value
-                    },
-                    success: function (data) {
-                        if (data.result) {
-                            vm.counties = data.data;
-                        }
+                        }, 3000);
                     }
                 });
             }
+        },
+        watch: {
+            'userInfo.province': function (val, oldVal) {
+                if (parseInt(val) === parseInt(oldVal)) {
+                    return false;
+                }
+                let _this = this;
+                $.ajax({
+                    url: "/base/areas/list",
+                    type: "get",
+                    data: {
+                        parentId: parseInt(val)
+                    },
+                    success: function (data) {
+                        if (data.result) {
+                            _this.cities = data.data;
+                            _this.userInfo.city = _this.cities[0].id;
+                        } else {
+                            Messenger().post({
+                                id: "error",
+                                message: data.msg,//提示信息
+                                type: 'error',//消息类型。error、info、success
+                                hideAfter: 3,//多长时间消失
+                                showCloseButton: true,//是否显示关闭按钮
+                                hideOnNavigate: false//是否隐藏导航
+                            });
+                        }
+                    }
+                });
+            },
+            'userInfo.city': function (val, oldVal) {
+                if (parseInt(val) === parseInt(oldVal)) {
+                    return false;
+                }
+                let _this = this;
+                $.ajax({
+                    url: "/base/areas/list",
+                    type: "get",
+                    data: {
+                        parentId: parseInt(val)
+                    },
+                    success: function (data) {
+                        if (data.result) {
+                            _this.counties = data.data;
+                        } else {
+                            Messenger().post({
+                                id: "error",
+                                message: data.msg,//提示信息
+                                type: 'error',//消息类型。error、info、success
+                                hideAfter: 3,//多长时间消失
+                                showCloseButton: true,//是否显示关闭按钮
+                                hideOnNavigate: false//是否隐藏导航
+                            });
+                        }
+                    }
+                });
+            },
+            deep: true
         }
-    })
+    });
+    $().ready(function () {
+        $('input').iCheck({
+            checkboxClass: 'icheckbox_minimal-blue',
+            radioClass: 'iradio_minimal-blue',
+            increaseArea: '20%' // optional
+        });
+    });
 </script>
 <#include "./common/foot.ftl">

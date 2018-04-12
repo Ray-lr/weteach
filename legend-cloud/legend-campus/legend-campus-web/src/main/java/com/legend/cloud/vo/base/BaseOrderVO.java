@@ -4,6 +4,7 @@ import com.legend.cloud.entity.base.BaseOrder;
 import com.legend.module.core.vo.AbstractVO;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -17,6 +18,7 @@ import java.util.Date;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
+@ToString
 public class BaseOrderVO extends AbstractVO<BaseOrder> {
     private static final long serialVersionUID = 1L;
 
@@ -99,26 +101,4 @@ public class BaseOrderVO extends AbstractVO<BaseOrder> {
         return (BaseOrderVO) super.parseFrom(baseOrder, ignoreProperties);
     }
 
-    @Override
-    public String toString() {
-        return "BaseOrderVO{" +
-                ", id=" + getId() +
-                ", userId=" + getUserId() +
-                ", typeUser=" + getTypeUser() +
-                ", orderNumber=" + getOrderNumber() +
-                ", title=" + getTitle() +
-                ", description=" + getDescription() +
-                ", details=" + getDetails() +
-                ", remark=" + getRemark() +
-                ", typeCurrency=" + getTypeCurrency() +
-                ", paymentAmount=" + getPaymentAmount() +
-                ", typePayment=" + getTypePayment() +
-                ", beginTime=" + getBeginTime() +
-                ", endTime=" + getEndTime() +
-                ", status=" + getStatus() +
-                ", createTime=" + getCreateTime() +
-                ", updateTime=" + getUpdateTime() +
-                ", isDeleted=" + getIsDeleted() +
-                '}';
-    }
 }

@@ -10,17 +10,16 @@ import javax.persistence.*;
 import java.util.Date;
 
 
-
 /**
  * 个人信息表
  *
- * @author Jim
- * @date 2018-04-10 16:04:29
+ * @author hupeiD
+ * @date 2018-04-12 10:38:05
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-@Table(name = "campus_user_info")
 @ToString
+@Table(name = "campus_user_info")
 public class CampusUserInfo extends AbstractEntity<CampusUserInfo> {
     private static final long serialVersionUID = 1L;
 

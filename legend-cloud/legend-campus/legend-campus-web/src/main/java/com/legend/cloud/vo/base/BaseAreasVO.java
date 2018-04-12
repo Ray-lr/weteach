@@ -4,6 +4,7 @@ import com.legend.cloud.entity.base.BaseAreas;
 import com.legend.module.core.vo.AbstractVO;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import java.util.Date;
 
@@ -16,6 +17,7 @@ import java.util.Date;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
+@ToString
 public class BaseAreasVO extends AbstractVO<BaseAreas> {
     private static final long serialVersionUID = 1L;
 
@@ -78,21 +80,4 @@ public class BaseAreasVO extends AbstractVO<BaseAreas> {
         return (BaseAreasVO) super.parseFrom(baseAreas, ignoreProperties);
     }
 
-    @Override
-    public String toString() {
-        return "BaseAreasVO{" +
-                ", id=" + getId() +
-                ", name=" + getName() +
-                ", parentId=" + getParentId() +
-                ", abbreviation=" + getAbbreviation() +
-                ", longitude=" + getLongitude() +
-                ", latitude=" + getLatitude() +
-                ", typeAreas=" + getTypeAreas() +
-                ", sign=" + getSign() +
-                ", sort=" + getSort() +
-                ", createTime=" + getCreateTime() +
-                ", updateTime=" + getUpdateTime() +
-                ", isDeleted=" + getIsDeleted() +
-                '}';
-    }
 }
