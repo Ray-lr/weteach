@@ -36,6 +36,7 @@
 <script src="/static/js/date.js"></script>
 <script src="/static/js/common/vue/vue-global.js"></script>
 <script src="/static/js/common/campus-settings.js"></script>
+<script src="/static/js/echarts.common.min.js"></script>
 <script>
     Vue.prototype.user = <#if currentUser??>${currentUser}<#else>null</#if>;
 </script>

@@ -232,28 +232,18 @@
                                 </div>
                             </form>
                         </div>
-                        <!--浏览历史-->
+                        <!--我的数据统计-->
                         <div class="tab-pane fade <#if type?? && type=="data">show active</#if>" id="dataInfo"
                              role="tabpanel"
                              aria-labelledby="data-tab">
-                            <div class="card">
-                                <div class="card-header" id="headingThree">
-                                    <h5 class="mb-0">
-                                        <button class="btn btn-link collapsed" data-toggle="collapse"
-                                                data-target="#collapseThree" aria-expanded="false"
-                                                aria-controls="collapseThree">
-                                            Third Item
-                                        </button>
-                                    </h5>
+                            <!--统计图-->
+                            <div id="semester" style="width: 700px;height:400px;"></div>
+                            <!--饼图-->
+                            <div>
+                                <div>
+                                    <div id="pie" style="width: 500px;height:300px;"></div>
                                 </div>
-                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
-                                     data-parent="#accordion">
-                                    <div class="card-body">
-                                        <img class="rounded-left cover" src="/static/image/avatar/Avatar.png"
-                                             alt="Cover">
-                                        three
-                                    </div>
-                                </div>
+                                <div></div>
                             </div>
                         </div>
                     </div>
@@ -419,4 +409,7 @@
         });
     });
 </script>
+<!--导入图表-->
+<#include "./common/component/charts.ftl">
+
 <#include "./common/foot.ftl">
