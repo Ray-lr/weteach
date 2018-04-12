@@ -77,7 +77,7 @@
         data: {
             username: null,
             password: null,
-            host: "base"
+            host: "user"
         },
         methods: {
             login: function (e) {
