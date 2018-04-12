@@ -201,15 +201,15 @@ public class GenUtils {
             packagePath += packageName.replace(".", File.separator) + File.separator;
         }
         if ("legendTemplate/Controller.java.vm".equals(template)) {
-            return packagePath + "web" + File.separator + "controller" + File.separator + moduleName + File.separator +
+            return packagePath + "controller" +  File.separator + moduleName + File.separator +
                     className + "Controller.java";
         }
         if ("legendTemplate/Entity.java.vm".equals(template)) {
-            return packagePath + "model" + File.separator + "pojo" + File.separator + "entity" + File.separator
+            return packagePath   + "entity" + File.separator
                     + moduleName + File.separator + className + ".java";
         }
         if ("legendTemplate/Example.java.vm".equals(template)) {
-            return packagePath + "model" + File.separator + "pojo" + File.separator + "entity" + File.separator
+            return packagePath   + "entity" + File.separator
                     + moduleName + File.separator + className + "Example.java";
         }
         if ("legendTemplate/Mapper.java.vm".equals(template)) {
@@ -228,7 +228,7 @@ public class GenUtils {
                     "ServiceImpl.java";
         }
         if ("legendTemplate/VO.java.vm".equals(template)) {
-            return packagePath + "model" + File.separator + "pojo" + File.separator + "vo" + File.separator +
+            return packagePath + "vo" + File.separator +
                     moduleName + File.separator + className + "VO.java";
         }
         return null;

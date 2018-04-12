@@ -1,10 +1,10 @@
 package ${package}.service.${moduleName}.impl;
 
 import ${package}.dao.mapper.${moduleName}.${className}Mapper;
-import ${package}.model.pojo.entity.${moduleName}.${className};
-import ${package}.model.pojo.entity.${moduleName}.${className}Example;
+import ${package}.entity.${moduleName}.${className};
+import ${package}.entity.${moduleName}.${className}Example;
 import ${package}.service.${moduleName}.${className}Service;
-import com.legend.module.service.core.impl.AbstractLegendService;
+import com.legend.module.core.service.core.impl.AbstractLegendService;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,8 +13,8 @@ import tk.mybatis.mapper.common.Mapper;
 import javax.annotation.Resource;
 
 /**
- * @author Administrator
- * @date 2018/3/9
+ * @author ${author}
+ * @date ${datetime}
  */
 @Service
 @Transactional(rollbackFor = Exception.class)

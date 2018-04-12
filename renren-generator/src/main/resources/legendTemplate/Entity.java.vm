@@ -1,6 +1,6 @@
 package ${package}.model.pojo.entity.${moduleName};
 
-import com.legend.module.model.pojo.entity.AbstractEntity;
+import com.legend.module.core.entity.AbstractEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -26,8 +26,8 @@ import java.math.BigDecimal;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-@Table(name = "${tableName}")
 @ToString
+@Table(name = "${tableName}")
 public class ${className} extends AbstractEntity<${className}> {
 	private static final long serialVersionUID = 1L;
 
