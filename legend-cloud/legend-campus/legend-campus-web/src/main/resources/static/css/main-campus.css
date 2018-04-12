@@ -225,3 +225,11 @@ body a {
 .cursor-pointer {
     cursor: pointer;
 }
+
+.line {
+    width: 100%;
+    size: 1px;
+    color: #bbbcbc;
+    background: 1px #bbbcbc;
+}
+
