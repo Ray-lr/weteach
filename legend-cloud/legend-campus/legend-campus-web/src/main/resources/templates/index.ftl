@@ -70,11 +70,40 @@
                             <div class="card">
                                 <div class="card-header" id="headingOne">
                                     <h5 class="mb-0 row">
-                                        <div style="width: 90%" align="left">
+                                        <div style="width: 90%;">
                                             <button class="btn btn-link collapsed courseTitle" data-toggle="collapse"
                                                     data-target="#collapseOne" aria-expanded="false"
                                                     aria-controls="collapseOne">
-                                                急求学霸一名来教教我线性代数，十万火急！
+                                                <a class="courseTitle">急求学霸一名来教教我线性代数，十万火急!</a>
+                                            </button>
+                                        </div>
+                                        <div style="width: 10%" align="left" data-toggle="tooltip"
+                                             data-placement="right" title="10积分">
+                                            <img src="/static/external/star-rating/image/star-on.png" title="10积分">
+                                        </div>
+                                    </h5>
+                                </div>
+                                <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+                                     data-parent="#study">
+                                    <div class="card-body row">
+                                        <img class="rounded-0 cover"
+                                             src="/static/image/avatar/Avatar.png"
+                                             alt="Cover">
+                                        <div class="col" style="text-overflow:ellipsis;">
+                                            <a style="font-weight: bold" href="/direct/course">急求学霸一名来教教我线性代数，十万火急！</a>
+                                            <a id="hhh" style="width:100%;word-break:break-all;display:-webkit-box;-webkit-line-clamp:2;
+                                            -webkit-box-orient:vertical;overflow:hidden;" href="/direct/course">
+                                                如题，这学期我们在学线性代数，原本还能跟得上，后来家里有事请了一周假，回来后上课就听不懂了，现在急求一位学长或学姐能够帮帮我，不然下星期的课还是听不懂的话就越来越麻烦了，十万火急，希望能有学霸帮忙！</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-header" id="headingO">
+                                    <h5 class="mb-0 row">
+                                        <div style="width: 90%;">
+                                            <button class="btn btn-link collapsed courseTitle" data-toggle="collapse"
+                                                    data-target="#collapseO" aria-expanded="false"
+                                                    aria-controls="collapseO">
+                                                急求学霸一名来教教我线性代数，十万火急!aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
                                             </button>
                                         </div>
 
@@ -84,7 +113,7 @@
                                         </div>
                                     </h5>
                                 </div>
-                                <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+                                <div id="collapseO" class="collapse" aria-labelledby="headingO"
                                      data-parent="#study">
                                     <div class="card-body row">
                                         <img class="rounded-0 cover"
@@ -126,12 +155,18 @@
                             <!--first demonstration-->
                             <div class="card">
                                 <div class="card-header" id="headingTwo">
-                                    <h5 class="mb-0">
-                                        <button class="btn btn-link collapsed" data-toggle="collapse"
-                                                data-target="#collapseTwo" aria-expanded="false"
-                                                aria-controls="collapseTwo" style="font-weight: bold;">
-                                            英语四级作文写作技巧教学
-                                        </button>
+                                    <h5 class="mb-0 row">
+                                        <div style="width: 90%">
+                                            <button class="btn btn-link collapsed courseTitle" data-toggle="collapse"
+                                                    data-target="#collapseTwo" aria-expanded="false"
+                                                    aria-controls="collapseTwo">
+                                                英语四级作文写作技巧教学aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                                            </button>
+                                        </div>
+                                        <div style="width: 10%" align="left" data-toggle="tooltip"
+                                             data-placement="right" title="10积分">
+                                            <img src="/static/external/star-rating/image/star-on.png">
+                                        </div>
                                     </h5>
                                 </div>
                                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
@@ -143,8 +178,7 @@
                                         <div class="col" style="text-overflow:ellipsis;">
                                             <a style="font-weight: bold" href="/direct/course">英语四级作文写作技巧教学</a>
                                             <!--单行隐藏内容加省略号<p style="text-overflow:ellipsis;white-space:nowrap;width:30em;overflow:hidden;">-->
-                                            <a id="hhh" style="width:100%;word-break:break-all;display:-webkit-box;-webkit-line-clamp:2;
-                                            -webkit-box-orient:vertical;overflow:hidden;" href="/direct/course">
+                                            <a class="courseDescription" href="/direct/course">
                                                 同学，你是否苦恼于自己的英语作文每次考试都拉分？是否对于英语作文怎么写而感到迷茫？那么你可以参加我的技巧教学，只需两天，保证让你英语写作上升一个档次</a>
                                         </div>
 
@@ -154,12 +188,18 @@
                             <!--second demonstration-->
                             <div class="card">
                                 <div class="card-header" id="headingThree">
-                                    <h5 class="mb-0">
-                                        <button class="btn btn-link collapsed" data-toggle="collapse"
-                                                data-target="#collapseThree" aria-expanded="false"
-                                                aria-controls="collapseThree" style="font-weight: bold;">
-                                            英语四级作文写作技巧教学
-                                        </button>
+                                    <h5 class="mb-0 row">
+                                        <div style="width: 90%">
+                                            <button class="btn btn-link collapsed courseTitle" data-toggle="collapse"
+                                                    data-target="#collapseThree" aria-expanded="false"
+                                                    aria-controls="collapseThree">
+                                                英语四级作文写作技巧教学
+                                            </button>
+                                        </div>
+                                        <div style="width: 10%" align="left" data-toggle="tooltip"
+                                             data-placement="right" title="15积分">
+                                            <img src="/static/external/star-rating/image/star-on.png">
+                                        </div>
                                     </h5>
                                 </div>
                                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
@@ -171,8 +211,7 @@
                                         <div class="col" style="text-overflow:ellipsis;">
                                             <a style="font-weight: bold" href="/direct/course">英语四级作文写作技巧教学</a>
                                             <!--单行隐藏内容加省略号<p style="text-overflow:ellipsis;white-space:nowrap;width:30em;overflow:hidden;">-->
-                                            <a id="hhh" style="width:100%;word-break:break-all;display:-webkit-box;-webkit-line-clamp:2;
-                                            -webkit-box-orient:vertical;overflow:hidden;" href="/direct/course">
+                                            <a class="courseDescription" href="/direct/course">
                                                 同学，你是否苦恼于自己的英语作文每次考试都拉分？是否对于英语作文怎么写而感到迷茫？那么你可以参加我的技巧教学，只需两天，保证让你英语写作上升一个档次</a>
                                         </div>
 
@@ -182,12 +221,18 @@
                             <!--third demonstration-->
                             <div class="card">
                                 <div class="card-header" id="headingFour">
-                                    <h5 class="mb-0">
-                                        <button class="btn btn-link collapsed" data-toggle="collapse"
-                                                data-target="#collapseFour" aria-expanded="false"
-                                                aria-controls="collapseFour" style="font-weight: bold;">
-                                            英语四级作文写作技巧教学
-                                        </button>
+                                    <h5 class="mb-0 row">
+                                        <div style="width: 90%">
+                                            <button class="btn btn-link collapsed courseTitle" data-toggle="collapse"
+                                                    data-target="#collapseFour" aria-expanded="false"
+                                                    aria-controls="collapseFour">
+                                                英语四级作文写作技巧教学
+                                            </button>
+                                        </div>
+                                        <div style="width: 10%" align="left" data-toggle="tooltip"
+                                             data-placement="right" title="20积分">
+                                            <img src="/static/external/star-rating/image/star-on.png">
+                                        </div>
                                     </h5>
                                 </div>
                                 <div id="collapseFour" class="collapse" aria-labelledby="headingFour"
@@ -199,8 +244,7 @@
                                         <div class="col" style="text-overflow:ellipsis;">
                                             <a style="font-weight: bold" href="/direct/course">英语四级作文写作技巧教学</a>
                                             <!--单行隐藏内容加省略号<p style="text-overflow:ellipsis;white-space:nowrap;width:30em;overflow:hidden;">-->
-                                            <a id="hhh" style="width:100%;word-break:break-all;display:-webkit-box;-webkit-line-clamp:2;
-                                            -webkit-box-orient:vertical;overflow:hidden;" href="/direct/course">
+                                            <a class="courseDescription" href="/direct/course">
                                                 同学，你是否苦恼于自己的英语作文每次考试都拉分？是否对于英语作文怎么写而感到迷茫？那么你可以参加我的技巧教学，只需两天，保证让你英语写作上升一个档次</a>
                                         </div>
 
@@ -257,7 +301,7 @@
         </div>
     </div>
 </div>
-
+<#include "./common/style.ftl">
 <script>
     let vm = new Vue({
         el: "#vm",

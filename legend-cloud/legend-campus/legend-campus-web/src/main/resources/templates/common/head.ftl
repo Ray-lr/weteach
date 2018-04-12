@@ -16,7 +16,9 @@
     <link rel="stylesheet" href="/static/css/bootstrap.css" media="screen">
     <link rel="stylesheet" href="/static/external/star-rating/jquery.raty.css" media="screen">
     <link rel="stylesheet" href="/static/css/main-campus.css" media="screen">
-
+    <link rel="stylesheet" href="/static/external/star-rating/jquery.raty.css" media="screen">
+    <link rel="stylesheet" href="/static/external/icheck-1.x/skins/all.css">
+    <link rel="stylesheet" href="/static/external/icheck-1.x/skins/minimal/_all.css">
 
 </head>
 <body>
@@ -28,6 +30,7 @@
 <script src="/static/external/pace-master/pace.js"></script>
 <script src="/static/external/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.js"></script>
 <script src="/static/external/star-rating/jquery.raty.js"></script>
+<script src="/static/external/icheck-1.x/icheck.min.js"></script>
 <script src="/static/js/bootstrap.min.js"></script>
 <script src="/static/js/jquery-validate.min.js"></script>
 <script src="/static/js/date.js"></script>
