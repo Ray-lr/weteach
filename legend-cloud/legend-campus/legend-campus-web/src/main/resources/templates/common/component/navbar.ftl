@@ -69,6 +69,8 @@
                     <div class="dropdown-menu" aria-labelledby="personalMenu">
                         <a class="dropdown-item" href="/direct/myProfile?type=course">个人主页</a>
                         <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/direct/publish">发布课程</a>
+                        <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="/direct/messages">消息中心</a>
                         <a class="dropdown-item" href="/direct/settings">设置</a>
                         <a class="dropdown-item" href="/direct/help">帮助</a>
