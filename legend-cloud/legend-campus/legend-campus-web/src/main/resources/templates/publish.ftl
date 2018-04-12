@@ -5,8 +5,7 @@
 
     <div class="container margin-top10" id="principal">
         <h1 class="alert-heading">发布课程</h1>
-        <hr width=100% size=1 color=#bbbcbc style="border:1dppx dashed #bbbcbc">
-
+        <hr class="line"/>
         <div class="row-fluid">
             <ul class="nav nav-pills justify-content-center" id="myTab" role="tablist">
                 <li class="nav-item">
@@ -19,7 +18,6 @@
                        href="#teaching" role="tab"
                        aria-controls="teaching" aria-selected="false">教学贴</a>
                 </li>
-
             </ul>
 
             <div class="tab-content row justify-content-center" id="courseContent">
@@ -395,7 +393,6 @@
                             hideOnNavigate: false//是否隐藏导航
                         });
                     }
-
                 }
             });
         },
@@ -416,7 +413,6 @@
                             showCloseButton: true,//是否显示关闭按钮
                             hideOnNavigate: false//是否隐藏导航
                         });
-
                     }
                 });
                 setTimeout(function () {
@@ -507,30 +503,5 @@
         });
 
     });
-    /*$().ready(function(){
-        $('input').iCheck({
-            checkboxClass: 'icheckbox_minimal-red',
-            radioClass: 'iradio_minimal-red',
-            increaseArea: '20%' // optional
-        });
-    });
-    $(".sex_limit").on('ifChanged', function(event){
-        $(".sex").toggle();
-    });
-    $(".grade_limit").on('ifChanged', function(event){
-        $(".grade").toggle();
-    });
-    $(".person_num_limit").on('ifChanged', function(event){
-        $(".person_num").toggle();
-    });
-    $(".hide").on('ifChecked', function(event){ //ifCreated 事件应该在插件初始化之前绑定
-        $(".cancel_all").hide();
-        $('input').iCheck("checked", false);
-    });*/
-    /*submit点击后文字改变*/
-    function textChange() {
-        document.getElementById("dd").innerHTML = "请耐心等待";
-    }
-
 </script>
 <#include "./common/foot.ftl">
