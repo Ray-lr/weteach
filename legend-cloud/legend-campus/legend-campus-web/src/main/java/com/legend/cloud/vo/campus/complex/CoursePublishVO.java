@@ -6,6 +6,10 @@ import lombok.Data;
 
 import javax.validation.Valid;
 
+/**
+ * @author Administrator
+ * @date 2018/4/12
+ */
 @Data
 public class CoursePublishVO {
     /**

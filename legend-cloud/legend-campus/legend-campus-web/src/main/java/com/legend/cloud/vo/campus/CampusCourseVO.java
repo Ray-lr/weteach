@@ -73,17 +73,17 @@ public class CampusCourseVO extends AbstractVO<CampusCourse> {
     /**
      * 报名截止日期
      */
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
     private Date applyEndTime;
     /**
      * 开课时间
      */
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
     private Date beginTime;
     /**
      * 结课时间
      */
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
     private Date endTime;
     /**
      * 完成时间

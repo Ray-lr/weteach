@@ -59,7 +59,7 @@ public class BaseUserController extends AbstractUserController<BaseUserVO> {
     @Override
     protected Ajax loginProcess(BaseUserVO baseUserVO) {
         UsernamePasswordToken token = new UsernamePasswordToken(baseUserVO.getUsername(), baseUserVO.getPassword
-                (), baseUserVO.getRememberMe(), "base");
+                (), baseUserVO.getRememberMe(), "user");
         SecurityUtils.setSecurityManager(securityManager);
         Subject subject = SecurityUtils.getSubject();
         try {

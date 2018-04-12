@@ -41,6 +41,7 @@ public class SystemUserController extends AbstractUserController<SystemUserVO> {
     @Resource
     private SecurityManager securityManager;
 
+
     @Override
     public UserService getUserService() {
         return systemUserService;
@@ -54,7 +55,7 @@ public class SystemUserController extends AbstractUserController<SystemUserVO> {
     @Override
     protected Ajax loginProcess(SystemUserVO systemUserVO) {
         UsernamePasswordToken token = new UsernamePasswordToken(systemUserVO.getUsername(), systemUserVO.getPassword
-                (), systemUserVO.isRememberMe(), "system");
+                (), systemUserVO.getRememberMe(), "admin");
         SecurityUtils.setSecurityManager(securityManager);
         Subject subject = SecurityUtils.getSubject();
         try {
@@ -62,16 +63,15 @@ public class SystemUserController extends AbstractUserController<SystemUserVO> {
             if (!subject.isAuthenticated()) {
                 return Ajax.error();
             }
-            SystemUser currentUser = (SystemUser) subject.getPrincipal();
+            SystemUser systemUser = (SystemUser) subject.getPrincipal();
             // 更新最后登录时间
-            currentUser.setLastLoginTime(new Date());
-            systemUserService.updateById(currentUser);
+            systemUser.setLastLoginTime(new Date());
+            systemUserService.updateById(systemUser);
             // 设置用户到session
-            LOGGER.info(JSON.toJSONString(new SystemUserVO().parseFrom(currentUser, "password", "is_enabled", "status",
-                    "create_time",
-                    "update_time", "is_deleted")));
-            setCurrentUser(JSON.toJSONString(new SystemUserVO().parseFrom(currentUser, "password", "is_enabled", "status", "create_time",
-                    "update_time", "is_deleted")));
+            SystemUserVO currentUser = new SystemUserVO().parseFrom(systemUser);
+            currentUser.setHost("admin");
+            setCurrentUser(JSON.toJSONString(currentUser));
+            LOGGER.info(String.valueOf(getCurrentUser()));
             return Ajax.success(UserResultMessage.LOGIN_SUCCESS).put(Key.URL, "/direct/index");
         } catch (IncorrectCredentialsException e) {
             System.err.println(e.getLocalizedMessage());

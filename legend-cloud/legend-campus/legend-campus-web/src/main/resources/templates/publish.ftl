@@ -5,7 +5,7 @@
 
     <div class="container margin-top10" id="principal">
         <h1 class="alert-heading">发布课程</h1>
-        <hr class="line"/>
+        <hr class="line">
         <div class="row-fluid">
             <ul class="nav nav-pills justify-content-center" id="myTab" role="tablist">
                 <li class="nav-item">

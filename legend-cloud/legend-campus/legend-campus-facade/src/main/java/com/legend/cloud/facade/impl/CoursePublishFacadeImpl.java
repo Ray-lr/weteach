@@ -36,17 +36,22 @@ public class CoursePublishFacadeImpl implements CoursePublishFacade {
 
     @Override
     public int publish(CampusCourse campusCourse, CampusCourseLimit campusCourseLimit, String host) {
+        if (campusCourse == null) {
+            throw new NullPointerException();
+        }
         Date now = new Date();
         campusCourse.setCreateTime(now);
         campusCourse.setUpdateTime(now);
         if (campusCourseService.save(campusCourse) <= 0) {
             return 0;
         }
-        campusCourseLimit.setCourseId(campusCourse.getId());
-        campusCourseLimit.setCreateTime(now);
-        campusCourseLimit.setUpdateTime(now);
-        if (campusCourseLimitService.save(campusCourseLimit) == 0) {
-            return 0;
+        if (campusCourseLimit != null) {
+            campusCourseLimit.setCourseId(campusCourse.getId());
+            campusCourseLimit.setCreateTime(now);
+            campusCourseLimit.setUpdateTime(now);
+            if (campusCourseLimitService.save(campusCourseLimit) == 0) {
+                return 0;
+            }
         }
         // 从campusCourse中获取相应信息并存储到baseOrder中并保存
         BaseOrder baseOrder = new BaseOrder();

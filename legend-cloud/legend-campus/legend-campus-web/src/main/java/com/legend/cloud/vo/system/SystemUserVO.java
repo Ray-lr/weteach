@@ -1,7 +1,7 @@
 package com.legend.cloud.vo.system;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.legend.cloud.entity.system.SystemUser;
 import com.legend.module.core.vo.core.UserVO;
 import lombok.Data;
@@ -22,7 +22,7 @@ import java.util.Date;
 @ToString
 @JsonAutoDetect
 public class SystemUserVO extends UserVO<SystemUser> {
-    @JsonIgnore
+    @JSONField(serialize = false)
     private static final long serialVersionUID = 1L;
     /**
      * id
@@ -33,41 +33,46 @@ public class SystemUserVO extends UserVO<SystemUser> {
      */
     private String nickName;
     /**
+     * 用户类型
+     */
+    private String host;
+    /**
      * 记住我
      */
-    @JsonIgnore
-    private boolean rememberMe;
+    @JSONField(serialize = false)
+    private Boolean rememberMe;
     /**
      * 最后登录时间
      */
-    @JsonIgnore
+    @JSONField(serialize = false)
     private Date lastLoginTime;
 
     /**
      * 状态（0、离线 1、在线）
      */
-    @JsonIgnore
+    @JSONField(serialize = false)
     private Integer status;
     /**
      * 是否启用
      */
-    @JsonIgnore
+    @JSONField(serialize = false)
     private Boolean isEnabled;
     /**
      * 创建时间
      */
-    @JsonIgnore
+    @JSONField(serialize = false)
     private Date createTime;
     /**
      * 更新时间
      */
-    @JsonIgnore
+    @JSONField(serialize = false)
     private Date updateTime;
     /**
      * 是否删除
      */
-    @JsonIgnore
+    @JSONField(serialize = false)
     private Boolean isDeleted;
+
     @Override
     public SystemUser parseTo(String... ignoreProperties) {
         return super.parseTo(ignoreProperties);

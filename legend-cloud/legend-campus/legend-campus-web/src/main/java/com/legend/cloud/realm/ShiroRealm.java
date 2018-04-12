@@ -5,6 +5,7 @@ import com.legend.cloud.entity.system.SystemPermission;
 import com.legend.cloud.entity.system.SystemRole;
 import com.legend.cloud.entity.system.SystemRoleRelPermission;
 import com.legend.cloud.entity.system.SystemUserRelRole;
+import com.legend.cloud.model.constant.attribute.Host;
 import com.legend.cloud.model.constant.attribute.Module;
 import com.legend.cloud.service.base.BaseUserRelRoleService;
 import com.legend.cloud.service.base.BaseUserService;
@@ -73,10 +74,10 @@ public class ShiroRealm extends AuthorizingRealm {
         Set<String> roleSigns;
         Set<String> permissionSigns = new HashSet<>();
         String host = (String) HttpSessionUtils.getAttribute("host");
-        if (Module.SYSTEM.equals(host)) {
+        if (Host.ADMIN.equals(host)) {
             roleIds = systemUserRelRoleService.getListByUserId(currentUser.getId()).stream().map
                     (SystemUserRelRole::getSystemRoleId).collect(Collectors.toList());
-        } else if (Module.BASE.equals(host)) {
+        } else if (Host.USER.equals(host)) {
             roleIds = baseUserRelRoleService.getListByUserId(currentUser.getId()).stream().map
                     (BaseUserRelRole::getSystemRoleId).collect(Collectors.toList());
         }

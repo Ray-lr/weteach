@@ -15,11 +15,10 @@
           media="screen">
     <link rel="stylesheet" href="/static/css/bootstrap.css" media="screen">
     <link rel="stylesheet" href="/static/external/star-rating/jquery.raty.css" media="screen">
-    <link rel="stylesheet" href="/static/css/main-campus.css" media="screen">
     <link rel="stylesheet" href="/static/external/star-rating/jquery.raty.css" media="screen">
     <link rel="stylesheet" href="/static/external/icheck-1.x/skins/all.css">
     <link rel="stylesheet" href="/static/external/icheck-1.x/skins/minimal/_all.css">
-
+    <link rel="stylesheet" href="/static/css/main-campus.css" media="screen">
 </head>
 <body>
 <script src="/static/js/jquery-3.3.1.js"></script>
@@ -40,5 +39,5 @@
 <script src="/static/js/echarts.common.min.js"></script>
 <script>
     Vue.prototype.user = <#if currentUser??>${currentUser}<#else>null</#if>;
-    Vue.prototype.pagenation = <#if pagenation??>${pagenation}<#else>null</#if>;
+    Vue.prototype.pagination = <#if pagination??>${pagination}<#else>null</#if>;
 </script>

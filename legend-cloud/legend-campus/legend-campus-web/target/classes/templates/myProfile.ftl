@@ -36,40 +36,6 @@
                         <div class="tab-pane fade <#if !type?? || type=="course">show active</#if>" id="courseInfo"
                              role="tabpanel"
                              aria-labelledby="courseInfo-tab">
-
-
-                            <!--<div class="btn-group">
-                                <button class="btn btn-secondary btn-lg" type="button">
-                                    课程类型
-                                </button>
-                                <button type="button" class="btn btn-lg btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="sr-only">Toggle Dropdown</span>
-                                </button>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">求学贴</a>
-                                    <a class="dropdown-item" href="#">教学贴</a>
-                                </div>
-                            </div>
-
-                            <div class="btn-group">
-                                <button class="btn btn-secondary btn-lg" type="button">
-                                    课程状态
-                                </button>
-                                <button type="button" class="btn btn-lg btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="sr-only">Toggle Dropdown</span>
-                                </button>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">未审核</a>
-                                    <a class="dropdown-item" href="#">审核已驳回</a>
-                                    <a class="dropdown-item" href="#">审核已通过</a>
-                                    <a class="dropdown-item" href="#">报名中</a>
-                                    <a class="dropdown-item" href="#">等待开课</a>
-                                    <a class="dropdown-item" href="#">开课中</a>
-                                    <a class="dropdown-item" href="#">已结课</a>
-                                    <a class="dropdown-item" href="#">已经取消</a>
-                                </div>
-                            </div>-->
-
                             <div class="card" v-for="(item,index) of myCourseInfos">
                                 <div class="card-header bg-whitesmoke-tp25" :id="'heading-myCourse-'+index">
                                     <h5 class="mb-0">
@@ -157,31 +123,9 @@
                                 <!--邮箱-->
                                 <div class="form-group">
                                     <label for="email">邮箱</label>
-                                    <input type="text" class="form-control" id="email"
+                                    <input type="email" class="form-control" id="email"
                                            placeholder="name@example.com" name="email" :value="userInfo.email">
                                 </div>
-                            <#--
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Recipient's username"
-                                       aria-label="Recipient's username" aria-describedby="basic-addon2">
-                                <div class="input-group-append">
-                                    <span class="input-group-text" id="basic-addon2">@example.com</span>
-                                </div>
-                                <div class="input-group-append">
-                                    <button type="button"
-                                            class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <span class="sr-only">Toggle Dropdown</span>
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="#">@163.com</a>
-                                        <a class="dropdown-item" href="#">@126.com</a>
-                                        <a class="dropdown-item" href="#">@qq.com</a>
-                                        <div role="separator" class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">other emails</a>
-                                    </div>
-                                </div>
-                            </div>-->
                                 <!-- 籍贯 -->
                                 <div class="form-group">
                                     <label for="province">籍贯</label>
@@ -232,28 +176,18 @@
                                 </div>
                             </form>
                         </div>
-                        <!--浏览历史-->
+                        <!--我的数据统计-->
                         <div class="tab-pane fade <#if type?? && type=="data">show active</#if>" id="dataInfo"
                              role="tabpanel"
                              aria-labelledby="data-tab">
-                            <div class="card">
-                                <div class="card-header" id="headingThree">
-                                    <h5 class="mb-0">
-                                        <button class="btn btn-link collapsed" data-toggle="collapse"
-                                                data-target="#collapseThree" aria-expanded="false"
-                                                aria-controls="collapseThree">
-                                            Third Item
-                                        </button>
-                                    </h5>
+                            <!--统计图-->
+                            <div id="semester" style="width: 700px;height:400px;"></div>
+                            <!--饼图-->
+                            <div>
+                                <div>
+                                    <div id="pie" style="width: 500px;height:300px;"></div>
                                 </div>
-                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
-                                     data-parent="#accordion">
-                                    <div class="card-body">
-                                        <img class="rounded-left cover" src="/static/image/avatar/Avatar.png"
-                                             alt="Cover">
-                                        three
-                                    </div>
-                                </div>
+                                <div></div>
                             </div>
                         </div>
                     </div>
@@ -323,6 +257,15 @@
                 success: function (data) {
                     if (data.result) {
                         _this.myCourseInfos = data.data;
+                    } else {
+                        Messenger().post({
+                            id: "error",
+                            message: data.msg,//提示信息
+                            type: 'error',//消息类型。error、info、success
+                            hideAfter: 3,//多长时间消失
+                            showCloseButton: true,//是否显示关闭按钮
+                            hideOnNavigate: false//是否隐藏导航
+                        });
                     }
                 }
             });
@@ -411,12 +354,9 @@
             deep: true
         }
     });
-    $().ready(function () {
-        $('input').iCheck({
-            checkboxClass: 'icheckbox_minimal-blue',
-            radioClass: 'iradio_minimal-blue',
-            increaseArea: '20%' // optional
-        });
-    });
+
 </script>
+<!--导入图表-->
+<#include "./common/component/charts.ftl">
+
 <#include "./common/foot.ftl">

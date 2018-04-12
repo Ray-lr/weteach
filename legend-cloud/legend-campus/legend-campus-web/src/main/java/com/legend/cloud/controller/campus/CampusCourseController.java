@@ -84,7 +84,8 @@ public class CampusCourseController extends CampusController {
             CampusUserInfoVO currentUser = JSON.parseObject(String.valueOf(getCurrentUser()), CampusUserInfoVO.class);
             CampusCourse campusCourse = coursePublishVO.getCourse().parseTo(Column.ID);
             campusCourse.setUserId(currentUser.getBaseUserId());
-            CampusCourseLimit campusCourseLimit = coursePublishVO.getLimit().parseTo(Column.ID);
+            CampusCourseLimit campusCourseLimit = coursePublishVO.getLimit() != null ? coursePublishVO.getLimit().parseTo
+                    (Column.ID) : null;
             int saveResult = coursePublishFacade.publish(campusCourse, campusCourseLimit, currentUser.getHost());
             return saveResult == 1 ? Ajax.success(AjaxMessage.SAVE_SUCCESS) : Ajax.error(AjaxMessage.SAVE_FAILURE,
                     AjaxCode.SAVE_FAILURE);
