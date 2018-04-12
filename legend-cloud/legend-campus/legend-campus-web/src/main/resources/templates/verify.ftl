@@ -4,43 +4,36 @@
 <#include "common/component/navbar.ftl">
 
     <div class="container margin-top10" id="principal">
-        <div class="row">
-            <h1 class="alert-heading">教师资格认证</h1>
 
-            <hr width=100% size=1 color=#bbbcbc style="border:1dppx dashed #bbbcbc">
-
-            <div class="col-12 col-md- align-content-center" id="principal">
+        <h1 class="alert-heading">教师资格认证</h1>
+        <hr width=100% size=1 color=#bbbcbc style="border:1dppx dashed #bbbcbc">
+        <div class="row justify-content-md-center">
+            <div class="col-12 col-md-10" id="principal">
                 <form @submit.prevent="verify($event)">
+                    <!--系别/专业/课程-->
                     <div class="form-group">
-                        <label for="course">认证课程</label>
-                        <div class="row">
-                            <div class="col col-md-4">
-                                <select class="form-control" id="dept" name="dept"
-                                        data-toggle="tooltip"
-                                        data-placement="bottom" title="">
-                                    <option selected="selected" id="departmentOption">-- 请选择系别 --</option>
-                                    <option v-for="item in departments" :value="item.id"
-                                            v-text="item.name"></option>
-                                </select>
-                            </div>
-                            <div class="col col-md-4">
-                                <select class="form-control" id="major" name="major"
-                                        data-toggle="tooltip"
-                                        data-placement="bottom" title="">
-                                    <option selected="selected" id="majorOption">-- 请选择专业 --</option>
-                                    <option v-for="item in majors" :value="item.id"
-                                            v-text="item.name"></option>
-                                </select>
-                            </div>
-                            <div class="col col-md-4">
-                                <select class="form-control" id="course" name="course"
-                                        data-toggle="tooltip"
-                                        data-placement="bottom" title="">
-                                    <option selected="selected" id="courseOption">-- 请选择课程 --</option>
-                                    <option v-for="item in courses" :value="item.id"
-                                            v-text="item.name"></option>
-                                </select>
-                            </div>
+                        <label for="course">系别/专业/课程</label>
+                        <div class="input-group">
+                            <select class="form-control" id="dept"
+                                    v-model="dept" name="course.dept"
+                                    data-toggle="tooltip"
+                                    data-placement="left" title="请选择系别">
+                                <option v-for="item in depts" :value="item.id"
+                                        v-text="item.name"></option>
+                            </select>
+                            <select class="form-control" id="major" v-model="major"
+                                    data-toggle="tooltip" name="course.major"
+                                    data-placement="left" title="请选择专业">
+                                <option v-for="item in majors" :value="item.id"
+                                        v-text="item.name"></option>
+                            </select>
+                            <select class="form-control" id="course"
+                                    v-model="course" name="course.course"
+                                    data-toggle="tooltip"
+                                    data-placement="left" title="请选择课程">
+                                <option v-for="item in courses" :value="item.id"
+                                        v-text="item.name"></option>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group">
@@ -53,7 +46,7 @@
                         <div class="input-group mb-3">
 
                             <div class="input-group-prepend">
-                                <button class="btn btn-outline-secondary" type="button" @click="upload">上传</button>
+                                <button class="btn btn-outline-secondary" type="button">上传</button>
                             </div>
                             <div class="custom-file">
                                 <input name="evidence" type="file" class="custom-file-input" id="inputGroupFile03">
