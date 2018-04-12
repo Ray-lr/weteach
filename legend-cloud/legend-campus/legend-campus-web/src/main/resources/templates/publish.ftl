@@ -17,18 +17,21 @@
                 <div class="row-fluid" id="courseList">
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" id="study-tab" data-toggle="tab" href="#study" role="tab"
+                            <a class="nav-link <#if !type?? || type=="seek">active</#if>" id="study-tab"
+                               data-toggle="tab" href="#study" role="tab"
                                aria-controls="study" aria-selected="true">求学贴</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="teaching-tab" data-toggle="tab" href="#teaching" role="tab"
+                            <a class="nav-link <#if type?? && type=="teach">active</#if>" id="teaching-tab"
+                               data-toggle="tab" href="#teaching" role="tab"
                                aria-controls="teaching" aria-selected="false">教学贴</a>
                         </li>
                     </ul>
 
                     <div class="tab-content">
                         <!-- 求学贴 -->
-                        <div class="tab-pane fade show active form-group" id="study" role="tabpanel"
+                        <div class="tab-pane fade <#if !type?? || type=="seek">show active</#if> form-group" id="study"
+                             role="tabpanel"
                              aria-labelledby="study-tab">
                             <form @submit.prevent="publish($event)">
                                 <div class="col col-md-10">
@@ -246,7 +249,8 @@
                             </form>
                         </div>
                         <!-- 教学贴 -->
-                        <div class="tab-pane fade form-group" id="teaching" role="tabpanel"
+                        <div class="tab-pane fade <#if type?? && type=="teach">show active</#if> form-group"
+                             id="teaching" role="tabpanel"
                              aria-labelledby="teaching-tab">
                             <form @submit.prevent="publish($event)">
                                 <div class="col col-md-10">

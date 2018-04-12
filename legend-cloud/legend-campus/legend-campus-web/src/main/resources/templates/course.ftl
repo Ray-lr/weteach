@@ -29,24 +29,81 @@
                 <!--标题-->
                 <h3 align="center">This is the title of the course</h3>
                 <div class="dropdown-divider"></div>
+                <!-- 系别，专业，课程信息展示（不可选） -->
+                <div class="form-group">
+                    <label for="province">课程信息</label>
+                    <div class="row">
+                        <!-- 系别-->
+                        <div class="col-md-4">
+                            <select class="form-control" name="province"
+                                    disabled="disabled"
+                                    data-toggle="tooltip"
+                                    data-placement="left" title="请选择">
+
+                            </select>
+                        </div>
+                        <!-- 专业 -->
+                        <div class="col-md-4">
+                            <select class="form-control" name="city"
+                                    disabled="disabled"
+                                    data-toggle="tooltip"
+                                    data-placement="left" title="请选择">
+
+                            </select>
+                        </div>
+                        <!-- 课程 -->
+                        <div class="col col-md-4">
+                            <select class="form-control" name="county"
+                                    disabled="disabled"
+                                    data-toggle="tooltip"
+                                    data-placement="left" title="请选择">
+
+                            </select>
+                        </div>
+
+                    </div>
+                </div>
                 <!--课程描述-->
-                <p>这里是课程相关的描述吧啦吧啦......</p>
-                <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit
-                    longer so that you can see how spacing within an alert works with this kind of content.</p>
+                <label for="description">课程描述</label>
+                <div class="alert alert-success">
+                    <p>这里是课程相关的描述吧啦吧啦......</p>
+                    <p>Aww yeah, you successfully read this important alert message. This example text is going to run a
+                        bit
+                        longer so that you can see how spacing within an alert works with this kind of content.</p>
+                </div>
                 <!--课程备注-->
+                <label for="remark">备注</label>
                 <div class="alert alert-warning">
                     <p>这里是相关备注Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
                 </div>
-                <!--相关图片展示-->
                 <div class="row">
 
+                </div>
+                <div class="row">
+                    <!--当前报名人数-->
+                    <label for="personNum">当前报名人数</label>
                     <div>
+                        <input type="text" class="form-control" id="exampleFormControlInput1"
+                               name="personNum" disabled="disabled">
+                    </div>
+                    <!--积分-->
+                    <label for=" credits">参与积分</label>
+                    <div>
+                        <input type="text" class="form-control" id="exampleFormControlInput1"
+                               name="credits" disabled="disabled">
+                    </div>
+                </div>
+
+                <!--相关图片证明展示-->
+                <label for="prove">图片证明</label>
+                <div class="row" style="height: 15em;width: 30em">
+                    <div align="center">
                         <img class="rounded-0 cover"
                              src="/static/image/avatar/Avatar.png"
-                             alt="Cover">
+                             alt="Cover" style="width: 100%;height: 100%">
                     </div>
-
                 </div>
+
 
             </div>
             <div class="col col-md-3" id="external">
