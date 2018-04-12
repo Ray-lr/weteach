@@ -5,7 +5,7 @@ import com.legend.cloud.entity.system.SystemPermission;
 import com.legend.cloud.entity.system.SystemRole;
 import com.legend.cloud.entity.system.SystemRoleRelPermission;
 import com.legend.cloud.entity.system.SystemUserRelRole;
-import com.legend.cloud.model.constant.attribute.Host;
+import com.legend.cloud.model.constant.attribute.TypeUser;
 import com.legend.cloud.service.base.BaseUserRelRoleService;
 import com.legend.cloud.service.base.BaseUserService;
 import com.legend.cloud.service.system.*;
@@ -73,10 +73,10 @@ public class ShiroRealm extends AuthorizingRealm {
         Set<String> roleSigns;
         Set<String> permissionSigns = new HashSet<>();
         String host = (String) HttpSessionUtils.getAttribute("host");
-        if (Host.ADMIN.equals(host)) {
+        if (TypeUser.ADMIN.equals(host)) {
             roleIds = systemUserRelRoleService.getListByUserId(currentUser.getId()).stream().map
                     (SystemUserRelRole::getSystemRoleId).collect(Collectors.toList());
-        } else if (Host.USER.equals(host)) {
+        } else if (TypeUser.USER.equals(host)) {
             roleIds = baseUserRelRoleService.getListByUserId(currentUser.getId()).stream().map
                     (BaseUserRelRole::getSystemRoleId).collect(Collectors.toList());
         }
@@ -113,10 +113,10 @@ public class ShiroRealm extends AuthorizingRealm {
             throw new AuthenticationException(UserExceptionMessage.USERNAME_IS_BLANK);
         }
         User currentUser = null;
-        if (Host.ADMIN.equals(usernamePasswordToken.getHost())) {
+        if (TypeUser.ADMIN.equals(usernamePasswordToken.getHost())) {
             currentUser = systemUserService.getByUserName(usernamePasswordToken.getUsername());
             HttpSessionUtils.setAttribute("host", usernamePasswordToken.getHost());
-        } else if (Host.USER.equals(usernamePasswordToken.getHost())) {
+        } else if (TypeUser.USER.equals(usernamePasswordToken.getHost())) {
             currentUser = baseUserService.getByUserName(usernamePasswordToken.getUsername());
             HttpSessionUtils.setAttribute("host", usernamePasswordToken.getHost());
         }

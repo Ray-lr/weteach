@@ -4,6 +4,7 @@ package com.legend.cloud.controller.base;
 import com.alibaba.fastjson.JSON;
 import com.legend.cloud.entity.base.BaseUser;
 import com.legend.cloud.entity.campus.CampusUserInfo;
+import com.legend.cloud.model.constant.attribute.TypeUser;
 import com.legend.cloud.service.base.BaseUserService;
 import com.legend.cloud.service.campus.CampusUserInfoService;
 import com.legend.cloud.vo.base.BaseUserVO;
@@ -32,7 +33,7 @@ import java.util.Date;
  * @date 2018/3/17
  */
 @RestController
-@RequestMapping("/user/user")
+@RequestMapping("/base/user")
 public class BaseUserController extends AbstractUserController<BaseUserVO> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(BaseUserController.class);
@@ -59,7 +60,7 @@ public class BaseUserController extends AbstractUserController<BaseUserVO> {
     @Override
     protected Ajax loginProcess(BaseUserVO baseUserVO) {
         UsernamePasswordToken token = new UsernamePasswordToken(baseUserVO.getUsername(), baseUserVO.getPassword
-                (), baseUserVO.getRememberMe(), "user");
+                (), baseUserVO.getRememberMe(), TypeUser.USER);
         SecurityUtils.setSecurityManager(securityManager);
         Subject subject = SecurityUtils.getSubject();
         try {
@@ -76,7 +77,7 @@ public class BaseUserController extends AbstractUserController<BaseUserVO> {
             campusUserInfo.setBaseUserId(baseUser.getId());
             CampusUserInfoVO currentUser = new CampusUserInfoVO().parseFrom(campusUserInfoService.get(campusUserInfo));
             currentUser.setUsername(baseUser.getUsername());
-            currentUser.setHost("base");
+            currentUser.setHost(TypeUser.ADMIN);
             setCurrentUser(JSON.toJSONString(currentUser));
             LOGGER.info(String.valueOf(getCurrentUser()));
             return Ajax.success(UserResultMessage.LOGIN_SUCCESS).put(Key.URL, "/direct/index");

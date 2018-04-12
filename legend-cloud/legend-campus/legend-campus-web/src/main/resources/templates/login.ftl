@@ -59,8 +59,8 @@
                                     <span class="sr-only">Toggle Dropdown</span>
                                 </button>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#" @click="changeHost('user')">普通用户</a>
-                                    <a class="dropdown-item" href="#" @click="changeHost('admin')">管理员</a>
+                                    <a class="dropdown-item" href="#" @click="changeHost('base')">普通用户</a>
+                                    <a class="dropdown-item" href="#" @click="changeHost('system')">管理员</a>
                                 </div>
                             </div>
                         </form>
@@ -73,11 +73,11 @@
 <script>
     let vm = new Vue({
         el: "#vm",
-        contentType:"application/json;charset=utf-8",
+        contentType: "application/json;charset=utf-8",
         data: {
             username: null,
             password: null,
-            host: "user"
+            host: "base"
         },
         methods: {
             login: function (e) {

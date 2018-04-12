@@ -35,7 +35,7 @@ public class SystemUserVO extends UserVO<SystemUser> {
     /**
      * 用户类型
      */
-    private String host;
+    private String typeUser;
     /**
      * 记住我
      */

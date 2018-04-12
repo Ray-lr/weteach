@@ -39,5 +39,4 @@
 <script src="/static/js/echarts.common.min.js"></script>
 <script>
     Vue.prototype.user = <#if currentUser??>${currentUser}<#else>null</#if>;
-    Vue.prototype.pagination = <#if pagination??>${pagination}<#else>null</#if>;
 </script>

@@ -4,6 +4,7 @@ package com.legend.cloud.controller.system;
 import com.alibaba.fastjson.JSON;
 import com.legend.cloud.controller.base.BaseUserController;
 import com.legend.cloud.entity.system.SystemUser;
+import com.legend.cloud.model.constant.attribute.TypeUser;
 import com.legend.cloud.service.system.SystemUserService;
 import com.legend.cloud.vo.system.SystemUserVO;
 import com.legend.module.core.model.contant.arribute.Key;
@@ -30,7 +31,7 @@ import java.util.Date;
  * @date 2018/3/17
  */
 @RestController
-@RequestMapping("/admin/user")
+@RequestMapping("/system/user")
 public class SystemUserController extends AbstractUserController<SystemUserVO> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(BaseUserController.class);
@@ -55,7 +56,7 @@ public class SystemUserController extends AbstractUserController<SystemUserVO> {
     @Override
     protected Ajax loginProcess(SystemUserVO systemUserVO) {
         UsernamePasswordToken token = new UsernamePasswordToken(systemUserVO.getUsername(), systemUserVO.getPassword
-                (), systemUserVO.getRememberMe(), "admin");
+                (), systemUserVO.getRememberMe(), TypeUser.ADMIN);
         SecurityUtils.setSecurityManager(securityManager);
         Subject subject = SecurityUtils.getSubject();
         try {
@@ -69,7 +70,7 @@ public class SystemUserController extends AbstractUserController<SystemUserVO> {
             systemUserService.updateById(systemUser);
             // 设置用户到session
             SystemUserVO currentUser = new SystemUserVO().parseFrom(systemUser);
-            currentUser.setHost("admin");
+            currentUser.setTypeUser(TypeUser.ADMIN);
             setCurrentUser(JSON.toJSONString(currentUser));
             LOGGER.info(String.valueOf(getCurrentUser()));
             return Ajax.success(UserResultMessage.LOGIN_SUCCESS).put(Key.URL, "/direct/index");
