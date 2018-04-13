@@ -204,19 +204,16 @@
             myCourseInfos: [],
             provinces: [],
             cities: [],
-            counties: [],
+            counties: []
         },
         created: function () {
             let _this = this;
             $.ajax({
-                url: "/base/areas/list",
-                type: "get",
-                data: {
-                    parentId: 0
-                },
+                url: "/campus/userInfo/details/" + this.user.id,
+                type: "GET",
                 success: function (data) {
                     if (data.result) {
-                        _this.provinces = data.data;
+                        _this.userInfo = data.data;
                     } else {
                         Messenger().post({
                             id: "error",
@@ -230,11 +227,14 @@
                 }
             });
             $.ajax({
-                url: "/campus/userInfo/details/" + this.user.id,
-                type: "GET",
+                url: "/base/areas/list",
+                type: "get",
+                data: {
+                    parentId: 0
+                },
                 success: function (data) {
                     if (data.result) {
-                        _this.userInfo = data.data;
+                        _this.provinces = data.data;
                     } else {
                         Messenger().post({
                             id: "error",
@@ -310,7 +310,7 @@
                     success: function (data) {
                         if (data.result) {
                             _this.cities = data.data;
-                            /*_this.userInfo.city = _this.cities[0].id;*/
+                            _this.userInfo.city = _this.cities[0].id;
                         } else {
                             Messenger().post({
                                 id: "error",
@@ -338,6 +338,7 @@
                     success: function (data) {
                         if (data.result) {
                             _this.counties = data.data;
+                            _this.userInfo.county = oldVal === undefined ? _this.userInfo.county : _this.counties[0].id;
                         } else {
                             Messenger().post({
                                 id: "error",
