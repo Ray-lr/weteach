@@ -6,6 +6,7 @@ import com.legend.cloud.controller.CampusController;
 import com.legend.cloud.entity.campus.CampusCourse;
 import com.legend.cloud.entity.campus.CampusCourseLimit;
 import com.legend.cloud.facade.CoursePublishFacade;
+import com.legend.cloud.service.campus.CampusCourseLimitService;
 import com.legend.cloud.service.campus.CampusCourseService;
 import com.legend.cloud.vo.campus.CampusCourseVO;
 import com.legend.cloud.vo.campus.CampusUserInfoVO;
@@ -20,6 +21,8 @@ import com.legend.module.core.utils.PageUtils;
 import com.legend.module.core.utils.Query;
 import org.apache.shiro.authz.AuthorizationException;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -36,16 +39,20 @@ import java.util.stream.Collectors;
 @RequestMapping("/campus/course")
 public class CampusCourseController extends CampusController {
 
+    public static final Logger LOGGER = LoggerFactory.getLogger(CampusCourseController.class);
+
     @Resource
     private CampusCourseService campusCourseService;
     @Resource
     private CoursePublishFacade coursePublishFacade;
+    @Resource
+    private CampusCourseLimitService campusCourseLimitService;
 
     @GetMapping("/list")
     @RequiresPermissions("campus:course:list")
     public Ajax list(CampusCourseVO campusCourseVO, Query query) {
         try {
-            campusCourseVO.setTypeCourse("求学");
+            LOGGER.info(campusCourseVO.getTypeCourse());
             List<CampusCourse> campusCourseList = campusCourseService.getList(campusCourseVO.parseTo(),
                     query);
             List<CampusCourseVO> campusCourseVOList = campusCourseList.stream().map((entity) ->
@@ -86,13 +93,30 @@ public class CampusCourseController extends CampusController {
             campusCourse.setUserId(currentUser.getBaseUserId());
             CampusCourseLimit campusCourseLimit = coursePublishVO.getLimit() != null ? coursePublishVO.getLimit().parseTo
                     (Column.ID) : null;
-            int saveResult = coursePublishFacade.publish(campusCourse, campusCourseLimit, currentUser.getHost());
-            return saveResult == 1 ? Ajax.success(AjaxMessage.SAVE_SUCCESS) : Ajax.error(AjaxMessage.SAVE_FAILURE,
+            return coursePublishFacade.publish(campusCourse, campusCourseLimit, currentUser.getHost()) == 1 ? Ajax.success(AjaxMessage.SAVE_SUCCESS) : Ajax.error(AjaxMessage.SAVE_FAILURE,
                     AjaxCode.SAVE_FAILURE);
         } catch (Exception e) {
             e.printStackTrace();
             return Ajax.error(AjaxMessage.SERVER_ERROR, AjaxCode.SERVER_ERROR);
         }
+    }
+
+    @PutMapping("/apply/{courseId}")
+    public Ajax apply(@PathVariable Integer courseId) {
+        CampusCourse campusCourse = campusCourseService.getById(courseId);
+        CampusCourseLimit campusCourseLimit = new CampusCourseLimit();
+        campusCourseLimit.setCourseId(courseId);
+        campusCourseLimit = campusCourseLimitService.get(campusCourseLimit);
+        Long now = System.currentTimeMillis();
+        Long time = null;
+        if (campusCourse.getApplyEndTime() != null) {
+            time = campusCourse.getApplyEndTime().getTime();
+        }
+        if (now > time) {
+            return Ajax.error("报名时间已过");
+        }
+        return Ajax.success("更新成功");
+
     }
 
     @PutMapping("/update")
