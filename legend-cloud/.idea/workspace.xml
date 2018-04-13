@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fb163638-efa0-4089-b24a-0ee12d72a94c" name="Default" comment="新增campus_user_rel_course表，更改用户类型">
+    <list default="true" id="fb163638-efa0-4089-b24a-0ee12d72a94c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/legend-campus/legend-campus-web/src/main/java/com/legend/cloud/controller/campus/CampusCourseController.java" afterPath="$PROJECT_DIR$/legend-campus/legend-campus-web/src/main/java/com/legend/cloud/controller/campus/CampusCourseController.java" />
     </list>
     <ignored path="$PROJECT_DIR$/legend-campus/legend-campus-dao/target/" />
     <ignored path="$PROJECT_DIR$/legend-campus/legend-campus-web/target/" />
@@ -1095,14 +1094,7 @@
       <workItem from="1523450898550" duration="3938000" />
       <workItem from="1523496321665" duration="11922000" />
       <workItem from="1523512746980" duration="23745000" />
-      <workItem from="1523578031039" duration="1252000" />
-    </task>
-    <task id="LOCAL-00018" summary="去除vue实例中冗余的data、钩子以及方法">
-      <created>1523343639885</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1523343639885</updated>
+      <workItem from="1523578031039" duration="1311000" />
     </task>
     <task id="LOCAL-00019" summary="去除vue实例中冗余的代码">
       <created>1523343687062</created>
@@ -1440,11 +1432,18 @@
       <option name="project" value="LOCAL" />
       <updated>1523537089644</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="fxxk">
+      <created>1523579315524</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1523579315524</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="173821000" />
+    <option name="totallyTimeSpent" value="173880000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1502,7 +1501,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="更改对currentUser的引用" />
     <MESSAGE value="modify" />
     <MESSAGE value="更改publishTime @DateTimeFormat 的格式" />
     <MESSAGE value="信誉星级" />
@@ -1527,7 +1525,8 @@
     <MESSAGE value="更改前后台用户controller访问路径" />
     <MESSAGE value="更改用户类型" />
     <MESSAGE value="新增campus_user_rel_course表，更改用户类型" />
-    <option name="LAST_COMMIT_MESSAGE" value="新增campus_user_rel_course表，更改用户类型" />
+    <MESSAGE value="fxxk" />
+    <option name="LAST_COMMIT_MESSAGE" value="fxxk" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
