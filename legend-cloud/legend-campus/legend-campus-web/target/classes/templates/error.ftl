@@ -2,6 +2,7 @@
 <div id="vm">
 
 </div>
+<#include "common/js.ftl">
 <script>
     let vm = new Vue({
         el: "#vm",

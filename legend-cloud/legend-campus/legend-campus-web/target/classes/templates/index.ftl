@@ -1,11 +1,11 @@
-<#include "./common/head.ftl">
+<#include "common/head.ftl">
 <div id="vm">
     <!--顶部功能栏-->
-<#include "./common/component/navbar.ftl">
+<#include "common/component/navbar.ftl">
 
     <div class="container margin-top10" id="principal">
         <div class="row justify-content-md-center">
-        <#include "./common/component/personal-leftSide.ftl">
+        <#include "common/component/personal-leftSide.ftl">
             <div class="col-12 col-md-6">
                 <!-- 轮播图 -->
                 <div class="carousel slide" id="carouselExampleIndicators" data-ride="carousel">
@@ -202,12 +202,11 @@
             <div class="col col-md-2" id="external">
                 <div class="alert alert-success" role="alert">
                     <h4 class="alert-heading">Well done!</h4>
-                    <p>Aww yeah, you successfully read this important alert message. This example text is going to
-                        run a bit
-                        longer so that you can see how spacing within an alert works with this kind of content.</p>
+                    <p>欢迎来到校园助学平台，很高兴我们能为您服务。我们的的系统能够给您带来便利，帮助你解决问题，
+                        希望能够在接下来的时间里，陪您一起度过一个愉快的学期。</p>
                     <hr>
-                    <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and
-                        tidy.
+                    <p class="mb-0">在我们的页面最右上角，是您的头像，点开他后里面会有帮助选项，
+                        在帮助页面里是我们的用户手册，里面有着关于我们系统的详细使用说明，能够供您参考。
                     </p>
 
                 </div>
@@ -215,65 +214,66 @@
         </div>
     </div>
 </div>
-    <script>
-        let vm = new Vue({
-            el: "#vm",
-            data: {
-                study: {
-                    pagination: null,
-                    list: []
-                },
-                teaching: {
-                    pagination: null,
-                    list: []
-                },
-                myCourses: {
-                    pagination: null,
-                    list: []
-                }
+<#include "common/js.ftl">
+<script>
+    let vm = new Vue({
+        el: "#vm",
+        data: {
+            study: {
+                pagination: {},
+                list: []
             },
-            created: function () {
-                let _this = this;
-                $.ajax({
-                    url: "/campus/course/list",
-                    type: "GET",
-                    data: {
-                        typeCourse: "求学"
-                    },
-                    success: function (data) {
-                        if (data.result) {
-                            _this.study.list = data.data;
-                            _this.study.pagination = data.pagination;
-                        }
-                    }
-                });
-                $.ajax({
-                    url: "/campus/course/list",
-                    type: "GET",
-                    data: {
-                        typeCourse: "教学"
-                    },
-                    success: function (data) {
-                        if (data.result) {
-                            _this.teaching.list = data.data;
-                            _this.teaching.pagination = data.pagination;
-                        }
-                    }
-                });
-                $.ajax({
-                    url: "/campus/course/list",
-                    type: "GET",
-                    data: {
-                        userId: _this.user.baseUserId
-                    },
-                    success: function (data) {
-                        if (data.result) {
-                            _this.myCourses.list = data.data;
-                            _this.myCourses.pagination = data.pagination;
-                        }
-                    }
-                })
+            teaching: {
+                pagination: {},
+                list: []
+            },
+            myCourses: {
+                pagination: {},
+                list: []
             }
-        });
-    </script>
-<#include "./common/foot.ftl">
+        },
+        created: function () {
+            let _this = this;
+            $.ajax({
+                url: "/campus/course/list",
+                type: "GET",
+                data: {
+                    typeCourse: "求学"
+                },
+                success: function (data) {
+                    if (data.result) {
+                        _this.study.list = data.data;
+                        _this.study.pagination = data.pagination;
+                    }
+                }
+            });
+            $.ajax({
+                url: "/campus/course/list",
+                type: "GET",
+                data: {
+                    typeCourse: "教学"
+                },
+                success: function (data) {
+                    if (data.result) {
+                        _this.teaching.list = data.data;
+                        _this.teaching.pagination = data.pagination;
+                    }
+                }
+            });
+            $.ajax({
+                url: "/campus/course/list",
+                type: "GET",
+                data: {
+                    userId: _this.user.baseUserId
+                },
+                success: function (data) {
+                    if (data.result) {
+                        _this.myCourses.list = data.data;
+                        _this.myCourses.pagination = data.pagination;
+                    }
+                }
+            })
+        }
+    });
+</script>
+<#include "common/foot.ftl">

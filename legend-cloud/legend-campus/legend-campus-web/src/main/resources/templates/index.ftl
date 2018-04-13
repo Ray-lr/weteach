@@ -1,11 +1,11 @@
-<#include "./common/head.ftl">
+<#include "common/head.ftl">
 <div id="vm">
     <!--顶部功能栏-->
-<#include "./common/component/navbar.ftl">
+<#include "common/component/navbar.ftl">
 
     <div class="container margin-top10" id="principal">
         <div class="row justify-content-md-center">
-        <#include "./common/component/personal-leftSide.ftl">
+        <#include "common/component/personal-leftSide.ftl">
             <div class="col-12 col-md-6">
                 <!-- 轮播图 -->
                 <div class="carousel slide" id="carouselExampleIndicators" data-ride="carousel">
@@ -214,65 +214,66 @@
         </div>
     </div>
 </div>
-    <script>
-        let vm = new Vue({
-            el: "#vm",
-            data: {
-                study: {
-                    pagination: null,
-                    list: []
-                },
-                teaching: {
-                    pagination: null,
-                    list: []
-                },
-                myCourses: {
-                    pagination: null,
-                    list: []
-                }
+<#include "common/js.ftl">
+<script>
+    let vm = new Vue({
+        el: "#vm",
+        data: {
+            study: {
+                pagination: {},
+                list: []
             },
-            created: function () {
-                let _this = this;
-                $.ajax({
-                    url: "/campus/course/list",
-                    type: "GET",
-                    data: {
-                        typeCourse: "求学"
-                    },
-                    success: function (data) {
-                        if (data.result) {
-                            _this.study.list = data.data;
-                            _this.study.pagination = data.pagination;
-                        }
-                    }
-                });
-                $.ajax({
-                    url: "/campus/course/list",
-                    type: "GET",
-                    data: {
-                        typeCourse: "教学"
-                    },
-                    success: function (data) {
-                        if (data.result) {
-                            _this.teaching.list = data.data;
-                            _this.teaching.pagination = data.pagination;
-                        }
-                    }
-                });
-                $.ajax({
-                    url: "/campus/course/list",
-                    type: "GET",
-                    data: {
-                        userId: _this.user.baseUserId
-                    },
-                    success: function (data) {
-                        if (data.result) {
-                            _this.myCourses.list = data.data;
-                            _this.myCourses.pagination = data.pagination;
-                        }
-                    }
-                })
+            teaching: {
+                pagination: {},
+                list: []
+            },
+            myCourses: {
+                pagination: {},
+                list: []
             }
-        });
-    </script>
-<#include "./common/foot.ftl">
+        },
+        created: function () {
+            let _this = this;
+            $.ajax({
+                url: "/campus/course/list",
+                type: "GET",
+                data: {
+                    typeCourse: "求学"
+                },
+                success: function (data) {
+                    if (data.result) {
+                        _this.study.list = data.data;
+                        _this.study.pagination = data.pagination;
+                    }
+                }
+            });
+            $.ajax({
+                url: "/campus/course/list",
+                type: "GET",
+                data: {
+                    typeCourse: "教学"
+                },
+                success: function (data) {
+                    if (data.result) {
+                        _this.teaching.list = data.data;
+                        _this.teaching.pagination = data.pagination;
+                    }
+                }
+            });
+            $.ajax({
+                url: "/campus/course/list",
+                type: "GET",
+                data: {
+                    userId: _this.user.baseUserId
+                },
+                success: function (data) {
+                    if (data.result) {
+                        _this.myCourses.list = data.data;
+                        _this.myCourses.pagination = data.pagination;
+                    }
+                }
+            })
+        }
+    });
+</script>
+<#include "common/foot.ftl">

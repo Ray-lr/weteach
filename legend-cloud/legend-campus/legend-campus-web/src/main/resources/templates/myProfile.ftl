@@ -1,11 +1,11 @@
-<#include "./common/head.ftl">
+<#include "common/head.ftl">
 <div id="vm">
     <!--顶部功能栏-->
-<#include "./common/component/navbar.ftl">
+<#include "common/component/navbar.ftl">
 
     <div class="container margin-top10" id="principal">
         <div class="row">
-        <#include "./common/component/personal-leftSide.ftl">
+        <#include "common/component/personal-leftSide.ftl">
             <div class="col-12 col-md-8">
                 <!-- 课程列表 -->
                 <div class="row-fluid" id="courseList">
@@ -196,6 +196,7 @@
         </div>
     </div>
 </div>
+<#include "common/js.ftl">
 <script>
     let vm = new Vue({
         el: "#vm",
@@ -355,9 +356,8 @@
             deep: true
         }
     });
-
 </script>
 <!--导入图表-->
-<#include "./common/component/charts.ftl">
+<#include "common/component/charts.ftl">
 
-<#include "./common/foot.ftl">
+<#include "common/foot.ftl">

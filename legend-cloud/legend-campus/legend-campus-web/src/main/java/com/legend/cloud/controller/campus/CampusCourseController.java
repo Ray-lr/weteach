@@ -3,9 +3,11 @@ package com.legend.cloud.controller.campus;
 
 import com.alibaba.fastjson.JSON;
 import com.legend.cloud.controller.CampusController;
+import com.legend.cloud.entity.base.BaseUser;
 import com.legend.cloud.entity.campus.CampusCourse;
 import com.legend.cloud.entity.campus.CampusCourseLimit;
 import com.legend.cloud.facade.CoursePublishFacade;
+import com.legend.cloud.service.base.BaseUserService;
 import com.legend.cloud.service.campus.CampusCourseLimitService;
 import com.legend.cloud.service.campus.CampusCourseService;
 import com.legend.cloud.vo.campus.CampusCourseVO;
@@ -47,6 +49,8 @@ public class CampusCourseController extends CampusController {
     private CoursePublishFacade coursePublishFacade;
     @Resource
     private CampusCourseLimitService campusCourseLimitService;
+    @Resource
+    private BaseUserService baseUserService;
 
     @GetMapping("/list")
     @RequiresPermissions("campus:course:list")
@@ -104,18 +108,25 @@ public class CampusCourseController extends CampusController {
     @PutMapping("/apply/{courseId}")
     public Ajax apply(@PathVariable Integer courseId) {
         CampusCourse campusCourse = campusCourseService.getById(courseId);
+        if (campusCourse == null) {
+            return Ajax.error("课程不存在");
+        }
+        long now = System.currentTimeMillis();
+        if (campusCourse.getApplyEndTime() != null) {
+            if (now > campusCourse.getApplyEndTime().getTime()) {
+                return Ajax.error("报名时间已过");
+            }
+        }
         CampusCourseLimit campusCourseLimit = new CampusCourseLimit();
         campusCourseLimit.setCourseId(courseId);
         campusCourseLimit = campusCourseLimitService.get(campusCourseLimit);
-        Long now = System.currentTimeMillis();
-        Long time = null;
-        if (campusCourse.getApplyEndTime() != null) {
-            time = campusCourse.getApplyEndTime().getTime();
+        if (campusCourseLimit == null) {
+            return Ajax.success("报名成功");
         }
-        if (now > time) {
-            return Ajax.error("报名时间已过");
-        }
-        return Ajax.success("更新成功");
+        CampusUserInfoVO currentUser = JSON.parseObject(String.valueOf(getCurrentUser()), CampusUserInfoVO.class);
+
+        BaseUser baseUser = baseUserService.getById(currentUser.getBaseUserId());
+        return Ajax.success("报名成功");
 
     }
 

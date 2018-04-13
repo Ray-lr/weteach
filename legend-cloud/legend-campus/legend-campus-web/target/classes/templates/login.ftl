@@ -1,4 +1,4 @@
-<#include "./common/head.ftl">
+<#include "common/head.ftl">
 <div id="vm">
     <div class="jumbotron jumbotron-fluid align-items-center">
         <div class="container-fluid ">
@@ -70,6 +70,7 @@
         </div>
     </div>
 </div>
+<#include "common/js.ftl">
 <script>
     let vm = new Vue({
         el: "#vm",
@@ -107,4 +108,4 @@
         }
     });
 </script>
-<#include "./common/foot.ftl">
+<#include "common/foot.ftl">

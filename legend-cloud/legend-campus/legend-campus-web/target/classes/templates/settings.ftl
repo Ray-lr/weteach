@@ -1,4 +1,4 @@
-<#include "./common/head.ftl">
+<#include "common/head.ftl">
 <div id="vm">
     <!--顶部功能栏-->
     <#include "common/component/navbar.ftl">
@@ -24,7 +24,7 @@
                         <li class="list-group-item">Cras justo odio</li>
                     </ul>
                     <div class="card-body">
-                        <a href="myProfile" class="card-link">详细信息</a>
+                        <a href="/direct/myProfile" class="card-link">详细信息</a>
                     </div>
                 </div>
             </div>
@@ -37,6 +37,7 @@
         </div>
     </div>
 </div>
+<#include "common/js.ftl">
 <script>
     let vm = new Vue({
         el: "#vm",
@@ -99,4 +100,4 @@
         }
     })
 </script>
-<#include "./common/foot.ftl">
+<#include "common/foot.ftl">

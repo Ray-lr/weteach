@@ -1,7 +1,7 @@
-<#include "./common/head.ftl">
+<#include "common/head.ftl">
 <div id="vm">
     <!--顶部功能栏-->
-<#include "./common/component/navbar.ftl">
+<#include "common/component/navbar.ftl">
 
     <div class="container margin-top10" id="principal">
         <h1 class="alert-heading">发布课程</h1>
@@ -516,6 +516,7 @@
         </div>
     </div>
 </div>
+<#include "common/js.ftl">
 <script>
     let vm = new Vue({
         el: "#vm",
@@ -671,4 +672,4 @@
     }
 
 </script>
-<#include "./common/foot.ftl">
+<#include "common/foot.ftl">

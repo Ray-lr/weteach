@@ -7,52 +7,20 @@
         <div class="row">
             <h1 class="alert-heading">To Users</h1>
 
-            <hr width=100% size=1 color=#bbbcbc style="border:1 dashed #bbbcbc">
+            <hr class="line">
 
-            <div class="col col-md-2" id="personal">
-
-            </div>
-            <div class="col-12 col-md-8" id="principal">
-                <h3>关于XXX</h3>
-
-            </div>
-            <div class="col col-md-2" id="external">
-
-            </div>
         </div>
     </div>
 </div>
+<#include "common/js.ftl">
 <script>
-    let vm = new Vue({
-        el: "#vm",
-        data: {},
-        beforeCreate: function () {
-
-        },
-        created: function () {
-        },
-        updated: function () {
-        },
-        methods: {
-            search: function (e) {
-                alert($(e.currentTarget).val());
-            },
-            SignOut: function () {
-                $.ajax({
-                    url: "/base/user/logout",
-                    type: "POST",
-                    data: {
-                        _method: "PUT"
-                    },
-                    success: function (data) {
-                        if (data.result) {
-                            window.location.href = data.url;
-                        }
-                    }
-                })
-            }
-        }
-    })
-
+    Messenger().post({
+        id: "error",
+        message: "尚未开放，敬请期待！",//提示信息
+        type: 'error',//消息类型。error、info、success
+        hideAfter: 0//多长时间消失
+        showCloseButton: false,//是否显示关闭按钮
+        hideOnNavigate: false//是否隐藏导航
+    });
 </script>
 <#include "./common/foot.ftl">

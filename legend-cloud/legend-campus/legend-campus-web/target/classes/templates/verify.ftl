@@ -1,4 +1,4 @@
-<#include "./common/head.ftl">
+<#include "common/head.ftl">
 <div id="vm">
     <!--顶部功能栏-->
 <#include "common/component/navbar.ftl">
@@ -64,6 +64,7 @@
         </div>
     </div>
 </div>
+<#include "common/js.ftl">
 <script>
     let vm = new Vue({
         el: "#vm",
@@ -74,7 +75,7 @@
             submit: "提交申请",
             dept:null,
             major:null,
-            course: null,
+            course: null
         },
         beforeCreate: function () {
             $.ajax({
@@ -130,7 +131,7 @@
                     url: "/campus/courseCategory/list",
                     type: "get",
                     data: {
-                        parentId: _this.dept,
+                        parentId: _this.dept
                     },
                     success: function (data) {
                         if (data.result) {
@@ -177,4 +178,4 @@
         }
     });
 </script>
-<#include "./common/foot.ftl">
+<#include "common/foot.ftl">

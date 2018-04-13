@@ -1,4 +1,4 @@
-<#include "./common/head.ftl">
+<#include "common/head.ftl">
 <div id="vm">
     <!--顶部功能栏-->
     <#include "common/component/navbar.ftl">
@@ -170,9 +170,6 @@
         </div>
     </div>
 </div>
-<script>
-    let vm = new Vue({
-        el: "#vm",
-    });
-</script>
-<#include "./common/foot.ftl">
+<#include "common/js.ftl">
+
+<#include "common/foot.ftl">
