@@ -2,40 +2,37 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad7eb4b4-427e-49ff-a59b-ab936ef3dfca" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../legend-cloud/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-dao/legend-campus-dao.iml" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-dao/legend-campus-dao.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-dao/target/classes/mapper/campus/CampusUserInfoMapper.xml" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-dao/target/classes/mapper/campus/CampusUserInfoMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-facade/legend-campus-facade.iml" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-facade/legend-campus-facade.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-service/legend-campus-service.iml" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-service/legend-campus-service.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-web/legend-campus-web.iml" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-web/legend-campus-web.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-web/target/classes/application.yml" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-web/target/classes/application.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-web/target/classes/templates/messages.ftl" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-web/target/classes/templates/messages.ftl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-web/target/classes/templates/settings.ftl" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-web/target/classes/templates/settings.ftl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-web/target/classes/templates/verify.ftl" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-web/target/classes/templates/verify.ftl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus.iml" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../renren-generator/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../renren-generator/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../renren-generator/src/main/java/io/renren/entity/ColumnEntity.java" afterPath="$PROJECT_DIR$/../renren-generator/src/main/java/io/renren/entity/ColumnEntity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../renren-generator/src/main/java/io/renren/utils/GenUtils.java" afterPath="$PROJECT_DIR$/../renren-generator/src/main/java/io/renren/utils/GenUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../renren-generator/src/main/resources/compare/Dao.xml.vm" afterPath="$PROJECT_DIR$/../renren-generator/src/main/resources/compare/Dao.xml.vm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../renren-generator/src/main/resources/legendTemplate/Controller.java.vm" afterPath="$PROJECT_DIR$/../renren-generator/src/main/resources/legendTemplate/Controller.java.vm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../renren-generator/src/main/resources/legendTemplate/Entity.java.vm" afterPath="$PROJECT_DIR$/../renren-generator/src/main/resources/legendTemplate/Entity.java.vm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../renren-generator/src/main/resources/legendTemplate/Example.java.vm" afterPath="$PROJECT_DIR$/../renren-generator/src/main/resources/legendTemplate/Example.java.vm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../renren-generator/src/main/resources/legendTemplate/Mapper.java.vm" afterPath="$PROJECT_DIR$/../renren-generator/src/main/resources/legendTemplate/Mapper.java.vm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../renren-generator/src/main/resources/legendTemplate/Mapper.xml.vm" afterPath="$PROJECT_DIR$/../renren-generator/src/main/resources/legendTemplate/Mapper.xml.vm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../renren-generator/src/main/resources/legendTemplate/Service.java.vm" afterPath="$PROJECT_DIR$/../renren-generator/src/main/resources/legendTemplate/Service.java.vm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../renren-generator/src/main/resources/legendTemplate/ServiceImpl.java.vm" afterPath="$PROJECT_DIR$/../renren-generator/src/main/resources/legendTemplate/ServiceImpl.java.vm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../renren-generator/src/main/resources/legendTemplate/VO.java.vm" afterPath="$PROJECT_DIR$/../renren-generator/src/main/resources/legendTemplate/VO.java.vm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../renren-generator/target/classes/compare/Dao.xml.vm" afterPath="$PROJECT_DIR$/../renren-generator/target/classes/compare/Dao.xml.vm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../renren-generator/target/classes/legendTemplate/Controller.java.vm" afterPath="$PROJECT_DIR$/../renren-generator/target/classes/legendTemplate/Controller.java.vm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../renren-generator/target/classes/legendTemplate/Entity.java.vm" afterPath="$PROJECT_DIR$/../renren-generator/target/classes/legendTemplate/Entity.java.vm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../renren-generator/target/classes/legendTemplate/Example.java.vm" afterPath="$PROJECT_DIR$/../renren-generator/target/classes/legendTemplate/Example.java.vm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../renren-generator/target/classes/legendTemplate/Mapper.java.vm" afterPath="$PROJECT_DIR$/../renren-generator/target/classes/legendTemplate/Mapper.java.vm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../renren-generator/target/classes/legendTemplate/Mapper.xml.vm" afterPath="$PROJECT_DIR$/../renren-generator/target/classes/legendTemplate/Mapper.xml.vm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../renren-generator/target/classes/legendTemplate/Service.java.vm" afterPath="$PROJECT_DIR$/../renren-generator/target/classes/legendTemplate/Service.java.vm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../renren-generator/target/classes/legendTemplate/ServiceImpl.java.vm" afterPath="$PROJECT_DIR$/../renren-generator/target/classes/legendTemplate/ServiceImpl.java.vm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../renren-generator/target/classes/legendTemplate/VO.java.vm" afterPath="$PROJECT_DIR$/../renren-generator/target/classes/legendTemplate/VO.java.vm" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_druid_1_1_8.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_druid_spring_boot_starter_1_1_8.xml" />
+      <change beforePath="$PROJECT_DIR$/../legend-cloud/.idea/libraries/Maven__org_apache_shiro_shiro_web_1_4_0.xml" afterPath="$PROJECT_DIR$/../legend-cloud/.idea/libraries/Maven__org_apache_shiro_shiro_web_1_4_0.xml" />
+      <change beforePath="$PROJECT_DIR$/../legend-cloud/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../legend-cloud/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-dao/legend-campus-dao.iml" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-dao/legend-campus-dao.iml" />
+      <change beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-dao/target/classes/mapper/campus/CampusUserInfoMapper.xml" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-dao/target/classes/mapper/campus/CampusUserInfoMapper.xml" />
+      <change beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-dao/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-dao/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
+      <change beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-facade/legend-campus-facade.iml" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-facade/legend-campus-facade.iml" />
+      <change beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-facade/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-facade/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
+      <change beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-facade/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-facade/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" />
+      <change beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-facade/target/surefire-reports/TEST-com.legend.cloud.campus.facade.LegendCampusFacadeApplicationTests.xml" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-facade/target/surefire-reports/TEST-com.legend.cloud.campus.facade.LegendCampusFacadeApplicationTests.xml" />
+      <change beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-facade/target/surefire-reports/com.legend.cloud.campus.facade.LegendCampusFacadeApplicationTests.txt" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-facade/target/surefire-reports/com.legend.cloud.campus.facade.LegendCampusFacadeApplicationTests.txt" />
+      <change beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-service/legend-campus-service.iml" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-service/legend-campus-service.iml" />
+      <change beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
+      <change beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-web/src/main/resources/templates/myProfile.ftl" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-web/src/main/resources/templates/myProfile.ftl" />
+      <change beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-web/target/classes/templates/messages.ftl" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-web/target/classes/templates/messages.ftl" />
+      <change beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-web/target/classes/templates/settings.ftl" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-web/target/classes/templates/settings.ftl" />
+      <change beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-web/target/classes/templates/test.ftl" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-web/target/classes/templates/verify.ftl" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-web/target/classes/templates/verify.ftl" />
+      <change beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-web/target/legend-campus-web-0.0.1-SNAPSHOT/WEB-INF/classes/application.yml" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-web/target/legend-campus-web-0.0.1-SNAPSHOT/WEB-INF/classes/application.yml" />
+      <change beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-web/target/legend-campus-web-0.0.1-SNAPSHOT/WEB-INF/classes/templates/common/head.ftl" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-web/target/legend-campus-web-0.0.1-SNAPSHOT/WEB-INF/classes/templates/common/head.ftl" />
+      <change beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-web/target/legend-campus-web-0.0.1-SNAPSHOT/WEB-INF/classes/templates/index.ftl" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-web/target/legend-campus-web-0.0.1-SNAPSHOT/WEB-INF/classes/templates/index.ftl" />
+      <change beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-web/target/legend-campus-web-0.0.1-SNAPSHOT/WEB-INF/classes/templates/login.ftl" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-web/target/legend-campus-web-0.0.1-SNAPSHOT/WEB-INF/classes/templates/login.ftl" />
+      <change beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-web/target/legend-campus-web-0.0.1-SNAPSHOT/WEB-INF/classes/templates/myProfile.ftl" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-web/target/legend-campus-web-0.0.1-SNAPSHOT/WEB-INF/classes/templates/myProfile.ftl" />
+      <change beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-web/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-web/target/maven-archiver/pom.properties" />
+      <change beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-web/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-web/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
+      <change beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-web/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-web/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" />
+      <change beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-web/target/surefire-reports/TEST-com.legend.cloud.LegendCloudApplicationTests.xml" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-web/target/surefire-reports/TEST-com.legend.cloud.LegendCloudApplicationTests.xml" />
+      <change beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-web/target/surefire-reports/com.legend.cloud.LegendCloudApplicationTests.txt" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-web/target/surefire-reports/com.legend.cloud.LegendCloudApplicationTests.txt" />
+      <change beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus.iml" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus.iml" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/legend-core/target/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -52,43 +49,24 @@
   </component>
   <component name="CompilerWorkspaceConfiguration">
     <option name="MAKE_PROJECT_ON_SAVE" value="true" />
+    <option name="PARALLEL_COMPILATION" value="true" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="UserResultMessage.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/legend-core/legend-core-model/src/main/java/com/legend/module/core/model/contant/message/result/user/UserResultMessage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
+            <state relative-caret-position="660">
               <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/legend-core/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1547">
-              <caret line="91" column="20" lean-forward="false" selection-start-line="91" selection-start-column="20" selection-end-line="91" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/legend-core/legend-core-dao/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="469">
-              <caret line="69" column="32" lean-forward="true" selection-start-line="69" selection-start-column="32" selection-end-line="69" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserResultCode.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="UserResultCode.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/legend-core/legend-core-model/src/main/java/com/legend/module/core/model/contant/code/result/user/UserResultCode.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="663">
+            <state relative-caret-position="578">
               <caret line="39" column="61" lean-forward="false" selection-start-line="39" selection-start-column="61" selection-end-line="39" selection-end-column="61" />
               <folding />
             </state>
@@ -134,22 +112,18 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="$APPLICATION_HOME_DIR$/plugins/maven/lib/maven3" />
+        <option name="mavenHome" value="D:/study/JAVA/software/apache-maven-3.5.0-bin/apache-maven-3.5.0" />
       </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
     </option>
   </component>
   <component name="MavenProjectNavigator">
     <treeState>
       <expand>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="legend-core-web" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-        </path>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="legend-core-web" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
-        </path>
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
           <item name="legend-module" type="9519ce18:MavenProjectsStructure$ProjectNode" />
@@ -164,8 +138,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="677" />
-    <option name="y" value="71" />
+    <option name="x" value="157" />
+    <option name="y" value="83" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
@@ -185,7 +159,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
+      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -194,24 +168,135 @@
               <item name="legend-module" type="b2602c69:ProjectViewProjectNode" />
               <item name="legend-module" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="legend-module" type="b2602c69:ProjectViewProjectNode" />
+              <item name="legend-module" type="462c0819:PsiDirectoryNode" />
+              <item name="legend-core" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="legend-module" type="b2602c69:ProjectViewProjectNode" />
+              <item name="legend-module" type="462c0819:PsiDirectoryNode" />
+              <item name="legend-core" type="462c0819:PsiDirectoryNode" />
+              <item name="legend-core-web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="legend-module" type="b2602c69:ProjectViewProjectNode" />
+              <item name="legend-module" type="462c0819:PsiDirectoryNode" />
+              <item name="legend-core" type="462c0819:PsiDirectoryNode" />
+              <item name="legend-core-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="legend-module" type="b2602c69:ProjectViewProjectNode" />
+              <item name="legend-module" type="462c0819:PsiDirectoryNode" />
+              <item name="legend-core" type="462c0819:PsiDirectoryNode" />
+              <item name="legend-core-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="legend-module" type="b2602c69:ProjectViewProjectNode" />
+              <item name="legend-module" type="462c0819:PsiDirectoryNode" />
+              <item name="legend-core" type="462c0819:PsiDirectoryNode" />
+              <item name="legend-core-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="legend-module" type="b2602c69:ProjectViewProjectNode" />
+              <item name="legend-module" type="462c0819:PsiDirectoryNode" />
+              <item name="legend-core" type="462c0819:PsiDirectoryNode" />
+              <item name="legend-core-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="legend-module" type="b2602c69:ProjectViewProjectNode" />
+              <item name="legend-module" type="462c0819:PsiDirectoryNode" />
+              <item name="legend-core" type="462c0819:PsiDirectoryNode" />
+              <item name="legend-core-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="legend" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="legend-module" type="b2602c69:ProjectViewProjectNode" />
+              <item name="legend-module" type="462c0819:PsiDirectoryNode" />
+              <item name="legend-core" type="462c0819:PsiDirectoryNode" />
+              <item name="legend-core-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="legend" type="462c0819:PsiDirectoryNode" />
+              <item name="module" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="legend-module" type="b2602c69:ProjectViewProjectNode" />
+              <item name="legend-module" type="462c0819:PsiDirectoryNode" />
+              <item name="legend-core" type="462c0819:PsiDirectoryNode" />
+              <item name="legend-core-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="legend" type="462c0819:PsiDirectoryNode" />
+              <item name="module" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="legend-module" type="b2602c69:ProjectViewProjectNode" />
+              <item name="legend-module" type="462c0819:PsiDirectoryNode" />
+              <item name="legend-core" type="462c0819:PsiDirectoryNode" />
+              <item name="legend-core-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="legend" type="462c0819:PsiDirectoryNode" />
+              <item name="module" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="vo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="legend-module" type="b2602c69:ProjectViewProjectNode" />
+              <item name="legend-module" type="462c0819:PsiDirectoryNode" />
+              <item name="legend-core" type="462c0819:PsiDirectoryNode" />
+              <item name="legend-core-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="legend" type="462c0819:PsiDirectoryNode" />
+              <item name="module" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="vo" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../legend-cloud" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
+    <property name="show.run.dashboard.notification" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -232,12 +317,11 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-web/src/main/resources/templates/common/top.ftl</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-web/src/main/resources/templates/course.ftl</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-web/src/main/resources/application.yml</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-web/src/main/resources/templates/index.ftl</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-web/src/main/resources/templates/messages.ftl</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-web/src/main/resources/templates/myProfile.ftl</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-web/src/main/resources/templates/personal/personal-info.ftl</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-web/target/classes/templates/index.ftl</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-web/target/classes/templates/myProfile.ftl</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Created" />
@@ -245,7 +329,8 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-web/src/main/resources/templates/shop.ftl</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-web/src/main/resources/templates/personal/personal-info.ftl</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-web/target/classes/templates/personal/personal-info.ftl</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Deleted" />
@@ -253,7 +338,6 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="true" />
           <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/../legend-cloud/legend-campus/legend-campus-web/src/main/resources/templates/supermarket.ftl</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Restored" />
@@ -348,18 +432,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.LegendCoreServiceApplication">
-    <configuration name="LegendCoreServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.legend.module.core.LegendCoreServiceApplication" />
-      <module name="legend-core-service" />
-      <envs />
-    </configuration>
-    <configuration name="LegendCoreWebApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.legend.module.core.LegendCoreWebApplication" />
-      <module name="legend-core-web" />
-      <envs />
-    </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -401,18 +473,24 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
-      <module name="" />
-      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
-      <option name="PROGRAM_PARAMETERS" />
-      <predefined_log_file id="idea.log" enabled="true" />
-    </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
       <option name="SHMEM_ADDRESS" value="javadebug" />
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
+    </configuration>
+    <configuration name="LegendCoreServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.legend.module.core.LegendCoreServiceApplication" />
+      <module name="legend-core-service" />
+      <envs />
+    </configuration>
+    <configuration name="LegendCoreWebApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.legend.module.core.LegendCoreWebApplication" />
+      <module name="legend-core-web" />
+      <envs />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
@@ -441,6 +519,12 @@
       <properties />
       <listeners />
     </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+    </configuration>
     <list size="2">
       <item index="0" class="java.lang.String" itemvalue="Spring Boot.LegendCoreServiceApplication" />
       <item index="1" class="java.lang.String" itemvalue="Spring Boot.LegendCoreWebApplication" />
@@ -465,14 +549,15 @@
       <workItem from="1522202482991" duration="789000" />
       <workItem from="1522215976883" duration="728000" />
       <workItem from="1522221333224" duration="530000" />
-      <workItem from="1522239413170" duration="1516000" />
-      <workItem from="1522293067822" duration="673000" />
-      <workItem from="1522305284144" duration="617000" />
-      <workItem from="1522322495010" duration="2345000" />
-      <workItem from="1522530531107" duration="1089000" />
-      <workItem from="1522770439476" duration="17000" />
-      <workItem from="1522770490199" duration="626000" />
-      <workItem from="1522907516241" duration="226000" />
+      <workItem from="1522222627186" duration="840000" />
+      <workItem from="1522229974055" duration="634000" />
+      <workItem from="1522295048717" duration="3140000" />
+      <workItem from="1522378922547" duration="2255000" />
+      <workItem from="1522412817446" duration="616000" />
+      <workItem from="1522420815395" duration="747000" />
+      <workItem from="1522468209278" duration="847000" />
+      <workItem from="1522597033475" duration="698000" />
+      <workItem from="1522764990496" duration="1139000" />
     </task>
     <task id="LOCAL-00001" summary="workspace.xml">
       <created>1522129192447</created>
@@ -499,43 +584,42 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13770000" />
+    <option name="totallyTimeSpent" value="17577000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="FindBugs-IDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22974414" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3275488" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41333333" sideWeight="0.5042644" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1748401" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23827292" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41333333" sideWeight="0.49573562" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10021322" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="FindBugs-IDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329718" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -556,9 +640,17 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/legend-core/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2100">
+          <caret line="70" column="24" lean-forward="false" selection-start-line="70" selection-start-column="24" selection-end-line="70" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/legend-core/legend-core-model/src/main/java/com/legend/module/core/model/contant/message/result/user/UserResultMessage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
+        <state relative-caret-position="660">
           <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding />
         </state>
@@ -566,15 +658,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/legend-core/legend-core-dao/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
+        <state relative-caret-position="390">
           <caret line="13" column="27" lean-forward="false" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/legend-core/legend-core-model/src/main/java/com/legend/module/core/model/contant/code/result/user/UserResultCode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1053">
+        <state relative-caret-position="1170">
           <caret line="39" column="61" lean-forward="false" selection-start-line="39" selection-start-column="61" selection-end-line="39" selection-end-column="61" />
           <folding />
         </state>
@@ -582,15 +673,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/legend-core/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1863">
-          <caret line="69" column="25" lean-forward="false" selection-start-line="69" selection-start-column="25" selection-end-line="69" selection-end-column="25" />
+        <state relative-caret-position="2250">
+          <caret line="75" column="26" lean-forward="false" selection-start-line="75" selection-start-column="26" selection-end-line="75" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/legend-core/legend-core-model/src/main/java/com/legend/module/core/model/contant/message/result/user/UserResultMessage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
+        <state relative-caret-position="660">
           <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding />
         </state>
@@ -598,15 +689,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/legend-core/legend-core-dao/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
+        <state relative-caret-position="390">
           <caret line="13" column="27" lean-forward="false" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/legend-core/legend-core-model/src/main/java/com/legend/module/core/model/contant/code/result/user/UserResultCode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1053">
+        <state relative-caret-position="1170">
           <caret line="39" column="61" lean-forward="false" selection-start-line="39" selection-start-column="61" selection-end-line="39" selection-end-column="61" />
           <folding />
         </state>
@@ -614,15 +704,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/legend-core/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1863">
-          <caret line="69" column="25" lean-forward="false" selection-start-line="69" selection-start-column="25" selection-end-line="69" selection-end-column="25" />
+        <state relative-caret-position="2250">
+          <caret line="75" column="26" lean-forward="false" selection-start-line="75" selection-start-column="26" selection-end-line="75" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/legend-core/legend-core-model/src/main/java/com/legend/module/core/model/contant/message/result/user/UserResultMessage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
+        <state relative-caret-position="660">
           <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding />
         </state>
@@ -630,15 +720,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/legend-core/legend-core-dao/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
+        <state relative-caret-position="390">
           <caret line="13" column="27" lean-forward="false" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/legend-core/legend-core-model/src/main/java/com/legend/module/core/model/contant/code/result/user/UserResultCode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1053">
+        <state relative-caret-position="1170">
           <caret line="39" column="61" lean-forward="false" selection-start-line="39" selection-start-column="61" selection-end-line="39" selection-end-column="61" />
           <folding />
         </state>
@@ -646,39 +735,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/legend-core/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1863">
-          <caret line="69" column="25" lean-forward="true" selection-start-line="69" selection-start-column="25" selection-end-line="69" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/legend-core/legend-core-model/src/main/java/com/legend/module/core/model/contant/message/result/user/UserResultMessage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/legend-core/legend-core-dao/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="13" column="27" lean-forward="false" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/legend-core/legend-core-model/src/main/java/com/legend/module/core/model/contant/code/result/user/UserResultCode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1053">
-          <caret line="39" column="61" lean-forward="false" selection-start-line="39" selection-start-column="61" selection-end-line="39" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/legend-core/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2025">
+        <state relative-caret-position="2250">
           <caret line="75" column="26" lean-forward="false" selection-start-line="75" selection-start-column="26" selection-end-line="75" selection-end-column="26" />
           <folding />
         </state>
@@ -869,34 +926,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/legend-core/legend-core-model/src/main/java/com/legend/module/core/model/contant/code/result/user/UserResultCode.java">
+    <entry file="file://$PROJECT_DIR$/legend-core/legend-core-web/src/main/java/com/legend/module/core/vo/core/UserVO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="39" column="61" lean-forward="false" selection-start-line="39" selection-start-column="61" selection-end-line="39" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/legend-core/legend-core-model/src/main/java/com/legend/module/core/model/contant/message/result/user/UserResultMessage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/legend-core/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1547">
-          <caret line="91" column="20" lean-forward="false" selection-start-line="91" selection-start-column="20" selection-end-line="91" selection-end-column="20" />
+        <state relative-caret-position="1500">
+          <caret line="68" column="26" lean-forward="false" selection-start-line="68" selection-start-column="26" selection-end-line="68" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/legend-core/legend-core-dao/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="69" column="32" lean-forward="true" selection-start-line="69" selection-start-column="32" selection-end-line="69" selection-end-column="32" />
+        <state relative-caret-position="390">
+          <caret line="13" column="27" lean-forward="false" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/legend-core/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="787">
+          <caret line="57" column="32" lean-forward="false" selection-start-line="57" selection-start-column="32" selection-end-line="57" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/legend-core/legend-core-model/src/main/java/com/legend/module/core/model/group/option/AddGroup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/legend-core/legend-core-model/src/main/java/com/legend/module/core/model/group/option/UpdateGroup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/legend-core/legend-core-model/src/main/java/com/legend/module/core/model/contant/message/result/user/UserResultMessage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/legend-core/legend-core-model/src/main/java/com/legend/module/core/model/contant/code/result/user/UserResultCode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="39" column="61" lean-forward="false" selection-start-line="39" selection-start-column="61" selection-end-line="39" selection-end-column="61" />
           <folding />
         </state>
       </provider>
@@ -930,7 +1008,7 @@
       </state>
       <state key="GlobalLibrariesConfigurable.UI">
         <settings>
-          <last-edited>bootstrap</last-edited>
+          <last-edited>others</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
