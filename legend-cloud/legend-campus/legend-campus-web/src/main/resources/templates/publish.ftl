@@ -118,6 +118,130 @@
 
                             </small>
                         </div>
+                        <!--模态框限制-->
+                        <button type="button" class="btn btn-danger" data-toggle="modal"
+                                data-target="#exampleModal" style="width: 100%">
+                            增加限制条件
+                        </button>
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                             aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title" id="exampleModalLabel">报名人员限制</h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <!--相关限制条件-->
+                                        <div id="courseLimit">
+                                            <div class="alert alert-primary" role="alert">
+                                                <!--专业限制-->
+                                                <h5>
+                                                    <label for="seek_major_limit">专业限制</label>
+                                                    <input type="checkbox" class="all_check"
+                                                           aria-label="Checkbox for following text input"
+                                                           id="seek_major_limit" name="a"
+                                                           data-toggle="tooltip"
+                                                           data-placement="left" title="专业限制">
+                                                </h5>
+                                                <div class="input-group cancel_all" id="seek_major"
+                                                     style="display: none">
+                                                    <select class="form-control" id="dept"
+                                                            v-model="dept" name="course.dept"
+                                                            data-toggle="tooltip"
+                                                            data-placement="left" title="请选择系别">
+                                                        <option v-for="item in depts" :value="item.id"
+                                                                v-text="item.name"></option>
+                                                    </select>
+                                                    <select class="form-control" id="major" v-model="major"
+                                                            data-toggle="tooltip" name="course.major"
+                                                            data-placement="left" title="请选择专业">
+                                                        <option v-for="item in majors" :value="item.id"
+                                                                v-text="item.name"></option>
+                                                    </select>
+                                                </div>
+                                                <div class="dropdown-divider"></div>
+                                                <!--性别限制-->
+                                                <h5>
+                                                    <label for="seek_sex_limit">性别限制</label>
+                                                    <input type="checkbox" class="all_check"
+                                                           aria-label="Checkbox for following text input"
+                                                           id="seek_sex_limit" name="a"
+                                                           data-toggle="tooltip"
+                                                           data-placement="left" title="性别限制">
+                                                </h5>
+                                                <div class="form-group cancel_all" align="center" id="seek_sex"
+                                                     style="display: none;">
+                                                    <label for="male">男</label>
+                                                    <input type="radio" name="limit.sex" value="1" id="male" checked/>
+
+                                                    <label for="female">女</label>
+                                                    <input type="radio" name="limit.sex" value="0" id="female"/>
+                                                </div>
+                                                <div class="dropdown-divider"></div>
+                                                <!--年级限制-->
+                                                <h5>
+                                                    <label for="seek_grade_limit">年级限制</label>
+                                                    <input type="checkbox" class="all_check"
+                                                           aria-label="Checkbox for following text input"
+                                                           id="seek_grade_limit" name="a"
+                                                           data-toggle="tooltip"
+                                                           data-placement="left" title="年级限制">
+                                                </h5>
+                                                <div class="form-group cancel_all" id="seek_grade"
+                                                     style="display: none;">
+                                                    <div class="row" align="center">
+                                                        <p class="col col-3">大一
+                                                            <input type="checkbox" value="1"
+                                                                   name="limit.grade"
+                                                                   id="gradeOne"
+                                                                   data-toggle="tooltip"
+                                                                   data-placement="left" title="大一">
+                                                        </p>
+                                                        <p class="col col-3">大二
+                                                            <input type="checkbox" value="2"
+                                                                   name="limit.grade"
+                                                                   id="gradeTwo"
+                                                                   data-toggle="tooltip"
+                                                                   data-placement="left" title="大二">
+                                                        </p>
+                                                        <p class="col col-3">大三
+                                                            <input type="checkbox" value="3"
+                                                                   name="limit.grade"
+                                                                   id="gradeThree"
+                                                                   data-toggle="tooltip"
+                                                                   data-placement="left" title="大三">
+                                                        </p>
+                                                        <p class="col col-3">大四
+                                                            <input type="checkbox" value="4"
+                                                                   name="limit.grade"
+                                                                   id="gradeFour"
+                                                                   data-toggle="tooltip"
+                                                                   data-placement="left" title="大四">
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="dropdown-divider"></div>
+                                                <h4>
+                                                    <label for="bigBox">全选/取消</label>
+                                                    <input type="checkbox" class="bigBox"
+                                                           aria-label="Checkbox for following text input"
+                                                           data-toggle="tooltip"
+                                                           data-placement="left" title="全选/取消">
+                                                </h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary">确认</button>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <!--分割线-->
                         <div class="dropdown-divider"></div>
                         <input type="submit" class="btn btn-primary btn-lg btn-block"
@@ -225,138 +349,170 @@
 
                             </small>
                         </div>
+                        <!--模态框限制-->
+                        <button type="button" class="btn btn-danger" data-toggle="modal"
+                                data-target="#exampleModal2" style="width: 100%">
+                            增加限制条件
+                        </button>
+                        <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog"
+                             aria-labelledby="exampleModalLabel2" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title" id="exampleModalLabel2">报名人员限制</h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <!--相关限制条件-->
+                                        <div id="courseLimit">
+                                            <div class="alert alert-primary" role="alert">
+
+                                                <!--专业限制-->
+                                                <h5>
+                                                    <label for="teach_major_limit">专业限制</label>
+                                                    <input type="checkbox" class=".all_check"
+                                                           aria-label="Checkbox for following text input"
+                                                           id="teach_major_limit" name="a"
+                                                           data-toggle="tooltip"
+                                                           data-placement="left" title="专业限制">
+                                                </h5>
+                                                <div class="input-group cancel_all" id="teach_major"
+                                                     style="display: none">
+                                                    <select class="form-control" id="dept"
+                                                            v-model="dept" name="course.dept"
+                                                            data-toggle="tooltip"
+                                                            data-placement="left" title="请选择系别">
+                                                        <option v-for="item in depts" :value="item.id"
+                                                                v-text="item.name"></option>
+                                                    </select>
+                                                    <select class="form-control" id="major" v-model="major"
+                                                            data-toggle="tooltip" name="course.major"
+                                                            data-placement="left" title="请选择专业">
+                                                        <option v-for="item in majors" :value="item.id"
+                                                                v-text="item.name"></option>
+                                                    </select>
+                                                </div>
+                                                <div class="dropdown-divider"></div>
+                                                <!--性别限制-->
+                                                <h5>
+                                                    <label for="teach_sex_limit">性别限制</label>
+                                                    <input type="checkbox" class=".all_check"
+                                                           aria-label="Checkbox for following text input"
+                                                           id="teach_sex_limit" name="a"
+                                                           data-toggle="tooltip"
+                                                           data-placement="left" title="性别限制">
+                                                </h5>
+                                                <div class="form-group cancel_all" align="center" id="teach_sex"
+                                                     style="display: none;">
+                                                    <label for="male">男</label>
+                                                    <input type="radio" name="sex" id="male" checked/>
+
+                                                    <label for="female">女</label>
+                                                    <input type="radio" name="sex" id="female"/>
+                                                </div>
+                                                <div class="dropdown-divider"></div>
+                                                <!--年级限制-->
+                                                <h5>
+                                                    <label for="teach_grade_limit">年级限制</label>
+                                                    <input type="checkbox" class=".all_check"
+                                                           aria-label="Checkbox for following text input"
+                                                           id="teach_grade_limit" name="a"
+                                                           data-toggle="tooltip"
+                                                           data-placement="left" title="年级限制">
+                                                </h5>
+                                                <div class="form-group cancel_all" id="teach_grade"
+                                                     style="display: none;">
+                                                    <div class="row" align="center">
+                                                        <p class="col col-3">大一
+                                                            <input type="checkbox" value="1"
+                                                                   name="limit.grade"
+                                                                   id="gradeOne"
+                                                                   data-toggle="tooltip"
+                                                                   data-placement="left" title="大一">
+                                                        </p>
+                                                        <p class="col col-3">大二
+                                                            <input type="checkbox" value="2"
+                                                                   name="limit.grade"
+                                                                   id="gradeTwo"
+                                                                   data-toggle="tooltip"
+                                                                   data-placement="left" title="大二">
+                                                        </p>
+                                                        <p class="col col-3">大三
+                                                            <input type="checkbox" value="3"
+                                                                   name="limit.grade"
+                                                                   id="gradeThree"
+                                                                   data-toggle="tooltip"
+                                                                   data-placement="left" title="大三">
+                                                        </p>
+                                                        <p class="col col-3">大四
+                                                            <input type="checkbox" value="4"
+                                                                   name="limit.grade"
+                                                                   id="gradeFour"
+                                                                   data-toggle="tooltip"
+                                                                   data-placement="left" title="大四">
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="dropdown-divider"></div>
+                                                <!--人数限制-->
+                                                <h5>
+                                                    <label for="person_num_limit">人数限制</label>
+                                                    <input type="checkbox" class=".all_check"
+                                                           aria-label="Checkbox for following text input"
+                                                           id="person_num_limit"
+                                                           data-toggle="tooltip"
+                                                           data-placement="left" title="人数限制">
+                                                </h5>
+                                                <div id="person_num" class="form-group cancel_all"
+                                                     style="display: none;">
+                                                    <div class="form-group row" align="center">
+                                                        <label for="courseTime"></label>
+                                                        <input type="number" min="0" class="form-control col col-5"
+                                                               data-toggle="tooltip" name="limit.upper"
+                                                               data-placement="left" title="请输入人数上限">
+                                                        <label for="courseTime"></label>~
+                                                        <input type="number" min="0" class="form-control col col-5"
+                                                               data-toggle="tooltip" name="limit.lower"
+                                                               data-placement="left" title="请输入人数下限">
+                                                    </div>
+                                                </div>
+                                                <div class="dropdown-divider"></div>
+                                                <h4>
+                                                    <label for="bigBox">全选/取消</label>
+                                                    <input type="checkbox" class="bigBox"
+                                                           aria-label="Checkbox for following text input"
+                                                           data-toggle="tooltip"
+                                                           data-placement="left" title="全选/取消">
+                                                </h4>
+
+                                            <#--<button type="button" class="btn btn-danger hide"
+                                                    style="width: 100%;height:35px;font-size:15px;">全部取消
+                                            </button>-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary">确认</button>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <!--分割线-->
                         <div class="dropdown-divider"></div>
                         <input type="submit" class="btn btn-primary btn-lg btn-block"
                                v-model="submitText">
-                        <!--相关限制条件-->
-                        <div id="courseLimit">
-                            <div class="alert alert-danger" role="alert">
-                                <h4 class="alert-heading">报名人员限制</h4>
-                                <!--专业限制-->
-                                <h5>专业限制
-                                    <input type="checkbox"
-                                           aria-label="Checkbox for following text input"
-                                           id="teach_major_limit" name="a"
-                                           data-toggle="tooltip"
-                                           data-placement="left" title="专业限制">
-                                </h5>
-                                <div class="form-group cancel_all" id="teach_major"
-                                     style="display: none">
-                                    <label for="courseTime">系别</label>
-                                    <select class="form-control" id="department"
-                                            name="limit.dept"
-                                            data-toggle="tooltip"
-                                            data-placement="left" title="请选择系别">
-                                        <option selected="selected" id="departmentOption">-- 请选择系别 --
-                                        </option>
-                                        <option v-for="item in depts" :value="item.id"
-                                                v-text="item.name"></option>
-                                    </select>
-                                    <label for="courseTime">专业</label>
-                                    <select class="form-control" id="exampleFormControlSelect1"
-                                            data-toggle="tooltip" name="limit.major"
-                                            data-placement="left" title="请选择专业">
-                                        <option selected="selected" id="majorOption">-- 请选择专业 --
-                                        </option>
-                                        <option v-for="item in majors" :value="item.id"
-                                                v-text="item.name"></option>
-                                    </select>
-                                </div>
-                                <div class="dropdown-divider"></div>
-                                <!--性别限制-->
-                                <h5>性别限制
-                                    <input type="checkbox"
-                                           aria-label="Checkbox for following text input"
-                                           id="teach_sex_limit" name="a"
-                                           data-toggle="tooltip"
-                                           data-placement="left" title="性别限制">
-                                </h5>
-                                <div class="form-group cancel_all" align="center" id="teach_sex"
-                                     style="display: none;">
-                                    <label for="male">男</label>
-                                    <input type="radio" name="sex" id="male" checked/>
 
-                                    <label for="female">女</label>
-                                    <input type="radio" name="sex" id="female"/>
-                                </div>
-                                <div class="dropdown-divider"></div>
-                                <!--年级限制-->
-                                <h5>年级限制
-                                    <input type="checkbox"
-                                           aria-label="Checkbox for following text input"
-                                           id="teach_grade_limit" name="a"
-                                           data-toggle="tooltip"
-                                           data-placement="left" title="年级限制">
-                                </h5>
-                                <div class="form-group cancel_all" id="teach_grade"
-                                     style="display: none;">
-                                    <div class="row" align="center">
-                                        <div class="col">
-                                            <p>大一
-                                                <input type="checkbox" value="1"
-                                                       name="limit.grade"
-                                                       id="gradeOne"
-                                                       data-toggle="tooltip"
-                                                       data-placement="left" title="大一">
-                                            </p>
-                                            <p>大二
-                                                <input type="checkbox" value="2"
-                                                       name="limit.grade"
-                                                       id="gradeTwo"
-                                                       data-toggle="tooltip"
-                                                       data-placement="left" title="大二">
-                                            </p>
-                                        </div>
-                                        <div class="col">
-                                            <p>大三
-                                                <input type="checkbox" value="3"
-                                                       name="limit.grade"
-                                                       id="gradeThree"
-                                                       data-toggle="tooltip"
-                                                       data-placement="left" title="大三">
-                                            </p>
-                                            <p>大四
-                                                <input type="checkbox" value="4"
-                                                       name="limit.grade"
-                                                       id="gradeFour"
-                                                       data-toggle="tooltip"
-                                                       data-placement="left" title="大四">
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="dropdown-divider"></div>
-                                <!--人数限制-->
-                                <h5>人数限制
-                                    <input type="checkbox"
-                                           aria-label="Checkbox for following text input"
-                                           id="person_num_limit" name="a"
-                                           data-toggle="tooltip"
-                                           data-placement="left" title="人数限制">
-                                </h5>
-                                <div id="person_num" class="form-group cancel_all"
-                                     style="display: none;">
-                                    <div class="form-group">
-                                        <label for="courseTime"></label>
-                                        <input type="number" min="0" class="form-control"
-                                               data-toggle="tooltip" name="limit.upper"
-                                               data-placement="left" title="请输入人数上限">
-                                        <label for="courseTime"></label>~
-                                        <input type="number" min="0" class="form-control"
-                                               data-toggle="tooltip" name="limit.lower"
-                                               data-placement="left" title="请输入人数下限">
-                                    </div>
-                                </div>
-                                <div class="dropdown-divider"></div>
-                                <button type="button" class="btn btn-danger hide"
-                                        style="width: 100%;height:35px;font-size:15px;">全部取消
-                                </button>
-                            </div>
-                        </div>
                     </form>
                 </div>
             </div>
+        </div>
+        <div style="height: 150px">
+
         </div>
     </div>
 </div>
@@ -475,33 +631,44 @@
     });
 
     /*点击展开限制条件*/
-    $(document).ready(function () {
-        $("#seek_major_limit").click(function () {
-            $("#seek_major").toggle();
-        });
-        $("#seek_sex_limit").click(function () {
-            $("#seek_sex").toggle();
-        });
-        $("#seek_grade_limit").click(function () {
-            $("#seek_grade").toggle();
-        });
-        $("#teach_major_limit").click(function () {
-            $("#teach_major").toggle();
-        });
-        $("#teach_sex_limit").click(function () {
-            $("#teach_sex").toggle();
-        });
-        $("#teach_grade_limit").click(function () {
-            $("#teach_grade").toggle();
-        });
-        $("#person_num_limit").click(function () {
-            $("#person_num").toggle();
-        });
-        $(".hide").click(function () {
-            $(".cancel_all").hide();
-            $("input").prop("checked", false);
-        });
 
+    $("#seek_major_limit").on('ifChanged', function (event) {
+        $("#seek_major").toggle();
     });
+    $("#seek_sex_limit").on('ifChanged', function (event) {
+        $("#seek_sex").toggle();
+    });
+    $("#seek_grade_limit").on('ifChanged', function (event) {
+        $("#seek_grade").toggle();
+    });
+    $("#seek_person_num_limit").on('ifChanged', function (event) {
+        $("#seek_person_num").toggle();
+    });
+    $("#teach_major_limit").on('ifChanged', function (event) {
+        $("#teach_major").toggle();
+    });
+    $("#teach_sex_limit").on('ifChanged', function (event) {
+        $("#teach_sex").toggle();
+    });
+    $("#teach_grade_limit").on('ifChanged', function (event) {
+        $("#teach_grade").toggle();
+    });
+    $("#person_num_limit").on('ifChanged', function (event) {
+        $("#person_num").toggle();
+    });
+    $('.bigBox').on('ifChecked', function (event) {
+        $('.all_check').iCheck('check');
+        $('.cancel_all').show();
+    });
+    $('.bigBox').on('ifUnchecked', function (event) {
+        $('.all_check').iCheck('uncheck');
+        $('.cancel_all').hide();
+    });
+
+    /*submit点击后文字改变*/
+    function textChange() {
+        document.getElementById("dd").innerHTML = "请耐心等待";
+    }
+
 </script>
 <#include "./common/foot.ftl">

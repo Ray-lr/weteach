@@ -202,12 +202,11 @@
             <div class="col col-md-2" id="external">
                 <div class="alert alert-success" role="alert">
                     <h4 class="alert-heading">Well done!</h4>
-                    <p>Aww yeah, you successfully read this important alert message. This example text is going to
-                        run a bit
-                        longer so that you can see how spacing within an alert works with this kind of content.</p>
+                    <p>欢迎来到校园助学平台，很高兴我们能为您服务。我们的的系统能够给您带来便利，帮助你解决问题，
+                        希望能够在接下来的时间里，陪您一起度过一个愉快的学期。</p>
                     <hr>
-                    <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and
-                        tidy.
+                    <p class="mb-0">在我们的页面最右上角，是您的头像，点开他后里面会有帮助选项，
+                        在帮助页面里是我们的用户手册，里面有着关于我们系统的详细使用说明，能够供您参考。
                     </p>
 
                 </div>
