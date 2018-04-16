@@ -36,24 +36,43 @@
                         <div class="tab-pane fade <#if !type?? || type=="course">show active</#if>" id="courseInfo"
                              role="tabpanel"
                              aria-labelledby="courseInfo-tab">
-                            <div class="card" v-for="(item,index) of myCourseInfos">
-                                <div class="card-header bg-whitesmoke-tp25" :id="'heading-myCourse-'+index">
-                                    <h5 class="mb-0">
-                                        <button class="btn btn-link" data-toggle="collapse"
-                                                :data-target="'#collapse-myCourse-'+index"
-                                                aria-expanded="true" :aria-controls="'collapse-myCourse-'+index">
-                                            <span v-text="item.title"></span>
+                            <div class="card" v-for="(item,index) of myCourseInfo.list">
+                                <div class="card-header bg-whitesmoke-tp25"
+                                     :id="'heading-'+(myCourseInfo.pagination.pageSize*(myCourseInfo.pagination.currentPage-1)+index)">
+                                    <h5 class="mb-0 d-flex justify-content-between">
+                                        <button class="btn btn-link text-truncate w-75 non-text-dec font-weight-bold"
+                                                data-toggle="collapse" v-text="item.title"
+                                                :data-target="'#myCourseInfo-'+(myCourseInfo.pagination.pageSize*(myCourseInfo.pagination.currentPage-1)+index)"
+                                                aria-expanded="true" aria-controls="collapseOne">
                                         </button>
+                                        <img class="myIcon"
+                                             src="/static/external/star-rating/image/star-on.png"
+                                             data-toggle="tooltip"
+                                             data-placement="right" :title="item.payCredits+'积分'">
                                     </h5>
                                 </div>
-
-                                <div :id="'collapse-myCourse-'+index" class="collapse "
-                                     :aria-labelledby="'heading-myCourse-'+index"
-                                     data-parent="#accordion">
-                                    <div class="card-body">
-                                        <img class="rounded-left cover" src="/static/image/avatar/Avatar.png"
-                                             alt="Cover">
-                                        <p v-text="item.description"></p>
+                                <div :id="'myCourseInfo-'+(myCourseInfo.pagination.pageSize*(myCourseInfo.pagination.currentPage-1)+index)"
+                                     class="collapse "
+                                     :aria-labelledby="'heading-'+(myCourseInfo.pagination.pageSize*(myCourseInfo.pagination.currentPage-1)+index)"
+                                     data-parent="#myCourseInfo">
+                                    <div class="card-body row">
+                                        <div class="col col-md-2 margin-right10">
+                                            <img class="cover" src="/static/image/avatar/Avatar.png"
+                                                 alt="Cover">
+                                        </div>
+                                        <div class="col" style="text-overflow:ellipsis;">
+                                            <a class="non-text-dec" href="/direct/course">
+                                                <h6 class="card-title font-weight-bold" v-text="item.title"></h6>
+                                            </a>
+                                            <div class="dropdown-divider"></div>
+                                            <p class="card-text font-weight-light courseDescription cursor-default"
+                                               v-text="item.description">
+                                            </p>
+                                            <div class="dropdown-divider"></div>
+                                            <span v-text="'报名截止时间：'+item.applyEndTime"></span>
+                                            <span v-text="'开课时间：'+item.beginTime"></span>
+                                            <span v-text="'参与人数：'+item.lessonNum"></span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -87,7 +106,7 @@
                                 <div class="form-group">
                                     <label for="birthday" class="col-md-2 control-label">出生日期</label>
                                     <div class="input-group date form_date">
-                                        <input class="form-control" size="16" type="text"
+                                        <input class="form-control cursor-pointer" size="16" type="text"
                                                :value="userInfo.birthday | date"
                                                name="birthday"
                                                data-toggle="tooltip"
@@ -128,39 +147,32 @@
                                 </div>
                                 <!-- 籍贯 -->
                                 <div class="form-group">
-                                    <label for="province">籍贯</label>
-                                    <div class="row">
-                                        <!-- 省、直辖市-->
-                                        <div class="col-md-4">
-                                            <select class="form-control" name="province"
-                                                    v-model="userInfo.province"
-                                                    data-toggle="tooltip"
-                                                    data-placement="left" title="请选择省或直辖市">
-                                                <option v-for="item in provinces" :value="item.id"
-                                                        v-text="item.name"></option>
-                                            </select>
-                                        </div>
-                                        <!-- 市/州 -->
-                                        <div class="col-md-4">
-                                            <select class="form-control" name="city"
-                                                    v-model="userInfo.city"
-                                                    data-toggle="tooltip"
-                                                    data-placement="left" title="请选择市或自治区">
-                                                <option v-for="item in cities" :value="item.id"
-                                                        v-text="item.name"></option>
-                                            </select>
-                                        </div>
-                                        <!-- 区/县 -->
-                                        <div class="col col-md-4">
-                                            <select class="form-control" name="county"
-                                                    v-model="userInfo.county"
-                                                    data-toggle="tooltip"
-                                                    data-placement="left" title="请选择县或区">
-                                                <option v-for="item in counties" :value="item.id"
-                                                        v-text="item.name"></option>
-                                            </select>
-                                        </div>
-
+                                    <label for="course">籍贯</label>
+                                    <div class="input-group">
+                                        <select class="form-control" id="dept"
+                                                name="province"
+                                                v-model="userInfo.province"
+                                                data-toggle="tooltip"
+                                                data-placement="left" title="请选择省或直辖市">
+                                            <option v-for="item in provinces" :value="item.id"
+                                                    v-text="item.name"></option>
+                                        </select>
+                                        <select class="form-control" id="major"
+                                                name="city"
+                                                v-model="userInfo.city"
+                                                data-toggle="tooltip"
+                                                data-placement="left" title="请选择市或自治区">
+                                            <option v-for="item in cities" :value="item.id"
+                                                    v-text="item.name"></option>
+                                        </select>
+                                        <select class="form-control" id="course"
+                                                name="county"
+                                                v-model="userInfo.county"
+                                                data-toggle="tooltip"
+                                                data-placement="left" title="请选择县或区">
+                                            <option v-for="item in counties" :value="item.id"
+                                                    v-text="item.name"></option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -180,14 +192,16 @@
                         <div class="tab-pane fade <#if type?? && type=="data">show active</#if>" id="dataInfo"
                              role="tabpanel"
                              aria-labelledby="data-tab">
-                            <!--统计图-->
-                            <div id="semester" style="width: 700px;height:400px;"></div>
-                            <!--饼图-->
-                            <div>
-                                <div>
-                                    <div id="pie" style="width: 500px;height:300px;"></div>
+                            <div class="container-fluid ">
+                                <div class="row justify-content-md-center">
+                                    <!--统计图-->
+                                    <div id="semester"
+                                         style="width:600px;height:480px;"></div>
                                 </div>
-                                <div></div>
+                                <div class="row justify-content-md-center">
+                                    <div id="pie"
+                                         style="width:600px;height:480px;"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -201,16 +215,20 @@
     let vm = new Vue({
         el: "#vm",
         data: {
-            userInfo: "",
-            myCourseInfos: [],
+            userInfo: {},
+            myCourseInfo: {
+                pagination: {},
+                list: []
+            },
             provinces: [],
             cities: [],
             counties: []
         },
         created: function () {
             let _this = this;
+            // 获取个人账户信息
             $.ajax({
-                url: "/campus/userInfo/details/" + this.user.id,
+                url: "/campus/userInfo/details/" + this.user.account.id,
                 type: "GET",
                 success: function (data) {
                     if (data.result) {
@@ -227,6 +245,7 @@
                     }
                 }
             });
+            // 获取胜/直辖市
             $.ajax({
                 url: "/base/areas/list",
                 type: "get",
@@ -257,7 +276,8 @@
                 },
                 success: function (data) {
                     if (data.result) {
-                        _this.myCourseInfos = data.data;
+                        _this.myCourseInfo.list = data.data;
+                        _this.myCourseInfo.pagination = data.pagination;
                     } else {
                         Messenger().post({
                             id: "error",
@@ -270,7 +290,6 @@
                     }
                 }
             });
-
         },
         methods: {
             update: function (e) {

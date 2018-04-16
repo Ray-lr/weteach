@@ -21,8 +21,11 @@ import com.legend.module.core.model.json.result.Ajax;
 import com.legend.module.core.model.json.result.AjaxValidate;
 import com.legend.module.core.utils.PageUtils;
 import com.legend.module.core.utils.Query;
+import com.legend.module.core.vo.core.UserVO;
+import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authz.AuthorizationException;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.validation.BindingResult;
@@ -92,12 +95,14 @@ public class CampusCourseController extends CampusController {
             if (bindingResult.hasErrors()) {
                 return AjaxValidate.processBindingResult(bindingResult);
             }
-            CampusUserInfoVO currentUser = JSON.parseObject(String.valueOf(getCurrentUser()), CampusUserInfoVO.class);
+            Subject subject = SecurityUtils.getSubject();
+            UserVO currentUser = (UserVO) subject.getPrincipal();
             CampusCourse campusCourse = coursePublishVO.getCourse().parseTo(Column.ID);
-            campusCourse.setUserId(currentUser.getBaseUserId());
+            campusCourse.setUserId(currentUser.getId());
             CampusCourseLimit campusCourseLimit = coursePublishVO.getLimit() != null ? coursePublishVO.getLimit().parseTo
                     (Column.ID) : null;
-            return coursePublishFacade.publish(campusCourse, campusCourseLimit, currentUser.getHost()) == 1 ? Ajax.success(AjaxMessage.SAVE_SUCCESS) : Ajax.error(AjaxMessage.SAVE_FAILURE,
+            return coursePublishFacade.publish(campusCourse, campusCourseLimit, currentUser.getTypeUser()) == 1 ? Ajax.success
+                    (AjaxMessage.SAVE_SUCCESS) : Ajax.error(AjaxMessage.SAVE_FAILURE,
                     AjaxCode.SAVE_FAILURE);
         } catch (Exception e) {
             e.printStackTrace();

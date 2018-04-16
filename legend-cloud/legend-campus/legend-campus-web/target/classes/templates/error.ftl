@@ -1,4 +1,4 @@
-<#include "./common/head.ftl">
+<#include "common/head.ftl">
 <div id="vm">
 
 </div>
@@ -19,4 +19,4 @@
         }
     });
 </script>
-<#include "./common/foot.ftl">
+<#include "common/foot.ftl">

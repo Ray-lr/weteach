@@ -43,11 +43,11 @@
         legend: {
             orient: 'vertical',
             x: 'left',
-            data: ['直接访问', '邮件营销', '联盟广告', '视频广告', '搜索引擎']
+            data: ['Spring Boot', 'Java', '摄影', 'C++', '网站']
         },
         series: [
             {
-                name: '访问来源',
+                name: '课程类型占比',
                 type: 'pie',
                 radius: ['50%', '70%'],
                 avoidLabelOverlap: false,
@@ -70,11 +70,11 @@
                     }
                 },
                 data: [
-                    {value: 335, name: '直接访问'},
-                    {value: 310, name: '邮件营销'},
-                    {value: 234, name: '联盟广告'},
-                    {value: 135, name: '视频广告'},
-                    {value: 1548, name: '搜索引擎'}
+                    {value: 335, name: 'Spring Boot'},
+                    {value: 310, name: 'Java'},
+                    {value: 234, name: '摄影'},
+                    {value: 135, name: 'C++'},
+                    {value: 1548, name: '网站'}
                 ]
             }
         ]
@@ -87,26 +87,6 @@
             charts[i].resize();
         }
     };
-
-    /*// 绘制图表。
-    echarts.init(document.getElementById('pie')).setOption({
-        series: {
-            type: 'pie',
-
-            label: {
-                normal: {
-                    show: true,
-                    formatter: '{b}: {c}({d}%)'
-                }
-            },
-
-            data: [
-                {name: '总课程发布数', value: 0},
-                {name: '总课程参与数', value: 23},
-                {name: '总课程完成数', value: 20}
-            ]
-        }
-    });*/
     window.addEventListener("resize", function () {
         myChart.resize();
     });

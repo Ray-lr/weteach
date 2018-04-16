@@ -6,6 +6,10 @@ package com.legend.cloud.model.constant.attribute;
  */
 public class TypeUser {
     /**
+     * 用户类型
+     */
+    public static final String TYPE_USER = "typeUser";
+    /**
      * 管理员用户
      */
     public static final String ADMIN = "admin";

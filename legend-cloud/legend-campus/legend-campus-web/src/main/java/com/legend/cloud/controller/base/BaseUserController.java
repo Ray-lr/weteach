@@ -3,22 +3,19 @@ package com.legend.cloud.controller.base;
 
 import com.alibaba.fastjson.JSON;
 import com.legend.cloud.entity.base.BaseUser;
-import com.legend.cloud.entity.campus.CampusUserInfo;
 import com.legend.cloud.model.constant.attribute.TypeUser;
 import com.legend.cloud.service.base.BaseUserService;
-import com.legend.cloud.service.campus.CampusUserInfoService;
 import com.legend.cloud.vo.base.BaseUserVO;
-import com.legend.cloud.vo.campus.CampusUserInfoVO;
 import com.legend.module.core.model.contant.arribute.Key;
 import com.legend.module.core.model.contant.message.result.user.UserResultMessage;
 import com.legend.module.core.model.json.result.Ajax;
 import com.legend.module.core.service.user.UserService;
+import com.legend.module.core.vo.core.UserVO;
 import com.legend.module.core.web.controller.user.AbstractUserController;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UsernamePasswordToken;
-import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -41,12 +38,6 @@ public class BaseUserController extends AbstractUserController<BaseUserVO> {
     @Resource
     private BaseUserService baseUserService;
 
-    @Resource
-    private CampusUserInfoService campusUserInfoService;
-
-    @Resource
-    private SecurityManager securityManager;
-
     @Override
     public UserService getUserService() {
         return baseUserService;
@@ -59,25 +50,21 @@ public class BaseUserController extends AbstractUserController<BaseUserVO> {
 
     @Override
     protected Ajax loginProcess(BaseUserVO baseUserVO) {
-        UsernamePasswordToken token = new UsernamePasswordToken(baseUserVO.getUsername(), baseUserVO.getPassword
-                (), baseUserVO.getRememberMe(), TypeUser.USER);
-        SecurityUtils.setSecurityManager(securityManager);
+        UsernamePasswordToken token = new UsernamePasswordToken(baseUserVO.getUsername(),
+                baseUserVO.getPassword(), baseUserVO.getRememberMe(), TypeUser.USER);
         Subject subject = SecurityUtils.getSubject();
         try {
             subject.login(token);
             if (!subject.isAuthenticated()) {
                 return Ajax.error();
             }
-            BaseUser baseUser = (BaseUser) subject.getPrincipal();
+            UserVO currentUser = (UserVO) subject.getPrincipal();
             // 更新最后登录时间
+            BaseUser baseUser = new BaseUser();
+            baseUser.setId(currentUser.getId());
             baseUser.setLastLoginTime(new Date());
             baseUserService.updateById(baseUser);
             // 设置用户到session
-            CampusUserInfo campusUserInfo = new CampusUserInfo();
-            campusUserInfo.setBaseUserId(baseUser.getId());
-            CampusUserInfoVO currentUser = new CampusUserInfoVO().parseFrom(campusUserInfoService.get(campusUserInfo));
-            currentUser.setUsername(baseUser.getUsername());
-            currentUser.setHost(TypeUser.ADMIN);
             setCurrentUser(JSON.toJSONString(currentUser));
             LOGGER.info(String.valueOf(getCurrentUser()));
             return Ajax.success(UserResultMessage.LOGIN_SUCCESS).put(Key.URL, "/direct/index");

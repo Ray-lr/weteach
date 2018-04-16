@@ -22,7 +22,7 @@
             <div class="star" :data-num="user.creditsLevel"></div>
         </div>
         <div class="dropdown-divider"></div>
-        <p class="card-text font-weight-light">课程完成率:80%</p>
+        <p class="card-text font-weight-light">课程完成率:64%</p>
     </div>
 </div>
 

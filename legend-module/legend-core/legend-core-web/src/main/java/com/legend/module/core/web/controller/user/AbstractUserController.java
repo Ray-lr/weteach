@@ -38,8 +38,7 @@ import java.util.Set;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-public abstract class AbstractUserController<TVO extends UserVO> extends
-        LegendController {
+public abstract class AbstractUserController<TVO extends UserVO> extends LegendController {
 
     private static final Validator VALIDATOR = Validation.byProvider(HibernateValidator.class).configure().failFast
             (false).buildValidatorFactory().getValidator();
@@ -111,6 +110,12 @@ public abstract class AbstractUserController<TVO extends UserVO> extends
 
     }
 
+    /**
+     * 登录
+     *
+     * @param tvo 用户信息
+     * @return Ajax
+     */
     @PostMapping("/login")
     @ResponseBody
     public Ajax login(TVO tvo) {

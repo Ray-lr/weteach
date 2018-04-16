@@ -158,7 +158,6 @@ body a {
 /*课程标题加粗，超越限制省略且显示省略号...*/
 .courseTitle {
     text-align: left;
-    text-decoration: none !important;
     font-weight: bold;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -174,7 +173,15 @@ body a {
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    text-decoration: none !important;
+}
+
+.omit-neglect-1 {
+    max-width: 100%;
+    word-break: break-all;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .myIcon {

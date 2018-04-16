@@ -123,4 +123,13 @@ public class CampusUserInfoServiceImpl extends AbstractLegendService<CampusUserI
         return example;
     }
 
+    @Override
+    public CampusUserInfo getByUserId(Integer id) {
+        if (id == null) {
+            throw new NullPointerException();
+        }
+        CampusUserInfo campusUserInfo = new CampusUserInfo();
+        campusUserInfo.setBaseUserId(id);
+        return get(campusUserInfo);
+    }
 }

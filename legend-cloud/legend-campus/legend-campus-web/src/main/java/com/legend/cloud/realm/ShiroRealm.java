@@ -1,6 +1,7 @@
 package com.legend.cloud.realm;
 
 import com.legend.cloud.entity.base.BaseUserRelRole;
+import com.legend.cloud.entity.campus.CampusUserInfo;
 import com.legend.cloud.entity.system.SystemPermission;
 import com.legend.cloud.entity.system.SystemRole;
 import com.legend.cloud.entity.system.SystemRoleRelPermission;
@@ -8,15 +9,16 @@ import com.legend.cloud.entity.system.SystemUserRelRole;
 import com.legend.cloud.model.constant.attribute.TypeUser;
 import com.legend.cloud.service.base.BaseUserRelRoleService;
 import com.legend.cloud.service.base.BaseUserService;
+import com.legend.cloud.service.campus.CampusUserInfoService;
 import com.legend.cloud.service.system.*;
+import com.legend.cloud.vo.campus.CampusUserInfoVO;
 import com.legend.module.core.entity.user.User;
 import com.legend.module.core.model.contant.message.exception.UserExceptionMessage;
-import com.legend.module.core.utils.HttpSessionUtils;
+import com.legend.module.core.vo.core.UserVO;
 import org.apache.commons.lang.StringUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
-import org.apache.shiro.crypto.hash.Md5Hash;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.util.ByteSource;
@@ -59,6 +61,9 @@ public class ShiroRealm extends AuthorizingRealm {
     @Resource
     private SystemPermissionService systemPermissionService;
 
+    @Resource
+    private CampusUserInfoService campusUserInfoService;
+
     /**
      * 授权
      *
@@ -67,16 +72,15 @@ public class ShiroRealm extends AuthorizingRealm {
      */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
-        User currentUser = (User) principalCollection.getPrimaryPrincipal();
+        UserVO currentUser = (UserVO) principalCollection.getPrimaryPrincipal();
         List<Integer> roleIds = new ArrayList<>();
         List<Integer> permissionIds;
         Set<String> roleSigns;
         Set<String> permissionSigns = new HashSet<>();
-        String host = (String) HttpSessionUtils.getAttribute("host");
-        if (TypeUser.ADMIN.equals(host)) {
+        if (TypeUser.ADMIN.equals(currentUser.getTypeUser())) {
             roleIds = systemUserRelRoleService.getListByUserId(currentUser.getId()).stream().map
                     (SystemUserRelRole::getSystemRoleId).collect(Collectors.toList());
-        } else if (TypeUser.USER.equals(host)) {
+        } else if (TypeUser.USER.equals(currentUser.getTypeUser())) {
             roleIds = baseUserRelRoleService.getListByUserId(currentUser.getId()).stream().map
                     (BaseUserRelRole::getSystemRoleId).collect(Collectors.toList());
         }
@@ -92,8 +96,6 @@ public class ShiroRealm extends AuthorizingRealm {
             permissionSigns = systemPermissionService.getListByPermissionIds(permissionIds).stream
                     ().map(SystemPermission::getSign).collect(Collectors.toSet());
         }
-        LOGGER.info("roleSigns:" + roleSigns.toString());
-        LOGGER.info("permissionSigns:" + permissionSigns.toString());
         simpleAuthorizationInfo.addRoles(roleSigns);
         simpleAuthorizationInfo.addStringPermissions(permissionSigns);
         return simpleAuthorizationInfo;
@@ -107,27 +109,38 @@ public class ShiroRealm extends AuthorizingRealm {
      * @throws AuthenticationException AuthenticationException
      */
     @Override
-    protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
-        UsernamePasswordToken usernamePasswordToken = (UsernamePasswordToken) authenticationToken;
-        if (StringUtils.isBlank(usernamePasswordToken.getUsername())) {
+    protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken)
+            throws AuthenticationException {
+        UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
+        if (StringUtils.isBlank(token.getUsername())) {
             throw new AuthenticationException(UserExceptionMessage.USERNAME_IS_BLANK);
         }
-        User currentUser = null;
-        if (TypeUser.ADMIN.equals(usernamePasswordToken.getHost())) {
-            currentUser = systemUserService.getByUserName(usernamePasswordToken.getUsername());
-            HttpSessionUtils.setAttribute("host", usernamePasswordToken.getHost());
-        } else if (TypeUser.USER.equals(usernamePasswordToken.getHost())) {
-            currentUser = baseUserService.getByUserName(usernamePasswordToken.getUsername());
-            HttpSessionUtils.setAttribute("host", usernamePasswordToken.getHost());
+        User user;
+        Object account = null;
+        if (TypeUser.ADMIN.equals(token.getHost())) {
+            user = systemUserService.getByUserName(token.getUsername());
+            if (user == null) {
+                throw new AuthenticationException(UserExceptionMessage.USERNAME_IS_NOT_EXIST);
+            }
+        } else if (TypeUser.USER.equals(token.getHost())) {
+            user = baseUserService.getByUserName(token.getUsername());
+            if (user == null) {
+                throw new AuthenticationException(UserExceptionMessage.USERNAME_IS_NOT_EXIST);
+            }
+            CampusUserInfo campusUserInfo = campusUserInfoService.getByUserId(user.getId());
+            if (campusUserInfo != null) {
+                account = new CampusUserInfoVO().parseFrom(campusUserInfo);
+            }
+        } else {
+            throw new AuthenticationException("用户类型无效");
         }
-        if (currentUser == null) {
-            throw new AuthenticationException(UserExceptionMessage.USERNAME_IS_NOT_EXIST);
-        }
-
-        ByteSource salt = ByteSource.Util.bytes(currentUser.getUsername());
-        LOGGER.info(String.valueOf(new Md5Hash(usernamePasswordToken.getPassword(), salt, 1024)));
+        @SuppressWarnings("unchecked") UserVO currentUser = (UserVO) new UserVO().parseFrom(user);
+        currentUser.setAccount(account);
+        currentUser.setTypeUser(token.getHost());
         //将主体对象放入了Principal中
-        return new SimpleAuthenticationInfo(currentUser, currentUser.getPassword(), salt, getName());
+        return new SimpleAuthenticationInfo(currentUser,
+                currentUser.getPassword(),
+                ByteSource.Util.bytes(currentUser.getUsername()), getName());
     }
 
 }

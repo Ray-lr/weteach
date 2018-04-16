@@ -92,7 +92,7 @@
                                                  alt="Cover">
                                         </div>
                                         <div class="col" style="text-overflow:ellipsis;">
-                                            <a class="non-text-dec" href="/direct/course">
+                                            <a class="non-text-dec" :href="'/direct/course?id='+item.id">
                                                 <h6 class="card-title font-weight-bold" v-text="item.title"></h6>
                                             </a>
                                             <div class="dropdown-divider"></div>
@@ -264,7 +264,7 @@
                 url: "/campus/course/list",
                 type: "GET",
                 data: {
-                    userId: _this.user.baseUserId
+                    userId: _this.user.id
                 },
                 success: function (data) {
                     if (data.result) {

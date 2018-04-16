@@ -1,6 +1,9 @@
 package com.legend.module.core.service.core;
 
 import com.legend.module.core.utils.Query;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Caching;
 
 import java.io.Serializable;
 import java.util.List;

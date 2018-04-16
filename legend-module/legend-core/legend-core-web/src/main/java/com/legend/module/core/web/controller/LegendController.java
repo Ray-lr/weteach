@@ -9,7 +9,7 @@ import com.legend.module.core.vo.core.UserVO;
  * @author Administrator
  * @date 2018/3/8
  */
-public class LegendController {
+public class LegendController<T> {
     /**
      * 设置当前用户，存入session中
      *
@@ -24,8 +24,8 @@ public class LegendController {
      *
      * @return 当前用户
      */
-    protected Object getCurrentUser() {
-        return HttpSessionUtils.getAttribute(Key.CURRENT_USER);
+    protected T getCurrentUser() {
+        return (T) HttpSessionUtils.getAttribute(Key.CURRENT_USER);
     }
 
     /**

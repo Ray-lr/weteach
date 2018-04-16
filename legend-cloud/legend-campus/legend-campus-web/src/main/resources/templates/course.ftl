@@ -1,7 +1,7 @@
 <#include "common/head.ftl">
 <div id="vm">
     <!--顶部功能栏-->
-    <#include "common/component/navbar.ftl">
+<#include "common/component/navbar.ftl">
 
     <div class="container margin-top10" id="principal">
         <div class="row">
@@ -10,40 +10,40 @@
             <hr class="line">
             <!--左侧信息栏-->
             <div class="col col-md-3" id="others">
-                <#include "./common/component/other-info.ftl">
+            <#include "./common/component/other-info.ftl">
                 <div style="height:150px;">
-                    <h6 style="font-weight: bold">当前课程进度:75%</h6>
-                    <div align="left">
-                        <p>已完成课时:3</p>
-                        <p>剩余课时：1</p>
-                    </div>
+                    <h6 style="font-weight: bold">当前课程进度:63%</h6>
                     <div class="progress">
                         <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
-                             aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+                             aria-valuenow="63" aria-valuemin="0" aria-valuemax="100" style="width: 63%"></div>
                     </div>
+                    <div align="left">
+                        <span>已完成课时:3/4</span>
+                    </div>
+
                 </div>
 
             </div>
             <!--课程详细信息部分-->
             <div class="col-12 col-md-6" id="principal">
                 <!--标题-->
-                <h3 align="center">This is the title of the course</h3>
+                <h3 align="center">Spring Boot API研讨</h3>
                 <div class="dropdown-divider"></div>
                 <!-- 系别，专业，课程信息展示 -->
                 <div class="form-group">
                     <label for="province">课程信息</label>
                     <div class="row">
                         <!-- 系别-->
-                        <div class="col-md-4 alert alert-secondary">
-                            XXXX系
+                        <div class="col-md-4 alert alert-secondary ">
+                            计算机科学系
                         </div>
                         <!-- 专业 -->
-                        <div class="col-md-4 alert alert-secondary">
-                            XXX专业
+                        <div class="col-md-4 alert alert-secondary ">
+                            计算机科学与技术..
                         </div>
                         <!-- 课程 -->
-                        <div class="col col-md-4 alert alert-secondary">
-                            XXX课程
+                        <div class="col col-md-4 alert alert-secondary ">
+                            Spring Boot
                         </div>
 
                     </div>
@@ -51,15 +51,13 @@
                 <!--课程描述-->
                 <label for="description">课程描述</label>
                 <div class="alert alert-success">
-                    <p>这里是课程相关的描述吧啦吧啦......</p>
-                    <p>Aww yeah, you successfully read this important alert message. This example text is going to run a
-                        bit
-                        longer so that you can see how spacing within an alert works with this kind of content.</p>
+                    <p>Spring Boot是由Pivotal团队提供的全新框架，其设计目的是用来简化新Spring应用的初始搭建以及开发过程。该框架推崇“约定优于配置”。通过这种方式，Spring
+                        Boot致力于在蓬勃发展的快速应用开发领域成为领导者。</p>
                 </div>
                 <!--课程备注-->
-                <label for="remark">备注</label>
+                <label for="remark">相关备注</label>
                 <div class="alert alert-warning">
-                    <p>这里是相关备注Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+                    <p>记得带电脑和相关文献资料</p>
                 </div>
                 <div class="row">
 
@@ -67,25 +65,12 @@
                 <!--当前报名人数-->
                 <label for="personNum">当前报名人数</label>
                 <div class="alert alert-info">
-                    XXX
+                    0
                 </div>
                 <!--积分-->
                 <label for=" credits">参与所需积分</label>
                 <div class="alert alert-danger">
-                    XXX
-                </div>
-
-                <!--相关图片证明展示-->
-                <label for="prove">图片证明</label>
-                <div class="row" style="height: 15em;width: 30em">
-                    <div align="center">
-                        <img class="rounded-0 cover"
-                             src="/static/image/avatar/Avatar.png"
-                             alt="Cover" style="width: 100%;height: 100%">
-                    </div>
-                </div>
-                <div style="height: 150px">
-
+                    1
                 </div>
 
             </div>
@@ -171,5 +156,35 @@
     </div>
 </div>
 <#include "common/js.ftl">
+<script>
+    let vm = new Vue({
+        el: "#vm",
+        data: {
+            course: {}
+        },
+        created: function () {
+            let _this = this;
+            $.ajax({
+                url: "campus/course/details/${id}",
+                type: "GET",
+                success: function (data) {
+                    if (data.result) {
+                        _this.course = data.data;
+                    } else {
+                        Messenger().post({
+                            id: "error",
+                            message: data.msg,//提示信息
+                            type: 'error',//消息类型。error、info、success
+                            hideAfter: 3,//多长时间消失
+                            showCloseButton: true,//是否显示关闭按钮
+                            hideOnNavigate: false//是否隐藏导航
+                        });
+                    }
+                }
+            })
+        }
+    })
+
+</script>
 
 <#include "common/foot.ftl">

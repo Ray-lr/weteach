@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.legend.module.core.model.contant.code.result.user.UserResultCode;
 import com.legend.module.core.model.contant.message.result.user.UserResultMessage;
 import com.legend.module.core.model.json.result.Ajax;
+import com.legend.module.core.vo.core.UserVO;
 import com.legend.module.core.web.controller.LegendController;
 import org.apache.shiro.authz.AuthorizationException;
 import org.apache.shiro.authz.UnauthorizedException;
@@ -20,7 +21,7 @@ import java.io.PrintWriter;
  * @author Administrator
  * @date 2018/3/30
  */
-public class CampusController extends LegendController {
+public class CampusController extends LegendController<UserVO> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CampusController.class);
 
@@ -52,4 +53,15 @@ public class CampusController extends LegendController {
         }
         return null;
     }
+
+    @Override
+    protected UserVO getCurrentUser() {
+        return super.getCurrentUser();
+    }
+
+    @Override
+    protected void setCurrentUser(Object object) {
+        super.setCurrentUser(object);
+    }
+
 }

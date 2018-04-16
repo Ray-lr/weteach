@@ -125,7 +125,7 @@
                         </button>
                         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
                              aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h4 class="modal-title" id="exampleModalLabel">报名人员限制</h4>
@@ -356,7 +356,7 @@
                         </button>
                         <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog"
                              aria-labelledby="exampleModalLabel2" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h4 class="modal-title" id="exampleModalLabel2">报名人员限制</h4>

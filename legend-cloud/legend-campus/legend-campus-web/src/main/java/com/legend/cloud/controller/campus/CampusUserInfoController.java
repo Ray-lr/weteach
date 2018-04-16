@@ -3,7 +3,6 @@ package com.legend.cloud.controller.campus;
 
 import com.alibaba.fastjson.JSON;
 import com.legend.cloud.controller.CampusController;
-import com.legend.cloud.entity.base.BaseUser;
 import com.legend.cloud.entity.campus.CampusUserInfo;
 import com.legend.cloud.service.base.BaseUserService;
 import com.legend.cloud.service.campus.CampusUserInfoService;
@@ -12,12 +11,19 @@ import com.legend.module.core.model.contant.arribute.Column;
 import com.legend.module.core.model.contant.arribute.Key;
 import com.legend.module.core.model.contant.code.result.AjaxCode;
 import com.legend.module.core.model.contant.message.result.AjaxMessage;
+import com.legend.module.core.model.contant.message.result.user.UserResultMessage;
 import com.legend.module.core.model.group.option.AddGroup;
 import com.legend.module.core.model.group.option.UpdateGroup;
 import com.legend.module.core.model.json.result.Ajax;
 import com.legend.module.core.model.json.result.AjaxValidate;
 import com.legend.module.core.utils.PageUtils;
 import com.legend.module.core.utils.Query;
+import com.legend.module.core.vo.core.UserVO;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.AuthenticationException;
+import org.apache.shiro.authc.IncorrectCredentialsException;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.validation.BindingResult;
@@ -93,25 +99,36 @@ public class CampusUserInfoController extends CampusController {
 
     @PutMapping("/update")
     // @RequiresPermissions("campus:userInfo:update")
-    public Ajax update(@Validated(UpdateGroup.class) CampusUserInfoVO campusUserInfoVO, BindingResult bindingResult) {
+    public Ajax update(@Validated(UpdateGroup.class) CampusUserInfoVO campusUserInfoVO,
+                       BindingResult bindingResult) {
         try {
             if (bindingResult.hasErrors()) {
                 return AjaxValidate.processBindingResult(bindingResult);
             }
-            CampusUserInfoVO currentUser = JSON.parseObject(String.valueOf(getCurrentUser()), CampusUserInfoVO.class);
-            campusUserInfoVO.setId(currentUser.getId());
+            Subject subject = SecurityUtils.getSubject();
+            UserVO currentUser = (UserVO) subject.getPrincipal();
+            CampusUserInfoVO account = (CampusUserInfoVO) currentUser.getAccount();
+            campusUserInfoVO.setId(account.getId());
             campusUserInfoVO.setUpdateTime(new Date());
             if (campusUserInfoService.updateById(campusUserInfoVO.parseTo()) <= 0) {
                 Ajax.error(AjaxMessage.UPDATE_FAILURE, AjaxCode.UPDATE_FAILURE);
             }
-            // 重新查询并设置进session中
-            BaseUser baseUser = baseUserService.getById(currentUser.getBaseUserId());
-            CampusUserInfo campusUserInfo = campusUserInfoService.getById(currentUser.getId());
-            currentUser.parseFrom(campusUserInfo);
-            currentUser.setUsername(baseUser.getUsername());
+            // 重新调用登录以更新Serssion中的数据
+            subject.login(new UsernamePasswordToken(currentUser.getUsername(),
+                    currentUser.getPassword(), currentUser.getTypeUser()));
+            if (!subject.isAuthenticated()) {
+                return Ajax.error();
+            }
+            currentUser = (UserVO) subject.getPrincipal();
             setCurrentUser(JSON.toJSONString(currentUser));
             LOGGER.info(String.valueOf(getCurrentUser()));
             return Ajax.success(AjaxMessage.UPDATE_SUCCESS);
+        } catch (IncorrectCredentialsException e) {
+            System.err.println(e.getLocalizedMessage());
+            return Ajax.error(UserResultMessage.USERNAME_OR_PASSWORD_WRONG);
+        } catch (AuthenticationException e) {
+            System.err.println(e.getLocalizedMessage());
+            return Ajax.error(UserResultMessage.USERNAME_WRONG);
         } catch (Exception e) {
             e.printStackTrace();
             return Ajax.error(AjaxMessage.SERVER_ERROR, AjaxCode.SERVER_ERROR);
@@ -131,16 +148,4 @@ public class CampusUserInfoController extends CampusController {
         }
     }
 
-    @GetMapping("/detail/{userId}")
-    public Ajax get(@PathVariable Integer userId) {
-        try {
-            CampusUserInfo campusUserInfo = new CampusUserInfo();
-            campusUserInfo.setBaseUserId(userId);
-            campusUserInfo = campusUserInfoService.get(campusUserInfo);
-            return Ajax.success(new CampusUserInfoVO().parseFrom(campusUserInfo));
-        } catch (Exception e) {
-            e.printStackTrace();
-            return Ajax.error(AjaxMessage.SERVER_ERROR, AjaxCode.SERVER_ERROR);
-        }
-    }
 }
