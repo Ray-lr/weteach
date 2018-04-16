@@ -5,6 +5,7 @@ import com.legend.module.core.dao.mapper.LegendMapper;
 import com.legend.module.core.entity.AbstractEntity;
 import com.legend.module.core.service.core.LegendService;
 import com.legend.module.core.utils.Query;
+import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.common.Mapper;
 
@@ -15,6 +16,7 @@ import java.util.List;
  * @date 2018/3/1
  */
 @Transactional(rollbackFor = Exception.class)
+@CacheConfig
 public abstract class AbstractLegendService<T extends AbstractEntity> implements LegendService<T> {
     /**
      * 实现该接口，返回实现对应的mapper类

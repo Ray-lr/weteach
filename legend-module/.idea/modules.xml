@@ -4,12 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/legend-core/legend-core.iml" filepath="$PROJECT_DIR$/legend-core/legend-core.iml" />
       <module fileurl="file://$PROJECT_DIR$/legend-core/legend-core-dao/legend-core-dao.iml" filepath="$PROJECT_DIR$/legend-core/legend-core-dao/legend-core-dao.iml" />
-      <module fileurl="file://$PROJECT_DIR$/legend-core/legend-core-dao/legend-core-dao.iml" filepath="$PROJECT_DIR$/legend-core/legend-core-dao/legend-core-dao.iml" />
-      <module fileurl="file://$PROJECT_DIR$/legend-core/legend-core-model/legend-core-model.iml" filepath="$PROJECT_DIR$/legend-core/legend-core-model/legend-core-model.iml" />
       <module fileurl="file://$PROJECT_DIR$/legend-core/legend-core-model/legend-core-model.iml" filepath="$PROJECT_DIR$/legend-core/legend-core-model/legend-core-model.iml" />
       <module fileurl="file://$PROJECT_DIR$/legend-core/legend-core-service/legend-core-service.iml" filepath="$PROJECT_DIR$/legend-core/legend-core-service/legend-core-service.iml" />
-      <module fileurl="file://$PROJECT_DIR$/legend-core/legend-core-service/legend-core-service.iml" filepath="$PROJECT_DIR$/legend-core/legend-core-service/legend-core-service.iml" />
-      <module fileurl="file://$PROJECT_DIR$/legend-core/legend-core-web/legend-core-web.iml" filepath="$PROJECT_DIR$/legend-core/legend-core-web/legend-core-web.iml" />
       <module fileurl="file://$PROJECT_DIR$/legend-core/legend-core-web/legend-core-web.iml" filepath="$PROJECT_DIR$/legend-core/legend-core-web/legend-core-web.iml" />
       <module fileurl="file://$PROJECT_DIR$/legend-module.iml" filepath="$PROJECT_DIR$/legend-module.iml" />
     </modules>
