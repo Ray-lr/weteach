@@ -9,6 +9,7 @@ import com.legend.cloud.entity.system.SystemUserRelRole;
 import com.legend.cloud.model.constant.attribute.TypeUser;
 import com.legend.cloud.service.base.BaseUserRelRoleService;
 import com.legend.cloud.service.base.BaseUserService;
+import com.legend.cloud.service.campus.CampusCourseCategoryService;
 import com.legend.cloud.service.campus.CampusUserInfoService;
 import com.legend.cloud.service.system.*;
 import com.legend.cloud.vo.campus.CampusUserInfoVO;
@@ -63,6 +64,9 @@ public class ShiroRealm extends AuthorizingRealm {
 
     @Resource
     private CampusUserInfoService campusUserInfoService;
+
+    @Resource
+    private CampusCourseCategoryService campusCourseCategoryService;
 
     /**
      * 授权
@@ -129,7 +133,10 @@ public class ShiroRealm extends AuthorizingRealm {
             }
             CampusUserInfo campusUserInfo = campusUserInfoService.getByUserId(user.getId());
             if (campusUserInfo != null) {
-                account = new CampusUserInfoVO().parseFrom(campusUserInfo);
+                CampusUserInfoVO campusUserInfoVO = new CampusUserInfoVO().parseFrom(campusUserInfo);
+                campusUserInfoVO.setDept_string(campusCourseCategoryService.getById(Integer.parseInt(campusUserInfoVO.getDept())).getName());
+                campusUserInfoVO.setMajor_string(campusCourseCategoryService.getById(Integer.parseInt(campusUserInfoVO.getMajor())).getName());
+                account = campusUserInfoVO;
             }
         } else {
             throw new AuthenticationException("用户类型无效");
