@@ -42,17 +42,29 @@ public class CampusCourseVO extends AbstractVO<CampusCourse> {
      */
     private String remark;
     /**
-     * 系别
+     * 系别id
      */
     private Integer dept;
     /**
-     * 专业
+     * 系别的name
+     */
+    private String dept_string;
+    /**
+     * 专业id
      */
     private Integer major;
     /**
-     * 课程
+     * 专业的name
+     */
+    private String major_string;
+    /**
+     * 课程id
      */
     private Integer course;
+    /**
+     * 课程的name
+     */
+    private String course_string;
     /**
      * 课时节数
      */

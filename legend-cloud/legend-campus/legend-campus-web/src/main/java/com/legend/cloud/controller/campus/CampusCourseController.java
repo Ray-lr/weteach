@@ -8,6 +8,7 @@ import com.legend.cloud.entity.campus.CampusCourse;
 import com.legend.cloud.entity.campus.CampusCourseLimit;
 import com.legend.cloud.facade.CoursePublishFacade;
 import com.legend.cloud.service.base.BaseUserService;
+import com.legend.cloud.service.campus.CampusCourseCategoryService;
 import com.legend.cloud.service.campus.CampusCourseLimitService;
 import com.legend.cloud.service.campus.CampusCourseService;
 import com.legend.cloud.vo.campus.CampusCourseVO;
@@ -54,6 +55,8 @@ public class CampusCourseController extends CampusController {
     private CampusCourseLimitService campusCourseLimitService;
     @Resource
     private BaseUserService baseUserService;
+    @Resource
+    private CampusCourseCategoryService campusCourseCategoryService;
 
     @GetMapping("/list")
     @RequiresPermissions("campus:course:list")
@@ -80,6 +83,9 @@ public class CampusCourseController extends CampusController {
         try {
             CampusCourse campusCourse = campusCourseService.getById(id);
             CampusCourseVO campusCourseVO = new CampusCourseVO().parseFrom(campusCourse);
+            campusCourseVO.setDept_string(campusCourseCategoryService.getById(campusCourseVO.getDept()).getName());
+            campusCourseVO.setMajor_string(campusCourseCategoryService.getById(campusCourseVO.getMajor()).getName());
+            campusCourseVO.setCourse_string(campusCourseCategoryService.getById(campusCourseVO.getCourse()).getName());
             return Ajax.success(campusCourseVO, AjaxMessage.QUERY_SUCCESS);
         } catch (Exception e) {
             e.printStackTrace();

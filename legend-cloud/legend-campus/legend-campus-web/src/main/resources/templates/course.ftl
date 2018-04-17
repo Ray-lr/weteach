@@ -10,7 +10,7 @@
             <hr class="line">
             <!--左侧信息栏-->
             <div class="col col-md-3" id="others">
-            <#include "./common/component/other-info.ftl">
+                <#include "common/component/other-info.ftl">
                 <div style="height:150px;">
                     <h6 style="font-weight: bold">当前课程进度:63%</h6>
                     <div class="progress">
@@ -27,7 +27,7 @@
             <!--课程详细信息部分-->
             <div class="col-12 col-md-6" id="principal">
                 <!--标题-->
-                <h3 align="center">Spring Boot API研讨</h3>
+                <h3 align="center" v-text="course.title"></h3>
                 <div class="dropdown-divider"></div>
                 <!-- 系别，专业，课程信息展示 -->
                 <div class="form-group">
@@ -35,15 +35,15 @@
                     <div class="row">
                         <!-- 系别-->
                         <div class="col-md-4 alert alert-secondary ">
-                            计算机科学系
+                            <span v-text="course.dept_string"></span>
                         </div>
                         <!-- 专业 -->
                         <div class="col-md-4 alert alert-secondary ">
-                            计算机科学与技术..
+                            <span v-text="course.major_string"></span>
                         </div>
                         <!-- 课程 -->
                         <div class="col col-md-4 alert alert-secondary ">
-                            Spring Boot
+                            <span v-text="course.course_string"></span>
                         </div>
 
                     </div>
@@ -51,13 +51,12 @@
                 <!--课程描述-->
                 <label for="description">课程描述</label>
                 <div class="alert alert-success">
-                    <p>Spring Boot是由Pivotal团队提供的全新框架，其设计目的是用来简化新Spring应用的初始搭建以及开发过程。该框架推崇“约定优于配置”。通过这种方式，Spring
-                        Boot致力于在蓬勃发展的快速应用开发领域成为领导者。</p>
+                    <p v-text="course.description"></p>
                 </div>
                 <!--课程备注-->
                 <label for="remark">相关备注</label>
                 <div class="alert alert-warning">
-                    <p>记得带电脑和相关文献资料</p>
+                    <p v-text="course.remark"></p>
                 </div>
                 <div class="row">
 
@@ -65,12 +64,12 @@
                 <!--当前报名人数-->
                 <label for="personNum">当前报名人数</label>
                 <div class="alert alert-info">
-                    0
+                    <span v-text="course.personNum"></span>
                 </div>
                 <!--积分-->
                 <label for=" credits">参与所需积分</label>
                 <div class="alert alert-danger">
-                    1
+                    <span v-text="course.getCredits"></span>
                 </div>
 
             </div>
@@ -160,16 +159,35 @@
     let vm = new Vue({
         el: "#vm",
         data: {
-            course: {}
+            course: {},
+            otherUser: {}
         },
         created: function () {
             let _this = this;
             $.ajax({
-                url: "campus/course/details/${id}",
+                url: "/campus/course/details/${id}",
                 type: "GET",
                 success: function (data) {
                     if (data.result) {
                         _this.course = data.data;
+                        $.ajax({
+                            url: "/campus/userInfo/details/" + data.data.userId,
+                            type: "get",
+                            success: function (data) {
+                                if (data.result) {
+                                    _this.otherUser = data.data;
+                                } else {
+                                    Messenger().post({
+                                        id: "error",
+                                        message: data.msg,//提示信息
+                                        type: 'error',//消息类型。error、info、success
+                                        hideAfter: 3,//多长时间消失
+                                        showCloseButton: true,//是否显示关闭按钮
+                                        hideOnNavigate: false//是否隐藏导航
+                                    });
+                                }
+                            }
+                        });
                     } else {
                         Messenger().post({
                             id: "error",

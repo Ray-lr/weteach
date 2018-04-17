@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSON;
 import com.legend.cloud.controller.CampusController;
 import com.legend.cloud.entity.campus.CampusUserInfo;
 import com.legend.cloud.service.base.BaseUserService;
+import com.legend.cloud.service.campus.CampusCourseCategoryService;
 import com.legend.cloud.service.campus.CampusUserInfoService;
 import com.legend.cloud.vo.campus.CampusUserInfoVO;
 import com.legend.module.core.model.contant.arribute.Column;
@@ -47,7 +48,8 @@ public class CampusUserInfoController extends CampusController {
 
     @Resource
     private CampusUserInfoService campusUserInfoService;
-
+    @Resource
+    private CampusCourseCategoryService campusCourseCategoryService;
     @Resource
     private BaseUserService baseUserService;
 
@@ -73,6 +75,8 @@ public class CampusUserInfoController extends CampusController {
         try {
             CampusUserInfo campusUserInfo = campusUserInfoService.getById(id);
             CampusUserInfoVO campusUserInfoVO = new CampusUserInfoVO().parseFrom(campusUserInfo);
+            campusUserInfoVO.setDept_string(campusCourseCategoryService.getById(Integer.parseInt(campusUserInfoVO.getDept())).getName());
+            campusUserInfoVO.setMajor_string(campusCourseCategoryService.getById(Integer.parseInt(campusUserInfoVO.getMajor())).getName());
             return Ajax.success(campusUserInfoVO, AjaxMessage.QUERY_SUCCESS);
         } catch (Exception e) {
             e.printStackTrace();
