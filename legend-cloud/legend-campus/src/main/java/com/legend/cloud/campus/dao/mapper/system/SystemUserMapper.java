@@ -2,7 +2,7 @@ package com.legend.cloud.campus.dao.mapper.system;
 
 
 import com.legend.cloud.campus.model.pojo.entity.system.SystemUser;
-import com.legend.cloud.campus.model.pojo.entity.system.SystemUserExample;
+import com.legend.cloud.campus.model.pojo.entity.system.example.SystemUserExample;
 import com.legend.module.core.dao.mapper.LegendMapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Component;

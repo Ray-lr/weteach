@@ -1,7 +1,7 @@
-package ${package}.vo.${moduleName};
+package ${package}.model.pojo.vo.${module};
 
-import ${package}.entity.${moduleName}.${className};
-import com.legend.module.core.vo.AbstractVO;
+import ${package}.model.pojo.entity.${module}.${className};
+import com.legend.module.core.model.pojo.vo.AbstractVO;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -39,11 +39,7 @@ public class ${className}VO extends AbstractVO<${className}> {
     #end
 
     @Override
-    public ${className} parseTo(String... ignoreProperties) {
-        return super.parseTo(ignoreProperties);
-    }
-
-    @Override
+    @SuppressWarnings("unchecked")
     public ${className}VO parseFrom(${className} ${classname}, String... ignoreProperties) {
         return (${className}VO) super.parseFrom(${classname}, ignoreProperties);
     }

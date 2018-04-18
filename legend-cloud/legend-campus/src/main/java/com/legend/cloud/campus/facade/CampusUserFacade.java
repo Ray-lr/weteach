@@ -2,7 +2,7 @@ package com.legend.cloud.campus.facade;
 
 
 import com.legend.cloud.campus.model.pojo.entity.base.BaseUser;
-import com.legend.cloud.campus.model.pojo.entity.campus.CampusUserInfo;
+import com.legend.cloud.campus.model.pojo.entity.campus.CampusAccount;
 
 /**
  * @author Administrator
@@ -17,5 +17,5 @@ public interface CampusUserFacade {
      * @param campusUserInfo campusUserInfo
      * @return 更新结果
      */
-    int updateUser(BaseUser baseUser, CampusUserInfo campusUserInfo);
+    int updateUser(BaseUser baseUser, CampusAccount campusAccount);
 }

@@ -15,9 +15,8 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
@@ -104,36 +103,20 @@ public class BaseAreasController extends CampusController {
         }
     }
 
-    /*@RequestMapping(value = "/choose",method = RequestMethod.GET)
-    public Ajax choose(String area){
-
-        try {
-            BaseAreasExample example = new BaseAreasExample();
-            example.createCriteria().andNameEqualTo(area);
-            BaseAreas baseAreas= baseAreasService.getByExample(example);
-            BaseAreasExample example2 = new BaseAreasExample();
-            example2.createCriteria().andTypeAreasEqualTo(baseAreas.getTypeAreas()).andParentIdEqualTo(baseAreas.getParentId());
-            List<BaseAreas> list =baseAreasService.getListByExample(example2);
-            return Ajax.success(list, AjaxMessage.QUERY_SUCCESS);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return Ajax.error(AjaxMessage.SERVER_ERROR, AjaxCode.SERVER_ERROR);
-        }
-    }*/
     @RequestMapping(value = "/getAreaName", method = RequestMethod.GET)
-    public Ajax getAreaName(String provinceId, String cityId, String countryId) {
+    public Ajax getAreaName(Integer[] areas) {
         try {
-            Map<String, String> map = new HashMap();
-            /*map.put("province",baseAreasService.getById(Integer.parseInt(provinceId)).getName());
-            map.put("city",baseAreasService.getById(Integer.parseInt(cityId)).getName());
-            map.put("country",baseAreasService.getById(Integer.parseInt(countryId)).getName());*/
-            String[] s = new String[3];
-            if (!(provinceId.isEmpty() || cityId.isEmpty() || countryId.isEmpty())) {
-                s[0] = baseAreasService.getById(Integer.parseInt(provinceId)).getName();
-                s[1] = baseAreasService.getById(Integer.parseInt(cityId)).getName();
-                s[2] = baseAreasService.getById(Integer.parseInt(countryId)).getName();
+            if (areas == null || areas.length <= 0) {
+                return Ajax.error(AjaxMessage.QUERY_FAILURE);
             }
-            return Ajax.success(s, AjaxMessage.QUERY_SUCCESS);
+            BaseAreas baseAreas = null;
+            List<String> areasName = new ArrayList<>(areas.length);
+            for (Integer areaId : areas) {
+                if ((baseAreas = baseAreasService.getById(areaId)) != null) {
+                    areasName.add(baseAreas.getName());
+                }
+            }
+            return Ajax.success(areasName, AjaxMessage.QUERY_SUCCESS);
         } catch (NumberFormatException e) {
             e.printStackTrace();
             return Ajax.error(AjaxMessage.SERVER_ERROR, AjaxCode.SERVER_ERROR);

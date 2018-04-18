@@ -2,7 +2,7 @@ package com.legend.cloud.campus.dao.mapper.system;
 
 
 import com.legend.cloud.campus.model.pojo.entity.system.SystemMenuRelPermission;
-import com.legend.cloud.campus.model.pojo.entity.system.SystemMenuRelPermissionExample;
+import com.legend.cloud.campus.model.pojo.entity.system.example.SystemMenuRelPermissionExample;
 import com.legend.module.core.dao.mapper.LegendMapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Component;

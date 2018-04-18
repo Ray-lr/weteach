@@ -2,7 +2,7 @@ package com.legend.cloud.campus.service.campus.impl;
 
 import com.legend.cloud.campus.dao.mapper.campus.CampusVerifyMapper;
 import com.legend.cloud.campus.model.pojo.entity.campus.CampusVerify;
-import com.legend.cloud.campus.model.pojo.entity.campus.CampusVerifyExample;
+import com.legend.cloud.campus.model.pojo.entity.campus.example.CampusVerifyExample;
 import com.legend.cloud.campus.service.campus.CampusVerifyService;
 import com.legend.module.core.service.core.impl.AbstractLegendService;
 import org.apache.commons.lang.StringUtils;

@@ -6,6 +6,9 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.springframework.beans.BeanUtils;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 /**
  * @author Administrator
  * @date 2018/3/5
@@ -40,8 +43,26 @@ public abstract class AbstractVO<T extends AbstractEntity> extends AbstractPojo<
         return (TVO) this;
     }
 
-    @Override
-    public String toString() {
-        return null;
+    /**
+     * 将Entity集合赋值到VO集合中
+     *
+     * @param tList            集合Entity
+     * @param ignoreProperties 忽略的字段
+     * @param <TVO>            根据接受变量类型返回
+     * @return VO集合
+     */
+    @SuppressWarnings("unchecked")
+    public <TVO extends AbstractVO> List<TVO> parseFrom(List<T> tList, String... ignoreProperties) {
+        return tList.stream().map(t -> {
+            try {
+                Object object = this.getClass().newInstance();
+                BeanUtils.copyProperties(t, object, ignoreProperties);
+                return (TVO) object;
+            } catch (InstantiationException | IllegalAccessException e) {
+                e.printStackTrace();
+                return null;
+            }
+        }).collect(Collectors.toList());
     }
+
 }

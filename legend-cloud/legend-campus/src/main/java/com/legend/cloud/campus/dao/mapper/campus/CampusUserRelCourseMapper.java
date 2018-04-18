@@ -2,7 +2,7 @@ package com.legend.cloud.campus.dao.mapper.campus;
 
 
 import com.legend.cloud.campus.model.pojo.entity.campus.CampusUserRelCourse;
-import com.legend.cloud.campus.model.pojo.entity.campus.CampusUserRelCourseExample;
+import com.legend.cloud.campus.model.pojo.entity.campus.example.CampusUserRelCourseExample;
 import com.legend.module.core.dao.mapper.LegendMapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Component;

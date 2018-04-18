@@ -14,7 +14,7 @@ import java.util.Date;
  * 教师表
  *
  * @author hupeiD
- * @date 2018-04-12 10:38:05
+ * @date 2018-04-18 21:56:07
  */
 @EqualsAndHashCode(callSuper = true)
 @Data

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.legend.cloud.base.file.dao.mapper.BaseFileMapper">
+<mapper namespace="com.legend.cloud.campus.dao.mapper.${moduleName}.BaseFileMapper">
     <resultMap id="BaseResultMap" type="com.legend.cloud.campus.model.pojo.entity.base.BaseFile">
         <!--
                 WARNING-@mbg.generated
@@ -62,9 +62,9 @@
         fileName,
         createTime,
         updateTime,
-        isDeleted,
+        isDeleted
     </sql>
-    <select id="countByExample" parameterType="com.legend.cloud.campus.model.pojo.entity.base.BaseFileExample"
+    <select id="countByExample" parameterType="com.legend.cloud.campus.model.pojo.entity.base.example.BaseFileExample"
             resultType="java.lang
 .Long">
         <!--

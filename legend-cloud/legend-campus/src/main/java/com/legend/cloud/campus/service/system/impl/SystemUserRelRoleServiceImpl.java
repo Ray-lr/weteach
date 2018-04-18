@@ -2,7 +2,7 @@ package com.legend.cloud.campus.service.system.impl;
 
 import com.legend.cloud.campus.dao.mapper.system.SystemUserRelRoleMapper;
 import com.legend.cloud.campus.model.pojo.entity.system.SystemUserRelRole;
-import com.legend.cloud.campus.model.pojo.entity.system.SystemUserRelRoleExample;
+import com.legend.cloud.campus.model.pojo.entity.system.example.SystemUserRelRoleExample;
 import com.legend.cloud.campus.service.system.SystemUserRelRoleService;
 import com.legend.module.core.service.core.impl.AbstractLegendService;
 import org.apache.commons.lang.StringUtils;

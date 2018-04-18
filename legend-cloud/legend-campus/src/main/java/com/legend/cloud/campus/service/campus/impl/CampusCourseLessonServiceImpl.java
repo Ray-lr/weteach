@@ -2,7 +2,7 @@ package com.legend.cloud.campus.service.campus.impl;
 
 import com.legend.cloud.campus.dao.mapper.campus.CampusCourseLessonMapper;
 import com.legend.cloud.campus.model.pojo.entity.campus.CampusCourseLesson;
-import com.legend.cloud.campus.model.pojo.entity.campus.CampusCourseLessonExample;
+import com.legend.cloud.campus.model.pojo.entity.campus.example.CampusCourseLessonExample;
 import com.legend.cloud.campus.service.campus.CampusCourseLessonService;
 import com.legend.module.core.service.core.impl.AbstractLegendService;
 import org.apache.commons.lang.StringUtils;

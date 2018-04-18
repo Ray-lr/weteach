@@ -2,7 +2,7 @@ package com.legend.cloud.campus.dao.mapper.base;
 
 
 import com.legend.cloud.campus.model.pojo.entity.base.BaseOrder;
-import com.legend.cloud.campus.model.pojo.entity.base.BaseOrderExample;
+import com.legend.cloud.campus.model.pojo.entity.base.example.BaseOrderExample;
 import com.legend.module.core.dao.mapper.LegendMapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Component;

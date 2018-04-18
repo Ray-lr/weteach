@@ -2,7 +2,7 @@ package com.legend.cloud.campus.service.campus.impl;
 
 import com.legend.cloud.campus.dao.mapper.campus.CampusCourseLimitMapper;
 import com.legend.cloud.campus.model.pojo.entity.campus.CampusCourseLimit;
-import com.legend.cloud.campus.model.pojo.entity.campus.CampusCourseLimitExample;
+import com.legend.cloud.campus.model.pojo.entity.campus.example.CampusCourseLimitExample;
 import com.legend.cloud.campus.service.campus.CampusCourseLimitService;
 import com.legend.module.core.service.core.impl.AbstractLegendService;
 import org.apache.commons.lang.StringUtils;

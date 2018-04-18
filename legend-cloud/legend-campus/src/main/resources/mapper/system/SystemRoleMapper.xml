@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.legend.cloud.campus.model.pojo.system.role.dao.mapper.SystemRoleMapper">
+<mapper namespace="com.legend.cloud.campus.dao.mapper.${moduleName}.SystemRoleMapper">
     <resultMap id="BaseResultMap" type="com.legend.cloud.campus.model.pojo.entity.system.SystemRole">
         <!--
                 WARNING-@mbg.generated
@@ -54,9 +54,10 @@
         sign,
         createTime,
         updateTime,
-        isDeleted,
+        isDeleted
     </sql>
-    <select id="countByExample" parameterType="com.legend.cloud.campus.model.pojo.entity.system.SystemRoleExample"
+    <select id="countByExample"
+            parameterType="com.legend.cloud.campus.model.pojo.entity.system.example.SystemRoleExample"
             resultType="java.lang
 .Long">
         <!--

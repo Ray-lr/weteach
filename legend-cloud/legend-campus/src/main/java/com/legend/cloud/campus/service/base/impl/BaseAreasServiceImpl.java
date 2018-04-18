@@ -3,7 +3,7 @@ package com.legend.cloud.campus.service.base.impl;
 
 import com.legend.cloud.campus.dao.mapper.base.BaseAreasMapper;
 import com.legend.cloud.campus.model.pojo.entity.base.BaseAreas;
-import com.legend.cloud.campus.model.pojo.entity.base.BaseAreasExample;
+import com.legend.cloud.campus.model.pojo.entity.base.example.BaseAreasExample;
 import com.legend.cloud.campus.service.base.BaseAreasService;
 import com.legend.module.core.service.core.impl.AbstractLegendService;
 import org.apache.commons.lang.StringUtils;

@@ -1,6 +1,6 @@
-package ${package}.model.pojo.entity.${moduleName};
+package ${package}.model.pojo.entity.${module};
 
-import com.legend.module.core.entity.AbstractEntity;
+import com.legend.module.core.model.pojo.entity.AbstractEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;

@@ -1,9 +1,9 @@
-package ${package}.service.${moduleName}.impl;
+package ${package}.service.${module}.impl;
 
-import ${package}.dao.mapper.${moduleName}.${className}Mapper;
-import ${package}.entity.${moduleName}.${className};
-import ${package}.entity.${moduleName}.${className}Example;
-import ${package}.service.${moduleName}.${className}Service;
+import ${package}.dao.mapper.${module}.${className}Mapper;
+import ${package}.model.pojo.entity.${module}.${className};
+import ${package}.model.pojo.entity.${module}.example.${className}Example;
+import ${package}.service.${module}.${className}Service;
 import com.legend.module.core.service.core.impl.AbstractLegendService;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;

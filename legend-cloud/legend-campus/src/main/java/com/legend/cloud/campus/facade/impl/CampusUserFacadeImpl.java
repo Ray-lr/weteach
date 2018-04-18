@@ -2,9 +2,9 @@ package com.legend.cloud.campus.facade.impl;
 
 import com.legend.cloud.campus.facade.CampusUserFacade;
 import com.legend.cloud.campus.model.pojo.entity.base.BaseUser;
-import com.legend.cloud.campus.model.pojo.entity.campus.CampusUserInfo;
+import com.legend.cloud.campus.model.pojo.entity.campus.CampusAccount;
 import com.legend.cloud.campus.service.base.BaseUserService;
-import com.legend.cloud.campus.service.campus.CampusUserInfoService;
+import com.legend.cloud.campus.service.campus.CampusAccountService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,15 +22,15 @@ public class CampusUserFacadeImpl implements CampusUserFacade {
     private BaseUserService baseUserService;
 
     @Resource
-    private CampusUserInfoService campusUserInfoService;
+    private CampusAccountService campusAccountService;
 
 
     @Override
-    public int updateUser(BaseUser baseUser, CampusUserInfo campusUserInfo) {
-        if (baseUser == null || campusUserInfo == null) {
+    public int updateUser(BaseUser baseUser, CampusAccount campusAccount) {
+        if (baseUser == null || campusAccount == null) {
             throw new NullPointerException();
         }
-        if (campusUserInfoService.updateById(campusUserInfo) <= 0) {
+        if (campusAccountService.updateById(campusAccount) <= 0) {
             return 0;
         }
         if (baseUserService.updateById(baseUser) <= 0) {

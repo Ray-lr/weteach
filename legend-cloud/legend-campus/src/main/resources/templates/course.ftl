@@ -10,7 +10,7 @@
             <hr class="line">
             <!--左侧信息栏-->
             <div class="col col-md-3" id="others">
-                <#include "common/component/other-info.ftl">
+            <#include "common/component/other-info.ftl">
                 <div style="height:150px;">
                     <h6 style="font-weight: bold">当前课程进度:63%</h6>
                     <div class="progress">

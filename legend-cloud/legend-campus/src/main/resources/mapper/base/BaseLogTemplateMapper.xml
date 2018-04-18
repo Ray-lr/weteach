@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.legend.cloud.campus.model.pojo.base.logTemplate.dao.mapper.BaseLogTemplateMapper">
+<mapper namespace="com.legend.cloud.campus.dao.mapper.${moduleName}.BaseLogTemplateMapper">
     <resultMap id="BaseResultMap" type="com.legend.cloud.campus.model.pojo.entity.base.BaseLogTemplate">
         <!--
                 WARNING-@mbg.generated
@@ -52,9 +52,10 @@
         template,
         createTime,
         updateTime,
-        isDeleted,
+        isDeleted
     </sql>
-    <select id="countByExample" parameterType="com.legend.cloud.campus.model.pojo.entity.base.BaseLogTemplateExample"
+    <select id="countByExample"
+            parameterType="com.legend.cloud.campus.model.pojo.entity.base.example.BaseLogTemplateExample"
             resultType="java.lang
 .Long">
         <!--

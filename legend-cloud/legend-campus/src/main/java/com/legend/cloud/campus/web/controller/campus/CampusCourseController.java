@@ -6,8 +6,8 @@ import com.legend.cloud.campus.facade.CoursePublishFacade;
 import com.legend.cloud.campus.model.pojo.entity.base.BaseUser;
 import com.legend.cloud.campus.model.pojo.entity.campus.CampusCourse;
 import com.legend.cloud.campus.model.pojo.entity.campus.CampusCourseLimit;
+import com.legend.cloud.campus.model.pojo.vo.campus.CampusAccountVO;
 import com.legend.cloud.campus.model.pojo.vo.campus.CampusCourseVO;
-import com.legend.cloud.campus.model.pojo.vo.campus.CampusUserInfoVO;
 import com.legend.cloud.campus.model.pojo.vo.campus.complex.CoursePublishVO;
 import com.legend.cloud.campus.service.base.BaseUserService;
 import com.legend.cloud.campus.service.campus.CampusCourseLimitService;
@@ -127,9 +127,9 @@ public class CampusCourseController extends CampusController {
         if (campusCourseLimit == null) {
             return Ajax.success("报名成功");
         }
-        CampusUserInfoVO currentUser = JSON.parseObject(String.valueOf(getCurrentUser()), CampusUserInfoVO.class);
+        CampusAccountVO currentUser = JSON.parseObject(String.valueOf(getCurrentUser()), CampusAccountVO.class);
 
-        BaseUser baseUser = baseUserService.getById(currentUser.getBaseUserId());
+        BaseUser baseUser = baseUserService.getById(currentUser.getUserId());
         return Ajax.success("报名成功");
 
     }

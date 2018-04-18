@@ -2,7 +2,7 @@ package com.legend.cloud.campus.service.campus.impl;
 
 import com.legend.cloud.campus.dao.mapper.campus.CampusStatisticsMapper;
 import com.legend.cloud.campus.model.pojo.entity.campus.CampusStatistics;
-import com.legend.cloud.campus.model.pojo.entity.campus.CampusStatisticsExample;
+import com.legend.cloud.campus.model.pojo.entity.campus.example.CampusStatisticsExample;
 import com.legend.cloud.campus.service.campus.CampusStatisticsService;
 import com.legend.module.core.service.core.impl.AbstractLegendService;
 import org.apache.commons.lang.StringUtils;

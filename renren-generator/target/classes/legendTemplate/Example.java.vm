@@ -1,4 +1,4 @@
-package ${package}.entity.${moduleName};
+package ${package}.model.pojo.entity.${subModule}.example;
 
 import java.util.ArrayList;
 import java.util.List;

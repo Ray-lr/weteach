@@ -2,7 +2,7 @@ package com.legend.cloud.campus.service.base.impl;
 
 import com.legend.cloud.campus.dao.mapper.base.BaseOrderMapper;
 import com.legend.cloud.campus.model.pojo.entity.base.BaseOrder;
-import com.legend.cloud.campus.model.pojo.entity.base.BaseOrderExample;
+import com.legend.cloud.campus.model.pojo.entity.base.example.BaseOrderExample;
 import com.legend.cloud.campus.service.base.BaseOrderService;
 import com.legend.module.core.service.core.impl.AbstractLegendService;
 import org.apache.commons.lang.StringUtils;

@@ -135,9 +135,10 @@ public class GenUtils {
         map.put("mainPath", mainPath);
 
         map.put("package", config.getString("package"));
-        map.put("moduleName", tableEntity.getTableName().split(Constant.SEPERATOR_UNDERLINE)[0]);
-        config.setProperty("moduleName", map.get("moduleName"));
-        map.put("module", StringUtils.uncapitalize(tableToJava(tableEntity.getTableName(), map.get("moduleName").toString())));
+        map.put("module", tableEntity.getTableName().split(Constant.SEPERATOR_UNDERLINE)[0]);
+        config.setProperty("module", map.get("module"));
+        map.put("subModule", StringUtils.uncapitalize(tableToJava(tableEntity.getTableName(), map.get("module")
+                .toString())));
         map.put("author", config.getString("author"));
         map.put("email", config.getString("email"));
         map.put("datetime", DateUtils.format(new Date(), DateUtils.DATE_TIME_PATTERN));
@@ -153,7 +154,7 @@ public class GenUtils {
             try {
                 //添加到zip
                 zip.putNextEntry(new ZipEntry(getLegendFileName(template, tableEntity.getClassName(), config
-                        .getString("package"), config.getString("moduleName"))));
+                        .getString("package"), config.getString("module"))));
                 IOUtils.write(sw.toString(), zip, "UTF-8");
                 IOUtils.closeQuietly(sw);
                 zip.closeEntry();
@@ -195,41 +196,41 @@ public class GenUtils {
     /**
      * 获取legend下的文件名
      */
-    private static String getLegendFileName(String template, String className, String packageName, String moduleName) {
+    private static String getLegendFileName(String template, String className, String packageName, String module) {
         String packagePath = "main" + File.separator + "java" + File.separator;
         if (StringUtils.isNotBlank(packageName)) {
             packagePath += packageName.replace(".", File.separator) + File.separator;
         }
         if ("legendTemplate/Controller.java.vm".equals(template)) {
-            return packagePath + "controller" +  File.separator + moduleName + File.separator +
+            return packagePath + "web" + File.separator + "controller" + File.separator + module + File.separator +
                     className + "Controller.java";
         }
         if ("legendTemplate/Entity.java.vm".equals(template)) {
-            return packagePath   + "entity" + File.separator
-                    + moduleName + File.separator + className + ".java";
+            return packagePath + "model" + File.separator + "pojo" + File.separator + "entity" + File.separator
+                    + module + File.separator + className + ".java";
         }
         if ("legendTemplate/Example.java.vm".equals(template)) {
-            return packagePath   + "entity" + File.separator
-                    + moduleName + File.separator + className + "Example.java";
+            return packagePath + "model" + File.separator + "pojo" + File.separator + "entity" + File.separator
+                    + module + File.separator + "example" + File.separator + className + "Example.java";
         }
         if ("legendTemplate/Mapper.java.vm".equals(template)) {
-            return packagePath + "dao" + File.separator + "mapper" + File.separator + moduleName + File.separator +
+            return packagePath + "dao" + File.separator + "mapper" + File.separator + module + File.separator +
                     className + "Mapper.java";
         }
         if ("legendTemplate/Mapper.xml.vm".equals(template)) {
-            return packagePath + "dao" + File.separator + "xml" + File.separator + moduleName + File.separator + className +
+            return packagePath + "dao" + File.separator + "xml" + File.separator + module + File.separator + className +
                     "Mapper.xml";
         }
         if ("legendTemplate/Service.java.vm".equals(template)) {
-            return packagePath + "service" + File.separator + moduleName + File.separator + className + "Service.java";
+            return packagePath + "service" + File.separator + module + File.separator + className + "Service.java";
         }
         if ("legendTemplate/ServiceImpl.java.vm".equals(template)) {
-            return packagePath + "service" + File.separator + moduleName + File.separator + "impl" + File.separator + className +
+            return packagePath + "service" + File.separator + module + File.separator + "impl" + File.separator + className +
                     "ServiceImpl.java";
         }
         if ("legendTemplate/VO.java.vm".equals(template)) {
-            return packagePath + "vo" + File.separator +
-                    moduleName + File.separator + className + "VO.java";
+            return packagePath + "model" + File.separator + "pojo" + File.separator + "vo" + File.separator +
+                    module + File.separator + className + "VO.java";
         }
         return null;
     }

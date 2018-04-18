@@ -2,7 +2,7 @@ package com.legend.cloud.campus.service.system.impl;
 
 import com.legend.cloud.campus.dao.mapper.system.SystemMenuRelPermissionMapper;
 import com.legend.cloud.campus.model.pojo.entity.system.SystemMenuRelPermission;
-import com.legend.cloud.campus.model.pojo.entity.system.SystemMenuRelPermissionExample;
+import com.legend.cloud.campus.model.pojo.entity.system.example.SystemMenuRelPermissionExample;
 import com.legend.cloud.campus.service.system.SystemMenuRelPermissionService;
 import com.legend.module.core.service.core.impl.AbstractLegendService;
 import org.apache.commons.lang.StringUtils;

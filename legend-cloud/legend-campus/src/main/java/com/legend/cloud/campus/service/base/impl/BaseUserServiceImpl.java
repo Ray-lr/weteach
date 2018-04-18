@@ -2,7 +2,7 @@ package com.legend.cloud.campus.service.base.impl;
 
 import com.legend.cloud.campus.dao.mapper.base.BaseUserMapper;
 import com.legend.cloud.campus.model.pojo.entity.base.BaseUser;
-import com.legend.cloud.campus.model.pojo.entity.base.BaseUserExample;
+import com.legend.cloud.campus.model.pojo.entity.base.example.BaseUserExample;
 import com.legend.cloud.campus.service.base.BaseUserService;
 import com.legend.module.core.service.user.impl.AbstractUserService;
 import org.apache.commons.lang.StringUtils;

@@ -2,7 +2,7 @@ package com.legend.cloud.campus.service.base.impl;
 
 import com.legend.cloud.campus.dao.mapper.base.BaseUserRelRoleMapper;
 import com.legend.cloud.campus.model.pojo.entity.base.BaseUserRelRole;
-import com.legend.cloud.campus.model.pojo.entity.base.BaseUserRelRoleExample;
+import com.legend.cloud.campus.model.pojo.entity.base.example.BaseUserRelRoleExample;
 import com.legend.cloud.campus.service.base.BaseUserRelRoleService;
 import com.legend.module.core.service.core.impl.AbstractLegendService;
 import org.apache.commons.lang.StringUtils;

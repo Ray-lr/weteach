@@ -14,7 +14,7 @@ import java.util.Date;
  * 课程
  *
  * @author hupeiD
- * @date 2018-04-12 14:41:00
+ * @date 2018-04-18 21:56:11
  */
 @EqualsAndHashCode(callSuper = true)
 @Data

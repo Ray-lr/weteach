@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.legend.cloud.campus.model.pojo.system.user.dao.mapper.SystemUserMapper">
+<mapper namespace="com.legend.cloud.campus.dao.mapper.${moduleName}.SystemUserMapper">
     <resultMap id="BaseResultMap" type="com.legend.cloud.campus.model.pojo.entity.system.SystemUser">
         <!--
                 WARNING-@mbg.generated
@@ -62,9 +62,10 @@
         isEnabled,
         createTime,
         updateTime,
-        isDeleted,
+        isDeleted
     </sql>
-    <select id="countByExample" parameterType="com.legend.cloud.campus.model.pojo.entity.system.SystemUserExample"
+    <select id="countByExample"
+            parameterType="com.legend.cloud.campus.model.pojo.entity.system.example.SystemUserExample"
             resultType="java.lang
 .Long">
         <!--

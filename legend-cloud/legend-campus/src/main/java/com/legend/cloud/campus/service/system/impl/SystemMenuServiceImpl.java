@@ -2,7 +2,7 @@ package com.legend.cloud.campus.service.system.impl;
 
 import com.legend.cloud.campus.dao.mapper.system.SystemMenuMapper;
 import com.legend.cloud.campus.model.pojo.entity.system.SystemMenu;
-import com.legend.cloud.campus.model.pojo.entity.system.SystemMenuExample;
+import com.legend.cloud.campus.model.pojo.entity.system.example.SystemMenuExample;
 import com.legend.cloud.campus.service.system.SystemMenuService;
 import com.legend.module.core.service.core.impl.AbstractLegendService;
 import org.apache.commons.lang.StringUtils;

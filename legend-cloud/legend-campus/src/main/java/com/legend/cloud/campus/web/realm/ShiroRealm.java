@@ -2,15 +2,15 @@ package com.legend.cloud.campus.web.realm;
 
 import com.legend.cloud.campus.model.constant.attribute.TypeUser;
 import com.legend.cloud.campus.model.pojo.entity.base.BaseUserRelRole;
-import com.legend.cloud.campus.model.pojo.entity.campus.CampusUserInfo;
+import com.legend.cloud.campus.model.pojo.entity.campus.CampusAccount;
 import com.legend.cloud.campus.model.pojo.entity.system.SystemPermission;
 import com.legend.cloud.campus.model.pojo.entity.system.SystemRole;
 import com.legend.cloud.campus.model.pojo.entity.system.SystemRoleRelPermission;
 import com.legend.cloud.campus.model.pojo.entity.system.SystemUserRelRole;
-import com.legend.cloud.campus.model.pojo.vo.campus.CampusUserInfoVO;
+import com.legend.cloud.campus.model.pojo.vo.campus.CampusAccountVO;
 import com.legend.cloud.campus.service.base.BaseUserRelRoleService;
 import com.legend.cloud.campus.service.base.BaseUserService;
-import com.legend.cloud.campus.service.campus.CampusUserInfoService;
+import com.legend.cloud.campus.service.campus.CampusAccountService;
 import com.legend.cloud.campus.service.system.*;
 import com.legend.module.core.model.contant.message.exception.UserExceptionMessage;
 import com.legend.module.core.model.pojo.entity.user.User;
@@ -62,7 +62,7 @@ public class ShiroRealm extends AuthorizingRealm {
     private SystemPermissionService systemPermissionService;
 
     @Resource
-    private CampusUserInfoService campusUserInfoService;
+    private CampusAccountService campusAccountService;
 
     /**
      * 授权
@@ -127,9 +127,9 @@ public class ShiroRealm extends AuthorizingRealm {
             if (user == null) {
                 throw new AuthenticationException(UserExceptionMessage.USERNAME_IS_NOT_EXIST);
             }
-            CampusUserInfo campusUserInfo = campusUserInfoService.getByUserId(user.getId());
-            if (campusUserInfo != null) {
-                account = new CampusUserInfoVO().parseFrom(campusUserInfo);
+            CampusAccount campusAccount = campusAccountService.getByUserId(user.getId());
+            if (campusAccount != null) {
+                account = new CampusAccountVO().parseFrom(campusAccount);
             }
         } else {
             throw new AuthenticationException("用户类型无效");

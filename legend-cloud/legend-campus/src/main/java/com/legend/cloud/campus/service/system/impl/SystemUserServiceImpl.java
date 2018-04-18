@@ -3,7 +3,7 @@ package com.legend.cloud.campus.service.system.impl;
 
 import com.legend.cloud.campus.dao.mapper.system.SystemUserMapper;
 import com.legend.cloud.campus.model.pojo.entity.system.SystemUser;
-import com.legend.cloud.campus.model.pojo.entity.system.SystemUserExample;
+import com.legend.cloud.campus.model.pojo.entity.system.example.SystemUserExample;
 import com.legend.cloud.campus.service.system.SystemUserService;
 import com.legend.module.core.service.user.impl.AbstractUserService;
 import org.apache.commons.lang.StringUtils;

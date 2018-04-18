@@ -14,7 +14,7 @@ import java.util.Date;
  * 地域表
  *
  * @author hupeiD
- * @date 2018-04-12 10:38:07
+ * @date 2018-04-18 21:56:13
  */
 @EqualsAndHashCode(callSuper = true)
 @Data

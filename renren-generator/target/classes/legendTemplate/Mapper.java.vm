@@ -1,7 +1,7 @@
-package ${package}.dao.mapper.${moduleName};
+package ${package}.dao.mapper.${module};
 
-import ${package}.entity.${moduleName}.${className};
-import ${package}.entity.${moduleName}.${className}Example;
+import ${package}.model.pojo.entity.${module}.${className};
+import ${package}.model.pojo.entity.${module}.example.${className}Example;
 import com.legend.module.core.dao.mapper.LegendMapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Component;

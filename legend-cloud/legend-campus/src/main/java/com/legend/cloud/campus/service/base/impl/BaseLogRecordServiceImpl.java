@@ -2,7 +2,7 @@ package com.legend.cloud.campus.service.base.impl;
 
 import com.legend.cloud.campus.dao.mapper.base.BaseLogRecordMapper;
 import com.legend.cloud.campus.model.pojo.entity.base.BaseLogRecord;
-import com.legend.cloud.campus.model.pojo.entity.base.BaseLogRecordExample;
+import com.legend.cloud.campus.model.pojo.entity.base.example.BaseLogRecordExample;
 import com.legend.cloud.campus.service.base.BaseLogRecordService;
 import com.legend.module.core.service.core.impl.AbstractLegendService;
 import org.apache.commons.lang.StringUtils;
