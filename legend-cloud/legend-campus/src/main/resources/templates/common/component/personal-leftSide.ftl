@@ -11,8 +11,8 @@
             <h5 class="card-title font-weight-bold" v-text="user.account.nickname"></h5>
             <h6 class="card-title font-weight-normal" v-text="user.username"></h6>
             <div class="dropdown-divider"></div>
-            <p class="card-text font-weight-light" v-text="user.account.dept"></p>
-            <p class="card-text font-weight-light" v-text="user.account.major"></p>
+            <p class="card-text font-weight-light" v-text="user.account.dept_string"></p>
+            <p class="card-text font-weight-light" v-text="user.account.major_string"></p>
             <div class="dropdown-divider"></div>
             <p class="card-text font-weight-light" v-text="user.account.signature"></p>
         </div>

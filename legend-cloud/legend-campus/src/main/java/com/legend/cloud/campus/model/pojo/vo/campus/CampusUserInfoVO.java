@@ -74,11 +74,11 @@ public class CampusUserInfoVO extends AbstractVO<CampusUserInfo> {
     @JSONField(serialize = false)
     private String enrollmentYear;
     /**
-     * 系别
+     * 系别id
      */
     private String dept;
     /**
-     * 专业
+     * 专业id
      */
     private String major;
     /**
@@ -154,6 +154,14 @@ public class CampusUserInfoVO extends AbstractVO<CampusUserInfo> {
     @JSONField(serialize = false)
     @Null
     private Boolean isDeleted;
+    /**
+     * 系的name
+     */
+    private String dept_string;
+    /**
+     * 专业的name
+     */
+    private String major_string;
 
     @Override
     public CampusUserInfoVO parseFrom(CampusUserInfo campusUserInfo, String... ignoreProperties) {
