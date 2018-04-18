@@ -1,24 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
+    <option name="BUILD_PROCESS_HEAP_SIZE" value="2048" />
     <annotationProcessing>
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="legend-campus-dao" />
-        <module name="legend-campus-facade" />
-        <module name="legend-campus-service" />
-        <module name="legend-campus-web" />
+        <module name="legend-campus" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="1.8">
+    <bytecodeTargetLevel>
       <module name="legend-campus" target="1.8" />
-      <module name="legend-campus-dao" target="1.8" />
-      <module name="legend-campus-facade" target="1.8" />
-      <module name="legend-campus-service" target="1.8" />
-      <module name="legend-campus-web" target="1.8" />
       <module name="legend-cloud" target="1.5" />
+      <module name="legned-campus" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

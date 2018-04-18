@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="legend-campus:war">
+    <output-path>$PROJECT_DIR$/legend-campus/target</output-path>
+    <root id="archive" name="legend-campus-0.0.1-SNAPSHOT.war">
+      <element id="artifact" artifact-name="legend-campus:war exploded" />
+    </root>
+  </artifact>
+</component>

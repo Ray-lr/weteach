@@ -3,10 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/legend-campus/legend-campus.iml" filepath="$PROJECT_DIR$/legend-campus/legend-campus.iml" />
-      <module fileurl="file://$PROJECT_DIR$/legend-campus/legend-campus-dao/legend-campus-dao.iml" filepath="$PROJECT_DIR$/legend-campus/legend-campus-dao/legend-campus-dao.iml" />
-      <module fileurl="file://$PROJECT_DIR$/legend-campus/legend-campus-facade/legend-campus-facade.iml" filepath="$PROJECT_DIR$/legend-campus/legend-campus-facade/legend-campus-facade.iml" />
-      <module fileurl="file://$PROJECT_DIR$/legend-campus/legend-campus-service/legend-campus-service.iml" filepath="$PROJECT_DIR$/legend-campus/legend-campus-service/legend-campus-service.iml" />
-      <module fileurl="file://$PROJECT_DIR$/legend-campus/legend-campus-web/legend-campus-web.iml" filepath="$PROJECT_DIR$/legend-campus/legend-campus-web/legend-campus-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/legend-campus/legend-campus.iml" filepath="$PROJECT_DIR$/legend-campus/legend-campus.iml" />
       <module fileurl="file://$PROJECT_DIR$/legend-cloud.iml" filepath="$PROJECT_DIR$/legend-cloud.iml" />
     </modules>
   </component>

@@ -6,18 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="legend-core-dao" />
-        <module name="legend-core-model" />
-        <module name="legend-core-service" />
-        <module name="legend-core-web" />
+        <module name="legend-core" />
+        <module name="legend-module" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="1.8">
+    <bytecodeTargetLevel>
       <module name="legend-core" target="1.8" />
-      <module name="legend-core-dao" target="1.8" />
-      <module name="legend-core-model" target="1.8" />
-      <module name="legend-core-service" target="1.8" />
-      <module name="legend-core-web" target="1.8" />
       <module name="legend-module" target="1.5" />
     </bytecodeTargetLevel>
   </component>
