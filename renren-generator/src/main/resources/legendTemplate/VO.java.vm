@@ -25,7 +25,7 @@ import java.math.BigDecimal;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @ToString
-public class ${className}VO extends AbstractVO<${className}> {
+public class ${className}VO extends AbstractVO<${className},${className}VO> {
     private static final long serialVersionUID = 1L;
 
     #foreach ($column in $columns)
