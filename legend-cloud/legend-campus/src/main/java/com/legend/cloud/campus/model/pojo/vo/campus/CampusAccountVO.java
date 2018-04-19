@@ -13,7 +13,7 @@ import java.util.Date;
  * 个人信息表
  *
  * @author hupeiD
- * @date 2018-04-18 22:41:20
+ * @date 2018-04-19 17:14:25
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
@@ -44,11 +44,11 @@ public class CampusAccountVO extends AbstractVO<CampusAccount, CampusAccountVO> 
     /**
      * 性别
      */
-    private String sex;
+    private Boolean sex;
     /**
      * 出生年月
      */
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date birthday;
     /**
      * 省/直辖市/自治区/特别行政区
@@ -95,7 +95,7 @@ public class CampusAccountVO extends AbstractVO<CampusAccount, CampusAccountVO> 
      */
     private String signature;
     /**
-     *
+     * 
      */
     private Double reputationRating;
     /**
@@ -112,5 +112,11 @@ public class CampusAccountVO extends AbstractVO<CampusAccount, CampusAccountVO> 
      * 是否删除
      */
     private Boolean isDeleted;
+
+    @Override
+    @SuppressWarnings("unchecked")
+    public CampusAccountVO parseFrom(CampusAccount campusAccount, String... ignoreProperties) {
+        return (CampusAccountVO) super.parseFrom(campusAccount, ignoreProperties);
+    }
 
 }

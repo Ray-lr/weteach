@@ -1,17 +1,18 @@
 package com.legend.cloud.campus.web.controller.campus;
 
 
-import com.alibaba.fastjson.JSON;
 import com.legend.cloud.campus.facade.CoursePublishFacade;
-import com.legend.cloud.campus.model.pojo.entity.base.BaseUser;
 import com.legend.cloud.campus.model.pojo.entity.campus.CampusCourse;
 import com.legend.cloud.campus.model.pojo.entity.campus.CampusCourseLimit;
+import com.legend.cloud.campus.model.pojo.entity.campus.CampusUserRelCourse;
 import com.legend.cloud.campus.model.pojo.vo.campus.CampusAccountVO;
 import com.legend.cloud.campus.model.pojo.vo.campus.CampusCourseVO;
 import com.legend.cloud.campus.model.pojo.vo.campus.complex.CoursePublishVO;
 import com.legend.cloud.campus.service.base.BaseUserService;
+import com.legend.cloud.campus.service.campus.CampusAccountService;
 import com.legend.cloud.campus.service.campus.CampusCourseLimitService;
 import com.legend.cloud.campus.service.campus.CampusCourseService;
+import com.legend.cloud.campus.service.campus.CampusUserRelCourseService;
 import com.legend.cloud.campus.web.controller.CampusController;
 import com.legend.module.core.model.contant.arribute.Column;
 import com.legend.module.core.model.contant.arribute.Key;
@@ -25,6 +26,7 @@ import com.legend.module.core.model.utils.QueryUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authz.AuthorizationException;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.apache.shiro.subject.SimplePrincipalCollection;
 import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,6 +35,8 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -53,6 +57,10 @@ public class CampusCourseController extends CampusController {
     private CampusCourseLimitService campusCourseLimitService;
     @Resource
     private BaseUserService baseUserService;
+    @Resource
+    private CampusAccountService campusAccountService;
+    @Resource
+    private CampusUserRelCourseService campusUserRelCourseService;
 
     @GetMapping("/list")
     @RequiresPermissions("campus:course:list")
@@ -107,6 +115,7 @@ public class CampusCourseController extends CampusController {
         }
     }
 
+    //验证报名资格
     @PutMapping("/apply/{courseId}")
     public Ajax apply(@PathVariable Integer courseId) {
         CampusCourse campusCourse = campusCourseService.getById(courseId);
@@ -123,12 +132,39 @@ public class CampusCourseController extends CampusController {
         campusCourseLimit.setCourseId(courseId);
         campusCourseLimit = campusCourseLimitService.get(campusCourseLimit);
         if (campusCourseLimit == null) {
-            return Ajax.success("报名成功");
+            return Ajax.success("验证报名资格成功");
         }
-        CampusAccountVO currentUser = JSON.parseObject(String.valueOf(getCurrentUser()), CampusAccountVO.class);
-
-        BaseUser baseUser = baseUserService.getById(currentUser.getUserId());
-        return Ajax.success("报名成功");
+        if (campusCourse.getLessonNum() >= campusCourseLimit.getPersonUpper()) {
+            return Ajax.error("该课程人数已满");
+        }
+        Subject subject = SecurityUtils.getSubject();
+        UserVO currentUser = (UserVO) subject.getPrincipal();
+        String realmName = subject.getPrincipals().getRealmNames().iterator().next();
+        subject.runAs(new SimplePrincipalCollection(currentUser, realmName));
+        CampusAccountVO campusAccountVO = new CampusAccountVO().parseFrom(campusAccountService.getByUserId(currentUser.getId()));
+        if (campusCourseLimit.getSex() != null) {
+            if ((campusAccountVO.getSex() && campusCourseLimit.getSex() == 0) || (!campusAccountVO.getSex() && campusCourseLimit.getSex() == 1)) {
+                return Ajax.error("您的性别不符合限制条件");
+            }
+        }
+        if (campusCourseLimit.getMajor() != null) {
+            if (campusCourseLimit.getMajor() != Integer.parseInt(campusAccountVO.getMajor())) {
+                return Ajax.error("您的专业不符合限制条件");
+            }
+        }
+        if (campusCourseLimit.getGrade() != null) {
+            String grade = campusCourseLimit.getGrade().toString();
+            Calendar calendar = Calendar.getInstance();
+            int year = calendar.get(Calendar.YEAR);
+            int[] a = new int[grade.length()];
+            for (int i = 0; i < a.length; i++) {
+                if ((year - Integer.parseInt(campusAccountVO.getEnrollmentYear())) == Integer.parseInt(grade.substring(i, i + 1))) {
+                    return Ajax.success("验证报名资格成功");
+                }
+            }
+            return Ajax.error("您的年级不符合限制条件");
+        }
+        return Ajax.success("验证报名资格成功");
 
     }
 
@@ -161,4 +197,34 @@ public class CampusCourseController extends CampusController {
         }
     }
 
+    //确认报名
+    @PutMapping("/yesToApply/{id}")
+    public Ajax yesToApply(@PathVariable Integer id) {
+        try {
+            Subject subject = SecurityUtils.getSubject();
+            UserVO currentUser = (UserVO) subject.getPrincipal();
+            String realmName = subject.getPrincipals().getRealmNames().iterator().next();
+            subject.runAs(new SimplePrincipalCollection(currentUser, realmName));
+            CampusAccountVO campusAccountVO = new CampusAccountVO().parseFrom(campusAccountService.getByUserId(currentUser.getId()));
+            CampusUserRelCourse campusUserRelCourse = new CampusUserRelCourse();
+            campusUserRelCourse.setCourseId(id);
+            campusUserRelCourse.setUserId(currentUser.getId());
+            campusUserRelCourse.setCreateTime(new Date());
+            int result = campusUserRelCourseService.save(campusUserRelCourse);
+            CampusCourse campusCourse = campusCourseService.getById(id);
+            campusCourse.setLessonNum(campusCourse.getLessonNum() + 1);
+            int credits = Integer.parseInt(campusAccountVO.getDirection()) - campusCourse.getPayCredits();
+            if (credits <= 0) {
+                return Ajax.error("对不起，您的积分不够");
+            }
+            campusAccountVO.setDirection("" + credits);
+            result += campusCourseService.updateById(campusCourse);
+            result += campusAccountService.updateById(campusAccountVO.parseTo());
+            return result == 3 ? Ajax.success("报名成功") : Ajax.error(AjaxMessage.SAVE_FAILURE,
+                    AjaxCode.SAVE_FAILURE);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Ajax.error(AjaxMessage.SERVER_ERROR, AjaxCode.SERVER_ERROR);
+        }
+    }
 }

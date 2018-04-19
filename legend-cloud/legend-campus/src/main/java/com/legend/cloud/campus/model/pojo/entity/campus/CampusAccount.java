@@ -10,11 +10,12 @@ import javax.persistence.*;
 import java.util.Date;
 
 
+
 /**
  * 个人信息表
  *
  * @author hupeiD
- * @date 2018-04-18 22:41:20
+ * @date 2018-04-19 17:14:25
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
@@ -49,7 +50,7 @@ public class CampusAccount extends AbstractEntity<CampusAccount> {
     /**
      * 性别
      */
-    private String sex;
+    private Boolean sex;
     /**
      * 出生年月
      */
@@ -101,7 +102,7 @@ public class CampusAccount extends AbstractEntity<CampusAccount> {
      */
     private String signature;
     /**
-     *
+     * 
      */
     @Column(name = "reputation_rating")
     private Double reputationRating;

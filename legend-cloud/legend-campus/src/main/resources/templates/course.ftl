@@ -76,11 +76,12 @@
             <div class="col col-md-3" id="external">
                 <div>
                     <a href="#">
-                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal"
-                                style="width: 100%;height:50px;font-size:20px;">我要报名
+                        <button id="applyButton" type="button" class="btn btn-info" data-toggle="modal"
+                                data-target="#MyModal"
+                                style="width: 100%;height:50px;font-size:20px;" @click="validate_apply">我要报名
                         </button>
-                        <!--模态框提示-->
-                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+                        <!--检测条件满足后模态框提示-->
+                        <div class="modal fade" id="MyModal" tabindex="-1" role="dialog"
                              aria-labelledby="myModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
@@ -89,11 +90,12 @@
                                             提示
                                         </h4>
                                     </div>
-                                    <div class="modal-body">
-                                        是否确定报名该课程?
+                                    <div class="modal-body" id="message">
+                                    <#--是否确定报名该课程?-->
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-light" data-dismiss="modal">确定
+                                        <button id="YesToApply" type="button" class="btn btn-light"
+                                                data-dismiss="modal">确定
                                         </button>
                                         <button type="button" class="btn btn-light" data-dismiss="modal">取消
                                         </button>
@@ -200,6 +202,35 @@
                     }
                 }
             })
+        },
+        methods: {
+            validate_apply: function () {
+                $.ajax({
+                    url: "/campus/course/apply/" + vm.course.id,
+                    type: "put",
+                    success: function (data) {
+                        if (data.result) {
+                            $("#message").html("是否确定报名该课程?");
+                            $("button#YesToApply").click(function () {
+                                $.ajax({
+                                    url: "/campus/course/yesToApply/" + vm.course.id,
+                                    type: "put",
+                                    success: function (data) {
+                                        if (data.result) {
+                                            alert(data.msg);
+                                        } else {
+                                            alert(data.msg);
+                                        }
+                                    }
+                                })
+                            });
+                        } else {
+                            $("#message").html(data.msg);
+                        }
+                    }
+                })
+            },
+
         }
     })
 

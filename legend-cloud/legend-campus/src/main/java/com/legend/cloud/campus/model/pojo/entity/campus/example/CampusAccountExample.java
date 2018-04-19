@@ -8,7 +8,7 @@ import java.util.List;
  * CampusAccount的example类
  *
  * @author hupeiD
- * @date 2018-04-18 22:41:20
+ * @date 2018-04-19 17:14:25
  */
 public class CampusAccountExample {
     protected String orderByClause;
@@ -21,20 +21,20 @@ public class CampusAccountExample {
         oredCriteria = new ArrayList<Criteria>();
     }
 
-    public String getOrderByClause() {
-        return orderByClause;
-    }
-
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
     }
 
-    public boolean isDistinct() {
-        return distinct;
+    public String getOrderByClause() {
+        return orderByClause;
     }
 
     public void setDistinct(boolean distinct) {
         this.distinct = distinct;
+    }
+
+    public boolean isDistinct() {
+        return distinct;
     }
 
     public List<Criteria> getOredCriteria() {
@@ -421,27 +421,27 @@ public class CampusAccountExample {
             return (Criteria) this;
         }
 
-        public Criteria andSexEqualTo(String value) {
+        public Criteria andSexEqualTo(Boolean value) {
             addCriterion("sex =", value, "sex");
             return (Criteria) this;
         }
 
-        public Criteria andSexNotEqualTo(String value) {
+        public Criteria andSexNotEqualTo(Boolean value) {
             addCriterion("'sex <>", value, "sex");
             return (Criteria) this;
         }
 
-        public Criteria andSexGreaterThan(String value) {
+        public Criteria andSexGreaterThan(Boolean value) {
             addCriterion("sex >", value, "sex");
             return (Criteria) this;
         }
 
-        public Criteria andSexGreaterThanOrEqualTo(String value) {
+        public Criteria andSexGreaterThanOrEqualTo(Boolean value) {
             addCriterion("sex >=", value, "sex");
             return (Criteria) this;
         }
 
-        public Criteria andSexLessThan(String value) {
+        public Criteria andSexLessThan(Boolean value) {
             addCriterion("sex <", value, "sex");
             return (Criteria) this;
         }
@@ -451,22 +451,22 @@ public class CampusAccountExample {
             return (Criteria) this;
         }
 
-        public Criteria andSexIn(List<String> values) {
+        public Criteria andSexIn(List<Boolean> values) {
             addCriterion("sex in", values, "sex");
             return (Criteria) this;
         }
 
-        public Criteria andSexNotIn(List<String> values) {
+        public Criteria andSexNotIn(List<Boolean> values) {
             addCriterion("sex not in", values, "sex");
             return (Criteria) this;
         }
 
-        public Criteria andSexBetween(String value1, String value2) {
+        public Criteria andSexBetween(Boolean value1, Boolean value2) {
             addCriterion("sex between", value1, value2, "sex");
             return (Criteria) this;
         }
 
-        public Criteria andSexNotBetween(String value1, String value2) {
+        public Criteria andSexNotBetween(Boolean value1, Boolean value2) {
             addCriterion("sex not between", value1, value2, "sex");
             return (Criteria) this;
         }
@@ -1456,6 +1456,38 @@ public class CampusAccountExample {
 
         private String typeHandler;
 
+        public String getCondition() {
+            return condition;
+        }
+
+        public Object getValue() {
+            return value;
+        }
+
+        public Object getSecondValue() {
+            return secondValue;
+        }
+
+        public boolean isNoValue() {
+            return noValue;
+        }
+
+        public boolean isSingleValue() {
+            return singleValue;
+        }
+
+        public boolean isBetweenValue() {
+            return betweenValue;
+        }
+
+        public boolean isListValue() {
+            return listValue;
+        }
+
+        public String getTypeHandler() {
+            return typeHandler;
+        }
+
         protected Criterion(String condition) {
             super();
             this.condition = condition;
@@ -1490,38 +1522,6 @@ public class CampusAccountExample {
 
         protected Criterion(String condition, Object value, Object secondValue) {
             this(condition, value, secondValue, null);
-        }
-
-        public String getCondition() {
-            return condition;
-        }
-
-        public Object getValue() {
-            return value;
-        }
-
-        public Object getSecondValue() {
-            return secondValue;
-        }
-
-        public boolean isNoValue() {
-            return noValue;
-        }
-
-        public boolean isSingleValue() {
-            return singleValue;
-        }
-
-        public boolean isBetweenValue() {
-            return betweenValue;
-        }
-
-        public boolean isListValue() {
-            return listValue;
-        }
-
-        public String getTypeHandler() {
-            return typeHandler;
         }
     }
 }
