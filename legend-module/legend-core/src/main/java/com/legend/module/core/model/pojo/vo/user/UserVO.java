@@ -25,7 +25,7 @@ import javax.validation.constraints.Size;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @ToString
-public class UserVO<T extends User,TVO extends UserVO> extends AbstractVO<T,TVO> {
+public class UserVO<T extends User, TVO extends UserVO> extends AbstractVO<T, TVO> {
 
     /**
      * id
