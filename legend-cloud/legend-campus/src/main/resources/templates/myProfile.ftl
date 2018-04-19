@@ -85,13 +85,13 @@
                                 <div class="form-group">
                                     <label for="exampleFormControlInput1">真实姓名</label>
                                     <input type="text" class="form-control" id="exampleFormControlInput1"
-                                           name="name" :value="userInfo.name">
+                                           name="name" :value="account.name">
                                 </div>
                                 <!-- 真实性别 -->
                                 <div class="form-group">
 
                                     <label for="male">男</label>
-                                    <input type="radio" name="sex" id="male" :value="userInfo.sex" checked/>
+                                    <input type="radio" name="sex" id="male" :value="account.sex" checked/>
 
                                     <label for="female">女</label>
                                     <input type="radio" name="sex" id="female"/>
@@ -100,14 +100,14 @@
                                 <div class="form-group">
                                     <label for="exampleFormControlInput2">昵称</label>
                                     <input type="text" class="form-control" id="exampleFormControlInput2"
-                                           placeholder="18" name="nickname" :value="userInfo.nickname">
+                                           placeholder="18" name="nickname" :value="account.nickname">
                                 </div>
                                 <!--生日-->
                                 <div class="form-group">
                                     <label for="birthday" class="col-md-2 control-label">出生日期</label>
                                     <div class="input-group date form_date">
                                         <input class="form-control cursor-pointer" size="16" type="text"
-                                               :value="userInfo.birthday | date"
+                                               :value="account.birthday | date"
                                                name="birthday"
                                                data-toggle="tooltip"
                                                data-placement="left" title="请输入日期"
@@ -125,7 +125,7 @@
                                 <div class="form-group">
                                     <label for="enrollmentYear">入学年份</label>
                                     <select class="form-control" id="enrollmentYear" name="enrollmentYear"
-                                            v-model="userInfo.enrollmentYear">
+                                            v-model="account.enrollmentYear">
                                         <option value="2014">2014</option>
                                         <option value="2015">2015</option>
                                         <option value="2016">2016</option>
@@ -136,14 +136,14 @@
                                 <div class="form-group">
                                     <label for="contact">联系方式</label>
                                     <input type="text" class="form-control" id="contact"
-                                           name="contact" :value="userInfo.contact"
+                                           name="contact" :value="account.contact"
                                            placeholder="QQ，微信或其他">
                                 </div>
                                 <!--邮箱-->
                                 <div class="form-group">
                                     <label for="email">邮箱</label>
                                     <input type="email" class="form-control" id="email"
-                                           placeholder="name@example.com" name="email" :value="userInfo.email">
+                                           placeholder="name@example.com" name="email" :value="account.email">
                                 </div>
                                 <!-- 籍贯 -->
                                 <div class="form-group">
@@ -151,7 +151,7 @@
                                     <div class="input-group">
                                         <select class="form-control" id="dept"
                                                 name="province"
-                                                v-model="userInfo.province"
+                                                v-model="account.province"
                                                 data-toggle="tooltip"
                                                 data-placement="left" title="请选择省或直辖市">
                                             <option v-for="item in provinces" :value="item.id"
@@ -159,7 +159,7 @@
                                         </select>
                                         <select class="form-control" id="major"
                                                 name="city"
-                                                v-model="userInfo.city"
+                                                v-model="account.city"
                                                 data-toggle="tooltip"
                                                 data-placement="left" title="请选择市或自治区">
                                             <option v-for="item in cities" :value="item.id"
@@ -167,7 +167,7 @@
                                         </select>
                                         <select class="form-control" id="course"
                                                 name="county"
-                                                v-model="userInfo.county"
+                                                v-model="account.county"
                                                 data-toggle="tooltip"
                                                 data-placement="left" title="请选择县或区">
                                             <option v-for="item in counties" :value="item.id"
@@ -178,7 +178,7 @@
                                 <div class="form-group">
                                     <label for="exampleFormControlTextarea1">个性签名</label>
                                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-                                              name="signature" :value="userInfo.signature"></textarea>
+                                              name="signature" :value="account.signature"></textarea>
                                 </div>
                                 <div align="center" style="height:150px;">
                                     <button type="submit" class="btn btn-outline-primary btn-lg btn-block" value="提交">
@@ -215,7 +215,7 @@
     let vm = new Vue({
         el: "#vm",
         data: {
-            userInfo: {},
+            account: {},
             myCourseInfo: {
                 pagination: {},
                 list: []
@@ -228,11 +228,11 @@
             let _this = this;
             // 获取个人账户信息
             $.ajax({
-                url: "/campus/userInfo/details/" + this.user.account.id,
+                url: "/campus/account/details/" + this.user.account.id,
                 type: "GET",
                 success: function (data) {
                     if (data.result) {
-                        _this.userInfo = data.data;
+                        _this.account = data.data;
                     } else {
                         Messenger().post({
                             id: "error",
@@ -294,7 +294,7 @@
         methods: {
             update: function (e) {
                 $(e.currentTarget).ajaxSubmit({
-                    url: "/campus/userInfo/update",
+                    url: "/campus/account/update",
                     type: "POSt",
                     data: {
                         _method: "PUT"
@@ -316,7 +316,7 @@
             }
         },
         watch: {
-            'userInfo.province': function (val, oldVal) {
+            'account.province': function (val, oldVal) {
                 if (parseInt(val) === parseInt(oldVal)) {
                     return false;
                 }
@@ -330,7 +330,7 @@
                     success: function (data) {
                         if (data.result) {
                             _this.cities = data.data;
-                            _this.userInfo.city = _this.cities[0].id;
+                            _this.account.city = _this.cities[0].id;
                         } else {
                             Messenger().post({
                                 id: "error",
@@ -344,7 +344,7 @@
                     }
                 });
             },
-            'userInfo.city': function (val, oldVal) {
+            'account.city': function (val, oldVal) {
                 if (parseInt(val) === parseInt(oldVal)) {
                     return false;
                 }
@@ -358,7 +358,7 @@
                     success: function (data) {
                         if (data.result) {
                             _this.counties = data.data;
-                            _this.userInfo.county = oldVal === undefined ? _this.userInfo.county : _this.counties[0].id;
+                            _this.account.county = oldVal === undefined ? _this.account.county : _this.counties[0].id;
                         } else {
                             Messenger().post({
                                 id: "error",

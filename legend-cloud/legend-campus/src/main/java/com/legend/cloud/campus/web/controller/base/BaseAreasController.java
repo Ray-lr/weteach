@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * @author Administrator
@@ -35,8 +34,7 @@ public class BaseAreasController extends CampusController {
     public Ajax list(BaseAreasVO baseAreasVO) {
         try {
             List<BaseAreas> baseAreasList = baseAreasService.getList(baseAreasVO.parseTo());
-            List<BaseAreasVO> baseAreasVOList = baseAreasList.stream().map((entity) ->
-                    new BaseAreasVO().parseFrom(entity)).collect(Collectors.toList());
+            List<BaseAreasVO> baseAreasVOList = new BaseAreasVO().parseFrom(baseAreasList);
             return Ajax.success(baseAreasVOList, AjaxMessage.QUERY_SUCCESS);
         } catch (Exception e) {
             e.printStackTrace();

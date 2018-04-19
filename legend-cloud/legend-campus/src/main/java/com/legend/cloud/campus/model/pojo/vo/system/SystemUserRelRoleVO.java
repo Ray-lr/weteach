@@ -18,7 +18,7 @@ import java.util.Date;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @ToString
-public class SystemUserRelRoleVO extends AbstractVO<SystemUserRelRole> {
+public class SystemUserRelRoleVO extends AbstractVO<SystemUserRelRole, SystemUserRelRoleVO> {
     private static final long serialVersionUID = 1L;
 
     /**
@@ -45,10 +45,5 @@ public class SystemUserRelRoleVO extends AbstractVO<SystemUserRelRole> {
      * 是否删除
      */
     private Boolean isDeleted;
-
-    @Override
-    public SystemUserRelRoleVO parseFrom(SystemUserRelRole systemUserRelRole, String... ignoreProperties) {
-        return (SystemUserRelRoleVO) super.parseFrom(systemUserRelRole, ignoreProperties);
-    }
 
 }

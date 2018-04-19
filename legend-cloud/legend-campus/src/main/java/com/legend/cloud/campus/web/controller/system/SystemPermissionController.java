@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * @author Administrator
@@ -40,8 +39,7 @@ public class SystemPermissionController extends CampusController {
         try {
             List<SystemPermission> systemPermissionList = systemPermissionService.getList(systemPermissionVO.parseTo(),
                     query);
-            List<SystemPermissionVO> systemPermissionVOList = systemPermissionList.stream().map((entity) ->
-                    new SystemPermissionVO().parseFrom(entity)).collect(Collectors.toList());
+            List<SystemPermissionVO> systemPermissionVOList = new SystemPermissionVO().parseFrom(systemPermissionList);
             PageUtils pageUtils = new PageUtils(systemPermissionVOList.size(), query.getCurrentPage(), query.getPageSize());
             return Ajax.success(systemPermissionVOList, AjaxMessage.QUERY_SUCCESS).put(Key.PAGINATION, pageUtils);
         } catch (Exception e) {

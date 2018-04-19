@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-public abstract class AbstractVO<T extends AbstractEntity> extends AbstractPojo<T> {
+public abstract class AbstractVO<T extends AbstractEntity, TVO extends AbstractVO> extends AbstractPojo<T> {
     private static final long serialVersionUID = 1L;
 
     /**
@@ -38,7 +38,7 @@ public abstract class AbstractVO<T extends AbstractEntity> extends AbstractPojo<
      * @return this
      */
     @SuppressWarnings("unchecked")
-    protected <TVO extends AbstractVO> TVO parseFrom(T t, String... ignoreProperties) {
+    public TVO parseFrom(T t, String... ignoreProperties) {
         BeanUtils.copyProperties(t, this, ignoreProperties);
         return (TVO) this;
     }
@@ -48,11 +48,10 @@ public abstract class AbstractVO<T extends AbstractEntity> extends AbstractPojo<
      *
      * @param tList            集合Entity
      * @param ignoreProperties 忽略的字段
-     * @param <TVO>            根据接受变量类型返回
      * @return VO集合
      */
     @SuppressWarnings("unchecked")
-    public <TVO extends AbstractVO> List<TVO> parseFrom(List<T> tList, String... ignoreProperties) {
+    public List<TVO> parseFrom(List<T> tList, String... ignoreProperties) {
         return tList.stream().map(t -> {
             try {
                 Object object = this.getClass().newInstance();

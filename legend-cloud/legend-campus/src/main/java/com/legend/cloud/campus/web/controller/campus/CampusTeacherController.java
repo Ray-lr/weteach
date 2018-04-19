@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * @author Administrator
@@ -40,8 +39,7 @@ public class CampusTeacherController extends CampusController {
         try {
             List<CampusTeacher> campusTeacherList = campusTeacherService.getList(campusTeacherVO.parseTo(),
                     query);
-            List<CampusTeacherVO> campusTeacherVOList = campusTeacherList.stream().map((entity) ->
-                    new CampusTeacherVO().parseFrom(entity)).collect(Collectors.toList());
+            List<CampusTeacherVO> campusTeacherVOList = new CampusTeacherVO().parseFrom(campusTeacherList);
             PageUtils pageUtils = new PageUtils(campusTeacherVOList.size(), query.getCurrentPage(), query.getPageSize());
             return Ajax.success(campusTeacherVOList, AjaxMessage.QUERY_SUCCESS).put(Key.PAGINATION, pageUtils);
         } catch (Exception e) {

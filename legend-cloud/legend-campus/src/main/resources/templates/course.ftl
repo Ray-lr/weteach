@@ -171,7 +171,7 @@
                     if (data.result) {
                         _this.course = data.data;
                         $.ajax({
-                            url: "/campus/userInfo/details/" + data.data.userId,
+                            url: "/campus/account/details/" + data.data.userId,
                             type: "get",
                             success: function (data) {
                                 if (data.result) {

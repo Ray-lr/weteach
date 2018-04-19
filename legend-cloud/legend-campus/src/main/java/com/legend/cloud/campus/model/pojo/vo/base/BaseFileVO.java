@@ -18,7 +18,7 @@ import java.util.Date;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @ToString
-public class BaseFileVO extends AbstractVO<BaseFile> {
+public class BaseFileVO extends AbstractVO<BaseFile, BaseFileVO> {
     private static final long serialVersionUID = 1L;
 
     /**
@@ -62,8 +62,4 @@ public class BaseFileVO extends AbstractVO<BaseFile> {
      */
     private Boolean isDeleted;
 
-    @Override
-    public BaseFileVO parseFrom(BaseFile baseFile, String... ignoreProperties) {
-        return (BaseFileVO) super.parseFrom(baseFile, ignoreProperties);
-    }
 }

@@ -54,14 +54,4 @@ public class CampusController extends LegendController<UserVO> {
         return null;
     }
 
-    @Override
-    protected UserVO getCurrentUser() {
-        return super.getCurrentUser();
-    }
-
-    @Override
-    protected void setCurrentUser(Object object) {
-        super.setCurrentUser(object);
-    }
-
 }

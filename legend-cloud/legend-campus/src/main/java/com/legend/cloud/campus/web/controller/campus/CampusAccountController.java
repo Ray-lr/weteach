@@ -10,7 +10,6 @@ import com.legend.module.core.model.contant.arribute.Column;
 import com.legend.module.core.model.contant.arribute.Key;
 import com.legend.module.core.model.contant.code.result.AjaxCode;
 import com.legend.module.core.model.contant.message.result.AjaxMessage;
-import com.legend.module.core.model.contant.message.result.user.UserResultMessage;
 import com.legend.module.core.model.group.option.AddGroup;
 import com.legend.module.core.model.group.option.UpdateGroup;
 import com.legend.module.core.model.json.result.Ajax;
@@ -19,9 +18,7 @@ import com.legend.module.core.model.pojo.vo.user.UserVO;
 import com.legend.module.core.model.utils.PageUtils;
 import com.legend.module.core.model.utils.QueryUtils;
 import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.AuthenticationException;
-import org.apache.shiro.authc.IncorrectCredentialsException;
-import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.subject.SimplePrincipalCollection;
 import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,7 +29,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import java.util.Date;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * @author hupeiD
@@ -60,8 +56,7 @@ public class CampusAccountController extends CampusController {
         try {
             List<CampusAccount> campusAccountList = campusAccountService.getList(campusAccountVO.parseTo(),
                     queryUtils);
-            List<CampusAccountVO> campusAccountVOList = campusAccountList.stream().map((entity) ->
-                    new CampusAccountVO().parseFrom(entity)).collect(Collectors.toList());
+            List<CampusAccountVO> campusAccountVOList = new CampusAccountVO().parseFrom(campusAccountList);
             PageUtils pageUtils = new PageUtils(campusAccountVOList.size(), queryUtils.getCurrentPage(), queryUtils.getPageSize());
             return Ajax.success(campusAccountVOList, AjaxMessage.QUERY_SUCCESS).put(Key.PAGINATION, pageUtils);
         } catch (Exception e) {
@@ -128,28 +123,19 @@ public class CampusAccountController extends CampusController {
             }
             Subject subject = SecurityUtils.getSubject();
             UserVO currentUser = (UserVO) subject.getPrincipal();
-            CampusAccount account = (CampusAccount) currentUser.getAccount();
+            CampusAccountVO account = (CampusAccountVO) currentUser.getAccount();
             campusAccountVO.setId(account.getId());
             campusAccountVO.setUpdateTime(new Date());
             if (campusAccountService.updateById(campusAccountVO.parseTo()) <= 0) {
                 Ajax.error(AjaxMessage.UPDATE_FAILURE, AjaxCode.UPDATE_FAILURE);
             }
-            // 重新调用登录以更新Serssion中的数据
-            subject.login(new UsernamePasswordToken(currentUser.getUsername(),
-                    currentUser.getPassword(), currentUser.getTypeUser()));
-            if (!subject.isAuthenticated()) {
-                return Ajax.error();
-            }
-            currentUser = (UserVO) subject.getPrincipal();
+            // 重新挂载新信息到Shiro
+            String realmName = subject.getPrincipals().getRealmNames().iterator().next();
+            subject.runAs(new SimplePrincipalCollection(currentUser, realmName));
+            // 设置用户到session
             setCurrentUser(JSON.toJSONString(currentUser));
             LOGGER.info(String.valueOf(getCurrentUser()));
             return Ajax.success(AjaxMessage.UPDATE_SUCCESS);
-        } catch (IncorrectCredentialsException e) {
-            System.err.println(e.getLocalizedMessage());
-            return Ajax.error(UserResultMessage.USERNAME_OR_PASSWORD_WRONG);
-        } catch (AuthenticationException e) {
-            System.err.println(e.getLocalizedMessage());
-            return Ajax.error(UserResultMessage.USERNAME_WRONG);
         } catch (Exception e) {
             e.printStackTrace();
             return Ajax.error(AjaxMessage.SERVER_ERROR, AjaxCode.SERVER_ERROR);
@@ -174,5 +160,4 @@ public class CampusAccountController extends CampusController {
             return Ajax.error(AjaxMessage.SERVER_ERROR, AjaxCode.SERVER_ERROR);
         }
     }
-
 }

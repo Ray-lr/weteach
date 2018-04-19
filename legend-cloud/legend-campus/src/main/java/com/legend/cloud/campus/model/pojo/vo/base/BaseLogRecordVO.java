@@ -18,7 +18,7 @@ import java.util.Date;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @ToString
-public class BaseLogRecordVO extends AbstractVO<BaseLogRecord> {
+public class BaseLogRecordVO extends AbstractVO<BaseLogRecord, BaseLogRecordVO> {
     private static final long serialVersionUID = 1L;
 
     /**
@@ -74,9 +74,4 @@ public class BaseLogRecordVO extends AbstractVO<BaseLogRecord> {
      */
     private Boolean isDeleted;
 
-
-    @Override
-    public BaseLogRecordVO parseFrom(BaseLogRecord baseLogRecord, String... ignoreProperties) {
-        return (BaseLogRecordVO) super.parseFrom(baseLogRecord, ignoreProperties);
-    }
 }

@@ -25,7 +25,7 @@ import javax.validation.constraints.Size;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @ToString
-public class UserVO<T extends User> extends AbstractVO<T> {
+public class UserVO<T extends User,TVO extends UserVO> extends AbstractVO<T,TVO> {
 
     /**
      * id
@@ -82,8 +82,4 @@ public class UserVO<T extends User> extends AbstractVO<T> {
      */
     private Object account;
 
-    @Override
-    public <TVO extends AbstractVO> TVO parseFrom(T t, String... ignoreProperties) {
-        return super.parseFrom(t, ignoreProperties);
-    }
 }

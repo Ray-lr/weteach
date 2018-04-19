@@ -18,7 +18,7 @@ import java.util.Date;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @ToString
-public class CampusVerifyVO extends AbstractVO<CampusVerify> {
+public class CampusVerifyVO extends AbstractVO<CampusVerify, CampusVerifyVO> {
     private static final long serialVersionUID = 1L;
 
     /**
@@ -61,10 +61,5 @@ public class CampusVerifyVO extends AbstractVO<CampusVerify> {
      * 是否删除
      */
     private Boolean isDeleted;
-
-    @Override
-    public CampusVerifyVO parseFrom(CampusVerify campusVerify, String... ignoreProperties) {
-        return (CampusVerifyVO) super.parseFrom(campusVerify, ignoreProperties);
-    }
 
 }

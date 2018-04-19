@@ -32,12 +32,10 @@ public class DirectController extends CampusController {
     public ModelAndView redirect(@PathVariable String url, ModelAndView modelAndView, @RequestParam Map<String, String>
             model) {
         try {
-            LOGGER.info("url:" + url);
             modelAndView.setViewName(url);
             modelAndView.getModel().putAll(model);
             return modelAndView;
         } catch (Exception e) {
-            e.printStackTrace();
             modelAndView.setViewName("error");
             modelAndView.addObject(Key.MSG, "404");
             return modelAndView;

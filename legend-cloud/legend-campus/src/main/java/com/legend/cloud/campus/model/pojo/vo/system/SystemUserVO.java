@@ -19,7 +19,7 @@ import java.util.Date;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @ToString
-public class SystemUserVO extends UserVO<SystemUser> {
+public class SystemUserVO extends UserVO<SystemUser, SystemUserVO> {
     @JSONField(serialize = false)
     private static final long serialVersionUID = 1L;
     /**
@@ -71,8 +71,4 @@ public class SystemUserVO extends UserVO<SystemUser> {
     @JSONField(serialize = false)
     private Boolean isDeleted;
 
-    @Override
-    public SystemUserVO parseFrom(SystemUser systemUser, String... ignoreProperties) {
-        return (SystemUserVO) super.parseFrom(systemUser, ignoreProperties);
-    }
 }

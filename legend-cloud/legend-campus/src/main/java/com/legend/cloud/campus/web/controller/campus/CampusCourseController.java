@@ -34,7 +34,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * @author Jim
@@ -61,8 +60,7 @@ public class CampusCourseController extends CampusController {
         try {
             List<CampusCourse> campusCourseList = campusCourseService.getList(campusCourseVO.parseTo(),
                     query);
-            List<CampusCourseVO> campusCourseVOList = campusCourseList.stream().map((entity) ->
-                    new CampusCourseVO().parseFrom(entity)).collect(Collectors.toList());
+            List<CampusCourseVO> campusCourseVOList = new CampusCourseVO().parseFrom(campusCourseList);
             PageUtils pageUtils = new PageUtils(campusCourseVOList.size(), query.getCurrentPage(), query.getPageSize());
             return Ajax.success(campusCourseVOList, AjaxMessage.QUERY_SUCCESS).put(Key.PAGINATION, pageUtils);
         } catch (AuthorizationException e) {

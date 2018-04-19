@@ -22,7 +22,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import java.util.Date;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * @author Administrator
@@ -41,8 +40,7 @@ public class CampusVerifyController extends CampusController {
         try {
             List<CampusVerify> campusVerifyList = campusVerifyService.getList(campusVerifyVO.parseTo(),
                     query);
-            List<CampusVerifyVO> campusVerifyVOList = campusVerifyList.stream().map((entity) ->
-                    new CampusVerifyVO().parseFrom(entity)).collect(Collectors.toList());
+            List<CampusVerifyVO> campusVerifyVOList = new CampusVerifyVO().parseFrom(campusVerifyList);
             PageUtils pageUtils = new PageUtils(campusVerifyVOList.size(), query.getCurrentPage(), query.getPageSize());
             return Ajax.success(campusVerifyVOList, AjaxMessage.QUERY_SUCCESS).put(Key.PAGINATION, pageUtils);
         } catch (Exception e) {

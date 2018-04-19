@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * @author Administrator
@@ -40,8 +39,7 @@ public class BaseTypeController extends CampusController {
         try {
             List<BaseType> baseTypeList = baseTypeService.getList(baseTypeVO.parseTo(),
                     query);
-            List<BaseTypeVO> baseTypeVOList = baseTypeList.stream().map((entity) ->
-                    new BaseTypeVO().parseFrom(entity)).collect(Collectors.toList());
+            List<BaseTypeVO> baseTypeVOList = new BaseTypeVO().parseFrom(baseTypeList);
             PageUtils pageUtils = new PageUtils(baseTypeVOList.size(), query.getCurrentPage(), query.getPageSize());
             return Ajax.success(baseTypeVOList, AjaxMessage.QUERY_SUCCESS).put(Key.PAGINATION, pageUtils);
         } catch (Exception e) {

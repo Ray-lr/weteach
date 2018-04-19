@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * @author Administrator
@@ -40,8 +39,7 @@ public class SystemUserRelRoleController extends CampusController {
         try {
             List<SystemUserRelRole> systemUserRelRoleList = systemUserRelRoleService.getList(systemUserRelRoleVO.parseTo(),
                     query);
-            List<SystemUserRelRoleVO> systemUserRelRoleVOList = systemUserRelRoleList.stream().map((entity) ->
-                    new SystemUserRelRoleVO().parseFrom(entity)).collect(Collectors.toList());
+            List<SystemUserRelRoleVO> systemUserRelRoleVOList = new SystemUserRelRoleVO().parseFrom(systemUserRelRoleList);
             PageUtils pageUtils = new PageUtils(systemUserRelRoleVOList.size(), query.getCurrentPage(), query.getPageSize());
             return Ajax.success(systemUserRelRoleVOList, AjaxMessage.QUERY_SUCCESS).put(Key.PAGINATION, pageUtils);
         } catch (Exception e) {

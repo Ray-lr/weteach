@@ -18,7 +18,7 @@ import java.util.Date;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @ToString
-public class SystemMenuVO extends AbstractVO<SystemMenu> {
+public class SystemMenuVO extends AbstractVO<SystemMenu, SystemMenuVO> {
     private static final long serialVersionUID = 1L;
 
     /**
@@ -65,10 +65,5 @@ public class SystemMenuVO extends AbstractVO<SystemMenu> {
      * 是否删除
      */
     private Boolean isDeleted;
-
-    @Override
-    public SystemMenuVO parseFrom(SystemMenu systemMenu, String... ignoreProperties) {
-        return (SystemMenuVO) super.parseFrom(systemMenu, ignoreProperties);
-    }
 
 }

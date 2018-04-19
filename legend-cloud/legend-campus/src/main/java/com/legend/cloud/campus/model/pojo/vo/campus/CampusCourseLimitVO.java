@@ -5,9 +5,12 @@ import com.legend.module.core.model.pojo.vo.AbstractVO;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
+import org.springframework.beans.BeanUtils;
 
 import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
 
 
 /**
@@ -19,7 +22,7 @@ import java.util.Date;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @ToString
-public class CampusCourseLimitVO extends AbstractVO<CampusCourseLimit> {
+public class CampusCourseLimitVO extends AbstractVO<CampusCourseLimit, CampusCourseLimitVO> {
     private static final long serialVersionUID = 1L;
 
     /**
@@ -76,10 +79,19 @@ public class CampusCourseLimitVO extends AbstractVO<CampusCourseLimit> {
 
     @Override
     public CampusCourseLimitVO parseFrom(CampusCourseLimit campusCourseLimit, String... ignoreProperties) {
-        CampusCourseLimitVO campusCourseLimitVO = (CampusCourseLimitVO) super.parseFrom(campusCourseLimit,
+        CampusCourseLimitVO campusCourseLimitVO = super.parseFrom(campusCourseLimit,
                 ignoreProperties);
         campusCourseLimitVO.setGrade(String.valueOf(campusCourseLimit.getGrade()).toCharArray());
         return campusCourseLimitVO;
     }
 
+    @Override
+    public List<CampusCourseLimitVO> parseFrom(List<CampusCourseLimit> campusCourseLimits, String... ignoreProperties) {
+        return campusCourseLimits.stream().map(entity -> {
+            CampusCourseLimitVO campusCourseLimitVO = new CampusCourseLimitVO();
+            BeanUtils.copyProperties(entity, campusCourseLimitVO, ignoreProperties);
+            campusCourseLimitVO.setGrade(String.valueOf(entity.getGrade()).toCharArray());
+            return campusCourseLimitVO;
+        }).collect(Collectors.toList());
+    }
 }

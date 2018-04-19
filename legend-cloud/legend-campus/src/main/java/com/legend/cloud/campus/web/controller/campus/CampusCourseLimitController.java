@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * @author Jim
@@ -40,8 +39,7 @@ public class CampusCourseLimitController extends CampusController {
         try {
             List<CampusCourseLimit> campusCourseLimitList = campusCourseLimitService.getList(campusCourseLimitVO.parseTo(),
                     query);
-            List<CampusCourseLimitVO> campusCourseLimitVOList = campusCourseLimitList.stream().map((entity) ->
-                    new CampusCourseLimitVO().parseFrom(entity)).collect(Collectors.toList());
+            List<CampusCourseLimitVO> campusCourseLimitVOList = new CampusCourseLimitVO().parseFrom(campusCourseLimitList);
             PageUtils pageUtils = new PageUtils(campusCourseLimitVOList.size(), query.getCurrentPage(), query.getPageSize());
             return Ajax.success(campusCourseLimitVOList, AjaxMessage.QUERY_SUCCESS).put(Key.PAGINATION, pageUtils);
         } catch (Exception e) {

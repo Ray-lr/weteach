@@ -18,7 +18,7 @@ import java.util.Date;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @ToString
-public class SystemPermissionVO extends AbstractVO<SystemPermission> {
+public class SystemPermissionVO extends AbstractVO<SystemPermission, SystemPermissionVO> {
     private static final long serialVersionUID = 1L;
 
     /**
@@ -49,10 +49,5 @@ public class SystemPermissionVO extends AbstractVO<SystemPermission> {
      * 是否删除
      */
     private Boolean isDeleted;
-
-    @Override
-    public SystemPermissionVO parseFrom(SystemPermission systemPermission, String... ignoreProperties) {
-        return (SystemPermissionVO) super.parseFrom(systemPermission, ignoreProperties);
-    }
 
 }

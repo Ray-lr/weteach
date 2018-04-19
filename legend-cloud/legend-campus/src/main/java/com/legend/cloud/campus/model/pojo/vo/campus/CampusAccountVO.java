@@ -18,7 +18,7 @@ import java.util.Date;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @ToString
-public class CampusAccountVO extends AbstractVO<CampusAccount> {
+public class CampusAccountVO extends AbstractVO<CampusAccount, CampusAccountVO> {
     private static final long serialVersionUID = 1L;
 
     /**
@@ -48,7 +48,7 @@ public class CampusAccountVO extends AbstractVO<CampusAccount> {
     /**
      * 出生年月
      */
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date birthday;
     /**
      * 省/直辖市/自治区/特别行政区
@@ -112,11 +112,5 @@ public class CampusAccountVO extends AbstractVO<CampusAccount> {
      * 是否删除
      */
     private Boolean isDeleted;
-
-    @Override
-    @SuppressWarnings("unchecked")
-    public CampusAccountVO parseFrom(CampusAccount campusAccount, String... ignoreProperties) {
-        return (CampusAccountVO) super.parseFrom(campusAccount, ignoreProperties);
-    }
 
 }
