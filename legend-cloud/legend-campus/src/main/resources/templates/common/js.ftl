@@ -3,7 +3,6 @@
 <script src="/static/js/jquery-3.3.1.js"></script>
 <script src="/static/js/jquery.form.js"></script>
 <script src="/static/js/vue.js"></script>
-<script src="/static/js/jquery.validate.min.js"></script>
 <script src="/static/js/vue-router.js"></script>
 <script src="/static/js/less.min.js"></script>
 <script src="/static/js/bootstrap.js"></script>
