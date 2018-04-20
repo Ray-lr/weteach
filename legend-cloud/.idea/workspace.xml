@@ -2,12 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d9903e68-7873-40ed-afbd-c501e5c3da8d" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/legend-campus/src/main/resources/static/css/login.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/legend-campus/src/main/resources/static/css/style.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/legend-campus/src/main/resources/static/js/jquery.magnific-popup.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/legend-campus/src/main/resources/static/js/modernizr.custom.53451.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/legend-campus/pom.xml" afterPath="$PROJECT_DIR$/legend-campus/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/vo/campus/CampusAccountVO.java" afterPath="$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/vo/campus/CampusAccountVO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/web/controller/CampusController.java" afterPath="$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/web/controller/CampusController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/web/controller/campus/CampusAccountController.java" afterPath="$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/web/controller/campus/CampusAccountController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/legend-campus/src/main/resources/templates/myProfile.ftl" afterPath="$PROJECT_DIR$/legend-campus/src/main/resources/templates/myProfile.ftl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/vo/campus/CampusCourseLimitVO.java" afterPath="$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/vo/campus/CampusCourseLimitVO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/legend-campus/src/main/resources/templates/common/css.ftl" afterPath="$PROJECT_DIR$/legend-campus/src/main/resources/templates/common/css.ftl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/legend-campus/src/main/resources/templates/common/head.ftl" afterPath="$PROJECT_DIR$/legend-campus/src/main/resources/templates/common/head.ftl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/legend-campus/src/main/resources/templates/common/js.ftl" afterPath="$PROJECT_DIR$/legend-campus/src/main/resources/templates/common/js.ftl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/legend-campus/src/main/resources/templates/index.ftl" afterPath="$PROJECT_DIR$/legend-campus/src/main/resources/templates/index.ftl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/legend-campus/src/main/resources/templates/login.ftl" afterPath="$PROJECT_DIR$/legend-campus/src/main/resources/templates/login.ftl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/legend-campus/src/main/resources/templates/publish.ftl" afterPath="$PROJECT_DIR$/legend-campus/src/main/resources/templates/publish.ftl" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -26,12 +31,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="bootstrap-datetimepicker.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/legend-campus/src/main/resources/static/external/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.js">
+      <file leaf-file-name="js.ftl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/legend-campus/src/main/resources/templates/common/js.ftl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="100" column="60" lean-forward="false" selection-start-line="100" selection-start-column="60" selection-end-line="100" selection-end-column="60" />
+            <state relative-caret-position="289">
+              <caret line="17" column="44" lean-forward="false" selection-start-line="17" selection-start-column="44" selection-end-line="17" selection-end-column="44" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="vue-global.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/legend-campus/src/main/resources/static/js/common/vue/vue-global.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -39,12 +56,41 @@
       <file leaf-file-name="publish.ftl" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/legend-campus/src/main/resources/templates/publish.ftl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="699" column="22" lean-forward="false" selection-start-line="699" selection-start-column="22" selection-end-line="699" selection-end-column="22" />
+            <state relative-caret-position="7250">
+              <caret line="613" column="0" lean-forward="false" selection-start-line="613" selection-start-column="0" selection-end-line="613" selection-end-column="0" />
               <folding>
-                <element signature="e#7816#7823#1#HTML" expanded="true" />
-                <element signature="e#23690#23697#1#HTML" expanded="true" />
+                <marker date="1524240291153" expanded="true" signature="41252:41261" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.ftl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/legend-campus/src/main/resources/templates/index.ftl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="182">
+              <caret line="198" column="1" lean-forward="false" selection-start-line="198" selection-start-column="1" selection-end-line="198" selection-end-column="1" />
+              <folding>
+                <marker date="1524239824922" expanded="true" signature="15491:16833" ph="..." />
+                <marker date="1524239824922" expanded="true" signature="15708:15908" ph="{...}" />
+                <marker date="1524239824922" expanded="true" signature="15747:15890" ph="{...}" />
+                <marker date="1524239824922" expanded="true" signature="15944:16360" ph="{&quot;url&quot;: &quot;/campus/course/list&quot;...}" />
+                <marker date="1524239824922" expanded="true" signature="16041:16097" ph="{&quot;typeCourse&quot;: &quot;教学&quot;...}" />
+                <marker date="1524239824922" expanded="true" signature="16140:16346" ph="{...}" />
+                <marker date="1524239824922" expanded="true" signature="16179:16328" ph="{...}" />
+                <marker date="1524239824922" expanded="true" signature="16382:16805" ph="{&quot;url&quot;: &quot;/campus/course/list&quot;...}" />
+                <marker date="1524239824922" expanded="true" signature="16479:16540" ph="{&quot;userId&quot;: _this.user.id...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="application.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/legend-campus/src/main/resources/application.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-510">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -52,61 +98,34 @@
       <file leaf-file-name="myProfile.ftl" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/legend-campus/src/main/resources/templates/myProfile.ftl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="719">
-              <caret line="332" column="89" lean-forward="false" selection-start-line="332" selection-start-column="89" selection-end-line="332" selection-end-column="89" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CampusAccountController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/web/controller/campus/CampusAccountController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="122" column="13" lean-forward="true" selection-start-line="122" selection-start-column="13" selection-end-line="122" selection-end-column="13" />
+            <state relative-caret-position="348">
+              <caret line="109" column="73" lean-forward="false" selection-start-line="109" selection-start-column="72" selection-end-line="109" selection-end-column="73" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <marker date="1524239823423" expanded="true" signature="13757:20036" ph="..." />
+                <marker date="1524239823423" expanded="true" signature="14058:16588" ph="{...}" />
+                <marker date="1524239823423" expanded="true" signature="14277:14839" ph="{...}" />
+                <marker date="1524239823423" expanded="true" signature="14316:14390" ph="{...}" />
+                <marker date="1524239823423" expanded="true" signature="14396:14821" ph="{...}" />
+                <marker date="1524239823423" expanded="true" signature="15086:15650" ph="{...}" />
+                <marker date="1524239823423" expanded="true" signature="15125:15201" ph="{...}" />
+                <marker date="1524239823423" expanded="true" signature="15207:15632" ph="{...}" />
+                <marker date="1524239823423" expanded="true" signature="15917:16562" ph="{...}" />
+                <marker date="1524239823423" expanded="true" signature="15956:16113" ph="{...}" />
+                <marker date="1524239823423" expanded="true" signature="16119:16544" ph="{...}" />
+                <marker date="1524239823423" expanded="true" signature="16642:17534" ph="{...}" />
+                <marker date="1524239823423" expanded="true" signature="16912:17500" ph="{...}" />
+                <marker date="1524239823423" expanded="true" signature="17389:17470" ph="{...}" />
+                <marker date="1524239823423" expanded="true" signature="17618:18771" ph="{...}" />
+                <marker date="1524239823423" expanded="true" signature="17676:17729" ph="{...}" />
+                <marker date="1524239823423" expanded="true" signature="18011:18737" ph="{...}" />
+                <marker date="1524239823423" expanded="true" signature="18054:18248" ph="{...}" />
+                <marker date="1524239823423" expanded="true" signature="18254:18715" ph="{...}" />
+                <marker date="1524239823423" expanded="true" signature="18824:19985" ph="{...}" />
+                <marker date="1524239823423" expanded="true" signature="18882:18935" ph="{...}" />
+                <marker date="1524239823423" expanded="true" signature="19217:19951" ph="{...}" />
+                <marker date="1524239823423" expanded="true" signature="19260:19462" ph="{...}" />
+                <marker date="1524239823423" expanded="true" signature="19468:19929" ph="{...}" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CampusAccountVO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/vo/campus/CampusAccountVO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="61" column="10" lean-forward="true" selection-start-line="61" selection-start-column="10" selection-end-line="61" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DirectController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/web/controller/DirectController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CampusController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/web/controller/CampusController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="23" column="48" lean-forward="true" selection-start-line="23" selection-start-column="48" selection-end-line="23" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CampusCourseCategoryController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/web/controller/campus/CampusCourseCategoryController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-68">
-              <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -114,8 +133,38 @@
       <file leaf-file-name="CampusCourseController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/web/controller/campus/CampusCourseController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="401">
-              <caret line="139" column="53" lean-forward="true" selection-start-line="139" selection-start-column="8" selection-end-line="139" selection-end-column="53" />
+            <state relative-caret-position="300">
+              <caret line="105" column="47" lean-forward="false" selection-start-line="105" selection-start-column="47" selection-end-line="105" selection-end-column="47" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CoursePublishVO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/vo/campus/complex/CoursePublishVO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="23" column="25" lean-forward="false" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CoursePublishFacadeImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/facade/impl/CoursePublishFacadeImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="368">
+              <caret line="49" column="30" lean-forward="false" selection-start-line="49" selection-start-column="30" selection-end-line="49" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CampusCourseLimitVO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/vo/campus/CampusCourseLimitVO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="290">
+              <caret line="91" column="84" lean-forward="false" selection-start-line="91" selection-start-column="84" selection-end-line="91" selection-end-column="84" />
               <folding />
             </state>
           </provider>
@@ -137,6 +186,15 @@
       <find>dept</find>
       <find>link</find>
       <find>applyEndTime</find>
+      <find>loginForm</find>
+      <find>1.jpg</find>
+      <find>container</find>
+      <find>course.course</find>
+      <find>success</find>
+      <find>form</find>
+      <find>../</find>
+      <find>参与人数</find>
+      <find>| dateTime</find>
     </findStrings>
     <replaceStrings>
       <replace>.module.</replace>
@@ -144,6 +202,9 @@
       <replace>.cloud.</replace>
       <replace>com.legend.cloud.campus.</replace>
       <replace>account</replace>
+      <replace>dateTime</replace>
+      <replace>/</replace>
+      <replace>dateT</replace>
     </replaceStrings>
     <dirStrings>
       <dir>D:\My\git\repositories\Bugs\legend-cloud\legend-campus\src\main\java\com\legend\cloud\campus\model\pojo\entity\campus</dir>
@@ -170,13 +231,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/vo/system/SystemMenuVO.java" />
-        <option value="$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/vo/system/SystemPermissionVO.java" />
-        <option value="$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/vo/system/SystemRoleRelPermissionVO.java" />
-        <option value="$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/vo/system/SystemRoleVO.java" />
-        <option value="$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/vo/system/SystemUserRelRoleVO.java" />
-        <option value="$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/vo/system/SystemUserVO.java" />
-        <option value="$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/web/controller/base/BaseAreasController.java" />
         <option value="$PROJECT_DIR$/legend-campus/src/main/resources/templates/course.ftl" />
         <option value="$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/web/controller/DirectController.java" />
         <option value="$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/web/controller/base/BaseFileController.java" />
@@ -188,7 +242,6 @@
         <option value="$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/web/controller/campus/CampusCourseCategoryController.java" />
         <option value="$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/web/controller/campus/CampusCourseLessonController.java" />
         <option value="$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/web/controller/campus/CampusCourseLimitController.java" />
-        <option value="$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/vo/campus/CampusCourseLimitVO.java" />
         <option value="$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/web/controller/campus/CampusEvaluateController.java" />
         <option value="$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/web/controller/campus/CampusOrderController.java" />
         <option value="$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/web/controller/campus/CampusStatisticsController.java" />
@@ -202,25 +255,33 @@
         <option value="$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/web/controller/campus/CampusCourseController.java" />
         <option value="$PROJECT_DIR$/legend-campus/src/main/resources/static/external/bootstrapvalidator-master/js/bootstrapValidator.js" />
         <option value="$MAVEN_REPOSITORY$/com/alibaba/druid/1.1.8/druid-1.1.8.jar!/support/http/resources/css/bootstrap.min.css" />
-        <option value="$PROJECT_DIR$/legend-campus/src/main/resources/templates/common/css.ftl" />
         <option value="$PROJECT_DIR$/legend-campus/src/main/resources/static/js/less.min.js" />
         <option value="$PROJECT_DIR$/legend-campus/src/main/resources/static/css/campus-settings.css" />
         <option value="$PROJECT_DIR$/legend-campus/src/main/resources/static/css/bootstrap.css" />
         <option value="$USER_HOME$/Desktop/bootstrapvalidator-master/demo/ajaxSubmit.html" />
         <option value="$PROJECT_DIR$/legend-campus/src/main/resources/static/js/common/campus-settings.js" />
         <option value="$PROJECT_DIR$/legend-campus/src/main/resources/static/js/vue-router.js" />
-        <option value="$PROJECT_DIR$/legend-campus/src/main/resources/templates/common/js.ftl" />
         <option value="$PROJECT_DIR$/legend-campus/src/main/resources/templates/common/component/templates.ftl" />
-        <option value="$PROJECT_DIR$/legend-campus/src/main/resources/templates/common/head.ftl" />
         <option value="$PROJECT_DIR$/legend-campus/src/main/resources/templates/common/component/navbar.ftl" />
-        <option value="$PROJECT_DIR$/legend-campus/src/main/resources/templates/login.ftl" />
         <option value="$PROJECT_DIR$/legend-campus/src/main/resources/templates/verify.ftl" />
         <option value="$PROJECT_DIR$/legend-campus/pom.xml" />
-        <option value="$PROJECT_DIR$/legend-campus/src/main/resources/templates/publish.ftl" />
         <option value="$PROJECT_DIR$/legend-campus/src/main/resources/templates/myProfile.ftl" />
         <option value="$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/vo/campus/CampusAccountVO.java" />
         <option value="$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/web/controller/CampusController.java" />
         <option value="$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/web/controller/campus/CampusAccountController.java" />
+        <option value="$USER_HOME$/Desktop/login/login.html" />
+        <option value="$PROJECT_DIR$/legend-campus/src/main/resources/static/css/style.css" />
+        <option value="$USER_HOME$/Desktop/login/login.ftl" />
+        <option value="$PROJECT_DIR$/legend-campus/src/main/resources/templates/common/head.ftl" />
+        <option value="$PROJECT_DIR$/legend-campus/src/main/resources/static/css/login.css" />
+        <option value="$PROJECT_DIR$/legend-campus/src/main/resources/templates/common/css.ftl" />
+        <option value="$PROJECT_DIR$/legend-campus/src/main/resources/static/js/vue-validator.js" />
+        <option value="$PROJECT_DIR$/legend-campus/src/main/resources/templates/common/js.ftl" />
+        <option value="$PROJECT_DIR$/legend-campus/src/main/resources/templates/login.ftl" />
+        <option value="$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/vo/campus/CampusCourseLimitVO.java" />
+        <option value="$PROJECT_DIR$/legend-campus/src/main/resources/templates/publish.ftl" />
+        <option value="$PROJECT_DIR$/legend-campus/src/main/resources/static/js/common/vue/vue-global.js" />
+        <option value="$PROJECT_DIR$/legend-campus/src/main/resources/templates/index.ftl" />
       </list>
     </option>
   </component>
@@ -254,8 +315,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="802" />
-    <option name="y" value="66" />
+    <option name="x" value="645" />
+    <option name="y" value="-20" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
@@ -407,7 +468,67 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="legend-cloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="legend-cloud" type="462c0819:PsiDirectoryNode" />
+              <item name="legend-campus" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="legend-cloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="legend-cloud" type="462c0819:PsiDirectoryNode" />
+              <item name="legend-campus" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="image" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="legend-cloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="legend-cloud" type="462c0819:PsiDirectoryNode" />
+              <item name="legend-campus" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="legend-cloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="legend-cloud" type="462c0819:PsiDirectoryNode" />
+              <item name="legend-campus" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="legend-cloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="legend-cloud" type="462c0819:PsiDirectoryNode" />
+              <item name="legend-campus" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="legend-cloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="legend-cloud" type="462c0819:PsiDirectoryNode" />
+              <item name="legend-campus" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="component" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -436,13 +557,145 @@
     <property name="RequestMappingsPanelOrder2" value="2" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\My\git\repositories\Bugs\legend-cloud\legend-campus\src\main\resources\templates" />
       <recent name="D:\My\git\repositories\Bugs\legend-cloud\legend-campus\src\main\resources\templates\common\component" />
-      <recent name="D:\My\git\repositories\Bugs\legend-cloud\legend-campus\src\main\resources\static\js" />
-      <recent name="D:\My\git\repositories\Bugs\legend-cloud\legend-campus\src\main\resources\static\external\bootstrapvalidator-master" />
-      <recent name="D:\My\git\repositories\Bugs\legend-cloud\legend-campus\src\main\resources\static\external" />
-      <recent name="D:\My\git\repositories\Bugs\legend-cloud\legend-campus\src\main\resources\mapper\campus" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\My\git\repositories\Bugs\legend-cloud\legend-campus\src\main\resources\static\js" />
+      <recent name="D:\My\git\repositories\Bugs\legend-cloud\legend-campus\src\main\resources\templates" />
+      <recent name="D:\My\git\repositories\Bugs\legend-cloud\legend-campus\src\main\resources\static\css" />
+      <recent name="D:\My\git\repositories\Bugs\legend-cloud\legend-campus\src\main\resources\templates\common\component" />
+      <recent name="D:\My\git\repositories\Bugs\legend-cloud\legend-campus\src\main\resources\static\external\bootstrapvalidator-master" />
+    </key>
+  </component>
+  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
+    <UpdatedFiles>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/vo/campus/CampusAccountVO.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/web/controller/campus/CampusAccountController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/legend-campus/src/main/resources/templates/common/component/navbar.ftl</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/legend-campus/src/main/resources/templates/common/component/personal-leftSide.ftl</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/legend-campus/src/main/resources/templates/help.ftl</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/legend-campus/src/main/resources/templates/index.ftl</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/legend-campus/src/main/resources/templates/myProfile.ftl</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/legend-campus/src/main/resources/templates/publish.ftl</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/legend-campus/src/main/resources/templates/seekCourse.ftl</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/legend-campus/src/main/resources/templates/teachCourse.ftl</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/legend-campus/src/main/resources/templates/verify.ftl</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/legend-campus/legend-campus-web/target/classes/templates/common/component/other-info.ftl</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/legend-campus/legend-campus-web/target/classes/templates/common/component/personal-leftSide.ftl</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/legend-campus/legend-campus-web/target/classes/templates/course.ftl</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/legend-campus/src/main/resources/static/image/avatar/picture1.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/legend-campus/src/main/resources/static/image/carousel/news2.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/legend-campus/src/main/resources/static/image/carousel/news3.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/legend-campus/src/main/resources/static/image/carousel/news4.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/legend-campus/src/main/resources/static/image/carousel/news5.png</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+      </FILE-GROUP>
+    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -565,7 +818,7 @@
       <workItem from="1524036754059" duration="12124000" />
       <workItem from="1524105420828" duration="26918000" />
       <workItem from="1524197389047" duration="16885000" />
-      <workItem from="1524226400750" duration="1842000" />
+      <workItem from="1524226400750" duration="13119000" />
     </task>
     <task id="LOCAL-00001" summary="重新更改项目结构，单模块处理所有业务&#10;entity和vo都放在model下">
       <created>1524039166353</created>
@@ -595,14 +848,22 @@
       <option name="project" value="LOCAL" />
       <updated>1524211909595</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="修复三级联动的bug">
+      <created>1524229001049</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1524229001049</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61398000" />
+    <option name="totallyTimeSpent" value="72675000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="FindBugs-IDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -614,7 +875,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23101953" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31453362" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38611713" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -626,7 +887,7 @@
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25053304" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25053304" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -661,148 +922,20 @@
     <MESSAGE value="将Example类移入/example包下&#10;更改campus_user_info为campus_account，更新相应的java代码" />
     <MESSAGE value="更改AbstractVO.parseTo()和AbstractVO.parseFrom()方法的返回值类型&#10;更改CampusAccountController.update()关于重新挂载Shiro的java代码部分&#10;更改页面myProfile对于userInfo的引用，更名为account" />
     <MESSAGE value="增加bootstrap validators验证" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加bootstrap validators验证" />
+    <MESSAGE value="修复三级联动的bug" />
+    <MESSAGE value="gengxin" />
+    <option name="LAST_COMMIT_MESSAGE" value="gengxin" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="7" />
+      <option name="time" value="9" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/web/controller/campus/CampusTeacherController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="41" column="105" lean-forward="false" selection-start-line="41" selection-start-column="105" selection-end-line="41" selection-end-column="105" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/web/controller/campus/CampusVerifyController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="42" column="101" lean-forward="false" selection-start-line="42" selection-start-column="101" selection-end-line="42" selection-end-column="101" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/web/controller/system/SystemMenuRelPermissionController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="48" column="145" lean-forward="false" selection-start-line="48" selection-start-column="145" selection-end-line="48" selection-end-column="145" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/web/controller/system/SystemPermissionController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="41" column="117" lean-forward="false" selection-start-line="41" selection-start-column="117" selection-end-line="41" selection-end-column="117" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/web/controller/system/SystemRoleRelPermissionController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="42" column="50" lean-forward="false" selection-start-line="42" selection-start-column="50" selection-end-line="42" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/web/controller/system/SystemUserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="34" column="13" lean-forward="false" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/legend-campus/src/main/resources/static/js/jquery-validate.js" />
-    <entry file="file://$PROJECT_DIR$/legend-campus/src/main/resources/static/external/bootstrapvalidator-master/src/js/language/ar_MA.js" />
-    <entry file="file://$PROJECT_DIR$/legend-campus/src/main/resources/static/external/bootstrapvalidator-master/js/validator/emailAddress.js" />
-    <entry file="file://$USER_HOME$/Desktop/bootstrapvalidator-master/dist/js/bootstrapValidator.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/bootstrapvalidator-master/dist/css/bootstrapValidator.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/legend-campus/src/main/resources/static/js/common/customize/validate-methods.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/bootstrapvalidator-0.4.5/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/bootstrapvalidator-0.4.5/CHANGELOG.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/legend-campus/src/main/resources/static/external/bootstrapvalidator-master/css/bootstrapValidator.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/web/controller/system/SystemUserRelRoleController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="39" column="35" lean-forward="false" selection-start-line="39" selection-start-column="35" selection-end-line="39" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/web/realm/ShiroRealm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="503">
-          <caret line="139" column="28" lean-forward="false" selection-start-line="139" selection-start-column="28" selection-end-line="139" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/web/controller/system/SystemRoleController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="41" column="93" lean-forward="false" selection-start-line="41" selection-start-column="93" selection-end-line="41" selection-end-column="93" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/alibaba/druid/1.1.8/druid-1.1.8.jar!/support/http/resources/css/bootstrap.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="8" column="7605" lean-forward="false" selection-start-line="8" selection-start-column="7605" selection-end-line="8" selection-end-column="7605" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/legend-campus/src/main/resources/static/external/bootstrapvalidator-master/js/bootstrapValidator.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="839" column="4" lean-forward="false" selection-start-line="839" selection-start-column="4" selection-end-line="839" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/legend-campus/src/main/resources/static/external/bootstrapvalidator-master/js/language/ar_MA.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -821,6 +954,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="212">
           <caret line="1215" column="1" lean-forward="false" selection-start-line="1215" selection-start-column="1" selection-end-line="1215" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -842,6 +976,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="10" column="3" lean-forward="true" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -852,24 +987,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/legend-campus/src/main/resources/static/css/bootstrap.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="9584" column="7" lean-forward="false" selection-start-line="9584" selection-start-column="7" selection-end-line="9584" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/legend-campus/src/main/resources/templates/common/css.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="50" lean-forward="false" selection-start-line="0" selection-start-column="41" selection-end-line="0" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/legend-campus/src/main/resources/static/css/campus-settings.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="215" column="14" lean-forward="false" selection-start-line="215" selection-start-column="14" selection-end-line="215" selection-end-column="14" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -877,13 +999,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="602">
           <caret line="2630" column="5" lean-forward="false" selection-start-line="2630" selection-start-column="5" selection-end-line="2630" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/legend-campus/src/main/resources/templates/common/js.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="39" lean-forward="false" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="39" />
           <folding />
         </state>
       </provider>
@@ -902,22 +1017,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="115" column="49" lean-forward="true" selection-start-line="115" selection-start-column="49" selection-end-line="115" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/legend-campus/src/main/resources/templates/common/head.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="6" lean-forward="false" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/legend-campus/src/main/resources/templates/login.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="46" lean-forward="false" selection-start-line="11" selection-start-column="46" selection-end-line="11" selection-end-column="46" />
-          <folding />
+          <folding>
+            <element signature="e#5426#5433#1#HTML" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -933,14 +1035,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="317">
           <caret line="123" column="32" lean-forward="false" selection-start-line="123" selection-start-column="32" selection-end-line="123" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/legend-campus/src/main/resources/templates/common/component/navbar.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1326">
-          <caret line="78" column="17" lean-forward="false" selection-start-line="78" selection-start-column="17" selection-end-line="78" selection-end-column="17" />
           <folding />
         </state>
       </provider>
@@ -961,29 +1055,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/legend-campus/src/main/resources/templates/publish.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="699" column="22" lean-forward="false" selection-start-line="699" selection-start-column="22" selection-end-line="699" selection-end-column="22" />
-          <folding>
-            <element signature="e#7816#7823#1#HTML" expanded="true" />
-            <element signature="e#23690#23697#1#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/legend-campus/src/main/resources/templates/myProfile.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="719">
-          <caret line="332" column="89" lean-forward="false" selection-start-line="332" selection-start-column="89" selection-end-line="332" selection-end-column="89" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/vo/campus/CampusAccountVO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
-          <caret line="61" column="10" lean-forward="true" selection-start-line="61" selection-start-column="10" selection-end-line="61" selection-end-column="10" />
+          <caret line="61" column="10" lean-forward="false" selection-start-line="61" selection-start-column="10" selection-end-line="61" selection-end-column="10" />
           <folding />
         </state>
       </provider>
@@ -1012,14 +1087,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/web/controller/campus/CampusCourseController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="139" column="53" lean-forward="true" selection-start-line="139" selection-start-column="8" selection-end-line="139" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-core/1.4.0/shiro-core-1.4.0-sources.jar!/org/apache/shiro/SecurityUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -1031,9 +1098,9 @@
     <entry file="file://$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/web/controller/campus/CampusAccountController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
-          <caret line="122" column="13" lean-forward="true" selection-start-line="122" selection-start-column="13" selection-end-line="122" selection-end-column="13" />
+          <caret line="122" column="13" lean-forward="false" selection-start-line="122" selection-start-column="13" selection-end-line="122" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1041,8 +1108,283 @@
     <entry file="file://$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/web/controller/CampusController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
-          <caret line="23" column="48" lean-forward="true" selection-start-line="23" selection-start-column="48" selection-end-line="23" selection-end-column="48" />
+          <caret line="23" column="48" lean-forward="false" selection-start-line="23" selection-start-column="48" selection-end-line="23" selection-end-column="48" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/legend-campus/src/main/resources/static/js/jquery.magnific-popup.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1524240291242" expanded="true" signature="27814:27821" ph="×" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/login/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="145" column="24" lean-forward="false" selection-start-line="145" selection-start-column="24" selection-end-line="145" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/legend-campus/src/main/resources/static/external/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/legend-campus/src/main/resources/static/external/bootstrap-datetimepicker-master/css/datetimepicker.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-714">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/legend-campus/src/main/resources/static/image/icon/bootstrap-solid.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/legend-campus/src/main/resources/static/external/bootstrapvalidator-master/js/bootstrapValidator.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-803">
+          <caret line="1780" column="48" lean-forward="false" selection-start-line="1780" selection-start-column="48" selection-end-line="1780" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/legend-campus/src/main/resources/static/css/bootstrap.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="9587" column="5" lean-forward="false" selection-start-line="9587" selection-start-column="5" selection-end-line="9587" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/legend-campus/src/main/resources/templates/common/css.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="17" lean-forward="true" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/login/login.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="30" column="4" lean-forward="false" selection-start-line="30" selection-start-column="4" selection-end-line="39" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/legend-campus/src/main/resources/static/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="75" column="20" lean-forward="true" selection-start-line="75" selection-start-column="20" selection-end-line="75" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/legend-campus/src/main/resources/templates/login.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="99" column="35" lean-forward="false" selection-start-line="99" selection-start-column="35" selection-end-line="99" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/legend-campus/src/main/resources/static/css/login.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="118" column="14" lean-forward="false" selection-start-line="118" selection-start-column="5" selection-end-line="118" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/legend-campus/src/main/resources/templates/common/head.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="6" lean-forward="true" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/vue-validator-dev/dist/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/legend-campus/src/main/resources/static/js/jquery.validate.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="3" column="7690" lean-forward="false" selection-start-line="3" selection-start-column="7683" selection-end-line="3" selection-end-column="7690" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/legend-campus/src/main/resources/templates/login.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="60" column="50" lean-forward="true" selection-start-line="60" selection-start-column="50" selection-end-line="60" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/legend-campus/src/main/resources/static/js/vue-validator.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="2260" lean-forward="false" selection-start-line="6" selection-start-column="2260" selection-end-line="6" selection-end-column="2260" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/legend-campus/src/main/resources/templates/common/component/navbar.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1224">
+          <caret line="78" column="17" lean-forward="false" selection-start-line="78" selection-start-column="17" selection-end-line="78" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/facade/CoursePublishFacade.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="19" column="8" lean-forward="false" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/vo/campus/complex/CoursePublishVO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="23" column="25" lean-forward="false" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/vo/campus/CampusCourseLimitVO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="91" column="84" lean-forward="false" selection-start-line="91" selection-start-column="84" selection-end-line="91" selection-end-column="84" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/facade/impl/CoursePublishFacadeImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="49" column="30" lean-forward="false" selection-start-line="49" selection-start-column="30" selection-end-line="49" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/legend-campus/src/main/java/com/legend/cloud/campus/web/controller/campus/CampusCourseController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="105" column="47" lean-forward="false" selection-start-line="105" selection-start-column="47" selection-end-line="105" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/legend-campus/src/main/resources/templates/myProfile.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="109" column="73" lean-forward="false" selection-start-line="109" selection-start-column="72" selection-end-line="109" selection-end-column="73" />
+          <folding>
+            <marker date="1524239823423" expanded="true" signature="13757:20036" ph="..." />
+            <marker date="1524239823423" expanded="true" signature="14058:16588" ph="{...}" />
+            <marker date="1524239823423" expanded="true" signature="14277:14839" ph="{...}" />
+            <marker date="1524239823423" expanded="true" signature="14316:14390" ph="{...}" />
+            <marker date="1524239823423" expanded="true" signature="14396:14821" ph="{...}" />
+            <marker date="1524239823423" expanded="true" signature="15086:15650" ph="{...}" />
+            <marker date="1524239823423" expanded="true" signature="15125:15201" ph="{...}" />
+            <marker date="1524239823423" expanded="true" signature="15207:15632" ph="{...}" />
+            <marker date="1524239823423" expanded="true" signature="15917:16562" ph="{...}" />
+            <marker date="1524239823423" expanded="true" signature="15956:16113" ph="{...}" />
+            <marker date="1524239823423" expanded="true" signature="16119:16544" ph="{...}" />
+            <marker date="1524239823423" expanded="true" signature="16642:17534" ph="{...}" />
+            <marker date="1524239823423" expanded="true" signature="16912:17500" ph="{...}" />
+            <marker date="1524239823423" expanded="true" signature="17389:17470" ph="{...}" />
+            <marker date="1524239823423" expanded="true" signature="17618:18771" ph="{...}" />
+            <marker date="1524239823423" expanded="true" signature="17676:17729" ph="{...}" />
+            <marker date="1524239823423" expanded="true" signature="18011:18737" ph="{...}" />
+            <marker date="1524239823423" expanded="true" signature="18054:18248" ph="{...}" />
+            <marker date="1524239823423" expanded="true" signature="18254:18715" ph="{...}" />
+            <marker date="1524239823423" expanded="true" signature="18824:19985" ph="{...}" />
+            <marker date="1524239823423" expanded="true" signature="18882:18935" ph="{...}" />
+            <marker date="1524239823423" expanded="true" signature="19217:19951" ph="{...}" />
+            <marker date="1524239823423" expanded="true" signature="19260:19462" ph="{...}" />
+            <marker date="1524239823423" expanded="true" signature="19468:19929" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/legend-campus/src/main/resources/templates/common/js.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="44" lean-forward="false" selection-start-line="17" selection-start-column="44" selection-end-line="17" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/legend-campus/src/main/resources/templates/publish.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7250">
+          <caret line="613" column="0" lean-forward="false" selection-start-line="613" selection-start-column="0" selection-end-line="613" selection-end-column="0" />
+          <folding>
+            <marker date="1524240291153" expanded="true" signature="41252:41261" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/legend-campus/src/main/resources/templates/index.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="198" column="1" lean-forward="false" selection-start-line="198" selection-start-column="1" selection-end-line="198" selection-end-column="1" />
+          <folding>
+            <marker date="1524239824922" expanded="true" signature="15491:16833" ph="..." />
+            <marker date="1524239824922" expanded="true" signature="15708:15908" ph="{...}" />
+            <marker date="1524239824922" expanded="true" signature="15747:15890" ph="{...}" />
+            <marker date="1524239824922" expanded="true" signature="15944:16360" ph="{&quot;url&quot;: &quot;/campus/course/list&quot;...}" />
+            <marker date="1524239824922" expanded="true" signature="16041:16097" ph="{&quot;typeCourse&quot;: &quot;教学&quot;...}" />
+            <marker date="1524239824922" expanded="true" signature="16140:16346" ph="{...}" />
+            <marker date="1524239824922" expanded="true" signature="16179:16328" ph="{...}" />
+            <marker date="1524239824922" expanded="true" signature="16382:16805" ph="{&quot;url&quot;: &quot;/campus/course/list&quot;...}" />
+            <marker date="1524239824922" expanded="true" signature="16479:16540" ph="{&quot;userId&quot;: _this.user.id...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/legend-campus/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-510">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/legend-campus/src/main/resources/static/js/common/vue/vue-global.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

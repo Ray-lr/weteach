@@ -6,7 +6,7 @@
     <div class="container margin-top10" id="principal">
         <div class="row justify-content-md-center">
         <#include "common/component/personal-leftSide.ftl">
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-8">
                 <!-- 轮播图 -->
                 <div class="carousel slide" id="carouselExampleIndicators" data-ride="carousel">
                     <ol class="carousel-indicators">
@@ -106,8 +106,8 @@
                                                v-text="item.description">
                                             </p>
                                             <div class="dropdown-divider"></div>
-                                            <span v-text="'报名截止时间：'+item.applyEndTime"></span>
-                                            <span v-text="'开课时间：'+item.beginTime"></span>
+                                            <span v-text="'报名截止时间：'+ item.applyEndTime"></span>
+                                            <span v-text="'开课时间：'+ item.beginTime"></span>
                                             <span v-text="'参与人数：'+item.lessonNum"></span>
                                         </div>
                                     </div>
@@ -150,9 +150,9 @@
                                                v-text="item.description">
                                             </p>
                                             <div class="dropdown-divider"></div>
-                                            <span v-text="'报名截止时间：'+item.applyEndTime"></span>
-                                            <span v-text="'开课时间：'+item.beginTime"></span>
-                                            <span v-text="'参与人数：'+item.lessonNum"></span>
+                                            <span v-text="'报名截止时间：'+ item.applyEndTime"></span>
+                                            <span v-text="'开课时间：'+ item.beginTime"></span>
+                                            <span v-text="'参与人数：'+ item.lessonNum "></span>
                                         </div>
                                     </div>
                                 </div>
@@ -194,9 +194,9 @@
                                                v-text="item.description">
                                             </p>
                                             <div class="dropdown-divider"></div>
-                                            <span v-text="'报名截止时间：'+item.applyEndTime"></span>
-                                            <span v-text="'开课时间：'+item.beginTime"></span>
-                                            <span v-text="'参与人数：'+item.lessonNum"></span>
+                                            <span v-text="'报名截止时间：'+ item.applyEndTime"></span>
+                                            <span v-text="'开课时间：'+ item.beginTime"></span>
+                                            <span v-text="'参与人数：'+ item.lessonNum"></span>
                                         </div>
                                     </div>
                                 </div>

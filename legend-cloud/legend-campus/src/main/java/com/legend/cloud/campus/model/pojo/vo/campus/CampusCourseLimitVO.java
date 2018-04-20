@@ -73,7 +73,7 @@ public class CampusCourseLimitVO extends AbstractVO<CampusCourseLimit, CampusCou
     @Override
     public CampusCourseLimit parseTo(String... ignoreProperties) {
         CampusCourseLimit campusCourseLimit = super.parseTo(ignoreProperties);
-        campusCourseLimit.setGrade(Integer.valueOf(Arrays.toString(this.grade)));
+        campusCourseLimit.setGrade(this.grade != null ? Integer.valueOf(Arrays.toString(this.grade)) : null);
         return campusCourseLimit;
     }
 
@@ -90,7 +90,7 @@ public class CampusCourseLimitVO extends AbstractVO<CampusCourseLimit, CampusCou
         return campusCourseLimits.stream().map(entity -> {
             CampusCourseLimitVO campusCourseLimitVO = new CampusCourseLimitVO();
             BeanUtils.copyProperties(entity, campusCourseLimitVO, ignoreProperties);
-            campusCourseLimitVO.setGrade(String.valueOf(entity.getGrade()).toCharArray());
+            campusCourseLimitVO.setGrade(entity.getGrade() != null ? String.valueOf(entity.getGrade()).toCharArray() : null);
             return campusCourseLimitVO;
         }).collect(Collectors.toList());
     }

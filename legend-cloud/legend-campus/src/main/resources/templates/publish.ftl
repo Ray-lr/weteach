@@ -25,21 +25,21 @@
                 <div class="col col-md-10 tab-pane fade <#if !type?? || type=="seek">show active</#if>" id="study"
                      role="tabpanel"
                      aria-labelledby="study-tab">
-                    <form class="publishForm">
+                    <form @submit.prevent="publish($event)">
                     <#--隐藏的课程类型-->
                         <input type="hidden" name="course.typeCourse" value="求学">
                         <!--标题-->
                         <div class="form-group">
-                            <label class="control-label" for="courseTitle">课程标题</label>
+                            <label for="courseTitle">课程标题</label>
                             <input type="text" class="form-control" id="courseTitle"
                                    name="course.title"
                                    placeholder="标题">
                         </div>
                         <!--系别/专业/课程-->
                         <div class="form-group">
-                            <label class="control-label" for="course">系别/专业/课程</label>
+                            <label for="course">系别/专业/课程</label>
                             <div class="input-group">
-                                <select class="selectpicker form-control" id="dept roleidForSelect"
+                                <select class="form-control" id="dept"
                                         v-model="dept" name="course.dept"
                                         data-toggle="tooltip"
                                         data-placement="left" title="请选择系别">
@@ -63,19 +63,19 @@
                         </div>
                         <!--课程描述-->
                         <div class="form-group">
-                            <label class="control-label" for="description">课程描述</label>
+                            <label for="description">课程描述</label>
                             <textarea class="form-control" id="description" rows="3"
                                       name="course.description" placeholder="不超过100个字"></textarea>
                         </div>
                         <!--相关备注-->
                         <div class="form-group">
-                            <label class="control-label" for="remark">相关备注</label>
+                            <label for="remark">相关备注</label>
                             <textarea class="form-control" id="remark" rows="4"
                                       name="course.remark" placeholder="选填"></textarea>
                         </div>
                         <!--悬赏积分-->
                         <div class="form-group">
-                            <label class="control-label" for="payCredits">悬赏积分</label>
+                            <label for="payCredits">悬赏积分</label>
                             <input type="number" class="form-control" id="payCredits"
                                    name="course.payCredits"
                                    :value="1"
@@ -84,34 +84,39 @@
                         </div>
                         <!--报名截止时间-->
                         <div class="form-group">
-                            <label class="control-label" for="applyEndTime">截止时间</label>
+                            <label for="applyEndTime">截止时间</label>
                             <div class="input-group date form_datetime"
                                  data-picker-position="top-right">
                                 <input type="text" class="form-control cursor-pointer"
-                                       data-link-field="#applyEndTime"
-                                       data-link-format="yyyy-mm-dd hh:ii"
+                                       id="applyEndTime"
+                                       name="course.applyEndTime"
+                                       aria-describedby="expectedApplyEndTimeHelp"
                                        placeholder="报名截止日期"
                                        readonly>
                                 <span class="input-group-addon"><span
                                         class="glyphicon glyphicon-th"></span></span>
-                                <input type="hidden" name="course.applyEndTime" id="applyEndTime">
                             </div>
+                            <small id="expectedApplyEndTimeHelp" class="form-text text-muted">
+
+                            </small>
                         </div>
-                        <!--开课时间-->
+                        <!--报名截止时间-->
                         <div class="form-group">
-                            <label class="control-label" for="beginTime">开课时间</label>
-                            <input type="hidden" name="course.beginTime">
+                            <label for="beginTime">开课时间</label>
                             <div class="input-group date form_datetime"
                                  data-picker-position="top-right">
                                 <input type="text" class="form-control cursor-pointer"
-                                       data-link-field="#beginTime"
-                                       data-link-format="yyyy-mm-dd hh:ii"
+                                       id="beginTime"
+                                       name="course.beginTime"
+                                       aria-describedby="expectedBeginTimeHelp"
                                        placeholder="开课时间"
                                        readonly>
                                 <span class="input-group-addon"><span
                                         class="glyphicon glyphicon-th"></span></span>
-                                <input type="hidden" name="course.beginTime" id="beginTime">
                             </div>
+                            <small id="expectedBeginTimeHelp" class="form-text text-muted">
+
+                            </small>
                         </div>
                         <!--模态框限制-->
                         <button type="button" class="btn btn-danger" data-toggle="modal"
@@ -247,7 +252,7 @@
                 <div class="col col-md-10 tab-pane fade <#if type?? && type=="teach">show active</#if>" id="teaching"
                      role="tabpanel"
                      aria-labelledby="teaching-tab">
-                    <form class="publishForm">
+                    <form @submit.prevent="publish($event)">
                         <!--标题-->
                         <div class="form-group">
                             <label for="courseTitle">课程标题</label>
@@ -323,6 +328,9 @@
                                 <span class="input-group-addon"><span
                                         class="glyphicon glyphicon-th"></span></span>
                             </div>
+                            <small id="expectedPublishTimeHelp" class="form-text text-muted">
+
+                            </small>
                         </div>
                         <!--结课时间-->
                         <div class="form-group">
@@ -337,13 +345,16 @@
                                 <span class="input-group-addon"><span
                                         class="glyphicon glyphicon-th"></span></span>
                             </div>
+                            <small id="finishTimeHelp" class="form-text text-muted">
+
+                            </small>
                         </div>
                         <!--模态框限制-->
                         <button type="button" class="btn btn-danger" data-toggle="modal"
                                 data-target="#exampleModal2" style="width: 100%">
                             增加限制条件
                         </button>
-                        <div class="modal " id="exampleModal2" tabindex="-1" role="dialog"
+                        <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog"
                              aria-labelledby="exampleModalLabel2" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
@@ -505,7 +516,6 @@
         </div>
     </div>
 </div>
-<#include "common/bottom.ftl">
 <#include "common/js.ftl">
 <script>
     let vm = new Vue({
@@ -542,7 +552,7 @@
                     }
                 }
             });
-            //点击展开限制条件
+
             $(function () {
                 $("#seek_major_limit").on('ifChanged', function (event) {
                     $("#seek_major").toggle();
@@ -577,102 +587,32 @@
                     $('.all_check').iCheck('uncheck');
                     $('.cancel_all').hide();
                 });
-            });
-            $(function () {
-                $('.publishForm').bootstrapValidator({
-                    message: 'This value is not valid',
-                    excluded: [":disabled"],
-                    feedbackIcons: {
-                        valid: 'glyphicon glyphicon-ok',
-                        invalid: 'glyphicon glyphicon-remove',
-                        validating: 'glyphicon glyphicon-refresh'
-                    },
-                    live: 'enabled',
-                    fields: {
-                        'course.title': {
-                            validators: {
-                                notEmpty: {
-                                    message: '课程标题不能为空',
-                                },
-                                stringLength: {//检测长度
-                                    min: 5,
-                                    max: 30,
-                                    message: '长度必须在5-30之间'
-                                },
-                            }
-                        },
-                        'course.course': {
-                            validators: {
-                                notEmpty: {
-                                    message: '课程不能为空'
-                                },
-                            }
-                        },
-                        'course.description': {
-                            validators: {
-                                notEmpty: {
-                                    message: '描述不能为空'
-                                },
-                                stringLength: {//检测长度
-                                    min: 1,
-                                    max: 100,
-                                    message: '长度必须在100之内'
-                                },
-                            }
-                        },
-                        'course.payCredits': {
-                            validators: {
-                                notEmpty: {
-                                    message: '悬赏积分不能为空'
-                                },
-                                regexp: {
-                                    regexp: /^[1-9]\d{1,3}$/,
-                                    message: '积分必须为1到3位的整数'
-                                }
-                            }
-                        },
-                        'course.applyEndTime': {
-                            validators: {
-                                notEmpty: {
-                                    message: '报名截止不能为空'
-                                }
-                            }
-                        },
-                        'course.beginTime': {
-                            validators: {
-                                trigger: "change",
-                                notEmpty: {
-                                    message: '开课时间不能为空'
-                                }
-                            }
-                        }
-                    },
-                    submitHandler: function (validator, form, submitButton) {
-                        console.log("publish submit");
-                    },
-
-                }).on("success.form.bv", function (e) {
-                    e.preventDefault();
-                    $(e.currentTarget).ajaxSubmit({
-                        url: "/campus/course/add",
-                        type: "POST",
-                        success: function (data) {
-                            Messenger().post({
-                                id: "messenger",
-                                message: data.result ? "您的申请已提交，请耐心等待一到两个工作日。" : "申请提交失败，请检查信息并修改！",//提示信息
-                                type: data.result ? 'success' : 'error',//消息类型。error、info、success
-                                hideAfter: 3,//多长时间消失
-                                showCloseButton: true,//是否显示关闭按钮
-                                hideOnNavigate: false//是否隐藏导航
-                            });
-                        }
-                    });
-                    setTimeout(function () {
-                        window.location.reload();
-                    }, 3000);
-                });
             })
+        },
+        methods: {
+            publish: function (e) {
+                $(e.currentTarget).find("input[type='submit']").attr("disabled", "disabled");
+                vm.submitText = "请耐心等待";
+                let _this = this;
+                $(e.currentTarget).ajaxSubmit({
+                    url: "/campus/course/add",
+                    type: "POST",
+                    success: function (data) {
+                        Messenger().post({
+                            id: "messenger",
+                            message: data.result ? "您的申请已提交，请耐心等待一到两个工作日。" : "申请提交失败，请检查信息并修改！",//提示信息
+                            type: data.result ? 'success' : 'error',//消息类型。error、info、success
+                            hideAfter: 3,//多长时间消失
+                            showCloseButton: true,//是否显示关闭按钮
+                            hideOnNavigate: false//是否隐藏导航
+                        });
+                        setTimeout(function () {
+                            window.location.reload();
+                        }, 3000);
+                    }
+                });
 
+            }
         },
         watch: {
             dept: function () {
@@ -687,7 +627,6 @@
                         if (data.result) {
                             _this.majors = data.data;
                             _this.major = _this.majors[0].id;
-
                         } else {
                             Messenger().post({
                                 id: "error",
@@ -728,5 +667,6 @@
             }
         }
     });
+
 </script>
 <#include "common/foot.ftl">

@@ -16,6 +16,7 @@
                                     <input type="text" class="form-control" id="username"
                                            v-model="username" name="username"
                                            placeholder="Enter Username">
+                                    <span class="error"></span>
                                 </div>
                             </div>
                             <div class="row form-group">
@@ -110,6 +111,50 @@
                         }
                     });
                 });
+
+                /*$("#loginForm").validate({
+                    debug: true,
+                    rules: {
+                        username: {
+                            required: true,
+                        }, password: {
+                            required: true
+                        }
+                    },
+                    messages: {
+                        username: {
+                            required: "用户名不能为空"
+                        }, password: {
+                            required: "密码不能为空"
+                        }
+                    },
+                    errorPlacement: function (error, element) {
+                        $(element).next("span[class='error']")
+                                .append(error);
+
+                    },
+                    submitHandler: function (form) {
+                        form.preventDefault();
+                        form.ajaxSubmit({
+                            url: "/" + vm.host + "/user/login",
+                            type: "post",
+                            success: function (data) {
+                                Messenger().post({
+                                    id: "loginMessenger",
+                                    message: data.msg,//提示信息
+                                    type: data.result ? 'success' : 'error',//消息类型。error、info、success
+                                    hideAfter: 2,//多长时间消失
+                                    showCloseButton: true,//是否显示关闭按钮
+                                    hideOnNavigate: false//是否隐藏导航
+                                });
+                                setTimeout(function () {
+                                    window.location.href = data.url;
+                                }, 2000);
+
+                            }
+                        })
+                    }
+                });*/
             })
         }
     });

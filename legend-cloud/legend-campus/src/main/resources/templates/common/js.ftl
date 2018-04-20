@@ -3,6 +3,7 @@
 <script src="/static/js/jquery-3.3.1.js"></script>
 <script src="/static/js/jquery.form.js"></script>
 <script src="/static/js/vue.js"></script>
+<script src="/static/js/jquery.validate.min.js"></script>
 <script src="/static/js/vue-router.js"></script>
 <script src="/static/js/less.min.js"></script>
 <script src="/static/js/bootstrap.js"></script>
@@ -16,6 +17,7 @@
 <script src="/static/js/common/customize/date.js"></script>
 <script src="/static/js/common/vue/vue-global.js"></script>
 <script src="/static/js/common/campus-settings.js"></script>
+
 <script>
     Vue.prototype.user = <#if currentUser??>${currentUser}<#else>{
         account: {}
