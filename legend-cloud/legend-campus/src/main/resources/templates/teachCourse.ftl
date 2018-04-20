@@ -12,23 +12,28 @@
             <div class="col col-md-3" id="others">
             <#include "common/component/other-info.ftl">
                 <div class="dropdown-divider"></div>
+                <!--参与者名单-->
                 <div style="height:150px;">
                     <div align="center">
-                        <a href="#">
+                        <a href="/direct/lesson">
                             <button type="button" class="btn btn-success"
-                                    style="width: 100%;height:50px;font-size:20px;">课时设置
+                                    style="width: 100%">课时设置
                             </button>
                         </a>
                     </div>
-                    <h6 style="font-weight: bold">当前课程进度:63%</h6>
+                    <div align="left" style="height: 25px">
+                        <span style="font-weight: bold">当前课时状态:未开课</span>
+                    </div>
+                    <h6 style="font-weight: bold">当前课程进度:3/4</h6>
                     <div class="progress">
                         <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
                              aria-valuenow="63" aria-valuemin="0" aria-valuemax="100" style="width: 63%"></div>
                     </div>
-                    <div align="left">
-                        <span>已完成课时:3/4</span>
+                    <div class="dropdown-divider"></div>
+                    <div>
+                        <span style="font-weight: bold">报名者名单:</span>
                     </div>
-
+                    <div class="dropdown-divider"></div>
                 </div>
 
             </div>
@@ -76,8 +81,30 @@
                 </div>
                 <!--积分-->
                 <label for=" credits">参与所需积分</label>
-                <div class="alert alert-danger">
+                <div class="alert alert-info">
                     <span v-text="course.getCredits"></span>
+                </div>
+                <!--课时节数-->
+                <label for="lessonNum">课时节数</label>
+                <div class="alert alert-info">
+                    <span v-text="course.lessonNum"></span>
+                </div>
+
+                <!--以下三个内容查询campus_course_lesson课时表-->
+                <!--开课地点-->
+                <label for="location">开课地点</label>
+                <div class="alert alert-info">
+                    <span></span>
+                </div>
+                <!--开课时间-->
+                <label for="beginTime">开课时间</label>
+                <div class="alert alert-info">
+                    <span></span>
+                </div>
+                <!--结课时间-->
+                <label for="endTime">结课时间</label>
+                <div class="alert alert-info">
+                    <span></span>
                 </div>
 
             </div>
