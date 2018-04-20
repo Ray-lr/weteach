@@ -39,7 +39,6 @@
                         <div class="form-group">
                             <label class="control-label" for="course">系别/专业/课程</label>
                             <div class="input-group">
-                                <input type="hidden" class="form-control" id="roleid" name="roleid">
                                 <select class="selectpicker form-control" id="dept roleidForSelect"
                                         v-model="dept" name="course.dept"
                                         data-toggle="tooltip"
@@ -89,28 +88,29 @@
                             <div class="input-group date form_datetime"
                                  data-picker-position="top-right">
                                 <input type="text" class="form-control cursor-pointer"
-                                       id="applyEndTime"
-                                       name="course.applyEndTime"
-                                       aria-describedby="expectedApplyEndTimeHelp"
+                                       data-link-field="#applyEndTime"
+                                       data-link-format="yyyy-mm-dd hh:ii"
                                        placeholder="报名截止日期"
                                        readonly>
                                 <span class="input-group-addon"><span
                                         class="glyphicon glyphicon-th"></span></span>
+                                <input type="hidden" name="course.applyEndTime" id="applyEndTime">
                             </div>
                         </div>
                         <!--开课时间-->
                         <div class="form-group">
                             <label class="control-label" for="beginTime">开课时间</label>
+                            <input type="hidden" name="course.beginTime">
                             <div class="input-group date form_datetime"
                                  data-picker-position="top-right">
                                 <input type="text" class="form-control cursor-pointer"
-                                       id="beginTime"
-                                       name="course.beginTime"
-                                       aria-describedby="expectedBeginTimeHelp"
+                                       data-link-field="#beginTime"
+                                       data-link-format="yyyy-mm-dd hh:ii"
                                        placeholder="开课时间"
                                        readonly>
                                 <span class="input-group-addon"><span
                                         class="glyphicon glyphicon-th"></span></span>
+                                <input type="hidden" name="course.beginTime" id="beginTime">
                             </div>
                         </div>
                         <!--模态框限制-->
@@ -323,9 +323,6 @@
                                 <span class="input-group-addon"><span
                                         class="glyphicon glyphicon-th"></span></span>
                             </div>
-                            <small id="expectedPublishTimeHelp" class="form-text text-muted">
-
-                            </small>
                         </div>
                         <!--结课时间-->
                         <div class="form-group">
@@ -340,9 +337,6 @@
                                 <span class="input-group-addon"><span
                                         class="glyphicon glyphicon-th"></span></span>
                             </div>
-                            <small id="finishTimeHelp" class="form-text text-muted">
-
-                            </small>
                         </div>
                         <!--模态框限制-->
                         <button type="button" class="btn btn-danger" data-toggle="modal"
@@ -513,17 +507,6 @@
 </div>
 <#include "common/js.ftl">
 <script>
-    $('#roleidForSelect').on('hidden.bs.select', function (e) { //该方法注册到$(function(){})函数中
-        var tmpSelected = $('#roleidForSelect').val();
-        if (tmpSelected != null) {
-            $('#roleid').val(tmpSelected);
-        } else {
-            $('#roleid').val("");
-        }
-//由于input为hidden，验证会出现一些bug，此处手动验证隐藏的input组件
-        $('#myModalForm').data('bootstrapValidator').updateStatus('roleid', 'NOT_VALIDATED').validateField('roleid');
-    });</script>
-<script>
     let vm = new Vue({
         el: "#vm",
         data: {
@@ -584,11 +567,12 @@
                 $("#person_num_limit").on('ifChanged', function (event) {
                     $("#person_num").toggle();
                 });
-                $('.bigBox').on('ifChecked', function (event) {
+                let bigBox = $('.bigBox');
+                bigBox.on('ifChecked', function (event) {
                     $('.all_check').iCheck('check');
                     $('.cancel_all').show();
                 });
-                $('.bigBox').on('ifUnchecked', function (event) {
+                bigBox.on('ifUnchecked', function (event) {
                     $('.all_check').iCheck('uncheck');
                     $('.cancel_all').hide();
                 });
@@ -596,6 +580,7 @@
             $(function () {
                 $('.publishForm').bootstrapValidator({
                     message: 'This value is not valid',
+                    excluded: [":disabled"],
                     feedbackIcons: {
                         valid: 'glyphicon glyphicon-ok',
                         invalid: 'glyphicon glyphicon-remove',
@@ -606,29 +591,15 @@
                         'course.title': {
                             validators: {
                                 notEmpty: {
-                                    message: '课程标题不能为空'
-                                }
-                            }
-                        },
-                        'course.dept': {
-                            validators: {
-                                notEmpty: {
-                                    message: '系别不能为空'
-                                }
-                            }
-                        },
-                        'course.major': {
-                            validators: {
-                                notEmpty: {
-                                    message: '专业不能为空'
-                                }
+                                    message: '课程标题不能为空',
+                                },
                             }
                         },
                         'course.course': {
                             validators: {
                                 notEmpty: {
                                     message: '课程不能为空'
-                                }
+                                },
                             }
                         },
                         'course.description': {
@@ -654,6 +625,7 @@
                         },
                         'course.beginTime': {
                             validators: {
+                                trigger: "change",
                                 notEmpty: {
                                     message: '开课时间不能为空'
                                 }
@@ -700,6 +672,7 @@
                         if (data.result) {
                             _this.majors = data.data;
                             _this.major = _this.majors[0].id;
+
                         } else {
                             Messenger().post({
                                 id: "error",

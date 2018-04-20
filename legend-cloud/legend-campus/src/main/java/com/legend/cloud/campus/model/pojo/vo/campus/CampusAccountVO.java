@@ -48,7 +48,7 @@ public class CampusAccountVO extends AbstractVO<CampusAccount, CampusAccountVO> 
     /**
      * 出生年月
      */
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date birthday;
     /**
      * 省/直辖市/自治区/特别行政区

@@ -42,7 +42,8 @@ public class CampusController extends LegendController<UserVO> {
             response.setContentType("application/json; charset=utf-8");
             if (requestedWith != null && "XMLHttpRequest".equalsIgnoreCase(requestedWith)) {
                 printWriter = response.getWriter();
-                printWriter.write(JSON.toJSONString(Ajax.error(UserResultMessage.PERMISSIONS_INSUFFICIENT, UserResultCode.PERMISSIONS_INSUFFICIENT)));
+                printWriter.write(JSON.toJSONString(Ajax.error(UserResultMessage.PERMISSIONS_INSUFFICIENT,
+                        UserResultCode.PERMISSIONS_INSUFFICIENT)));
             }
         } catch (IOException e) {
             e.printStackTrace();

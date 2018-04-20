@@ -13,8 +13,11 @@ import com.legend.module.core.model.group.option.AddGroup;
 import com.legend.module.core.model.group.option.UpdateGroup;
 import com.legend.module.core.model.json.result.Ajax;
 import com.legend.module.core.model.json.result.AjaxValidate;
+import com.legend.module.core.model.pojo.vo.user.UserVO;
 import com.legend.module.core.model.utils.PageUtils;
 import com.legend.module.core.model.utils.QueryUtils;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.validation.BindingResult;
@@ -41,7 +44,7 @@ public class CampusAccountController extends CampusController {
      * 根据campusAccountVO中不为空的字段以及query中的分页条件进行条件查询
      *
      * @param campusAccountVO 查询条件
-     * @param queryUtils 分页查询工具
+     * @param queryUtils      分页查询工具
      * @return Ajax.success() or Ajax.error()
      */
     @GetMapping("/list")
@@ -84,7 +87,7 @@ public class CampusAccountController extends CampusController {
      * 需要通过后台验证，并个根据id添加
      *
      * @param campusAccountVO 添加的campusAccountVO
-     * @param bindingResult 后台验证结果
+     * @param bindingResult   后台验证结果
      * @return Ajax.success() or Ajax.error()
      */
     @PostMapping("/add")
@@ -108,7 +111,7 @@ public class CampusAccountController extends CampusController {
      * 需要通过后台验证，并个根据id更新相应不为空的字段
      *
      * @param campusAccountVO 更新campusAccountVO的字段信息
-     * @param bindingResult 后台验证结果
+     * @param bindingResult   后台验证结果
      * @return Ajax.success() or Ajax.error()
      */
     @PutMapping("/update")
@@ -118,6 +121,10 @@ public class CampusAccountController extends CampusController {
             if (bindingResult.hasErrors()) {
                 return AjaxValidate.processBindingResult(bindingResult);
             }
+            Subject subject = SecurityUtils.getSubject();
+            UserVO currentUser = (UserVO) subject.getPrincipal();
+            CampusAccountVO account = (CampusAccountVO) currentUser.getAccount();
+            campusAccountVO.setId(account.getId());
             int updateResult = campusAccountService.updateById(campusAccountVO.parseTo());
             LOGGER.info("update=>" + (updateResult == 1));
             return updateResult == 1 ? Ajax.success(AjaxMessage.UPDATE_SUCCESS) : Ajax.error(AjaxMessage.UPDATE_FAILURE, AjaxCode

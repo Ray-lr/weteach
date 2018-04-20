@@ -330,7 +330,7 @@
                     success: function (data) {
                         if (data.result) {
                             _this.cities = data.data;
-                            _this.account.city = _this.cities[0].id;
+                            _this.account.city = oldVal === undefined ? _this.account.city : _this.cities[0].id;
                         } else {
                             Messenger().post({
                                 id: "error",
