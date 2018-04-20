@@ -26,8 +26,8 @@
         </tr>
         <tr>
             <td align="center" style="LINE-HEIGHT:150%">
-                <font color="black"><strong>Copyright(C) 2003-2019, Nankai
-                    University Binhai College All Rights Reserved</strong></font>
+            <#--<font color="black"><strong>Copyright(C) 2003-2019, Nankai
+                    University Binhai College All Rights Reserved</strong></font>-->
             </td>
         </tr>
         <tr>

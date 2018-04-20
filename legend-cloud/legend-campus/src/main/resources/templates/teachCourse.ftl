@@ -13,10 +13,6 @@
             <#include "common/component/other-info.ftl">
                 <div class="dropdown-divider"></div>
                 <!--参与者名单-->
-                <div>
-                    <span style="font-weight: bold">报名者名单:</span>
-                </div>
-                <div class="dropdown-divider"></div>
                 <div style="height:150px;">
                     <div align="center">
                         <a href="/direct/lesson">
@@ -32,6 +28,10 @@
                     <div class="progress">
                         <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
                              aria-valuenow="63" aria-valuemin="0" aria-valuemax="100" style="width: 63%"></div>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <div>
+                        <span style="font-weight: bold">报名者名单:</span>
                     </div>
                     <div class="dropdown-divider"></div>
                 </div>
