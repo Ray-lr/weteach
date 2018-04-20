@@ -49,8 +49,7 @@ public class ${className}Controller extends CampusController {
         try {
             List<${className}> ${classname}List = ${classname}Service.getList(${classname}VO.parseTo(),
                     queryUtils);
-            List<${className}VO> ${classname}VOList = ${classname}List.stream().map((entity) ->
-                    new ${className}VO().parseFrom(entity)).collect(Collectors.toList());
+            List<${className}VO> ${classname}VOList = new new ${className}VO().parseFrom(${classname}List);
             PageUtils pageUtils = new PageUtils(${classname}VOList.size(), queryUtils.getCurrentPage(), queryUtils.getPageSize());
             LOGGER.info("list=>" + pageUtils);
             return Ajax.success(${classname}VOList, AjaxMessage.QUERY_SUCCESS).put(Key.PAGINATION, pageUtils);

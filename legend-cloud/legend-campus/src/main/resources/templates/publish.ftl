@@ -25,21 +25,22 @@
                 <div class="col col-md-10 tab-pane fade <#if !type?? || type=="seek">show active</#if>" id="study"
                      role="tabpanel"
                      aria-labelledby="study-tab">
-                    <form @submit.prevent="publish($event)">
+                    <form class="publishForm">
                     <#--隐藏的课程类型-->
                         <input type="hidden" name="course.typeCourse" value="求学">
                         <!--标题-->
                         <div class="form-group">
-                            <label for="courseTitle">课程标题</label>
+                            <label class="control-label" for="courseTitle">课程标题</label>
                             <input type="text" class="form-control" id="courseTitle"
                                    name="course.title"
                                    placeholder="标题">
                         </div>
                         <!--系别/专业/课程-->
                         <div class="form-group">
-                            <label for="course">系别/专业/课程</label>
+                            <label class="control-label" for="course">系别/专业/课程</label>
                             <div class="input-group">
-                                <select class="form-control" id="dept"
+                                <input type="hidden" class="form-control" id="roleid" name="roleid">
+                                <select class="selectpicker form-control" id="dept roleidForSelect"
                                         v-model="dept" name="course.dept"
                                         data-toggle="tooltip"
                                         data-placement="left" title="请选择系别">
@@ -63,19 +64,19 @@
                         </div>
                         <!--课程描述-->
                         <div class="form-group">
-                            <label for="description">课程描述</label>
+                            <label class="control-label" for="description">课程描述</label>
                             <textarea class="form-control" id="description" rows="3"
                                       name="course.description" placeholder="不超过100个字"></textarea>
                         </div>
                         <!--相关备注-->
                         <div class="form-group">
-                            <label for="remark">相关备注</label>
+                            <label class="control-label" for="remark">相关备注</label>
                             <textarea class="form-control" id="remark" rows="4"
                                       name="course.remark" placeholder="选填"></textarea>
                         </div>
                         <!--悬赏积分-->
                         <div class="form-group">
-                            <label for="payCredits">悬赏积分</label>
+                            <label class="control-label" for="payCredits">悬赏积分</label>
                             <input type="number" class="form-control" id="payCredits"
                                    name="course.payCredits"
                                    :value="1"
@@ -84,7 +85,7 @@
                         </div>
                         <!--报名截止时间-->
                         <div class="form-group">
-                            <label for="applyEndTime">截止时间</label>
+                            <label class="control-label" for="applyEndTime">截止时间</label>
                             <div class="input-group date form_datetime"
                                  data-picker-position="top-right">
                                 <input type="text" class="form-control cursor-pointer"
@@ -96,13 +97,10 @@
                                 <span class="input-group-addon"><span
                                         class="glyphicon glyphicon-th"></span></span>
                             </div>
-                            <small id="expectedApplyEndTimeHelp" class="form-text text-muted">
-
-                            </small>
                         </div>
-                        <!--报名截止时间-->
+                        <!--开课时间-->
                         <div class="form-group">
-                            <label for="beginTime">开课时间</label>
+                            <label class="control-label" for="beginTime">开课时间</label>
                             <div class="input-group date form_datetime"
                                  data-picker-position="top-right">
                                 <input type="text" class="form-control cursor-pointer"
@@ -114,9 +112,6 @@
                                 <span class="input-group-addon"><span
                                         class="glyphicon glyphicon-th"></span></span>
                             </div>
-                            <small id="expectedBeginTimeHelp" class="form-text text-muted">
-
-                            </small>
                         </div>
                         <!--模态框限制-->
                         <button type="button" class="btn btn-danger" data-toggle="modal"
@@ -252,7 +247,7 @@
                 <div class="col col-md-10 tab-pane fade <#if type?? && type=="teach">show active</#if>" id="teaching"
                      role="tabpanel"
                      aria-labelledby="teaching-tab">
-                    <form @submit.prevent="publish($event)">
+                    <form class="publishForm">
                         <!--标题-->
                         <div class="form-group">
                             <label for="courseTitle">课程标题</label>
@@ -354,7 +349,7 @@
                                 data-target="#exampleModal2" style="width: 100%">
                             增加限制条件
                         </button>
-                        <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog"
+                        <div class="modal " id="exampleModal2" tabindex="-1" role="dialog"
                              aria-labelledby="exampleModalLabel2" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
@@ -518,6 +513,17 @@
 </div>
 <#include "common/js.ftl">
 <script>
+    $('#roleidForSelect').on('hidden.bs.select', function (e) { //该方法注册到$(function(){})函数中
+        var tmpSelected = $('#roleidForSelect').val();
+        if (tmpSelected != null) {
+            $('#roleid').val(tmpSelected);
+        } else {
+            $('#roleid').val("");
+        }
+//由于input为hidden，验证会出现一些bug，此处手动验证隐藏的input组件
+        $('#myModalForm').data('bootstrapValidator').updateStatus('roleid', 'NOT_VALIDATED').validateField('roleid');
+    });</script>
+<script>
     let vm = new Vue({
         el: "#vm",
         data: {
@@ -552,30 +558,134 @@
                     }
                 }
             });
-        },
-        methods: {
-            publish: function (e) {
-                $(e.currentTarget).find("input[type='submit']").attr("disabled", "disabled");
-                vm.submitText = "请耐心等待";
-                let _this = this;
-                $(e.currentTarget).ajaxSubmit({
-                    url: "/campus/course/add",
-                    type: "POST",
-                    success: function (data) {
-                        Messenger().post({
-                            id: "messenger",
-                            message: data.result ? "您的申请已提交，请耐心等待一到两个工作日。" : "申请提交失败，请检查信息并修改！",//提示信息
-                            type: data.result ? 'success' : 'error',//消息类型。error、info、success
-                            hideAfter: 3,//多长时间消失
-                            showCloseButton: true,//是否显示关闭按钮
-                            hideOnNavigate: false//是否隐藏导航
-                        });
-                    }
+            //点击展开限制条件
+            $(function () {
+                $("#seek_major_limit").on('ifChanged', function (event) {
+                    $("#seek_major").toggle();
                 });
-                setTimeout(function () {
-                    window.location.reload();
-                }, 3000);
-            }
+                $("#seek_sex_limit").on('ifChanged', function (event) {
+                    $("#seek_sex").toggle();
+                });
+                $("#seek_grade_limit").on('ifChanged', function (event) {
+                    $("#seek_grade").toggle();
+                });
+                $("#seek_person_num_limit").on('ifChanged', function (event) {
+                    $("#seek_person_num").toggle();
+                });
+                $("#teach_major_limit").on('ifChanged', function (event) {
+                    $("#teach_major").toggle();
+                });
+                $("#teach_sex_limit").on('ifChanged', function (event) {
+                    $("#teach_sex").toggle();
+                });
+                $("#teach_grade_limit").on('ifChanged', function (event) {
+                    $("#teach_grade").toggle();
+                });
+                $("#person_num_limit").on('ifChanged', function (event) {
+                    $("#person_num").toggle();
+                });
+                $('.bigBox').on('ifChecked', function (event) {
+                    $('.all_check').iCheck('check');
+                    $('.cancel_all').show();
+                });
+                $('.bigBox').on('ifUnchecked', function (event) {
+                    $('.all_check').iCheck('uncheck');
+                    $('.cancel_all').hide();
+                });
+            });
+            $(function () {
+                $('.publishForm').bootstrapValidator({
+                    message: 'This value is not valid',
+                    feedbackIcons: {
+                        valid: 'glyphicon glyphicon-ok',
+                        invalid: 'glyphicon glyphicon-remove',
+                        validating: 'glyphicon glyphicon-refresh'
+                    },
+                    live: 'enabled',
+                    fields: {
+                        'course.title': {
+                            validators: {
+                                notEmpty: {
+                                    message: '课程标题不能为空'
+                                }
+                            }
+                        },
+                        'course.dept': {
+                            validators: {
+                                notEmpty: {
+                                    message: '系别不能为空'
+                                }
+                            }
+                        },
+                        'course.major': {
+                            validators: {
+                                notEmpty: {
+                                    message: '专业不能为空'
+                                }
+                            }
+                        },
+                        'course.course': {
+                            validators: {
+                                notEmpty: {
+                                    message: '课程不能为空'
+                                }
+                            }
+                        },
+                        'course.description': {
+                            validators: {
+                                notEmpty: {
+                                    message: '描述不能为空'
+                                }
+                            }
+                        },
+                        'course.payCredits': {
+                            validators: {
+                                notEmpty: {
+                                    message: '悬赏积分不能为空'
+                                }
+                            }
+                        },
+                        'course.applyEndTime': {
+                            validators: {
+                                notEmpty: {
+                                    message: '报名截止不能为空'
+                                }
+                            }
+                        },
+                        'course.beginTime': {
+                            validators: {
+                                notEmpty: {
+                                    message: '开课时间不能为空'
+                                }
+                            }
+                        }
+                    },
+                    submitHandler: function (validator, form, submitButton) {
+                        console.log("publish submit");
+                    },
+
+                }).on("success.form.bv", function (e) {
+                    e.preventDefault();
+                    $(e.currentTarget).ajaxSubmit({
+                        url: "/campus/course/add",
+                        type: "POST",
+                        success: function (data) {
+                            Messenger().post({
+                                id: "messenger",
+                                message: data.result ? "您的申请已提交，请耐心等待一到两个工作日。" : "申请提交失败，请检查信息并修改！",//提示信息
+                                type: data.result ? 'success' : 'error',//消息类型。error、info、success
+                                hideAfter: 3,//多长时间消失
+                                showCloseButton: true,//是否显示关闭按钮
+                                hideOnNavigate: false//是否隐藏导航
+                            });
+                        }
+                    });
+                    setTimeout(function () {
+                        window.location.reload();
+                    }, 3000);
+                });
+            })
+
         },
         watch: {
             dept: function () {
@@ -630,46 +740,5 @@
             }
         }
     });
-
-    /*点击展开限制条件*/
-
-    $("#seek_major_limit").on('ifChanged', function (event) {
-        $("#seek_major").toggle();
-    });
-    $("#seek_sex_limit").on('ifChanged', function (event) {
-        $("#seek_sex").toggle();
-    });
-    $("#seek_grade_limit").on('ifChanged', function (event) {
-        $("#seek_grade").toggle();
-    });
-    $("#seek_person_num_limit").on('ifChanged', function (event) {
-        $("#seek_person_num").toggle();
-    });
-    $("#teach_major_limit").on('ifChanged', function (event) {
-        $("#teach_major").toggle();
-    });
-    $("#teach_sex_limit").on('ifChanged', function (event) {
-        $("#teach_sex").toggle();
-    });
-    $("#teach_grade_limit").on('ifChanged', function (event) {
-        $("#teach_grade").toggle();
-    });
-    $("#person_num_limit").on('ifChanged', function (event) {
-        $("#person_num").toggle();
-    });
-    $('.bigBox').on('ifChecked', function (event) {
-        $('.all_check').iCheck('check');
-        $('.cancel_all').show();
-    });
-    $('.bigBox').on('ifUnchecked', function (event) {
-        $('.all_check').iCheck('uncheck');
-        $('.cancel_all').hide();
-    });
-
-    /*submit点击后文字改变*/
-    function textChange() {
-        document.getElementById("dd").innerHTML = "请耐心等待";
-    }
-
 </script>
 <#include "common/foot.ftl">

@@ -1,192 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8fff0f59-c2b1-4a7f-8155-10dbf4cc0084" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/dao/mapper/campus/CampusAccountMapper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/base/example/BaseAreasExample.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/campus/CampusAccount.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/campus/example/CampusAccountExample.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/vo/campus/CampusAccountVO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/campus/CampusAccountService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/campus/impl/CampusAccountServiceImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/web/controller/campus/CampusAccountController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/mapper/campus/CampusAccountMapper.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/dao/mapper/campus/CampusUserInfoMapper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/base/BaseAreasExample.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/campus/CampusUserInfo.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/vo/campus/CampusUserInfoVO.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/campus/CampusUserInfoService.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/campus/impl/CampusUserInfoServiceImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/web/controller/campus/CampusUserInfoController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/mapper/campus/CampusUserInfoMapper.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/.idea/misc.xml" afterPath="$PROJECT_DIR$/../legend-cloud/.idea/misc.xml" />
+    <list default="true" id="8fff0f59-c2b1-4a7f-8155-10dbf4cc0084" name="Default" comment="modify legendTemplate">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/static/js/jquery-validate.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/static/js/jquery-validate.min.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../legend-cloud/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/pom.xml" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/dao/mapper/base/BaseAreasMapper.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/dao/mapper/base/BaseAreasMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/dao/mapper/base/BaseFileMapper.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/dao/mapper/base/BaseFileMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/dao/mapper/base/BaseLogRecordMapper.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/dao/mapper/base/BaseLogRecordMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/dao/mapper/base/BaseLogTemplateMapper.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/dao/mapper/base/BaseLogTemplateMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/dao/mapper/base/BaseOrderMapper.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/dao/mapper/base/BaseOrderMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/dao/mapper/base/BaseTypeMapper.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/dao/mapper/base/BaseTypeMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/dao/mapper/base/BaseUserMapper.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/dao/mapper/base/BaseUserMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/dao/mapper/base/BaseUserRelRoleMapper.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/dao/mapper/base/BaseUserRelRoleMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/dao/mapper/campus/CampusCourseCategoryMapper.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/dao/mapper/campus/CampusCourseCategoryMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/dao/mapper/campus/CampusCourseLessonMapper.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/dao/mapper/campus/CampusCourseLessonMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/dao/mapper/campus/CampusCourseLimitMapper.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/dao/mapper/campus/CampusCourseLimitMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/dao/mapper/campus/CampusCourseMapper.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/dao/mapper/campus/CampusCourseMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/dao/mapper/campus/CampusEvaluateMapper.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/dao/mapper/campus/CampusEvaluateMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/dao/mapper/campus/CampusInterestsMapper.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/dao/mapper/campus/CampusInterestsMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/dao/mapper/campus/CampusOrderMapper.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/dao/mapper/campus/CampusOrderMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/dao/mapper/campus/CampusStatisticsMapper.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/dao/mapper/campus/CampusStatisticsMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/dao/mapper/campus/CampusTeacherMapper.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/dao/mapper/campus/CampusTeacherMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/dao/mapper/campus/CampusUserInterestsMapper.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/dao/mapper/campus/CampusUserInterestsMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/dao/mapper/campus/CampusUserRelCourseMapper.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/dao/mapper/campus/CampusUserRelCourseMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/dao/mapper/campus/CampusVerifyMapper.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/dao/mapper/campus/CampusVerifyMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/dao/mapper/system/SystemMenuMapper.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/dao/mapper/system/SystemMenuMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/dao/mapper/system/SystemMenuRelPermissionMapper.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/dao/mapper/system/SystemMenuRelPermissionMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/dao/mapper/system/SystemPermissionMapper.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/dao/mapper/system/SystemPermissionMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/dao/mapper/system/SystemRoleMapper.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/dao/mapper/system/SystemRoleMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/dao/mapper/system/SystemRoleRelPermissionMapper.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/dao/mapper/system/SystemRoleRelPermissionMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/dao/mapper/system/SystemUserMapper.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/dao/mapper/system/SystemUserMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/dao/mapper/system/SystemUserRelRoleMapper.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/dao/mapper/system/SystemUserRelRoleMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/facade/CampusUserFacade.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/facade/CampusUserFacade.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/facade/impl/CampusUserFacadeImpl.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/facade/impl/CampusUserFacadeImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/base/BaseAreas.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/base/BaseAreas.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/base/BaseFile.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/base/BaseFile.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/base/BaseLogRecord.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/base/BaseLogRecord.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/base/BaseLogTemplate.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/base/BaseLogTemplate.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/base/BaseOrder.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/base/BaseOrder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/base/BaseType.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/base/BaseType.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/base/BaseUser.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/base/BaseUser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/base/BaseUserRelRole.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/base/BaseUserRelRole.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/campus/CampusCourse.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/campus/CampusCourse.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/campus/CampusCourseCategory.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/campus/CampusCourseCategory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/campus/CampusCourseLesson.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/campus/CampusCourseLesson.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/campus/CampusCourseLimit.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/campus/CampusCourseLimit.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/campus/CampusEvaluate.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/campus/CampusEvaluate.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/campus/CampusInterests.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/campus/CampusInterests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/campus/CampusOrder.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/campus/CampusOrder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/campus/CampusStatistics.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/campus/CampusStatistics.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/campus/CampusTeacher.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/campus/CampusTeacher.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/campus/CampusUserInterests.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/campus/CampusUserInterests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/campus/CampusUserRelCourse.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/campus/CampusUserRelCourse.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/campus/CampusVerify.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/campus/CampusVerify.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/system/SystemMenu.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/system/SystemMenu.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/system/SystemMenuRelPermission.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/system/SystemMenuRelPermission.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/system/SystemPermission.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/system/SystemPermission.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/system/SystemRole.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/system/SystemRole.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/system/SystemRoleRelPermission.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/system/SystemRoleRelPermission.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/system/SystemUser.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/system/SystemUser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/system/SystemUserRelRole.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/system/SystemUserRelRole.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/base/impl/BaseAreasServiceImpl.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/base/impl/BaseAreasServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/base/impl/BaseFileServiceImpl.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/base/impl/BaseFileServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/base/impl/BaseLogRecordServiceImpl.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/base/impl/BaseLogRecordServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/base/impl/BaseLogTemplateServiceImpl.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/base/impl/BaseLogTemplateServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/base/impl/BaseOrderServiceImpl.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/base/impl/BaseOrderServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/base/impl/BaseTypeServiceImpl.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/base/impl/BaseTypeServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/base/impl/BaseUserRelRoleServiceImpl.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/base/impl/BaseUserRelRoleServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/base/impl/BaseUserServiceImpl.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/base/impl/BaseUserServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/campus/impl/CampusCourseCategoryServiceImpl.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/campus/impl/CampusCourseCategoryServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/campus/impl/CampusCourseLessonServiceImpl.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/campus/impl/CampusCourseLessonServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/campus/impl/CampusCourseLimitServiceImpl.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/campus/impl/CampusCourseLimitServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/campus/impl/CampusCourseServiceImpl.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/campus/impl/CampusCourseServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/campus/impl/CampusEvaluateServiceImpl.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/campus/impl/CampusEvaluateServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/campus/impl/CampusInterestsServiceImpl.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/campus/impl/CampusInterestsServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/campus/impl/CampusOrderServiceImpl.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/campus/impl/CampusOrderServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/campus/impl/CampusStatisticsServiceImpl.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/campus/impl/CampusStatisticsServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/campus/impl/CampusTeacherServiceImpl.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/campus/impl/CampusTeacherServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/campus/impl/CampusUserInterestsServiceImpl.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/campus/impl/CampusUserInterestsServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/campus/impl/CampusUserRelCourseServiceImpl.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/campus/impl/CampusUserRelCourseServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/campus/impl/CampusVerifyServiceImpl.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/campus/impl/CampusVerifyServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/system/impl/SystemMenuRelPermissionServiceImpl.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/system/impl/SystemMenuRelPermissionServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/system/impl/SystemMenuServiceImpl.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/system/impl/SystemMenuServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/system/impl/SystemPermissionServiceImpl.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/system/impl/SystemPermissionServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/system/impl/SystemRoleRelPermissionServiceImpl.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/system/impl/SystemRoleRelPermissionServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/system/impl/SystemRoleServiceImpl.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/system/impl/SystemRoleServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/system/impl/SystemUserRelRoleServiceImpl.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/system/impl/SystemUserRelRoleServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/system/impl/SystemUserServiceImpl.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/service/system/impl/SystemUserServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/web/controller/base/BaseAreasController.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/web/controller/base/BaseAreasController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/web/controller/campus/CampusCourseController.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/web/controller/campus/CampusCourseController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/web/realm/ShiroRealm.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/web/realm/ShiroRealm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/mapper/base/BaseAreasMapper.xml" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/mapper/base/BaseAreasMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/mapper/base/BaseFileMapper.xml" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/mapper/base/BaseFileMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/mapper/base/BaseLogRecordMapper.xml" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/mapper/base/BaseLogRecordMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/mapper/base/BaseLogTemplateMapper.xml" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/mapper/base/BaseLogTemplateMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/mapper/base/BaseOrderMapper.xml" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/mapper/base/BaseOrderMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/mapper/base/BaseTypeMapper.xml" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/mapper/base/BaseTypeMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/mapper/base/BaseUserMapper.xml" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/mapper/base/BaseUserMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/mapper/base/BaseUserRelRoleMapper.xml" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/mapper/base/BaseUserRelRoleMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/mapper/campus/CampusCourseCategoryMapper.xml" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/mapper/campus/CampusCourseCategoryMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/mapper/campus/CampusCourseLessonMapper.xml" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/mapper/campus/CampusCourseLessonMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/mapper/campus/CampusCourseLimitMapper.xml" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/mapper/campus/CampusCourseLimitMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/mapper/campus/CampusCourseMapper.xml" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/mapper/campus/CampusCourseMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/mapper/campus/CampusEvaluateMapper.xml" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/mapper/campus/CampusEvaluateMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/mapper/campus/CampusInterestsMapper.xml" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/mapper/campus/CampusInterestsMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/mapper/campus/CampusOrderMapper.xml" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/mapper/campus/CampusOrderMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/mapper/campus/CampusStatisticsMapper.xml" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/mapper/campus/CampusStatisticsMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/mapper/campus/CampusTeacherMapper.xml" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/mapper/campus/CampusTeacherMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/mapper/campus/CampusUserInterestsMapper.xml" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/mapper/campus/CampusUserInterestsMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/mapper/campus/CampusUserRelCourseMapper.xml" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/mapper/campus/CampusUserRelCourseMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/mapper/campus/CampusVerifyMapper.xml" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/mapper/campus/CampusVerifyMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/mapper/system/SystemMenuMapper.xml" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/mapper/system/SystemMenuMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/mapper/system/SystemMenuRelPermissionMapper.xml" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/mapper/system/SystemMenuRelPermissionMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/mapper/system/SystemPermissionMapper.xml" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/mapper/system/SystemPermissionMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/mapper/system/SystemRoleMapper.xml" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/mapper/system/SystemRoleMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/mapper/system/SystemRoleRelPermissionMapper.xml" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/mapper/system/SystemRoleRelPermissionMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/mapper/system/SystemUserMapper.xml" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/mapper/system/SystemUserMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/mapper/system/SystemUserRelRoleMapper.xml" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/mapper/system/SystemUserRelRoleMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/templates/course.ftl" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/templates/course.ftl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/templates/common/css.ftl" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/templates/common/css.ftl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/templates/common/js.ftl" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/templates/common/js.ftl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/templates/login.ftl" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/resources/templates/login.ftl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-module/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../legend-module/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-module/legend-core/src/main/java/com/legend/module/core/model/pojo/vo/AbstractVO.java" afterPath="$PROJECT_DIR$/../legend-module/legend-core/src/main/java/com/legend/module/core/model/pojo/vo/AbstractVO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../legend-module/legend-core/src/main/java/com/legend/module/core/model/annotation/Pojo.java" afterPath="$PROJECT_DIR$/../legend-module/legend-core/src/main/java/com/legend/module/core/model/annotation/Pojo.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/renren-generator.iml" afterPath="$PROJECT_DIR$/renren-generator.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/io/renren/entity/TableEntity.java" afterPath="$PROJECT_DIR$/src/main/java/io/renren/entity/TableEntity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/io/renren/utils/GenUtils.java" afterPath="$PROJECT_DIR$/src/main/java/io/renren/utils/GenUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/generator.properties" afterPath="$PROJECT_DIR$/src/main/resources/generator.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/legendTemplate/Controller.java.vm" afterPath="$PROJECT_DIR$/src/main/resources/legendTemplate/Controller.java.vm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/legendTemplate/Entity.java.vm" afterPath="$PROJECT_DIR$/src/main/resources/legendTemplate/Entity.java.vm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/legendTemplate/Example.java.vm" afterPath="$PROJECT_DIR$/src/main/resources/legendTemplate/Example.java.vm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/legendTemplate/Mapper.java.vm" afterPath="$PROJECT_DIR$/src/main/resources/legendTemplate/Mapper.java.vm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/legendTemplate/Mapper.xml.vm" afterPath="$PROJECT_DIR$/src/main/resources/legendTemplate/Mapper.xml.vm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/legendTemplate/Service.java.vm" afterPath="$PROJECT_DIR$/src/main/resources/legendTemplate/Service.java.vm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/legendTemplate/ServiceImpl.java.vm" afterPath="$PROJECT_DIR$/src/main/resources/legendTemplate/ServiceImpl.java.vm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/legendTemplate/VO.java.vm" afterPath="$PROJECT_DIR$/src/main/resources/legendTemplate/VO.java.vm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/generator.properties" afterPath="$PROJECT_DIR$/target/classes/generator.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/legendTemplate/Controller.java.vm" afterPath="$PROJECT_DIR$/target/classes/legendTemplate/Controller.java.vm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/legendTemplate/Entity.java.vm" afterPath="$PROJECT_DIR$/target/classes/legendTemplate/Entity.java.vm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/legendTemplate/Example.java.vm" afterPath="$PROJECT_DIR$/target/classes/legendTemplate/Example.java.vm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/legendTemplate/Mapper.java.vm" afterPath="$PROJECT_DIR$/target/classes/legendTemplate/Mapper.java.vm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/legendTemplate/Mapper.xml.vm" afterPath="$PROJECT_DIR$/target/classes/legendTemplate/Mapper.xml.vm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/legendTemplate/Service.java.vm" afterPath="$PROJECT_DIR$/target/classes/legendTemplate/Service.java.vm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/legendTemplate/ServiceImpl.java.vm" afterPath="$PROJECT_DIR$/target/classes/legendTemplate/ServiceImpl.java.vm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/legendTemplate/VO.java.vm" afterPath="$PROJECT_DIR$/target/classes/legendTemplate/VO.java.vm" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/base/BaseFileExample.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/base/example/BaseFileExample.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/base/BaseLogRecordExample.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/base/example/BaseLogRecordExample.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/base/BaseLogTemplateExample.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/base/example/BaseLogTemplateExample.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/base/BaseOrderExample.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/base/example/BaseOrderExample.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/base/BaseTypeExample.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/base/example/BaseTypeExample.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/base/BaseUserExample.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/base/example/BaseUserExample.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/base/BaseUserRelRoleExample.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/base/example/BaseUserRelRoleExample.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/campus/CampusCourseCategoryExample.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/campus/example/CampusCourseCategoryExample.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/campus/CampusCourseExample.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/campus/example/CampusCourseExample.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/campus/CampusCourseLessonExample.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/campus/example/CampusCourseLessonExample.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/campus/CampusCourseLimitExample.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/campus/example/CampusCourseLimitExample.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/campus/CampusEvaluateExample.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/campus/example/CampusEvaluateExample.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/campus/CampusInterestsExample.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/campus/example/CampusInterestsExample.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/campus/CampusOrderExample.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/campus/example/CampusOrderExample.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/campus/CampusStatisticsExample.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/campus/example/CampusStatisticsExample.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/campus/CampusTeacherExample.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/campus/example/CampusTeacherExample.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/campus/CampusUserInfoExample.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/campus/example/CampusUserInfoExample.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/campus/CampusUserInterestsExample.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/campus/example/CampusUserInterestsExample.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/campus/CampusUserRelCourseExample.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/campus/example/CampusUserRelCourseExample.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/campus/CampusVerifyExample.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/campus/example/CampusVerifyExample.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/system/SystemMenuExample.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/system/example/SystemMenuExample.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/system/SystemMenuRelPermissionExample.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/system/example/SystemMenuRelPermissionExample.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/system/SystemPermissionExample.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/system/example/SystemPermissionExample.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/system/SystemRoleExample.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/system/example/SystemRoleExample.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/system/SystemRoleRelPermissionExample.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/system/example/SystemRoleRelPermissionExample.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/system/SystemUserExample.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/system/example/SystemUserExample.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/system/SystemUserRelRoleExample.java" afterPath="$PROJECT_DIR$/../legend-cloud/legend-campus/src/main/java/com/legend/cloud/campus/model/pojo/entity/system/example/SystemUserRelRoleExample.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -204,7 +29,7 @@
       <file leaf-file-name="GenUtils.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/io/renren/utils/GenUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
+            <state relative-caret-position="3009">
               <caret line="198" column="81" lean-forward="false" selection-start-line="198" selection-start-column="81" selection-end-line="198" selection-end-column="81" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -224,8 +49,8 @@
       <file leaf-file-name="generator.properties" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/generator.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+            <state relative-caret-position="680">
+              <caret line="40" column="5" lean-forward="false" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -244,7 +69,7 @@
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
+            <state relative-caret-position="986">
               <caret line="58" column="21" lean-forward="false" selection-start-line="58" selection-start-column="21" selection-end-line="58" selection-end-column="21" />
               <folding />
             </state>
@@ -274,11 +99,9 @@
       <file leaf-file-name="VO.java.vm" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/legendTemplate/VO.java.vm">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="683">
+            <state relative-caret-position="697">
               <caret line="41" column="34" lean-forward="false" selection-start-line="41" selection-start-column="34" selection-end-line="41" selection-end-column="34" />
-              <folding>
-                <element signature="e#912#942#0#JAVA" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -286,8 +109,8 @@
       <file leaf-file-name="Controller.java.vm" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/legendTemplate/Controller.java.vm">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="467">
-              <caret line="118" column="72" lean-forward="true" selection-start-line="118" selection-start-column="72" selection-end-line="118" selection-end-column="72" />
+            <state relative-caret-position="77">
+              <caret line="107" column="6" lean-forward="true" selection-start-line="107" selection-start-column="6" selection-end-line="107" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -296,7 +119,7 @@
       <file leaf-file-name="Mapper.xml.vm" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/legendTemplate/Mapper.xml.vm">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="581">
+            <state relative-caret-position="1003">
               <caret line="59" column="93" lean-forward="false" selection-start-line="59" selection-start-column="93" selection-end-line="59" selection-end-column="93" />
               <folding>
                 <marker date="1524058368598" expanded="true" signature="2845:2874" ph="select count... base_user" />
@@ -451,7 +274,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="645" />
     <option name="y" value="-20" />
     <option name="width" value="974" />
@@ -473,9 +296,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -739,7 +562,8 @@
       <workItem from="1522519480225" duration="3659000" />
       <workItem from="1522523345637" duration="4550000" />
       <workItem from="1522770442402" duration="9000" />
-      <workItem from="1524046342903" duration="8946000" />
+      <workItem from="1524046342903" duration="9366000" />
+      <workItem from="1524128865032" duration="120000" />
     </task>
     <task id="LOCAL-00001" summary="这个是代码生成项目，查询指定数据库的表，根据自定义的模板进行生成">
       <created>1517537244528</created>
@@ -769,14 +593,21 @@
       <option name="project" value="LOCAL" />
       <updated>1521368822320</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="modify legendTemplate Controller">
+      <created>1524128936677</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1524128936677</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="95579000" />
+    <option name="totallyTimeSpent" value="96119000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -789,9 +620,8 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25921908" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25921908" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -800,7 +630,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21358159" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2595949" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26226014" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -810,6 +640,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -835,7 +666,8 @@
     <MESSAGE value="add Example.java.vm,Mapper.xml.vm,and modify Entity.java.vm,VO.java.vm" />
     <MESSAGE value="add Mapper.java.vm,Mapper.xml.vm,Service.java.vm,ServiceImpl.java.vm" />
     <MESSAGE value="modify legendTemplate" />
-    <option name="LAST_COMMIT_MESSAGE" value="modify legendTemplate" />
+    <MESSAGE value="modify legendTemplate Controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="modify legendTemplate Controller" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1074,7 +906,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="12" lean-forward="false" selection-start-line="7" selection-start-column="8" selection-end-line="9" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1097,7 +928,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="969">
           <caret line="57" column="26" lean-forward="false" selection-start-line="57" selection-start-column="20" selection-end-line="57" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1105,10 +935,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="3" lean-forward="false" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
-          <folding>
-            <element signature="e#635#636#0" expanded="false" />
-            <element signature="e#667#668#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1116,7 +942,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="194">
           <caret line="5207" column="25" lean-forward="false" selection-start-line="5207" selection-start-column="25" selection-end-line="5207" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1130,11 +955,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/legendTemplate/VO.java.vm">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="683">
+        <state relative-caret-position="697">
           <caret line="41" column="34" lean-forward="false" selection-start-line="41" selection-start-column="34" selection-end-line="41" selection-end-column="34" />
-          <folding>
-            <element signature="e#912#942#0#JAVA" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1156,7 +979,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/legendTemplate/Mapper.xml.vm">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="581">
+        <state relative-caret-position="1003">
           <caret line="59" column="93" lean-forward="false" selection-start-line="59" selection-start-column="93" selection-end-line="59" selection-end-column="93" />
           <folding>
             <marker date="1524058368598" expanded="true" signature="2845:2874" ph="select count... base_user" />
@@ -1174,7 +997,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/io/renren/utils/GenUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
+        <state relative-caret-position="3009">
           <caret line="198" column="81" lean-forward="false" selection-start-line="198" selection-start-column="81" selection-end-line="198" selection-end-column="81" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1190,14 +1013,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/generator.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
@@ -1208,7 +1023,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
+        <state relative-caret-position="986">
           <caret line="58" column="21" lean-forward="false" selection-start-line="58" selection-start-column="21" selection-end-line="58" selection-end-column="21" />
           <folding />
         </state>
@@ -1222,10 +1037,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/generator.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="40" column="5" lean-forward="false" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/legendTemplate/Controller.java.vm">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="467">
-          <caret line="118" column="72" lean-forward="true" selection-start-line="118" selection-start-column="72" selection-end-line="118" selection-end-column="72" />
+        <state relative-caret-position="77">
+          <caret line="107" column="6" lean-forward="true" selection-start-line="107" selection-start-column="6" selection-end-line="107" selection-end-column="6" />
           <folding />
         </state>
       </provider>

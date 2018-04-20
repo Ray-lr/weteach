@@ -1,66 +1,41 @@
 <#include "common/head.ftl">
 <div id="vm">
     <div class="jumbotron jumbotron-fluid align-items-center">
-        <div class="container-fluid ">
+        <div class="page-header ">
             <div class="container ">
                 <h1 class="display-4">欢迎来到校园学生互助系统!</h1>
-                <p class="lead " align="center">
-                    请先登录
-                </p>
             </div>
             <hr class="my-4">
-            <div class="container">
+            <div class="container ">
                 <div class="row justify-content-end">
-                    <div class="col-4 ">
-                        <form @submit.prevent="login($event)">
-                            <div class="form-group">
-                                <label for="username">用户名</label>
-                                <input type="text" class="form-control" id="username"
-                                       v-model="username" name="username"
-                                <#--正则表达式禁止输入汉字和特殊符号，粘贴也不行-->
-                                       onkeyup="value=value.replace(/[\W]/g,'') "
-                                       onbeforepaste="clipboardData.setData
-                                       ('text',clipboardData.getData('text').replace(/[^\d]/g,''))"
-                                       data-toggle="tooltip"
-                                       data-placement="left" title="请输入有效的用户名"
-                                       aria-describedby="usernameHelp" placeholder="Enter Username">
-                                <small id="usernameHelp" class="form-text text-muted">
-
-                                </small>
-                            </div>
-                            <div class="form-group">
-                                <label for="password">密码</label>
-                                <input type="password" class="form-control" id="password"
-                                       v-model="password" name="password"
-                                       data-toggle="tooltip"
-                                       data-placement="left" title="请输入密码"
-                                       aria-describedby="passwordHelp" placeholder="Password">
-                                <small id="passwordHelp" class="form-text text-muted">
-
-                                </small>
-                            </div>
-                            <div class="form-group">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="gridCheck" checked="checked"
-                                           name="rememberMe">
-                                    <label class="form-check-label" for="gridCheck">
-                                        记住我
-                                    </label>
+                    <div class="col-lg-4">
+                        <form id="loginForm" class="form-horizontal font-weight-bold text-left ">
+                            <div class="row form-group ">
+                                <label class="col-lg-3 col-3 control-label text-lg-right " for="username">用户名</label>
+                                <div class="col-lg-9 col-12">
+                                    <input type="text" class="form-control" id="username"
+                                           v-model="username" name="username"
+                                           placeholder="Enter Username">
                                 </div>
                             </div>
-
-                            <div class="btn-group">
-                                <button class="btn btn-primary" type="submit">
-                                    登录
-                                </button>
-                                <button type="button"
-                                        class="btn btn-primary dropdown-toggle dropdown-toggle-split"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="sr-only">Toggle Dropdown</span>
-                                </button>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#" @click="changeHost('base')">普通用户</a>
-                                    <a class="dropdown-item" href="#" @click="changeHost('system')">管理员</a>
+                            <div class="row form-group">
+                                <label class="col-lg-3 col-3 control-label text-lg-right" for="password">密码</label>
+                                <div class="col-lg-9 col-12">
+                                    <input type="password" class="form-control" id="password"
+                                           v-model="password" name="password"
+                                           placeholder="Enter Password">
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <label class="col-sm-3 col-3 form-label text-lg-right" for="rememberMe">记住我</label>
+                                <div class="col-1 col-1 form-check">
+                                    <input class="form-check-input" type="checkbox" id="rememberMe" checked="checked"
+                                           name="rememberMe">
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-lg-4 offset-lg-3 col-12">
+                                    <button type="submit" class="btn btn-primary">Sign up</button>
                                 </div>
                             </div>
                         </form>
@@ -80,32 +55,65 @@
             password: null,
             host: "base"
         },
-        methods: {
-            login: function (e) {
-                $(e.currentTarget).ajaxSubmit({
-                    url: "/" + vm.host + "/user/login",
-                    type: "post",
+        created: function () {
+            $(function () {
+                $('#loginForm').bootstrapValidator({
+                    message: 'This value is not valid',
+                    feedbackIcons: {
+                        valid: 'glyphicon glyphicon-ok',
+                        invalid: 'glyphicon glyphicon-remove',
+                        validating: 'glyphicon glyphicon-refresh'
+                    },
+                    live: 'enabled',
+                    fields: {
+                        username: {
+                            validators: {
+                                notEmpty: {
+                                    message: '用户名不能为空'
+                                },
+                                regexp: {
+                                    regexp: /^[a-zA-Z0-9_\.]+$/,
+                                    message: '用户名只能由字母，数字，\'.\'和\'_\'组成'
+                                }
+                            }
+                        },
+                        password: {
+                            validators: {
+                                notEmpty: {
+                                    message: '密码不能为空'
+                                }
+                            }
+                        }
+                    },
+                    submitHandler: function (validator, form, submitButton) {
+                        console.log("login submit");
+                    },
 
-                    success: function (data) {
-                        Messenger().post({
-                            id: "loginMessenger",
-                            message: data.msg,//提示信息
-                            type: data.result ? 'success' : 'error',//消息类型。error、info、success
-                            hideAfter: 2,//多长时间消失
-                            showCloseButton: true,//是否显示关闭按钮
-                            hideOnNavigate: false//是否隐藏导航
-                        });
-                        setTimeout(function () {
-                            window.location.href = data.url;
-                        }, 2000);
+                }).on("success.form.bv", function (e) {
+                    e.preventDefault();
+                    $(e.currentTarget).ajaxSubmit({
+                        url: "/" + vm.host + "/user/login",
+                        type: "post",
+                        success: function (data) {
+                            Messenger().post({
+                                id: "loginMessenger",
+                                message: data.msg,//提示信息
+                                type: data.result ? 'success' : 'error',//消息类型。error、info、success
+                                hideAfter: 2,//多长时间消失
+                                showCloseButton: true,//是否显示关闭按钮
+                                hideOnNavigate: false//是否隐藏导航
+                            });
+                            setTimeout(function () {
+                                window.location.href = data.url;
+                            }, 2000);
 
-                    }
+                        }
+                    });
                 });
-            },
-            changeHost: function (host) {
-                vm.host = host;
-            }
+            })
         }
     });
+
+
 </script>
 <#include "common/foot.ftl">

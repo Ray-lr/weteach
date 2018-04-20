@@ -84,4 +84,9 @@ $(document).ready(function () {
         radioClass: 'iradio_minimal-blue',
         increaseArea: '20%' // optional
     });
+
+    $(document).ajaxStart(function () {
+    });
+    $(document).ajaxStop(function () {
+    });
 });

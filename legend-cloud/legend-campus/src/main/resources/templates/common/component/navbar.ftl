@@ -12,7 +12,6 @@
                    aria-label="Search"
                    @keyup.enter="this.search($event)">
         </form>
-
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler-left"
                 aria-controls="navbarToggler-left" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -55,8 +54,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/direct/shop">积分商城</a>
                 </li>
-
-
             </ul>
             <ul class="navbar-nav">
                 <li class="nav-item dropdown">
