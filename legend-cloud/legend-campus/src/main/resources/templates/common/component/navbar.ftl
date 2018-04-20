@@ -2,7 +2,7 @@
     <div class="container">
         <!-- 图标 -->
         <a class="navbar-brand" id="Logo" href="/direct/index">
-            <img src="/static/image/icon/bootstrap-solid.png" width="30" height="30"
+            <img src="/static/image/icon/logo.png" width="30" height="30"
                  class="d-inline-block align-top"
                  alt="Logo">
         </a>

@@ -19,7 +19,7 @@
         <div class="dropdown-divider"></div>
         <div data-toggle="tooltip"
              data-placement="left" title="当前信誉星级">
-            <div class="star" :data-num="otherUser.creditsLevel"></div>
+            <div class="star" <#--:data-num="otherUser.creditsLevel"-->data-num="3"></div>
         </div>
         <div class="dropdown-divider"></div>
         <p class="card-text font-weight-light">课程完成率:64%</p>

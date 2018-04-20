@@ -154,6 +154,8 @@ public class CampusAccountController extends CampusController {
             if (campusAccountService.updateById(campusAccountVO.parseTo()) <= 0) {
                 Ajax.error(AjaxMessage.UPDATE_FAILURE, AjaxCode.UPDATE_FAILURE);
             }
+            CampusAccount campusAccount = campusAccountService.getByUserId(currentUser.getId());
+            currentUser.setAccount(new CampusAccountVO().parseFrom(campusAccount));
             // 重新挂载新信息到Shiro
             String realmName = subject.getPrincipals().getRealmNames().iterator().next();
             subject.runAs(new SimplePrincipalCollection(currentUser, realmName));
