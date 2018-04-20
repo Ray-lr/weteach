@@ -11,7 +11,15 @@
             <!--左侧信息栏-->
             <div class="col col-md-3" id="others">
             <#include "common/component/other-info.ftl">
+                <div class="dropdown-divider"></div>
                 <div style="height:150px;">
+                    <div align="center">
+                        <a href="#">
+                            <button type="button" class="btn btn-success"
+                                    style="width: 100%;height:50px;font-size:20px;">课时设置
+                            </button>
+                        </a>
+                    </div>
                     <h6 style="font-weight: bold">当前课程进度:63%</h6>
                     <div class="progress">
                         <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
