@@ -594,6 +594,11 @@
                                 notEmpty: {
                                     message: '课程标题不能为空',
                                 },
+                                stringLength: {//检测长度
+                                    min: 5,
+                                    max: 30,
+                                    message: '长度必须在5-30之间'
+                                },
                             }
                         },
                         'course.course': {
@@ -607,13 +612,22 @@
                             validators: {
                                 notEmpty: {
                                     message: '描述不能为空'
-                                }
+                                },
+                                stringLength: {//检测长度
+                                    min: 1,
+                                    max: 100,
+                                    message: '长度必须在100之内'
+                                },
                             }
                         },
                         'course.payCredits': {
                             validators: {
                                 notEmpty: {
                                     message: '悬赏积分不能为空'
+                                },
+                                regexp: {
+                                    regexp: /^[1-9]\d{1,3}$/,
+                                    message: '积分必须为1到3位的整数'
                                 }
                             }
                         },

@@ -71,9 +71,17 @@ public class CampusAccountVO extends AbstractVO<CampusAccount, CampusAccountVO> 
      */
     private String dept;
     /**
+     * 系别文字
+     */
+    private String dept_string;
+    /**
      * 专业
      */
     private String major;
+    /**
+     * 专业文字
+     */
+    private String major_string;
     /**
      * 方向
      */

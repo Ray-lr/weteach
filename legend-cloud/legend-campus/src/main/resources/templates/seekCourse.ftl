@@ -163,8 +163,11 @@
                     if (data.result) {
                         _this.course = data.data;
                         $.ajax({
-                            url: "/campus/account/details/" + data.data.userId,
+                            url: "/campus/account/detail",
                             type: "get",
+                            data: {
+                                userId: data.data.userId
+                            },
                             success: function (data) {
                                 if (data.result) {
                                     _this.otherUser = data.data;

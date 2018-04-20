@@ -231,6 +231,18 @@
         created: function () {
             let _this = this;
             $.ajax({
+                url: "/campus/account/detail",
+                type: "get",
+                data: {
+                    userId: this.user.id
+                },
+                success: function (data) {
+                    if (data.result) {
+                        _this.user.account = data.data;
+                    }
+                }
+            });
+            $.ajax({
                 url: "/campus/course/list",
                 type: "GET",
                 data: {

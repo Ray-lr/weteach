@@ -4,6 +4,7 @@ package com.legend.cloud.campus.web.controller.campus;
 import com.legend.cloud.campus.model.pojo.entity.campus.CampusAccount;
 import com.legend.cloud.campus.model.pojo.vo.campus.CampusAccountVO;
 import com.legend.cloud.campus.service.campus.CampusAccountService;
+import com.legend.cloud.campus.service.campus.CampusCourseCategoryService;
 import com.legend.cloud.campus.web.controller.CampusController;
 import com.legend.module.core.model.contant.arribute.Column;
 import com.legend.module.core.model.contant.arribute.Key;
@@ -39,7 +40,8 @@ public class CampusAccountController extends CampusController {
 
     @Resource
     private CampusAccountService campusAccountService;
-
+    @Resource
+    private CampusCourseCategoryService campusCourseCategoryService;
     /**
      * 根据campusAccountVO中不为空的字段以及query中的分页条件进行条件查询
      *
@@ -61,6 +63,26 @@ public class CampusAccountController extends CampusController {
             e.printStackTrace();
             return Ajax.error(AjaxMessage.SERVER_ERROR, AjaxCode.SERVER_ERROR);
         }
+    }
+
+    /**
+     * 根据userID获取个人详细信息并获取系和专业的文字
+     *
+     * @param campusAccountVO
+     * @return Ajax.success() or Ajax.error()
+     */
+    @GetMapping("/detail")
+    public Ajax detail(CampusAccountVO campusAccountVO) {
+        try {
+            campusAccountVO = new CampusAccountVO().parseFrom(campusAccountService.getByUserId(campusAccountVO.getUserId()));
+            campusAccountVO.setDept_string(campusCourseCategoryService.getById(Integer.parseInt(campusAccountVO.getDept())).getName());
+            campusAccountVO.setMajor_string(campusCourseCategoryService.getById(Integer.parseInt(campusAccountVO.getMajor())).getName());
+            return Ajax.success(campusAccountVO, AjaxMessage.QUERY_SUCCESS);
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+            return Ajax.error(AjaxMessage.SERVER_ERROR, AjaxCode.SERVER_ERROR);
+        }
+
     }
 
     /**
