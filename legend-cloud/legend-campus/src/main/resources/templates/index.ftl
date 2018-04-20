@@ -16,24 +16,30 @@
                     </ol>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img class="d-block w-100" src="/static/image/carousel/first_slide.png" alt="First slide">
+                            <a href="http://news.youth.cn/sz/201803/t20180328_11550386.htm">
+                                <img class="d-block w-100" src="/static/image/carousel/news2.png" alt="First slide">
+                            </a>
                             <div class="carousel-caption d-none d-md-block">
-                                <h5>first</h5>
-                                <p>first</p>
+                                <h5>金正恩访华</h5>
+                            <#--<p>first</p>-->
                             </div>
                         </div>
                         <div class="carousel-item">
-                            <img class="d-block w-100" src="/static/image/carousel/second_slide.png" alt="Second slide">
+                            <a href="http://kaoyan.eol.cn/nnews/201803/t20180316_1590097.shtml">
+                                <img class="d-block w-100" src="/static/image/carousel/news3.png" alt="Second slide">
+                            </a>
                             <div class="carousel-caption d-none d-md-block">
-                                <h5>second</h5>
-                                <p>second</p>
+                                <h5>2018考研国家线公布</h5>
+                            <#--<p>second</p>-->
                             </div>
                         </div>
                         <div class="carousel-item">
-                            <img class="d-block w-100" src="/static/image/carousel/third_slide.png" alt="Third slide">
+                            <a href="http://www.eeo.com.cn/2018/0323/325125.shtml">
+                                <img class="d-block w-100" src="/static/image/carousel/news5.png" alt="Third slide">
+                            </a>
                             <div class="carousel-caption d-none d-md-block">
-                                <h5>third</h5>
-                                <p>third</p>
+                                <h5>中美贸易战升级</h5>
+                            <#--<p>third</p>-->
                             </div>
                         </div>
                     </div>

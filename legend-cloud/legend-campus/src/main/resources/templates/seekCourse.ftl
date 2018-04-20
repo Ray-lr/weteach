@@ -145,6 +145,7 @@
         </div>
     </div>
 </div>
+<#include "common/bottom.ftl">
 <#include "common/js.ftl">
 <script>
     let vm = new Vue({

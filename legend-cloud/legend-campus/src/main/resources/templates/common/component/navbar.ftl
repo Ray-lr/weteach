@@ -48,9 +48,9 @@
                         <a class="dropdown-item" href="/direct/publish?type=teach">教学贴</a>
                     </div>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/direct/messages">消息中心</a>
-                </li>
+            <#--<li class="nav-item">
+                <a class="nav-link" href="/direct/messages">消息中心</a>
+            </li>-->
                 <li class="nav-item">
                     <a class="nav-link" href="/direct/shop">积分商城</a>
                 </li>
@@ -64,13 +64,13 @@
                              alt="Avatar">
                     </a>
                     <div class="dropdown-menu" aria-labelledby="personalMenu">
-                        <a class="dropdown-item" href="/direct/myProfile?type=course">个人主页</a>
+                        <a class="dropdown-item" href="/direct/myProfile?type=course">个人中心</a>
                     <#if currentUser??>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="/direct/publish">发布课程</a>
                     </#if>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="/direct/settings">设置</a>
+                    <#--<a class="dropdown-item" href="/direct/settings">设置</a>-->
                         <a class="dropdown-item" href="/direct/help">帮助</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item " href="/logout">退出登录</a>
