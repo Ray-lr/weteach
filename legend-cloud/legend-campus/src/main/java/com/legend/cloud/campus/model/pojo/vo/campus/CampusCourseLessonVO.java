@@ -4,6 +4,7 @@ import com.legend.cloud.campus.model.pojo.entity.campus.CampusCourseLesson;
 import com.legend.module.core.model.pojo.vo.AbstractVO;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -30,10 +31,12 @@ public class CampusCourseLessonVO extends AbstractVO<CampusCourseLesson, CampusC
     /**
      * 上课时间
      */
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
     private Date beginTime;
     /**
      * 下课时间
      */
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
     private Date endTime;
     /**
      * 地点

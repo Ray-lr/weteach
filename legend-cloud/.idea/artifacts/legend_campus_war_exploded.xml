@@ -74,7 +74,6 @@
           <element id="library" level="project" name="Maven: org.apache.tomcat.embed:tomcat-embed-core:8.5.28" />
           <element id="library" level="project" name="Maven: org.apache.tomcat.embed:tomcat-embed-websocket:8.5.28" />
           <element id="library" level="project" name="Maven: com.legend.module:legend-core:0.0.1-SNAPSHOT" />
-          <element id="library" level="project" name="Maven: commons-lang:commons-lang:2.6" />
           <element id="library" level="project" name="Maven: com.github.pagehelper:pagehelper-spring-boot-starter:1.2.3" />
           <element id="library" level="project" name="Maven: com.github.pagehelper:pagehelper-spring-boot-autoconfigure:1.2.3" />
           <element id="library" level="project" name="Maven: com.github.pagehelper:pagehelper:5.1.2" />
@@ -104,6 +103,7 @@
           <element id="library" level="project" name="Maven: net.minidev:accessors-smart:1.2" />
           <element id="library" level="project" name="Maven: org.ow2.asm:asm:5.0.4" />
           <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.25" />
+          <element id="library" level="project" name="Maven: commons-lang:commons-lang:2.1" />
         </element>
       </element>
       <element id="directory" name="META-INF">

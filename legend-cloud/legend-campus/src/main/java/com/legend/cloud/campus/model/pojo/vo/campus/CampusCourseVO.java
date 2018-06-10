@@ -100,7 +100,7 @@ public class CampusCourseVO extends AbstractVO<CampusCourse, CampusCourseVO> {
     /**
      * 完成时间
      */
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
     private Date finishTime;
     /**
      * 参与课程人数

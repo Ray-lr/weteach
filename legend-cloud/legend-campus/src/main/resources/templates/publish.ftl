@@ -100,7 +100,7 @@
 
                             </small>
                         </div>
-                        <!--报名截止时间-->
+                        <!--开课时间-->
                         <div class="form-group">
                             <label for="beginTime">开课时间</label>
                             <div class="input-group date form_datetime"
@@ -149,14 +149,14 @@
                                                 <div class="input-group cancel_all" id="seek_major"
                                                      style="display: none">
                                                     <select class="form-control" id="dept"
-                                                            v-model="dept" name="course.dept"
+                                                            v-model="dept" name="limit.dept"
                                                             data-toggle="tooltip"
                                                             data-placement="left" title="请选择系别">
                                                         <option v-for="item in depts" :value="item.id"
                                                                 v-text="item.name"></option>
                                                     </select>
                                                     <select class="form-control" id="major" v-model="major"
-                                                            data-toggle="tooltip" name="course.major"
+                                                            data-toggle="tooltip" name="limit.major"
                                                             data-placement="left" title="请选择专业">
                                                         <option v-for="item in majors" :value="item.id"
                                                                 v-text="item.name"></option>
@@ -257,7 +257,7 @@
                         <div class="form-group">
                             <label for="courseTitle">课程标题</label>
                             <input type="email" class="form-control" id="courseTitle"
-                                   data-toggle="tooltip"
+                                   data-toggle="tooltip" name="course.title"
                                    data-placement="left" title="必填">
                         </div>
                         <!--系别/专业/课程-->
@@ -290,28 +290,28 @@
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1">课程描述</label>
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-                                      data-toggle="tooltip"
+                                      data-toggle="tooltip" name="course.description"
                                       data-placement="left" title="课程描述"></textarea>
                         </div>
                         <!--相关备注-->
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1">相关备注</label>
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"
-                                      data-toggle="tooltip"
+                                      data-toggle="tooltip" name="course.remark"
                                       data-placement="left" title="选填"></textarea>
                         </div>
                         <!--课时节数-->
                         <div class="form-group">
                             <label for="courseTime">预计课时节数</label>
                             <input type="number" class="form-control" id="courseTime"
-                                   data-toggle="tooltip"
+                                   data-toggle="tooltip" name="course.lessonNum"
                                    data-placement="left" title="请输入课时节数">
                         </div>
                         <!--参与所需积分-->
                         <div class="form-group">
                             <label for="payCredits">参与所需积分</label>
                             <input type="number" class="form-control" id="payCredits"
-                                   data-toggle="tooltip"
+                                   data-toggle="tooltip" name="course.getCredits"
                                    data-placement="left" title="请输入参与课程所需积分">
                         </div>
                         <!--开课时间-->
@@ -319,7 +319,7 @@
                             <label for="dateTime">开课时间</label>
                             <div class="input-group date form_datetime">
                                 <input type="text" class="form-control" id="dateTime"
-                                       name="publishTime"
+                                       name="course.publishTime"
                                        data-toggle="tooltip"
                                        data-placement="left" title="请输入开课时间"
                                        aria-describedby="expectedPublishTimeHelp"
@@ -381,14 +381,14 @@
                                                 <div class="input-group cancel_all" id="teach_major"
                                                      style="display: none">
                                                     <select class="form-control" id="dept"
-                                                            v-model="dept" name="course.dept"
+                                                            v-model="dept" name="limit.dept"
                                                             data-toggle="tooltip"
                                                             data-placement="left" title="请选择系别">
                                                         <option v-for="item in depts" :value="item.id"
                                                                 v-text="item.name"></option>
                                                     </select>
                                                     <select class="form-control" id="major" v-model="major"
-                                                            data-toggle="tooltip" name="course.major"
+                                                            data-toggle="tooltip" name="limit.major"
                                                             data-placement="left" title="请选择专业">
                                                         <option v-for="item in majors" :value="item.id"
                                                                 v-text="item.name"></option>
@@ -407,10 +407,10 @@
                                                 <div class="form-group cancel_all" align="center" id="teach_sex"
                                                      style="display: none;">
                                                     <label for="male">男</label>
-                                                    <input type="radio" name="sex" id="male" checked/>
+                                                    <input type="radio" name="limit.sex" id="male" checked/>
 
                                                     <label for="female">女</label>
-                                                    <input type="radio" name="sex" id="female"/>
+                                                    <input type="radio" name="limit.sex" id="female"/>
                                                 </div>
                                                 <div class="dropdown-divider"></div>
                                                 <!--年级限制-->

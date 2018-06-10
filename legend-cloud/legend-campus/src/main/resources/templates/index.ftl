@@ -142,7 +142,7 @@
                                                  alt="Cover">
                                         </div>
                                         <div class="col" style="text-overflow:ellipsis;">
-                                            <a class="non-text-dec" href="/direct/teachCourse">
+                                            <a class="non-text-dec" :href="'/direct/teachCourse?id='+item.id">
                                                 <h6 class="card-title font-weight-bold" v-text="item.title"></h6>
                                             </a>
                                             <div class="dropdown-divider"></div>

@@ -72,4 +72,13 @@ public class CampusCourseLessonServiceImpl extends AbstractLegendService<CampusC
         return example;
     }
 
+    @Override
+    public CampusCourseLesson getByCourseId(Integer id) {
+        if (id == null) {
+            throw new NullPointerException();
+        }
+        CampusCourseLesson campusCourseLesson = new CampusCourseLesson();
+        campusCourseLesson.setCourseId(id);
+        return get(campusCourseLesson);
+    }
 }

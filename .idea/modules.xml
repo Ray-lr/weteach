@@ -3,6 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Bugs.iml" filepath="$PROJECT_DIR$/.idea/Bugs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/legend-cloud/legend-campus/legend-campus.iml" filepath="$PROJECT_DIR$/legend-cloud/legend-campus/legend-campus.iml" />
+      <module fileurl="file://$PROJECT_DIR$/legend-cloud/legend-cloud.iml" filepath="$PROJECT_DIR$/legend-cloud/legend-cloud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/legend-module/legend-core/legend-core.iml" filepath="$PROJECT_DIR$/legend-module/legend-core/legend-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/legend-module/legend-module.iml" filepath="$PROJECT_DIR$/legend-module/legend-module.iml" />
     </modules>
   </component>
 </project>

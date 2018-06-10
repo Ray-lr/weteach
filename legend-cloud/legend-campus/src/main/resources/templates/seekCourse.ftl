@@ -152,7 +152,7 @@
         el: "#vm",
         data: {
             course: {},
-            otherUser: {}
+            otherUser: {},
         },
         created: function () {
             let _this = this;
@@ -194,7 +194,8 @@
                         });
                     }
                 }
-            })
+            });
+
         },
         methods: {
             validate_apply: function () {

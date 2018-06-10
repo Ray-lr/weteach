@@ -15,7 +15,7 @@
                 <!--参与者名单-->
                 <div style="height:150px;">
                     <div align="center">
-                        <a href="/direct/lesson">
+                        <a href="/direct/lesson?courseId=${id}">
                             <button type="button" class="btn btn-success"
                                     style="width: 100%">课时设置
                             </button>
@@ -94,17 +94,17 @@
                 <!--开课地点-->
                 <label for="location">开课地点</label>
                 <div class="alert alert-info">
-                    <span></span>
+                    <span v-text="lesson.location"></span>
                 </div>
                 <!--开课时间-->
                 <label for="beginTime">开课时间</label>
                 <div class="alert alert-info">
-                    <span></span>
+                    <span v-text="lesson.beginTime"></span>
                 </div>
                 <!--结课时间-->
                 <label for="endTime">结课时间</label>
                 <div class="alert alert-info">
-                    <span></span>
+                    <span v-text="lesson.endTime"></span>
                 </div>
 
             </div>
@@ -198,12 +198,13 @@
         el: "#vm",
         data: {
             course: {},
-            otherUser: {}
+            otherUser: {},
+            lesson:{},
         },
         created: function () {
             let _this = this;
             $.ajax({
-                url: "/campus/course/details/" + this.user.id,
+                url: "/campus/course/details/${id}" ,
                 type: "GET",
                 success: function (data) {
                     if (data.result) {
@@ -240,7 +241,21 @@
                         });
                     }
                 }
-            })
+            });
+            //    查询课时
+            $.ajax({
+                url:"/campus/courseLesson/detail",
+                type:"get",
+                data:{
+                    id:${id}
+                },
+                success:function (data) {
+                    if(data.result){
+                        _this.lesson = data.data;
+                    }
+                }
+            });
+
         },
         methods: {
             validate_apply: function () {

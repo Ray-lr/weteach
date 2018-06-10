@@ -10,4 +10,9 @@ import com.legend.module.core.service.core.LegendService;
  */
 public interface CampusCourseLessonService extends LegendService<CampusCourseLesson> {
 
+    /**
+     * 根据courseid获取 课时
+     * return CampusCourseLesson
+     */
+    CampusCourseLesson getByCourseId(Integer id);
 }

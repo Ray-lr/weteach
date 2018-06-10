@@ -1,6 +1,6 @@
 <div class="card">
     <a href="#">
-        <img class="card-img-top" src="/static/image/avatar/Avatar.png"
+        <img class="card-img-top" src="/static/image/avatar/picture1.png"
              data-toggle="tooltip"
              data-placement="bottom" title="点击查看相关信息"
              alt="Card image cap">

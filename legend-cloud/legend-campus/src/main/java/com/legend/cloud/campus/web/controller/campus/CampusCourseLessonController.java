@@ -3,6 +3,7 @@ package com.legend.cloud.campus.web.controller.campus;
 
 import com.legend.cloud.campus.model.pojo.entity.campus.CampusCourseLesson;
 import com.legend.cloud.campus.model.pojo.vo.campus.CampusCourseLessonVO;
+import com.legend.cloud.campus.model.pojo.vo.campus.CampusCourseVO;
 import com.legend.cloud.campus.service.campus.CampusCourseLessonService;
 import com.legend.cloud.campus.web.controller.CampusController;
 import com.legend.module.core.model.contant.arribute.Column;
@@ -20,6 +21,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -61,6 +63,22 @@ public class CampusCourseLessonController extends CampusController {
         }
     }
 
+    /**
+     * 根据课程id查询课时
+     * @param id
+     * @return Ajax
+     */
+    @GetMapping("/detail")
+    public Ajax detail(String id){
+        try {
+            CampusCourseLesson campusCourseLesson = campusCourseLessonService.getByCourseId(Integer.parseInt(id));
+            CampusCourseLessonVO campusCourseLessonVO = new CampusCourseLessonVO().parseFrom(campusCourseLesson);
+            return Ajax.success(campusCourseLessonVO, AjaxMessage.QUERY_SUCCESS);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Ajax.error(AjaxMessage.SERVER_ERROR, AjaxCode.SERVER_ERROR);
+        }
+    }
 
     @PostMapping("/add")
     // @RequiresPermissions("campus:campuscourselesson:add")
@@ -69,6 +87,8 @@ public class CampusCourseLessonController extends CampusController {
             if (bindingResult.hasErrors()) {
                 return AjaxValidate.processBindingResult(bindingResult);
             }
+            campusCourseLessonVO.setCreateTime(new Date());
+            campusCourseLessonVO.setUpdateTime(new Date());
             int saveResult = campusCourseLessonService.save(campusCourseLessonVO.parseTo(Column.ID));
             return saveResult == 1 ? Ajax.success(AjaxMessage.SAVE_SUCCESS) : Ajax.error(AjaxMessage.SAVE_FAILURE, AjaxCode
                     .SAVE_FAILURE);
